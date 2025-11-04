@@ -1,0 +1,141 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gentleman's Cut - Premium Barber Shop</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Playfair Display (headings) and Roboto (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['"Playfair Display"', 'serif'],
+                        'body': ['Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        amber: {
+                            500: '#F59E0B', // Primary accent color
+                            600: '#D97706', // Darker accent for hover states
+                        },
+                        gray: {
+                            950: '#0F0F0F', // Darkest background
+                            900: '#1A1A1A', // Dark background for sections
+                            800: '#2A2A2A', // Slightly lighter background for alternating sections
+                            700: '#3A3A3A', // Border/divider color
+                            300: '#D1D5DB', // Light text
+                            400: '#9CA3AF', // Footer text / secondary text
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body antialiased text-white bg-gray-950">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-950 shadow-lg fixed w-full z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between relative">
+            <a href="#home" class="flex items-center space-x-2">
+                <span class="text-3xl font-display text-amber-500">The Gentleman's Cut</span>
+            </a>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-lg font-semibold hover:text-amber-500 transition duration-300">Home</a>
+                <a href="#about" class="text-lg font-semibold hover:text-amber-500 transition duration-300">About Us</a>
+                <a href="#services" class="text-lg font-semibold hover:text-amber-500 transition duration-300">Services</a>
+                <a href="#gallery" class="text-lg font-semibold hover:text-amber-500 transition duration-300">Gallery</a>
+                <a href="#testimonials" class="text-lg font-semibold hover:text-amber-500 transition duration-300">Testimonials</a>
+                <a href="#contact" class="text-lg font-semibold hover:text-amber-500 transition duration-300">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button (Hamburger Icon) - Checkbox Hack for pure HTML menu -->
+            <div class="md:hidden">
+                <input type="checkbox" id="menu-toggle" class="hidden peer">
+                <label for="menu-toggle" class="cursor-pointer text-white text-3xl">
+                    &#9776; <!-- Unicode Hamburger icon -->
+                </label>
+                <!-- Mobile Menu Content -->
+                <div class="peer-checked:flex hidden flex-col absolute top-full left-0 w-full bg-gray-900 shadow-lg py-4 transition-all duration-300 ease-in-out">
+                    <a href="#home" class="block px-4 py-2 text-lg hover:bg-gray-800 hover:text-amber-500 transition duration-300" onclick="document.getElementById('menu-toggle').checked = false;">Home</a>
+                    <a href="#about" class="block px-4 py-2 text-lg hover:bg-gray-800 hover:text-amber-500 transition duration-300" onclick="document.getElementById('menu-toggle').checked = false;">About Us</a>
+                    <a href="#services" class="block px-4 py-2 text-lg hover:bg-gray-800 hover:text-amber-500 transition duration-300" onclick="document.getElementById('menu-toggle').checked = false;">Services</a>
+                    <a href="#gallery" class="block px-4 py-2 text-lg hover:bg-gray-800 hover:text-amber-500 transition duration-300" onclick="document.getElementById('menu-toggle').checked = false;">Gallery</a>
+                    <a href="#testimonials" class="block px-4 py-2 text-lg hover:bg-gray-800 hover:text-amber-500 transition duration-300" onclick="document.getElementById('menu-toggle').checked = false;">Testimonials</a>
+                    <a href="#contact" class="block px-4 py-2 text-lg hover:bg-gray-800 hover:text-amber-500 transition duration-300" onclick="document.getElementById('menu-toggle').checked = false;">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative bg-[url('https://images.unsplash.com/photo-1502085521731-1510e11894a7?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-fixed h-screen flex items-center justify-center text-center pt-16">
+            <div class="absolute inset-0 bg-black opacity-70"></div>
+            <div class="relative z-10 text-white p-6 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-display font-extrabold mb-4 leading-tight">
+                    Crafting <span class="text-amber-500">Timeless Styles</span> & Unforgettable Experiences
+                </h1>
+                <p class="text-lg md:text-xl mb-8 text-gray-300">
+                    Experience the art of grooming with precision cuts, classic shaves, and modern styles in a refined atmosphere.
+                </p>
+                <a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-white font-bold font-body py-4 px-10 rounded-full text-xl uppercase tracking-wide transition duration-300 ease-in-out shadow-lg hover:shadow-xl">
+                    Book Your Appointment
+                </a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 md:order-1">
+                        <h2 class="text-4xl font-display font-bold text-amber-500 mb-6">Our Legacy of Excellence</h2>
+                        <p class="text-lg text-gray-300 leading-relaxed mb-4">
+                            The Gentleman's Cut is more than just a barber shop; it's a sanctuary where tradition meets contemporary style. Founded on the principles of precision, passion, and unparalleled service, we've dedicated ourselves to the art of men's grooming.
+                        </p>
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            Our skilled barbers are masters of their craft, ensuring every cut, shave, and trim is executed with meticulous attention to detail. We use only the finest products to provide a luxurious and invigorating experience, leaving you looking sharp and feeling confident.
+                        </p>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <img src="https://images.unsplash.com/photo-1599388140411-e6e16f39e31a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Barber shop interior with classic chairs" class="rounded-xl shadow-2xl w-full h-auto object-cover max-h-96 md:max-h-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-display font-bold text-center text-amber-500 mb-12">Our Signature Services</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-amber-500">
+                        <h3 class="text-2xl font-display font-semibold mb-3 text-amber-500">The Classic Haircut</h3>
+                        <p class="text-gray-300 text-lg mb-4">A tailored haircut finished with a hot towel, straight razor neck shave, and expert styling.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-3xl font-bold text-white">$45</span>
+                            <a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-full text-md transition duration-300">Book Now</a>
+                        </div>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-amber-500">
+                        <h3 class="text-2xl font-display font-semibold mb-3 text-amber-500">Traditional Hot Shave</h3>
+                        <p class="text-gray-300 text-lg mb-4">Experience the ultimate closeness with multiple hot towels, pre-shave oil, and a sharp straight razor finish.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-3xl font-bold text-white">$35</span>
+                            <a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-full text-md transition duration-300">Book Now</a>
+                        </div>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-amber-500">
+                        <h3 class="text-2xl font-display font-
