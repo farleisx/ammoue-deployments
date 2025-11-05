@@ -1,636 +1,544 @@
 ```html
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zbeda Group – Driving the Future of Automotive Aftermarket</title>
-    <!-- Google Fonts for Montserrat and DM Serif Display -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Zbeda Group - Driving Israel’s Automotive Future</title>
+    <!-- Google Fonts for Poppins and Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS CSS CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for specific animations and effects not directly available via Tailwind classes */
+
+        /* Ken Burns effect for hero background */
+        .ken-burns {
+            animation: kenBurnsZoom 30s infinite alternate ease-in-out;
+        }
+
+        @keyframes kenBurnsZoom {
+            0% {
+                transform: scale(1) translateX(0);
+                background-position: center center;
+            }
+            100% {
+                transform: scale(1.15) translateX(5%);
+                background-position: 60% center;
+            }
+        }
+
+        /* Parallax effect for backgrounds */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Custom glow effect on hover for cards/buttons */
+        .glow-hover {
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            z-index: 0;
+            overflow: hidden; /* To contain the pseudo-element glow */
+        }
+        .glow-hover::before {
+            content: '';
+            position: absolute;
+            inset: -2px; /* Defines the spread of the glow */
+            border-radius: inherit;
+            background: linear-gradient(45deg, #0A73E0, #004AAD, #0A73E0); /* Zbeda blue gradient */
+            background-size: 200% 200%;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, background-position 0.5s ease-in-out;
+            z-index: -1;
+        }
+        .glow-hover:hover::before {
+            opacity: 1;
+            background-position: 100% 100%;
+        }
+
+        /* Marquee animation for logo carousel */
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); } /* Half the width of the duplicated content */
+        }
+    </style>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                        serif: ['DM Serif Display', 'serif'],
-                    },
                     colors: {
-                        'steel-dark': '#1A1A1A',
-                        'steel-medium': '#2D2D2D',
-                        'steel-light': '#4A4A4A',
-                        'accent-red': '#E53E3E',
-                        'accent-red-hover': '#C53030',
-                        'silver-gradient-start': '#E2E8F0',
-                        'silver-gradient-end': '#CBD5E0',
+                        'zbeda-blue': '#004AAD',
+                        'zbeda-silver': '#F3F6FA',
+                        'zbeda-gray': '#D9E0EC',
+                        'zbeda-blue-light': '#0A73E0', // Lighter shade for gradients/glows
+                        'zbeda-blue-dark': '#003380',  // Darker shade for gradients/glows
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
                     },
                     keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-                            '50%': { transform: 'translateY(-10px) rotate(2deg)' },
-                        },
-                        rotate3D: {
-                            '0%': { transform: 'rotateY(0deg)' },
-                            '100%': { transform: 'rotateY(360deg)' },
-                        },
-                        'fade-in-up': {
-                            '0%': { opacity: 0, transform: 'translateY(20px)' },
-                            '100%': { opacity: 1, transform: 'translateY(0)' },
-                        },
-                        bounceIn: {
-                            '0%, 20%, 40%, 60%, 80%, 100%': {
-                                'animation-timing-function': 'cubic-bezier(0.215, 0.610, 0.355, 1.000)'
-                            },
-                            '0%': { opacity: 0, transform: 'scale3d(.3, .3, .3)' },
-                            '20%': { transform: 'scale3d(1.1, 1.1, 1.1)' },
-                            '40%': { transform: 'scale3d(.9, .9, .9)' },
-                            '60%': { opacity: 1, transform: 'scale3d(1.03, 1.03, 1.03)' },
-                            '80%': { transform: 'scale3d(.97, .97, .97)' },
-                            '100%': { opacity: 1, transform: 'scale3d(1, 1, 1)' }
-                        },
-                        spin: { // Override default spin to control timing/direction
-                            from: { transform: 'rotate(0deg)' },
-                            to: { transform: 'rotate(360deg)' },
-                        },
-                        pulse: { // Override default pulse to control timing
-                            '0%, 100%': { opacity: 1 },
-                            '50%': { opacity: .5 },
-                        }
+                        // Tailwind will automatically pick up global keyframes and make them utilities
+                        // if used with `animate-[animationName]`.
+                        // Marquee keyframe is defined in a style block above due to complexity of duplication.
                     },
                     animation: {
-                        float: 'float 6s ease-in-out infinite',
-                        rotate3D: 'rotate3D 20s linear infinite',
-                        'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
-                        'bounceIn': 'bounceIn 0.75s forwards',
-                        'spin-slow-reverse': 'spin 15s linear infinite reverse',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'pulse-delay': 'pulse 3s infinite',
+                        // Custom animations can be defined here if needed, linking to @keyframes above
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="font-sans text-gray-200 bg-steel-dark overflow-x-hidden">
-
-    <!-- Sticky Header/Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-steel-dark bg-opacity-80 backdrop-blur-sm shadow-lg">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-3xl font-bold font-serif text-white flex items-center gap-2">
-                <i class="fas fa-gear text-accent-red"></i> Zbeda <span class="text-accent-red">Group</span>
+<body class="font-inter text-gray-800 antialiased overflow-x-hidden" style="scroll-behavior: smooth;">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 bg-transparent">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <img src="https://www.duns100.co.il/Areas/Uploads/companies//438e755c-a474-464d-a9d7-78820f48a3a3.jpg" alt="Zbeda Group Logo" class="h-10">
+                <span class="text-white text-2xl font-poppins font-semibold hidden md:block">Zbeda Group</span>
             </a>
             <div class="hidden lg:flex space-x-8">
-                <a href="#about" class="text-gray-300 hover:text-accent-red transition duration-300 relative group">About
-                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                </a>
-                <a href="#divisions" class="text-gray-300 hover:text-accent-red transition duration-300 relative group">Divisions
-                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                </a>
-                <a href="#innovation" class="text-gray-300 hover:text-accent-red transition duration-300 relative group">Innovation
-                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                </a>
-                <a href="#partnerships" class="text-gray-300 hover:text-accent-red transition duration-300 relative group">Partnerships
-                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                </a>
-                <a href="#careers" class="text-gray-300 hover:text-accent-red transition duration-300 relative group">Careers
-                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                </a>
-                <a href="#contact" class="text-gray-300 hover:text-accent-red transition duration-300 relative group">Contact
-                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                </a>
+                <a href="#hero" class="text-white hover:text-zbeda-silver font-poppins text-lg transition duration-300">Home</a>
+                <a href="#about" class="text-white hover:text-zbeda-silver font-poppins text-lg transition duration-300">About</a>
+                <a href="#divisions" class="text-white hover:text-zbeda-silver font-poppins text-lg transition duration-300">Divisions</a>
+                <a href="#logistics" class="text-white hover:text-zbeda-silver font-poppins text-lg transition duration-300">Logistics</a>
+                <a href="#partnerships" class="text-white hover:text-zbeda-silver font-poppins text-lg transition duration-300">Partnerships</a>
+                <a href="#careers" class="text-white hover:text-zbeda-silver font-poppins text-lg transition duration-300">Careers</a>
+                <a href="#contact" class="text-white hover:text-zbeda-silver font-poppins text-lg transition duration-300">Contact</a>
             </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="lg:hidden text-gray-300 hover:text-accent-red focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </nav>
-        <!-- Mobile Menu (hidden by default) -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-steel-dark bg-opacity-95 py-4">
-            <div class="flex flex-col items-center space-y-4">
-                <a href="#about" class="text-gray-300 hover:text-accent-red transition duration-300 text-lg" onclick="document.getElementById('mobile-menu').classList.add('hidden');">About</a>
-                <a href="#divisions" class="text-gray-300 hover:text-accent-red transition duration-300 text-lg" onclick="document.getElementById('mobile-menu').classList.add('hidden');">Divisions</a>
-                <a href="#innovation" class="text-gray-300 hover:text-accent-red transition duration-300 text-lg" onclick="document.getElementById('mobile-menu').classList.add('hidden');">Innovation</a>
-                <a href="#partnerships" class="text-gray-300 hover:text-accent-red transition duration-300 text-lg" onclick="document.getElementById('mobile-menu').classList.add('hidden');">Partnerships</a>
-                <a href="#careers" class="text-gray-300 hover:text-accent-red transition duration-300 text-lg" onclick="document.getElementById('mobile-menu').classList.add('hidden');">Careers</a>
-                <a href="#contact" class="text-gray-300 hover:text-accent-red transition duration-300 text-lg" onclick="document.getElementById('mobile-menu').classList.add('hidden');">Contact</a>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
             </div>
         </div>
-    </header>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-zbeda-blue bg-opacity-95 z-40 hidden flex-col items-center justify-center space-y-8 text-xl">
+            <button id="close-mobile-menu" class="absolute top-6 right-6 text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <a href="#hero" class="text-white hover:text-zbeda-silver font-poppins text-2xl" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.style.overflow = '';">Home</a>
+            <a href="#about" class="text-white hover:text-zbeda-silver font-poppins text-2xl" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.style.overflow = '';">About</a>
+            <a href="#divisions" class="text-white hover:text-zbeda-silver font-poppins text-2xl" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.style.overflow = '';">Divisions</a>
+            <a href="#logistics" class="text-white hover:text-zbeda-silver font-poppins text-2xl" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.style.overflow = '';">Logistics</a>
+            <a href="#partnerships" class="text-white hover:text-zbeda-silver font-poppins text-2xl" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.style.overflow = '';">Partnerships</a>
+            <a href="#careers" class="text-white hover:text-zbeda-silver font-poppins text-2xl" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.style.overflow = '';">Careers</a>
+            <a href="#contact" class="text-white hover:text-zbeda-silver font-poppins text-2xl" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.style.overflow = '';">Contact</a>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
-        <!-- Video Background -->
-        <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-50">
-            <!-- Replace with your actual video source (e.g., from your hosting or a public CDN like AWS S3) -->
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-highway-at-sunset-4171-large.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-
-        <!-- Overlay for Gradient/Darkness -->
-        <div class="absolute inset-0 bg-gradient-to-t from-steel-dark to-transparent z-10"></div>
-
-        <!-- Floating elements simulation -->
-        <div class="absolute top-1/4 left-1/4 w-24 h-24 bg-gray-600 rounded-full blur-xl opacity-10 animate-float [animation-delay:0s] z-20"></div>
-        <div class="absolute bottom-1/3 right-1/4 w-32 h-32 bg-gray-500 rounded-full blur-xl opacity-10 animate-float [animation-delay:2s] z-20"></div>
-        <div class="absolute top-1/2 left-1/2 w-20 h-20 bg-gray-700 rounded-full blur-xl opacity-10 animate-float [animation-delay:4s] z-20"></div>
-
-        <!-- Content -->
-        <div class="relative z-30 p-8 max-w-4xl mx-auto">
-            <h1 class="text-5xl md:text-7xl font-bold font-serif text-white leading-tight drop-shadow-lg animate-fade-in-up">
-                Driving the Future of Automotive Aftermarket
-            </h1>
-            <p class="mt-6 text-xl md:text-2xl text-gray-300 drop-shadow-md animate-fade-in-up [animation-delay:0.5s]">
-                Since 1965 – Innovation, Reliability, Power.
-            </p>
-            <a href="#about" class="mt-10 inline-block px-8 py-4 bg-accent-red hover:bg-accent-red-hover text-white text-lg font-semibold rounded-full shadow-lg transform transition duration-300 hover:scale-105 animate-fade-in-up [animation-delay:1s]">
-                Discover Our Legacy <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+    <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden bg-gray-900">
+        <div class="absolute inset-0 bg-[url('https://www.dhl.com/discover/content/dam/global-master/4-logistics-advice/import-and-export-advice/wec0759-what-is-logistics/Mobile_Image_991x558.jpg')] bg-cover bg-center parallax ken-burns"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-zbeda-blue/80 to-transparent"></div>
+        <div class="relative z-10 text-white p-6 max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="1500">
+            <h1 class="font-poppins text-4xl md:text-6xl font-semibold mb-4 drop-shadow-lg leading-tight">Driving Israel’s Automotive Future</h1>
+            <p class="font-inter text-xl md:text-2xl mb-8 drop-shadow-md">Since 1965 – Precision, Innovation, and Reliability.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#divisions" class="bg-zbeda-blue-light hover:bg-zbeda-blue text-white font-poppins px-8 py-3 rounded-full text-lg shadow-xl hover:shadow-2xl transition-all duration-300 relative overflow-hidden group">
+                    <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                    Explore Divisions
+                </a>
+                <a href="#contact" class="bg-transparent border-2 border-white text-white font-poppins px-8 py-3 rounded-full text-lg shadow-xl hover:bg-white hover:text-zbeda-blue transition-all duration-300 relative overflow-hidden group">
+                    <span class="absolute inset-0 bg-zbeda-blue opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                    Contact Us
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- About the Group Section -->
-    <section id="about" class="relative py-24 bg-steel-dark overflow-hidden">
-        <div class="container mx-auto px-6 text-center z-10 relative">
-            <h2 class="text-4xl md:text-5xl font-bold font-serif mb-16 text-white bg-clip-text text-transparent bg-gradient-to-r from-silver-gradient-start to-silver-gradient-end inline-block">
-                <span class="text-accent-red">About</span> The Group
-            </h2>
-
-            <p class="max-w-4xl mx-auto text-lg text-gray-300 mb-16 leading-relaxed">
-                Zbeda Group stands as a beacon of excellence in Israel's automotive aftermarket, building on <strong class="text-white">60 years of unwavering commitment</strong> to innovation, quality, and customer satisfaction. From our humble beginnings in 1965, we have grown into a powerhouse, meticulously engineering the future of mobility logistics.
-            </p>
-
-            <!-- Founder & HQ Photos -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-20">
-                <div class="relative group overflow-hidden rounded-xl shadow-xl transform transition duration-500 hover:scale-105">
-                    <img src="https://via.placeholder.com/600x400/2D2D2D/F0F0F0?text=Shlomo+Zbeda+-+Founder" alt="Shlomo Zbeda, Founder" class="w-full h-full object-cover filter brightness-90 group-hover:brightness-100 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70 group-hover:opacity-50 transition-opacity duration-500"></div>
-                    <div class="absolute bottom-6 left-6 text-left">
-                        <h3 class="text-3xl font-serif font-bold text-white mb-2">Shlomo Zbeda</h3>
-                        <p class="text-gray-300 text-lg">Visionary Founder, Since 1965</p>
-                    </div>
-                </div>
-                <div class="relative group overflow-hidden rounded-xl shadow-xl transform transition duration-500 hover:scale-105">
-                    <img src="https://via.placeholder.com/600x400/2D2D2D/F0F0F0?text=Modern+Zbeda+HQ" alt="Modern Zbeda Group Headquarters" class="w-full h-full object-cover filter brightness-90 group-hover:brightness-100 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70 group-hover:opacity-50 transition-opacity duration-500"></div>
-                    <div class="absolute bottom-6 left-6 text-left">
-                        <h3 class="text-3xl font-serif font-bold text-white mb-2">Our Modern HQ</h3>
-                        <p class="text-gray-300 text-lg">Heart of Innovation</p>
-                    </div>
-                </div>
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1" data-aos="fade-right" data-aos-duration="1000">
+                <img src="https://media.istockphoto.com/id/1432735210/photo/smiling-courier-loading-hand-truck-stacking-packages.jpg?s=612x612&w=0&k=20&c=IfF-7zoYl6f5P598avTbOBARLy57AXuOHfXvZsjQFqY=" alt="Team at work" class="rounded-2xl shadow-2xl w-full h-auto object-cover max-h-[500px] lazyload">
             </div>
+            <div class="order-1 md:order-2" data-aos="fade-left" data-aos-duration="1000">
+                <h2 class="font-poppins text-4xl md:text-5xl font-semibold text-zbeda-blue mb-6">Over 60 Years of Excellence</h2>
+                <p class="font-inter text-lg text-gray-700 leading-relaxed mb-8">
+                    Since our inception in 1965, Zbeda Group has been at the forefront of Israel’s automotive aftermarket and logistics industry.
+                    We've built a legacy of precision, reliability, and innovation, constantly evolving to meet the dynamic needs of our partners and customers.
+                    Our commitment to excellence drives us forward, ensuring we deliver world-class solutions across every facet of our operations.
+                </p>
 
-            <!-- Timeline -->
-            <h3 class="text-3xl md:text-4xl font-bold font-serif mb-12 text-white bg-clip-text text-transparent bg-gradient-to-r from-silver-gradient-start to-silver-gradient-end inline-block">
-                60 Years of Automotive Leadership
-            </h3>
-            <div class="relative max-w-7xl mx-auto">
-                <div class="absolute left-1/2 -translate-x-1/2 w-1 bg-accent-red h-full hidden md:block"></div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-12 mt-12">
-                    <!-- Timeline Item 1 -->
-                    <div class="flex flex-col md:flex-row items-start md:justify-end text-center md:text-right relative">
-                        <div class="md:w-1/2 p-4">
-                            <h4 class="text-3xl font-serif font-bold text-accent-red mb-2">1965</h4>
-                            <p class="text-gray-300 leading-relaxed">
-                                Shlomo Zbeda establishes the company, laying the foundation for an automotive legacy.
-                            </p>
-                        </div>
-                        <div class="absolute md:right-1/2 translate-x-1/2 md:-translate-x-0 top-1/2 -translate-y-1/2 w-6 h-6 bg-accent-red rounded-full ring-4 ring-steel-dark z-10 hidden md:block"></div>
+                <!-- Animated Timeline -->
+                <div class="relative border-l-2 border-zbeda-gray ml-2 pl-6 mt-10">
+                    <div class="mb-8 relative" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute -left-2 top-0 w-4 h-4 bg-zbeda-blue rounded-full shadow-md"></div>
+                        <h3 class="font-poppins text-xl font-semibold text-zbeda-blue">1965: Founding Vision</h3>
+                        <p class="font-inter text-gray-600 mt-1">Zbeda Group established, beginning its journey as a trusted automotive partner.</p>
                     </div>
-                    <!-- Timeline Item 2 -->
-                    <div class="flex flex-col md:flex-row items-start md:justify-start text-center md:text-left relative">
-                        <div class="absolute md:left-1/2 -translate-x-1/2 md:translate-x-0 top-1/2 -translate-y-1/2 w-6 h-6 bg-accent-red rounded-full ring-4 ring-steel-dark z-10 hidden md:block"></div>
-                        <div class="md:w-1/2 p-4 md:ml-auto">
-                            <h4 class="text-3xl font-serif font-bold text-accent-red mb-2">1980s</h4>
-                            <p class="text-gray-300 leading-relaxed">
-                                Expansion into new product lines and distribution networks across Israel.
-                            </p>
-                        </div>
+                    <div class="mb-8 relative" data-aos="fade-up" data-aos-delay="400">
+                        <div class="absolute -left-2 top-0 w-4 h-4 bg-zbeda-blue rounded-full shadow-md"></div>
+                        <h3 class="font-poppins text-xl font-semibold text-zbeda-blue">1990s: Strategic Expansion</h3>
+                        <p class="font-inter text-gray-600 mt-1">Diversification into advanced logistics and new automotive divisions.</p>
                     </div>
-                     <!-- Timeline Item 3 -->
-                     <div class="flex flex-col md:flex-row items-start md:justify-end text-center md:text-right relative">
-                        <div class="md:w-1/2 p-4">
-                            <h4 class="text-3xl font-serif font-bold text-accent-red mb-2">2000s</h4>
-                            <p class="text-gray-300 leading-relaxed">
-                                Strategic partnerships and technological integration revolutionize logistics.
-                            </p>
-                        </div>
-                        <div class="absolute md:right-1/2 translate-x-1/2 md:-translate-x-0 top-1/2 -translate-y-1/2 w-6 h-6 bg-accent-red rounded-full ring-4 ring-steel-dark z-10 hidden md:block"></div>
+                    <div class="mb-8 relative" data-aos="fade-up" data-aos-delay="600">
+                        <div class="absolute -left-2 top-0 w-4 h-4 bg-zbeda-blue rounded-full shadow-md"></div>
+                        <h3 class="font-poppins text-xl font-semibold text-zbeda-blue">2010s: Tech Integration</h3>
+                        <p class="font-inter text-gray-600 mt-1">Pioneering automation and digital solutions in supply chain management.</p>
                     </div>
-                    <!-- Timeline Item 4 -->
-                    <div class="flex flex-col md:flex-row items-start md:justify-start text-center md:text-left relative">
-                        <div class="absolute md:left-1/2 -translate-x-1/2 md:translate-x-0 top-1/2 -translate-y-1/2 w-6 h-6 bg-accent-red rounded-full ring-4 ring-steel-dark z-10 hidden md:block"></div>
-                        <div class="md:w-1/2 p-4 md:ml-auto">
-                            <h4 class="text-3xl font-serif font-bold text-accent-red mb-2">2010s</h4>
-                            <p class="text-gray-300 leading-relaxed">
-                                Inauguration of the automated Rosh HaAyin warehouse, setting new industry standards.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Timeline Item 5 -->
-                    <div class="flex flex-col md:flex-row items-start md:justify-end text-center md:text-right relative">
-                        <div class="md:w-1/2 p-4">
-                            <h4 class="text-3xl font-serif font-bold text-accent-red mb-2">Present</h4>
-                            <p class="text-gray-300 leading-relaxed">
-                                Global leader in automotive aftermarket, continually innovating for the future.
-                            </p>
-                        </div>
-                        <div class="absolute md:right-1/2 translate-x-1/2 md:-translate-x-0 top-1/2 -translate-y-1/2 w-6 h-6 bg-accent-red rounded-full ring-4 ring-steel-dark z-10 hidden md:block"></div>
+                    <div class="mb-8 relative" data-aos="fade-up" data-aos-delay="800">
+                        <div class="absolute -left-2 top-0 w-4 h-4 bg-zbeda-blue rounded-full shadow-md"></div>
+                        <h3 class="font-poppins text-xl font-semibold text-zbeda-blue">Today: Future-Ready</h3>
+                        <p class="font-inter text-gray-600 mt-1">Leading Israel's automotive aftermarket with next-gen logistics and unparalleled service.</p>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Subtle background animation -->
-        <div class="absolute inset-0 z-0 opacity-10">
-            <i class="fas fa-cogs text-[200px] text-gray-700 absolute top-1/4 left-1/4 animate-spin-slow-reverse"></i>
-            <i class="fas fa-truck-fast text-[150px] text-gray-700 absolute bottom-1/3 right-1/3 animate-pulse-slow"></i>
-        </div>
     </section>
 
-    <!-- Divisions Showcase Section -->
-    <section id="divisions" class="py-24 bg-steel-medium">
+    <!-- Divisions Showcase -->
+    <section id="divisions" class="py-16 md:py-24 bg-gradient-to-br from-zbeda-silver to-zbeda-gray">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold font-serif mb-16 text-white bg-clip-text text-transparent bg-gradient-to-r from-silver-gradient-start to-silver-gradient-end inline-block">
-                Our <span class="text-accent-red">Divisions</span>
-            </h2>
-
-            <p class="max-w-4xl mx-auto text-lg text-gray-300 mb-16 leading-relaxed">
-                Zbeda Group comprises a portfolio of specialized brands, each a leader in its domain, working synergistically to provide comprehensive automotive aftermarket solutions.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-                <!-- Division Card 1: Gal-Or -->
-                <a href="#" class="block group relative overflow-hidden rounded-xl shadow-2xl bg-gradient-to-br from-steel-light to-steel-dark border border-gray-700 transform transition duration-500 hover:scale-105 hover:border-accent-red">
-                    <div class="p-8 flex flex-col items-center justify-center h-full">
-                        <img src="https://via.placeholder.com/150x80/2D2D2D/F0F0F0?text=GAL-OR+LOGO" alt="Gal-Or Logo" class="h-20 mb-6 object-contain group-hover:hidden transition-opacity duration-300">
-                        <img src="https://via.placeholder.com/150x80/E53E3E/FFFFFF?text=GAL-OR+LOGO+" alt="Gal-Or Logo Animated" class="h-20 mb-6 object-contain hidden group-hover:block transition-opacity duration-300 absolute top-8 animate-bounceIn">
-                        <h3 class="text-3xl font-serif font-bold text-white mb-4 mt-16">Gal-Or</h3>
-                        <p class="text-gray-400 text-center mb-6">Premium automotive parts distribution.</p>
-                        <div class="text-left w-full text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <ul class="list-disc list-inside space-y-1">
-                                <li><i class="fas fa-check-circle text-accent-red mr-2"></i>Wide product range</li>
-                                <li><i class="fas fa-check-circle text-accent-red mr-2"></i>Fast logistics</li>
-                                <li><i class="fas fa-check-circle text-accent-red mr-2"></i>Quality assurance</li>
-                            </ul>
-                        </div>
-                        <span class="mt-6 text-accent-red group-hover:text-white transition-colors duration-300 font-semibold flex items-center">
-                            Learn More <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
-                        </span>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-br from-accent-red/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </a>
-
-                <!-- Division Card 2: Sher -->
-                <a href="#" class="block group relative overflow-hidden rounded-xl shadow-2xl bg-gradient-to-br from-steel-light to-steel-dark border border-gray-700 transform transition duration-500 hover:scale-105 hover:border-accent-red">
-                    <div class="p-8 flex flex-col items-center justify-center h-full">
-                        <img src="https://via.placeholder.com/150x80/2D2D2D/F0F0F0?text=SHER+LOGO" alt="Sher Logo" class="h-20 mb-6 object-contain group-hover:hidden transition-opacity duration-300">
-                        <img src="https://via.placeholder.com/150x80/E53E3E/FFFFFF?text=SHER+LOGO+" alt="Sher Logo Animated" class="h-20 mb-6 object-contain hidden group-hover:block transition-opacity duration-300 absolute top-8 animate-bounceIn">
-                        <h3 class="text-3xl font-serif font-bold text-white mb-4 mt-16">Sher</h3>
-                        <p class="text-gray-400 text-center mb-6">Specialists in heavy-duty commercial vehicle parts.</p>
-                        <div class="text-left w-full text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <ul class="list-disc list-inside space-y-1">
-                                <li><i class="fas fa-check-circle text-accent-red mr-2"></i>Truck & bus parts</li>
-                                <li><i class="fas fa-check-circle text-accent-red mr-2"></i>Fleet solutions</li>
-                                <li><i class="fas fa-check-circle text-accent-red mr-2"></i>Expert support</li>
-                            </ul>
-                        </div>
-                        <span class="mt-6 text-accent-red group-hover:text-white transition-colors duration-300 font-semibold flex items-center">
-                            Learn More <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
-                        </span>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-br from-accent-red/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </a>
-
-                <!-- Division Card 3: Ferromat -->
-                <a href="#" class="block group relative overflow-hidden rounded-xl shadow-2xl bg-gradient-to-br from-steel-light to-steel-dark border border-gray-700 transform transition duration-500 hover:scale-105 hover:border-accent-red">
-                    <div class="p-8 flex flex-col items-center justify-center h-full">
-                        <img src="https://via.placeholder.com/150x80/2D2D2D/F0F0F0?text=FERROMAT+LOGO" alt="Ferromat Logo" class="h-20 mb-6 object-contain group-hover:hidden transition-opacity duration-300">
-                        <img src="https://via.placeholder.com/150x80/E53E3E/FFFFFF?text=FERROMAT+LOGO+" alt="Ferromat Logo Animated" class="h-20 mb-6 object-contain hidden group-hover:block transition-opacity duration-300 absolute top-8 animate-bounceIn">
-                        <h3 class="text-3xl font-serif font-bold text-white mb-4 mt-16">Ferromat</h3>
-                        <p class="text-gray-400 text-center mb-6">High-performance industrial and automotive tools.</p>
-                        <div class="text-left w-full text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <ul class="list-disc list-inside space-y-1">
-                                <li><i class="fas fa-check-circle text-accent-red mr-2"></i>Professional tools</li>
-                                <li><i class="fas fa-check-circle text-accent-red mr-2"></i>Workshop equipment</li>
-                                <li><i class="fas fa-check-circle text-accent-red mr-2"></i>Durability guarantee</li>
-                            </ul>
-                        </div>
-                        <span class="mt-6 text-accent-red group-hover:text-white transition-colors duration-300 font-semibold flex items-center">
-                            Learn More <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
-                        </span>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-br from-accent-red/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </a>
-
-                <!-- Division Card 4: Drive Body -->
-                <a href="#" class="block group relative overflow-hidden rounded-xl shadow-2xl bg-gradient-to-br from-steel-light to-steel-dark border border-gray-700 transform transition duration-500 hover:scale-105 hover:border-accent-red">
-                    <div class="p-8 flex flex-col items-center justify-center h-full">
-                        <img src="https://via.placeholder.com/150x80/2D2D2D/F0F0F0?text=DRIVE+BODY+LOGO" alt="Drive Body Logo" class="h-20 mb-6 object-contain group-hover:hidden transition-opacity duration-300">
-                        <img src="https://via.placeholder.com/150x80/E53E3E/FFFFFF?text=DRIVE+BODY+LOGO+" alt="Drive Body Logo Animated" class="h-20 mb-6 object-contain hidden group-hover:block transition-opacity duration-300 absolute top-8 animate-bounceIn">
-                        <h3 class="text-3xl font-serif font-bold text-white mb-4 mt-16">Drive Body</h3>
-                        <p class="text-gray-400 text-center mb-6">Premium body shop supplies and collision repair parts.</p>
-                        <div class="text-left w-full text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <ul class="list-disc list-inside space-y-1">
-                                <li><i class="fas fa-check-circle text-accent-red mr-2"></i>Body panels & paint</li>
-                                <li><i class="fas fa-check-circle text-accent-red mr-2"></i>Collision parts</li>
-                                <li><i class="fas fa-check-circle text-accent-red mr-2"></i>Finishing solutions</li>
-                            </ul>
-                        </div>
-                        <span class="mt-6 text-accent-red group-hover:text-white transition-colors duration-300 font-semibold flex items-center">
-                            Learn More <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
-                        </span>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-br from-accent-red/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </a>
-
-                <!-- Division Card 5: Elrom -->
-                <a href="#" class="block group relative overflow-hidden rounded-xl shadow-2xl bg-gradient-to-br from-steel-light to-steel-dark border border-gray-700 transform transition duration-500 hover:scale-105 hover:border-accent-red">
-                    <div class="p-8 flex flex-col items-center justify-center h-full">
-                        <img src="https://via.placeholder.com/150x80/2D2D2D/F0F0F0?text=ELROM+LOGO" alt="Elrom Logo" class="h-20 mb-6 object-contain group-hover:hidden transition-opacity duration-300">
-                        <img src="https://via.placeholder.com/150x80/E53E3E/FFFFFF?text=ELROM+LOGO+" alt="Elrom Logo Animated" class="h-20 mb-6 object-contain hidden group-hover:block transition-opacity duration-300 absolute top-8 animate-bounceIn">
-                        <h3 class="text-3xl font-serif font-bold text-white mb-4 mt-16">Elrom</h3>
-                        <p class="text-gray-400 text-center mb-6">Advanced electronic diagnostic tools and equipment.</p>
-                        <div class="text-left w-full text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <ul class="list-disc list-inside space-y-1">
-                                <li><i class="fas fa-check-circle text-accent-red mr-2"></i>Diagnostic scanners</li>
-                                <li><i class="fas fa-check-circle text-accent-red mr-2"></i>Software solutions</li>
-                                <li><i class="fas fa-check-circle text-accent-red mr-2"></i>Technical training</li>
-                            </ul>
-                        </div>
-                        <span class="mt-6 text-accent-red group-hover:text-white transition-colors duration-300 font-semibold flex items-center">
-                            Learn More <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
-                        </span>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-br from-accent-red/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </a>
+            <h2 class="font-poppins text-4xl md:text-5xl font-semibold text-zbeda-blue mb-12" data-aos="fade-up">Our Divisions: Powering Every Segment</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Division Card 1 -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:rotate-1 transition-all duration-300 relative overflow-hidden group glow-hover" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="font-poppins text-2xl font-semibold text-zbeda-blue mb-4">Gal-Or</h3>
+                    <p class="font-inter text-gray-700 mb-6">Leading solutions for automotive parts and distribution.</p>
+                    <a href="#" class="inline-block bg-zbeda-blue hover:bg-zbeda-blue-light text-white font-poppins px-6 py-2 rounded-full transition-colors duration-300">Learn More</a>
+                </div>
+                <!-- Division Card 2 -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:rotate-1 transition-all duration-300 relative overflow-hidden group glow-hover" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="font-poppins text-2xl font-semibold text-zbeda-blue mb-4">Sher</h3>
+                    <p class="font-inter text-gray-700 mb-6">Advanced logistics and supply chain management for efficiency.</p>
+                    <a href="#" class="inline-block bg-zbeda-blue hover:bg-zbeda-blue-light text-white font-poppins px-6 py-2 rounded-full transition-colors duration-300">Learn More</a>
+                </div>
+                <!-- Division Card 3 -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:rotate-1 transition-all duration-300 relative overflow-hidden group glow-hover" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="font-poppins text-2xl font-semibold text-zbeda-blue mb-4">Ferromat</h3>
+                    <p class="font-inter text-gray-700 mb-6">Specialized in heavy equipment parts and industrial solutions.</p>
+                    <a href="#" class="inline-block bg-zbeda-blue hover:bg-zbeda-blue-light text-white font-poppins px-6 py-2 rounded-full transition-colors duration-300">Learn More</a>
+                </div>
+                <!-- Division Card 4 -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:rotate-1 transition-all duration-300 relative overflow-hidden group glow-hover" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="font-poppins text-2xl font-semibold text-zbeda-blue mb-4">Drive Body</h3>
+                    <p class="font-inter text-gray-700 mb-6">Premium body shop supplies and collision repair expertise.</p>
+                    <a href="#" class="inline-block bg-zbeda-blue hover:bg-zbeda-blue-light text-white font-poppins px-6 py-2 rounded-full transition-colors duration-300">Learn More</a>
+                </div>
+                <!-- Division Card 5 -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:rotate-1 transition-all duration-300 relative overflow-hidden group glow-hover" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="font-poppins text-2xl font-semibold text-zbeda-blue mb-4">Elrom</h3>
+                    <p class="font-inter text-gray-700 mb-6">Electrical and electronic systems for modern vehicles.</p>
+                    <a href="#" class="inline-block bg-zbeda-blue hover:bg-zbeda-blue-light text-white font-poppins px-6 py-2 rounded-full transition-colors duration-300">Learn More</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Innovation & Logistics Section -->
-    <section id="innovation" class="relative py-24 bg-cover bg-fixed bg-center" style="background-image: url('https://images.unsplash.com/photo-1616400619175-5be3293778e6?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-        <div class="absolute inset-0 bg-steel-dark opacity-90"></div>
-        <div class="container mx-auto px-6 text-center z-10 relative">
-            <h2 class="text-4xl md:text-5xl font-bold font-serif mb-16 text-white bg-clip-text text-transparent bg-gradient-to-r from-silver-gradient-start to-silver-gradient-end inline-block">
-                Innovation & <span class="text-accent-red">Logistics</span>
-            </h2>
-
-            <p class="max-w-4xl mx-auto text-lg text-gray-300 mb-16 leading-relaxed">
-                At the heart of Zbeda Group's operational excellence lies our state-of-the-art automated warehouse in Rosh HaAyin – a testament to our commitment to precision, speed, and reliability.
-            </p>
-
-            <div class="max-w-6xl mx-auto mb-16">
-                <!-- Placeholder for 3D model/drone video -->
-                <div class="relative aspect-video bg-steel-light rounded-xl shadow-2xl overflow-hidden border border-gray-700">
-                    <img src="https://images.unsplash.com/photo-1582234057630-36a49a215392?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Automated Warehouse in Rosh HaAyin" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
-                        <span class="text-white text-3xl md:text-5xl font-bold">Automated Warehouse <br> Rosh HaAyin</span>
-                        <div class="absolute bottom-6 right-6">
-                            <i class="fas fa-robot text-accent-red text-4xl mr-2"></i>
-                            <i class="fas fa-warehouse text-gray-300 text-4xl"></i>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-sm text-gray-500 mt-4 italic">
-                    (Image representing our automated logistics hub. For a live site, this would be a 3D model or drone video loop.)
+    <section id="logistics" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1" data-aos="fade-right" data-aos-duration="1000">
+                <img src="https://truckguru.co.in/blog/wp-content/uploads/2022/05/what-is-a-logistics-company-1024x1024.jpg" alt="Logistics operations" class="rounded-2xl shadow-2xl w-full h-auto object-cover max-h-[550px] lazyload">
+            </div>
+            <div class="order-1 md:order-2" data-aos="fade-left" data-aos-duration="1000">
+                <h2 class="font-poppins text-4xl md:text-5xl font-semibold text-zbeda-blue mb-6">Innovation in Motion</h2>
+                <p class="font-inter text-lg text-gray-700 leading-relaxed mb-8">
+                    Our logistics operations are powered by cutting-edge technology and a commitment to efficiency. From automated warehousing to intelligent route optimization,
+                    Zbeda Group ensures swift, accurate, and reliable delivery across Israel. Experience the future of automotive aftermarket logistics.
                 </p>
-            </div>
 
-            <!-- Metrics -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-20">
-                <div class="bg-gradient-to-br from-steel-light to-steel-dark p-8 rounded-xl shadow-xl border border-gray-700 transform hover:scale-105 transition duration-300">
-                    <i class="fas fa-boxes text-5xl text-accent-red mb-4"></i>
-                    <h3 class="text-5xl font-bold font-serif text-white mb-2">19,000+</h3>
-                    <p class="text-gray-300 text-lg">Boxes in Inventory</p>
-                </div>
-                <div class="bg-gradient-to-br from-steel-light to-steel-dark p-8 rounded-xl shadow-xl border border-gray-700 transform hover:scale-105 transition duration-300">
-                    <i class="fas fa-truck-ramp-box text-5xl text-accent-red mb-4"></i>
-                    <h3 class="text-5xl font-bold font-serif text-white mb-2">500+</h3>
-                    <p class="text-gray-300 text-lg">Daily Dispatches</p>
-                </div>
-                <div class="bg-gradient-to-br from-steel-light to-steel-dark p-8 rounded-xl shadow-xl border border-gray-700 transform hover:scale-105 transition duration-300">
-                    <i class="fas fa-bullseye text-5xl text-accent-red mb-4"></i>
-                    <h3 class="text-5xl font-bold font-serif text-white mb-2">100%</h3>
-                    <p class="text-gray-300 text-lg">Precision & Accuracy</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Global Partnerships Section -->
-    <section id="partnerships" class="relative py-24 bg-steel-dark">
-        <div class="container mx-auto px-6 text-center z-10 relative">
-            <h2 class="text-4xl md:text-5xl font-bold font-serif mb-16 text-white bg-clip-text text-transparent bg-gradient-to-r from-silver-gradient-start to-silver-gradient-end inline-block">
-                Global <span class="text-accent-red">Partnerships</span>
-            </h2>
-
-            <p class="max-w-4xl mx-auto text-lg text-gray-300 mb-16 leading-relaxed">
-                Our strength is amplified through strategic alliances with industry leaders and global networks, ensuring unparalleled reach and access to the best automotive solutions worldwide.
-            </p>
-
-            <!-- Rotating Globe Animation (Simulated with image + CSS animation) -->
-            <div class="relative w-full max-w-lg mx-auto mb-16">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/World_Map_with_US_and_EU.svg/2000px-World_Map_with_US_and_EU.svg.png" alt="Global Map" class="w-full h-auto opacity-20 filter grayscale animate-rotate3D">
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="w-48 h-48 bg-accent-red rounded-full flex items-center justify-center text-white font-bold text-xl opacity-80 animate-pulse">
-                        Zbeda Global
+                <div class="grid grid-cols-2 gap-8 mb-10">
+                    <div class="text-center p-4 bg-zbeda-silver rounded-lg shadow-md" data-aos="zoom-in" data-aos-delay="100">
+                        <p class="font-poppins text-4xl md:text-5xl font-bold text-zbeda-blue mb-2"><span id="counter1" class="counter" data-target="19320">0</span>+</p>
+                        <p class="font-inter text-lg text-gray-800">Boxes Handled Daily</p>
+                    </div>
+                    <div class="text-center p-4 bg-zbeda-silver rounded-lg shadow-md" data-aos="zoom-in" data-aos-delay="200">
+                        <p class="font-poppins text-4xl md:text-5xl font-bold text-zbeda-blue mb-2"><span id="counter2" class="counter" data-target="500">0</span>+</p>
+                        <p class="font-inter text-lg text-gray-800">Daily Dispatches</p>
                     </div>
                 </div>
-                <div class="absolute top-1/4 left-1/4 w-4 h-4 rounded-full bg-blue-400 animate-pulse-delay [animation-delay:0s]"></div>
-                <div class="absolute top-1/3 right-1/4 w-4 h-4 rounded-full bg-green-400 animate-pulse-delay [animation-delay:1s]"></div>
-                <div class="absolute bottom-1/4 left-1/3 w-4 h-4 rounded-full bg-yellow-400 animate-pulse-delay [animation-delay:2s]"></div>
-            </div>
 
-            <!-- Partner Logos -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-7xl mx-auto mt-20">
-                <div class="p-4 flex items-center justify-center bg-steel-light rounded-lg shadow-lg border border-gray-700 hover:scale-105 transition duration-300">
-                    <img src="https://via.placeholder.com/150x80/2D2D2D/F0F0F0?text=NEXUS+LOGO" alt="Nexus Automotive International Logo" class="h-16 object-contain filter grayscale hover:grayscale-0 transition duration-300">
-                </div>
-                <div class="p-4 flex items-center justify-center bg-steel-light rounded-lg shadow-lg border border-gray-700 hover:scale-105 transition duration-300">
-                    <img src="https://via.placeholder.com/150x80/2D2D2D/F0F0F0?text=OEM+PARTNER+A" alt="OEM Partner A Logo" class="h-16 object-contain filter grayscale hover:grayscale-0 transition duration-300">
-                </div>
-                <div class="p-4 flex items-center justify-center bg-steel-light rounded-lg shadow-lg border border-gray-700 hover:scale-105 transition duration-300">
-                    <img src="https://via.placeholder.com/150x80/2D2D2D/F0F0F0?text=OEM+PARTNER+B" alt="OEM Partner B Logo" class="h-16 object-contain filter grayscale hover:grayscale-0 transition duration-300">
-                </div>
-                <div class="p-4 flex items-center justify-center bg-steel-light rounded-lg shadow-lg border border-gray-700 hover:scale-105 transition duration-300">
-                    <img src="https://via.placeholder.com/150x80/2D2D2D/F0F0F0?text=MAJOR+CLIENT+1" alt="Major Client 1 Logo" class="h-16 object-contain filter grayscale hover:grayscale-0 transition duration-300">
-                </div>
-                <div class="p-4 flex items-center justify-center bg-steel-light rounded-lg shadow-lg border border-gray-700 hover:scale-105 transition duration-300">
-                    <img src="https://via.placeholder.com/150x80/2D2D2D/F0F0F0?text=MAJOR+CLIENT+2" alt="Major Client 2 Logo" class="h-16 object-contain filter grayscale hover:grayscale-0 transition duration-300">
+                <div class="flex flex-wrap gap-6 justify-center md:justify-start">
+                    <div class="flex items-center space-x-3 p-4 bg-zbeda-silver rounded-full shadow-md" data-aos="fade-up" data-aos-delay="300">
+                        <svg class="w-8 h-8 text-zbeda-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <span class="font-poppins text-lg text-gray-800">Speed</span>
+                    </div>
+                    <div class="flex items-center space-x-3 p-4 bg-zbeda-silver rounded-full shadow-md" data-aos="fade-up" data-aos-delay="400">
+                        <svg class="w-8 h-8 text-zbeda-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <span class="font-poppins text-lg text-gray-800">Automation</span>
+                    </div>
+                    <div class="flex items-center space-x-3 p-4 bg-zbeda-silver rounded-full shadow-md" data-aos="fade-up" data-aos-delay="500">
+                        <svg class="w-8 h-8 text-zbeda-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="font-poppins text-lg text-gray-800">Accuracy</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Careers & Culture Section -->
-    <section id="careers" class="relative py-24 bg-cover bg-fixed bg-center" style="background-image: url('https://images.unsplash.com/photo-1629904853716-f079165a4674?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-        <div class="absolute inset-0 bg-steel-dark opacity-90"></div>
-        <div class="container mx-auto px-6 text-center z-10 relative">
-            <h2 class="text-4xl md:text-5xl font-bold font-serif mb-16 text-white bg-clip-text text-transparent bg-gradient-to-r from-silver-gradient-start to-silver-gradient-end inline-block">
-                Careers & <span class="text-accent-red">Culture</span>
-            </h2>
-
-            <p class="max-w-4xl mx-auto text-lg text-gray-300 mb-16 leading-relaxed">
-                Become a part of Israel's automotive powerhouse. At Zbeda Group, we cultivate a dynamic environment where innovation thrives, careers flourish, and every team member contributes to driving the future.
+    <!-- Global Partnerships -->
+    <section id="partnerships" class="py-16 md:py-24 bg-zbeda-silver">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-poppins text-4xl md:text-5xl font-semibold text-zbeda-blue mb-12" data-aos="fade-up">Our Global Partnership Network</h2>
+            <p class="font-inter text-lg text-gray-700 max-w-3xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="200">
+                Collaborating with leading brands worldwide, we bring the best of global automotive innovation to Israel. Our extensive network ensures unparalleled access and service.
             </p>
 
-            <h3 class="text-3xl font-bold font-serif text-white mb-10">
-                Join Israel’s Automotive Powerhouse.
-            </h3>
+            <!-- Logo Carousel -->
+            <div class="relative overflow-hidden py-8">
+                <div class="flex animate-marquee whitespace-nowrap">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_DHL.svg/1200px-Logo_DHL.svg.png" alt="DHL Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Mercedes-Benz_Logo.svg/1200px-Mercedes-Benz_Logo.svg.png" alt="Mercedes-Benz Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_logo_%28gray%29.svg/1200px-BMW_logo_%28gray%29.svg.png" alt="BMW Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Bosch_logo.svg/1200px-Bosch_logo.svg.png" alt="Bosch Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Continental-Logo.svg/1200px-Continental-Logo.svg.png" alt="Continental Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
+                    <!-- Duplicate logos for seamless looping -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_DHL.svg/1200px-Logo_DHL.svg.png" alt="DHL Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Mercedes-Benz_Logo.svg/1200px-Mercedes-Benz_Logo.svg.png" alt="Mercedes-Benz Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_logo_%28gray%29.svg/1200px-BMW_logo_%28gray%29.svg.png" alt="BMW Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Bosch_logo.svg/1200px-Bosch_logo.svg.png" alt="Bosch Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Continental-Logo.svg/1200px-Continental-Logo.svg.png" alt="Continental Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <!-- Glassmorphism Job Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+    <!-- Careers & Culture -->
+    <section id="careers" class="py-16 md:py-24 bg-gradient-to-tr from-white to-zbeda-silver">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-poppins text-4xl md:text-5xl font-semibold text-zbeda-blue mb-12" data-aos="fade-up">Join Israel’s Automotive Powerhouse</h2>
+            <p class="font-inter text-lg text-gray-700 max-w-3xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="200">
+                At Zbeda Group, we believe our people are our greatest asset. Join a team dedicated to innovation, collaboration, and making a real impact in Israel's automotive landscape.
+            </p>
+
+            <!-- Image Slideshow -->
+            <div class="relative w-full max-w-4xl mx-auto h-96 bg-gray-200 rounded-2xl shadow-2xl overflow-hidden mb-12" data-aos="zoom-in" data-aos-delay="300">
+                <img id="slideshow-image" src="" alt="Team at Zbeda Group" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0 lazyload">
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Job Card 1 -->
-                <div class="relative p-8 rounded-xl shadow-2xl backdrop-blur-md bg-white/10 border border-white/20 transform transition duration-500 hover:scale-105 hover:border-accent-red">
-                    <i class="fas fa-screwdriver-wrench text-5xl text-accent-red mb-4"></i>
-                    <h4 class="text-2xl font-bold text-white mb-2">Logistics Manager</h4>
-                    <p class="text-gray-300 mb-4">Oversee advanced warehouse operations and supply chain optimization.</p>
-                    <a href="#" class="inline-block px-6 py-3 bg-accent-red hover:bg-accent-red-hover text-white font-semibold rounded-full transform transition duration-300 hover:shadow-lg">
-                        Apply Now <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
+                <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-all duration-300 group overflow-hidden relative" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="font-poppins text-2xl font-semibold text-zbeda-blue mb-3">Logistics Manager</h3>
+                    <p class="font-inter text-gray-700 mb-4">Oversee and optimize supply chain operations.</p>
+                    <button class="bg-zbeda-blue hover:bg-zbeda-blue-light text-white font-poppins px-6 py-2 rounded-full transition-colors duration-300">Apply Now</button>
                 </div>
                 <!-- Job Card 2 -->
-                <div class="relative p-8 rounded-xl shadow-2xl backdrop-blur-md bg-white/10 border border-white/20 transform transition duration-500 hover:scale-105 hover:border-accent-red">
-                    <i class="fas fa-laptop-code text-5xl text-accent-red mb-4"></i>
-                    <h4 class="text-2xl font-bold text-white mb-2">Software Engineer</h4>
-                    <p class="text-gray-300 mb-4">Develop cutting-edge solutions for inventory and distribution systems.</p>
-                    <a href="#" class="inline-block px-6 py-3 bg-accent-red hover:bg-accent-red-hover text-white font-semibold rounded-full transform transition duration-300 hover:shadow-lg">
-                        Apply Now <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
+                <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-all duration-300 group overflow-hidden relative" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="font-poppins text-2xl font-semibold text-zbeda-blue mb-3">Automotive Technician</h3>
+                    <p class="font-inter text-gray-700 mb-4">Expert in vehicle diagnostics and repair.</p>
+                    <button class="bg-zbeda-blue hover:bg-zbeda-blue-light text-white font-poppins px-6 py-2 rounded-full transition-colors duration-300">Apply Now</button>
                 </div>
                 <!-- Job Card 3 -->
-                <div class="relative p-8 rounded-xl shadow-2xl backdrop-blur-md bg-white/10 border border-white/20 transform transition duration-500 hover:scale-105 hover:border-accent-red">
-                    <i class="fas fa-car-side text-5xl text-accent-red mb-4"></i>
-                    <h4 class="text-2xl font-bold text-white mb-2">Sales Representative</h4>
-                    <p class="text-gray-300 mb-4">Drive market growth and build strong client relationships in the automotive sector.</p>
-                    <a href="#" class="inline-block px-6 py-3 bg-accent-red hover:bg-accent-red-hover text-white font-semibold rounded-full transform transition duration-300 hover:shadow-lg">
-                        Apply Now <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
+                <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-all duration-300 group overflow-hidden relative" data-aos="fade-up" data-aos-delay="600">
+                    <h3 class="font-poppins text-2xl font-semibold text-zbeda-blue mb-3">Sales Representative</h3>
+                    <p class="font-inter text-gray-700 mb-4">Drive growth and foster client relationships.</p>
+                    <button class="bg-zbeda-blue hover:bg-zbeda-blue-light text-white font-poppins px-6 py-2 rounded-full transition-colors duration-300">Apply Now</button>
                 </div>
-            </div>
-
-            <div class="mt-16">
-                <a href="#" class="inline-block px-10 py-5 bg-gradient-to-r from-accent-red to-red-700 hover:from-red-700 hover:to-accent-red text-white text-xl font-bold rounded-full shadow-xl transform transition duration-300 hover:scale-105">
-                    View All Open Positions <i class="fas fa-long-arrow-alt-right ml-3"></i>
-                </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact & B2B Portal Section -->
-    <section id="contact" class="py-24 bg-steel-dark">
+    <!-- Contact / B2B Portal -->
+    <section id="contact" class="py-16 md:py-24 bg-gradient-to-br from-zbeda-blue to-zbeda-blue-dark text-white">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold font-serif mb-16 text-white bg-clip-text text-transparent bg-gradient-to-r from-silver-gradient-start to-silver-gradient-end inline-block">
-                Contact & <span class="text-accent-red">B2B Portal</span>
-            </h2>
-
-            <p class="max-w-4xl mx-auto text-lg text-gray-300 mb-16 leading-relaxed">
-                Connect with Zbeda Group for unparalleled automotive solutions. Our network of distribution centers ensures swift and reliable service across Israel. Access our B2B portal for partners and clients.
+            <h2 class="font-poppins text-4xl md:text-5xl font-semibold mb-6" data-aos="fade-up">Get in Touch with Zbeda Group</h2>
+            <p class="font-inter text-lg max-w-3xl mx-auto mb-12 opacity-90" data-aos="fade-up" data-aos-delay="200">
+                Whether you're looking to partner with us, explore career opportunities, or simply have a question, we're here to help. Reach out and experience our commitment to service.
             </p>
 
-            <!-- Interactive Map -->
-            <div class="max-w-6xl mx-auto mb-16 rounded-xl shadow-2xl overflow-hidden border border-gray-700">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108527.27649514332!2d34.8016462719225!3d32.0725807955562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d451421f51395%3A0x629524c53d08502!2sTel%20Aviv-Yafo!5e0!3m2!1sen!2sil!4v1701783353597!5m2!1sen!2sil"
-                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                    class="rounded-xl">
-                </iframe>
-                <p class="text-sm text-gray-500 mt-4 italic">
-                    (Map centered on Tel Aviv-Yafo, representing general distribution reach in Israel. Specific centers would be marked on a live map.)
-                </p>
-            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative w-full h-80 md:h-[500px] rounded-2xl shadow-2xl overflow-hidden bg-gray-100" data-aos="zoom-in" data-aos-delay="300">
+                    <!-- Google Maps Embed for Tel Aviv-Yafo, Israel -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108221.0505199653!2d34.7360219616035!3d32.07172445831586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4ca61937ce2f%3A0x90c58e1c6b541300!2sTel%20Aviv-Yafo!5e0!3m2!1sen!2sil!4v1701388656789!5m2!1sen!2sil"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
 
-            <!-- Quick Access Buttons -->
-            <div class="flex flex-wrap justify-center gap-6 mb-20 max-w-4xl mx-auto">
-                <a href="#" class="flex-1 min-w-[200px] px-8 py-4 bg-gradient-to-r from-steel-light to-steel-medium text-white text-lg font-semibold rounded-full shadow-lg border border-gray-600 hover:from-accent-red hover:to-red-700 transform transition duration-300 hover:scale-105 flex items-center justify-center">
-                    <i class="fas fa-store mr-3"></i> Retailer Login
-                </a>
-                <a href="#" class="flex-1 min-w-[200px] px-8 py-4 bg-gradient-to-r from-steel-light to-steel-medium text-white text-lg font-semibold rounded-full shadow-lg border border-gray-600 hover:from-accent-red hover:to-red-700 transform transition duration-300 hover:scale-105 flex items-center justify-center">
-                    <i class="fas fa-truck-moving mr-3"></i> Fleet Inquiry
-                </a>
-                <a href="#" class="flex-1 min-w-[200px] px-8 py-4 bg-gradient-to-r from-steel-light to-steel-medium text-white text-lg font-semibold rounded-full shadow-lg border border-gray-600 hover:from-accent-red hover:to-red-700 transform transition duration-300 hover:scale-105 flex items-center justify-center">
-                    <i class="fas fa-handshake mr-3"></i> Distributor Partner
-                </a>
-            </div>
-
-            <!-- Contact Form -->
-            <div class="max-w-3xl mx-auto bg-gradient-to-br from-steel-light to-steel-dark p-10 rounded-xl shadow-2xl border border-gray-700">
-                <h3 class="text-3xl font-bold font-serif text-white mb-8">Get In Touch</h3>
-                <form action="#" method="POST" class="space-y-6 text-left">
-                    <div>
-                        <label for="name" class="block text-gray-300 text-sm font-semibold mb-2">Full Name</label>
-                        <input type="text" id="name" name="name" required
-                            class="w-full p-4 rounded-lg bg-steel-dark text-white border border-gray-600 focus:border-accent-red focus:ring-1 focus:ring-accent-red transition duration-300 placeholder-gray-500"
-                            placeholder="John Doe" autocomplete="name">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-gray-300 text-sm font-semibold mb-2">Email Address</label>
-                        <input type="email" id="email" name="email" required
-                            class="w-full p-4 rounded-lg bg-steel-dark text-white border border-gray-600 focus:border-accent-red focus:ring-1 focus:ring-accent-red transition duration-300 placeholder-gray-500"
-                            placeholder="john.doe@example.com" autocomplete="email">
-                    </div>
-                    <div>
-                        <label for="company" class="block text-gray-300 text-sm font-semibold mb-2">Company Name</label>
-                        <input type="text" id="company" name="company"
-                            class="w-full p-4 rounded-lg bg-steel-dark text-white border border-gray-600 focus:border-accent-red focus:ring-1 focus:ring-accent-red transition duration-300 placeholder-gray-500"
-                            placeholder="Acme Automotive Inc." autocomplete="organization">
-                    </div>
-                    <div>
-                        <label for="subject" class="block text-gray-300 text-sm font-semibold mb-2">Subject</label>
-                        <select id="subject" name="subject" required
-                            class="w-full p-4 rounded-lg bg-steel-dark text-white border border-gray-600 focus:border-accent-red focus:ring-1 focus:ring-accent-red transition duration-300">
-                            <option value="" disabled selected>Select a subject</option>
-                            <option value="General Inquiry">General Inquiry</option>
-                            <option value="Partnership Opportunities">Partnership Opportunities</option>
-                            <option value="Product Support">Product Support</option>
-                            <option value="Careers">Careers</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="message" class="block text-gray-300 text-sm font-semibold mb-2">Your Message</label>
-                        <textarea id="message" name="message" rows="5" required
-                            class="w-full p-4 rounded-lg bg-steel-dark text-white border border-gray-600 focus:border-accent-red focus:ring-1 focus:ring-accent-red transition duration-300 placeholder-gray-500"
-                            placeholder="How can we help you?"></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit"
-                            class="inline-block px-10 py-4 bg-accent-red hover:bg-accent-red-hover text-white text-lg font-bold rounded-full shadow-xl transform transition duration-300 hover:scale-105">
-                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl shadow-2xl p-8 md:p-10 text-left" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="font-poppins text-3xl font-semibold mb-6">Send Us a Message</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-white font-poppins text-sm mb-2">Name</label>
+                            <input type="text" id="name" class="w-full p-3 rounded-lg bg-white/20 border border-white/30 focus:border-white focus:outline-none text-white placeholder-white/70" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-white font-poppins text-sm mb-2">Email</label>
+                            <input type="email" id="email" class="w-full p-3 rounded-lg bg-white/20 border border-white/30 focus:border-white focus:outline-none text-white placeholder-white/70" placeholder="Your Email">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-white font-poppins text-sm mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full p-3 rounded-lg bg-white/20 border border-white/30 focus:border-white focus:outline-none text-white placeholder-white/70" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-white text-zbeda-blue font-poppins px-8 py-3 rounded-full text-lg shadow-xl hover:bg-zbeda-silver transition-colors duration-300 relative overflow-hidden group">
+                            Send Message
                         </button>
+                    </form>
+                    <div class="mt-8 flex flex-col sm:flex-row justify-center sm:space-x-4 space-y-4 sm:space-y-0">
+                        <a href="#" class="bg-white/20 hover:bg-white/30 border border-white/30 text-white font-poppins px-6 py-3 rounded-full transition-all duration-300 text-center">Retailer Login</a>
+                        <a href="#" class="bg-white/20 hover:bg-white/30 border border-white/30 text-white font-poppins px-6 py-3 rounded-full transition-all duration-300 text-center">Become a Partner</a>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-steel-medium py-12 border-t border-gray-700">
+    <footer class="bg-white py-12 md:py-16 relative">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-zbeda-blue-light to-transparent"></div>
         <div class="container mx-auto px-6 text-center">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
-                <a href="#" class="text-3xl font-bold font-serif text-white flex items-center gap-2 mb-4 md:mb-0">
-                    <i class="fas fa-gear text-accent-red"></i> Zbeda <span class="text-accent-red">Group</span>
-                </a>
-                <div class="flex space-x-6 text-gray-400 text-xl">
-                    <a href="#" class="hover:text-accent-red transition duration-300"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="hover:text-accent-red transition duration-300"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="hover:text-accent-red transition duration-300"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="hover:text-accent-red transition duration-300"><i class="fab fa-youtube"></i></a>
+            <div class="mb-8">
+                <img src="https://www.duns100.co.il/Areas/Uploads/companies//438e755c-a474-464d-a9d7-78820f48a3a3.jpg" alt="Zbeda Group Logo" class="h-12 mx-auto">
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left md:text-center mb-10">
+                <div>
+                    <h4 class="font-poppins text-xl font-semibold text-zbeda-blue mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><a href="#about" class="hover:text-zbeda-blue transition-colors">About Us</a></li>
+                        <li><a href="#divisions" class="hover:text-zbeda-blue transition-colors">Divisions</a></li>
+                        <li><a href="#careers" class="hover:text-zbeda-blue transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-zbeda-blue transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-poppins text-xl font-semibold text-zbeda-blue mb-4">Contact Info</h4>
+                    <p class="text-gray-700 mb-2">123 Logistics St, Tel Aviv, Israel</p>
+                    <p class="text-gray-700 mb-2">Phone: +972-3-123-4567</p>
+                    <p class="text-gray-700">Email: info@zbedagroup.com</p>
+                </div>
+                <div>
+                    <h4 class="font-poppins text-xl font-semibold text-zbeda-blue mb-4">Follow Us</h4>
+                    <div class="flex justify-center space-x-6">
+                        <a href="#" class="text-zbeda-blue hover:text-zbeda-blue-light transition-colors" aria-label="LinkedIn">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="#" class="text-zbeda-blue hover:text-zbeda-blue-light transition-colors" aria-label="YouTube">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.615 3.184c-3.623-.341-11.411-.341-15.034 0-2.072.195-2.072 2.898-2.072 2.898v11.834s0 2.703 2.072 2.898c3.623.341 11.411.341 15.034 0 2.072-.195 2.072-2.898 2.072-2.898v-11.834s0-2.703-2.072-2.898zm-11.615 11.816v-8l7 4-7 4z"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <p class="text-gray-400 text-sm">&copy; 2023 Zbeda Group. All rights reserved. Driving the future, since 1965.</p>
+            <p class="text-gray-500 text-sm mt-8">&copy; 2023 Zbeda Group. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Simple JavaScript for mobile menu toggle -->
+    <!-- AOS JS CDN -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        document.getElementById('mobile-menu-button').onclick = function () {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true, // Only animate once as you scroll down
+            mirror: false, // Do not animate on scroll up
+            easing: 'ease-out-cubic',
+        });
+
+        // Navbar Scroll Effect: turns translucent when scrolling
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-zbeda-blue', 'bg-opacity-80', 'backdrop-blur-md', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-zbeda-blue', 'bg-opacity-80', 'backdrop-blur-md', 'shadow-lg');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dynamic Counters
+        const counters = document.querySelectorAll('.counter');
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5 // Trigger when 50% of the element is visible
         };
+
+        const animateCounter = (entry, observer) => {
+            if (entry.isIntersecting) {
+                const target = parseInt(entry.target.dataset.target || 0);
+                let current = 0;
+                const duration = 2000; // 2 seconds
+                const start = performance.now();
+
+                const updateCounter = (timestamp) => {
+                    const progress = (timestamp - start) / duration;
+                    if (progress < 1) {
+                        current = Math.min(target, Math.floor(target * progress));
+                        entry.target.textContent = current.toLocaleString();
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        entry.target.textContent = target.toLocaleString();
+                    }
+                };
+                requestAnimationFrame(updateCounter);
+                observer.unobserve(entry.target); // Stop observing once animated
+            }
+        };
+
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => animateCounter(entry, observer));
+        }, options);
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        // Careers Section Image Slideshow
+        const slideshowImage = document.getElementById('slideshow-image');
+        const images = [
+            "https://media.istockphoto.com/id/1432735210/photo/smiling-courier-loading-hand-truck-stacking-packages.jpg",
+            "https://media.istockphoto.com/id/1313360408/photo/male-and-female-engineers-standing-together-on-warehouse.jpg",
+            "https://media.istockphoto.com/id/1324741366/photo/multiethnic-team-of-employees-working-in-modern-auto-repair-shop.jpg",
+            "https://media.istockphoto.com/id/1360156942/photo/multiethnic-team-of-colleagues-collaborating-in-modern-office.jpg"
+        ];
+        let currentImageIndex = 0;
+
+        function changeSlide() {
+            slideshowImage.classList.add('opacity-0'); // Fade out
+            setTimeout(() => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                slideshowImage.src = images[currentImageIndex];
+                slideshowImage.classList.remove('opacity-0'); // Fade in
+            }, 1000); // Match this duration with CSS transition duration for opacity
+        }
+
+        // Set initial image and fade in after a short delay for AOS init
+        setTimeout(() => {
+            slideshowImage.src = images[0];
+            slideshowImage.classList.remove('opacity-0');
+            // Start slideshow, change every 5 seconds
+            setInterval(changeSlide, 5000);
+        }, 500); // Small delay to allow AOS to take effect on surrounding elements first
     </script>
 </body>
 </html>
