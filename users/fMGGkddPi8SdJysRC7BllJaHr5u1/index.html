@@ -1,318 +1,171 @@
+```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Gentleman's Cut - Premium Barber Shop</title>
-    <!-- Tailwind CSS CDN -->
+    <title>The Analog Groove - Vintage Vinyl Records</title>
+    <!-- Google Fonts for serif titles and sans-serif body -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for Playfair Display (headings) and Roboto (body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS Custom Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'display': ['"Playfair Display"', 'serif'],
-                        'body': ['Roboto', 'sans-serif'],
+                        'serif-display': ['"Playfair Display"', 'serif'],
+                        'sans-body': ['"Open Sans"', 'sans-serif'],
                     },
                     colors: {
-                        amber: {
-                            500: '#F59E0B', // Primary accent color
-                            600: '#D97706', // Darker accent for hover states
-                        },
-                        gray: {
-                            950: '#0F0F0F', // Darkest background
-                            900: '#1A1A1A', // Dark background for sections
-                            800: '#2A2A2A', // Slightly lighter background for alternating sections
-                            700: '#3A3A3A', // Border/divider color
-                            300: '#D1D5DB', // Light text
-                            400: '#9CA3AF', // Footer text / secondary text
-                        }
+                        'dark-bg': '#1f1e1e', // Very dark grey, almost black
+                        'vintage-orange': '#e05710', // Deep burnt orange
+                        'vintage-yellow': '#f0c74a', // Mustard yellow
+                        'vintage-teal': '#0f766e', // Darker teal
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="font-body antialiased text-white bg-gray-950">
+<body class="bg-dark-bg text-gray-200 font-sans-body leading-relaxed">
 
-    <!-- Header & Navigation -->
-    <header class="bg-gray-950 shadow-lg fixed w-full z-50">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between relative">
-            <a href="#home" class="flex items-center space-x-2">
-                <span class="text-3xl font-display text-amber-500">The Gentleman's Cut</span>
-            </a>
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-lg font-semibold hover:text-amber-500 transition duration-300">Home</a>
-                <a href="#about" class="text-lg font-semibold hover:text-amber-500 transition duration-300">About Us</a>
-                <a href="#services" class="text-lg font-semibold hover:text-amber-500 transition duration-300">Services</a>
-                <a href="#gallery" class="text-lg font-semibold hover:text-amber-500 transition duration-300">Gallery</a>
-                <a href="#testimonials" class="text-lg font-semibold hover:text-amber-500 transition duration-300">Testimonials</a>
-                <a href="#contact" class="text-lg font-semibold hover:text-amber-500 transition duration-300">Contact</a>
-            </div>
-
-            <!-- Mobile Menu Button (Hamburger Icon) - Checkbox Hack for pure HTML menu -->
-            <div class="md:hidden">
-                <input type="checkbox" id="menu-toggle" class="hidden peer">
-                <label for="menu-toggle" class="cursor-pointer text-white text-3xl">
-                    &#9776; <!-- Unicode Hamburger icon -->
-                </label>
-                <!-- Mobile Menu Content -->
-                <div class="peer-checked:flex hidden flex-col absolute top-full left-0 w-full bg-gray-900 shadow-lg py-4 transition-all duration-300 ease-in-out">
-                    <a href="#home" class="block px-4 py-2 text-lg hover:bg-gray-800 hover:text-amber-500 transition duration-300" onclick="document.getElementById('menu-toggle').checked = false;">Home</a>
-                    <a href="#about" class="block px-4 py-2 text-lg hover:bg-gray-800 hover:text-amber-500 transition duration-300" onclick="document.getElementById('menu-toggle').checked = false;">About Us</a>
-                    <a href="#services" class="block px-4 py-2 text-lg hover:bg-gray-800 hover:text-amber-500 transition duration-300" onclick="document.getElementById('menu-toggle').checked = false;">Services</a>
-                    <a href="#gallery" class="block px-4 py-2 text-lg hover:bg-gray-800 hover:text-amber-500 transition duration-300" onclick="document.getElementById('menu-toggle').checked = false;">Gallery</a>
-                    <a href="#testimonials" class="block px-4 py-2 text-lg hover:bg-gray-800 hover:text-amber-500 transition duration-300" onclick="document.getElementById('menu-toggle').checked = false;">Testimonials</a>
-                    <a href="#contact" class="block px-4 py-2 text-lg hover:bg-gray-800 hover:text-amber-500 transition duration-300" onclick="document.getElementById('menu-toggle').checked = false;">Contact</a>
-                </div>
-            </div>
-        </nav>
+    <!-- Header/Hero Section -->
+    <header class="relative h-screen flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1514322792697-a7732a0c64b5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+        <div class="absolute inset-0 bg-dark-bg opacity-70"></div>
+        <div class="relative z-10 p-6 md:p-10 max-w-4xl mx-auto">
+            <h1 class="font-serif-display text-5xl md:text-7xl lg:text-8xl font-bold text-vintage-yellow mb-4 drop-shadow-lg">The Analog Groove</h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-prose mx-auto">Where the Classics Live Forever.</p>
+            <a href="#products" class="inline-block bg-vintage-orange text-white font-sans-body font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-vintage-yellow hover:text-dark-bg transition duration-300 transform hover:scale-105">Shop Now</a>
+        </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="relative bg-[url('https://images.unsplash.com/photo-1502085521731-1510e11894a7?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-fixed h-screen flex items-center justify-center text-center pt-16">
-            <div class="absolute inset-0 bg-black opacity-70"></div>
-            <div class="relative z-10 text-white p-6 max-w-4xl mx-auto">
-                <h1 class="text-5xl md:text-7xl font-display font-extrabold mb-4 leading-tight">
-                    Crafting <span class="text-amber-500">Timeless Styles</span> & Unforgettable Experiences
-                </h1>
-                <p class="text-lg md:text-xl mb-8 text-gray-300">
-                    Experience the art of grooming with precision cuts, classic shaves, and modern styles in a refined atmosphere.
-                </p>
-                <a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-white font-bold font-body py-4 px-10 rounded-full text-xl uppercase tracking-wide transition duration-300 ease-in-out shadow-lg hover:shadow-xl">
-                    Book Your Appointment
-                </a>
-            </div>
-        </section>
-
-        <!-- About Us Section -->
-        <section id="about" class="py-20 bg-gray-900">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="order-2 md:order-1">
-                        <h2 class="text-4xl font-display font-bold text-amber-500 mb-6">Our Legacy of Excellence</h2>
-                        <p class="text-lg text-gray-300 leading-relaxed mb-4">
-                            The Gentleman's Cut is more than just a barber shop; it's a sanctuary where tradition meets contemporary style. Founded on the principles of precision, passion, and unparalleled service, we've dedicated ourselves to the art of men's grooming.
-                        </p>
-                        <p class="text-lg text-gray-300 leading-relaxed">
-                            Our skilled barbers are masters of their craft, ensuring every cut, shave, and trim is executed with meticulous attention to detail. We use only the finest products to provide a luxurious and invigorating experience, leaving you looking sharp and feeling confident.
-                        </p>
-                    </div>
-                    <div class="order-1 md:order-2">
-                        <img src="https://images.unsplash.com/photo-1599388140411-e6e16f39e31a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Barber shop interior with classic chairs" class="rounded-xl shadow-2xl w-full h-auto object-cover max-h-96 md:max-h-full">
-                    </div>
+    <!-- Featured Products Section -->
+    <section id="products" class="py-16 md:py-24 bg-dark-bg relative z-20">
+        <div class="container mx-auto px-6">
+            <h2 class="font-serif-display text-4xl md:text-5xl font-bold text-vintage-yellow text-center mb-12">Featured Records</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                <!-- Record Card 1 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 transition duration-300 transform border-2 border-transparent hover:border-vintage-orange">
+                    <img src="https://via.placeholder.com/200x200?text=Dark+Side+of+the+Moon" alt="Album art for Dark Side of the Moon" class="w-full h-auto rounded-md mb-4 object-cover">
+                    <h3 class="font-sans-body text-xl font-bold text-vintage-yellow mb-1">Dark Side of the Moon</h3>
+                    <p class="text-gray-300 text-sm mb-2">Pink Floyd</p>
+                    <p class="text-vintage-teal text-lg font-semibold mb-4">$34.99</p>
+                    <button class="w-full bg-vintage-orange text-white py-2 rounded-full hover:bg-vintage-yellow hover:text-dark-bg transition duration-300">Add to Cart</button>
+                </div>
+                <!-- Record Card 2 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 transition duration-300 transform border-2 border-transparent hover:border-vintage-orange">
+                    <img src="https://via.placeholder.com/200x200?text=Led+Zeppelin+IV" alt="Album art for Led Zeppelin IV" class="w-full h-auto rounded-md mb-4 object-cover">
+                    <h3 class="font-sans-body text-xl font-bold text-vintage-yellow mb-1">Led Zeppelin IV</h3>
+                    <p class="text-gray-300 text-sm mb-2">Led Zeppelin</p>
+                    <p class="text-vintage-teal text-lg font-semibold mb-4">$32.50</p>
+                    <button class="w-full bg-vintage-orange text-white py-2 rounded-full hover:bg-vintage-yellow hover:text-dark-bg transition duration-300">Add to Cart</button>
+                </div>
+                <!-- Record Card 3 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 transition duration-300 transform border-2 border-transparent hover:border-vintage-orange">
+                    <img src="https://via.placeholder.com/200x200?text=Rumours" alt="Album art for Rumours" class="w-full h-auto rounded-md mb-4 object-cover">
+                    <h3 class="font-sans-body text-xl font-bold text-vintage-yellow mb-1">Rumours</h3>
+                    <p class="text-gray-300 text-sm mb-2">Fleetwood Mac</p>
+                    <p class="text-vintage-teal text-lg font-semibold mb-4">$29.99</p>
+                    <button class="w-full bg-vintage-orange text-white py-2 rounded-full hover:bg-vintage-yellow hover:text-dark-bg transition duration-300">Add to Cart</button>
+                </div>
+                <!-- Record Card 4 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 transition duration-300 transform border-2 border-transparent hover:border-vintage-orange">
+                    <img src="https://via.placeholder.com/200x200?text=Abbey+Road" alt="Album art for Abbey Road" class="w-full h-auto rounded-md mb-4 object-cover">
+                    <h3 class="font-sans-body text-xl font-bold text-vintage-yellow mb-1">Abbey Road</h3>
+                    <p class="text-gray-300 text-sm mb-2">The Beatles</p>
+                    <p class="text-vintage-teal text-lg font-semibold mb-4">$39.00</p>
+                    <button class="w-full bg-vintage-orange text-white py-2 rounded-full hover:bg-vintage-yellow hover:text-dark-bg transition duration-300">Add to Cart</button>
+                </div>
+                <!-- Record Card 5 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 transition duration-300 transform border-2 border-transparent hover:border-vintage-orange">
+                    <img src="https://via.placeholder.com/200x200?text=A+Night+at+the+Opera" alt="Album art for A Night at the Opera" class="w-full h-auto rounded-md mb-4 object-cover">
+                    <h3 class="font-sans-body text-xl font-bold text-vintage-yellow mb-1">A Night at the Opera</h3>
+                    <p class="text-gray-300 text-sm mb-2">Queen</p>
+                    <p class="text-vintage-teal text-lg font-semibold mb-4">$31.99</p>
+                    <button class="w-full bg-vintage-orange text-white py-2 rounded-full hover:bg-vintage-yellow hover:text-dark-bg transition duration-300">Add to Cart</button>
+                </div>
+                <!-- Record Card 6 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 transition duration-300 transform border-2 border-transparent hover:border-vintage-orange">
+                    <img src="https://via.placeholder.com/200x200?text=Sticky+Fingers" alt="Album art for Sticky Fingers" class="w-full h-auto rounded-md mb-4 object-cover">
+                    <h3 class="font-sans-body text-xl font-bold text-vintage-yellow mb-1">Sticky Fingers</h3>
+                    <p class="text-gray-300 text-sm mb-2">The Rolling Stones</p>
+                    <p class="text-vintage-teal text-lg font-semibold mb-4">$28.75</p>
+                    <button class="w-full bg-vintage-orange text-white py-2 rounded-full hover:bg-vintage-yellow hover:text-dark-bg transition duration-300">Add to Cart</button>
+                </div>
+                <!-- Record Card 7 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 transition duration-300 transform border-2 border-transparent hover:border-vintage-orange">
+                    <img src="https://via.placeholder.com/200x200?text=Hotel+California" alt="Album art for Hotel California" class="w-full h-auto rounded-md mb-4 object-cover">
+                    <h3 class="font-sans-body text-xl font-bold text-vintage-yellow mb-1">Hotel California</h3>
+                    <p class="text-gray-300 text-sm mb-2">Eagles</p>
+                    <p class="text-vintage-teal text-lg font-semibold mb-4">$27.50</p>
+                    <button class="w-full bg-vintage-orange text-white py-2 rounded-full hover:bg-vintage-yellow hover:text-dark-bg transition duration-300">Add to Cart</button>
+                </div>
+                <!-- Record Card 8 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 transition duration-300 transform border-2 border-transparent hover:border-vintage-orange">
+                    <img src="https://via.placeholder.com/200x200?text=Back+in+Black" alt="Album art for Back in Black" class="w-full h-auto rounded-md mb-4 object-cover">
+                    <h3 class="font-sans-body text-xl font-bold text-vintage-yellow mb-1">Back in Black</h3>
+                    <p class="text-gray-300 text-sm mb-2">AC/DC</p>
+                    <p class="text-vintage-teal text-lg font-semibold mb-4">$30.00</p>
+                    <button class="w-full bg-vintage-orange text-white py-2 rounded-full hover:bg-vintage-yellow hover:text-dark-bg transition duration-300">Add to Cart</button>
+                </div>
+                <!-- Record Card 9 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 transition duration-300 transform border-2 border-transparent hover:border-vintage-orange">
+                    <img src="https://via.placeholder.com/200x200?text=Are+You+Experienced" alt="Album art for Are You Experienced" class="w-full h-auto rounded-md mb-4 object-cover">
+                    <h3 class="font-sans-body text-xl font-bold text-vintage-yellow mb-1">Are You Experienced</h3>
+                    <p class="text-gray-300 text-sm mb-2">Jimi Hendrix Experience</p>
+                    <p class="text-vintage-teal text-lg font-semibold mb-4">$35.99</p>
+                    <button class="w-full bg-vintage-orange text-white py-2 rounded-full hover:bg-vintage-yellow hover:text-dark-bg transition duration-300">Add to Cart</button>
+                </div>
+                <!-- Record Card 10 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 transition duration-300 transform border-2 border-transparent hover:border-vintage-orange">
+                    <img src="https://via.placeholder.com/200x200?text=Chronicle" alt="Album art for Chronicle" class="w-full h-auto rounded-md mb-4 object-cover">
+                    <h3 class="font-sans-body text-xl font-bold text-vintage-yellow mb-1">Chronicle</h3>
+                    <p class="text-gray-300 text-sm mb-2">Creedence Clearwater Revival</p>
+                    <p class="text-vintage-teal text-lg font-semibold mb-4">$26.99</p>
+                    <button class="w-full bg-vintage-orange text-white py-2 rounded-full hover:bg-vintage-yellow hover:text-dark-bg transition duration-300">Add to Cart</button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Services Section -->
-        <section id="services" class="py-20 bg-gray-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-display font-bold text-center text-amber-500 mb-12">Our Signature Services</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service Card 1 -->
-                    <div class="bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-amber-500">
-                        <h3 class="text-2xl font-display font-semibold mb-3 text-amber-500">The Classic Haircut</h3>
-                        <p class="text-gray-300 text-lg mb-4">A tailored haircut finished with a hot towel, straight razor neck shave, and expert styling.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-3xl font-bold text-white">$45</span>
-                            <a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-full text-md transition duration-300">Book Now</a>
-                        </div>
-                    </div>
-                    <!-- Service Card 2 -->
-                    <div class="bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-amber-500">
-                        <h3 class="text-2xl font-display font-semibold mb-3 text-amber-500">Traditional Hot Shave</h3>
-                        <p class="text-gray-300 text-lg mb-4">Experience the ultimate closeness with multiple hot towels, pre-shave oil, and a sharp straight razor finish.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-3xl font-bold text-white">$35</span>
-                            <a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-full text-md transition duration-300">Book Now</a>
-                        </div>
-                    </div>
-                    <!-- Service Card 3 -->
-                    <div class="bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-amber-500">
-                        <h3 class="text-2xl font-display font-semibold mb-3 text-amber-500">Beard Trim & Shape</h3>
-                        <p class="text-gray-300 text-lg mb-4">Precision beard trimming, shaping, and conditioning, tailored to perfection.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-3xl font-bold text-white">$25</span>
-                            <a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-full text-md transition duration-300">Book Now</a>
-                        </div>
-                    </div>
-                    <!-- Service Card 4 -->
-                    <div class="bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-amber-500">
-                        <h3 class="text-2xl font-display font-semibold mb-3 text-amber-500">Father & Son Package</h3>
-                        <p class="text-gray-300 text-lg mb-4">A bonding experience with a classic cut for dad and a stylish trim for the young gentleman.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-3xl font-bold text-white">$70</span>
-                            <a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-full text-md transition duration-300">Book Now</a>
-                        </div>
-                    </div>
-                    <!-- Service Card 5 -->
-                    <div class="bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-amber-500">
-                        <h3 class="text-2xl font-display font-semibold mb-3 text-amber-500">Head Shave</h3>
-                        <p class="text-gray-300 text-lg mb-4">A close and clean head shave with hot towels and soothing aftershave treatment.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-3xl font-bold text-white">$40</span>
-                            <a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-full text-md transition duration-300">Book Now</a>
-                        </div>
-                    </div>
-                    <!-- Service Card 6 -->
-                    <div class="bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-amber-500">
-                        <h3 class="text-2xl font-display font-semibold mb-3 text-amber-500">Grey Blending</h3>
-                        <p class="text-gray-300 text-lg mb-4">Subtle color treatment to reduce the appearance of grey hair for a natural look.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-3xl font-bold text-white">$50</span>
-                            <a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-full text-md transition duration-300">Book Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery Section -->
-        <section id="gallery" class="py-20 bg-gray-900">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-display font-bold text-center text-amber-500 mb-12">Our Craft in Focus</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <img src="https://images.unsplash.com/photo-1579737976698-1e4e5e1e7e7e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Close-up of a classic haircut" class="rounded-xl shadow-lg object-cover w-full h-64 hover:scale-105 transition-transform duration-300">
-                    <img src="https://images.unsplash.com/photo-1621607563140-5a3962b322a4?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Barber giving a shave with a straight razor" class="rounded-xl shadow-lg object-cover w-full h-64 hover:scale-105 transition-transform duration-300">
-                    <img src="https://images.unsplash.com/photo-1601675713293-f2601956a908?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Stylish beard trim in progress" class="rounded-xl shadow-lg object-cover w-full h-64 hover:scale-105 transition-transform duration-300">
-                    <img src="https://images.unsplash.com/photo-1560934149-8c6f2f27a69b?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Barber shop interior with warm lighting" class="rounded-xl shadow-lg object-cover w-full h-64 hover:scale-105 transition-transform duration-300">
-                    <img src="https://images.unsplash.com/photo-1599388140411-e6e16f39e31a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Customer relaxing in barber chair" class="rounded-xl shadow-lg object-cover w-full h-64 hover:scale-105 transition-transform duration-300">
-                    <img src="https://images.unsplash.com/photo-1574635671168-5226462e92c6?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Stylish side part haircut" class="rounded-xl shadow-lg object-cover w-full h-64 hover:scale-105 transition-transform duration-300">
-                    <img src="https://images.unsplash.com/photo-1570183060002-c8402ac370b3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Tools of the trade: scissors and comb" class="rounded-xl shadow-lg object-cover w-full h-64 hover:scale-105 transition-transform duration-300">
-                    <img src="https://images.unsplash.com/photo-1603502905753-1c3f5c71936c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Modern fade haircut" class="rounded-xl shadow-lg object-cover w-full h-64 hover:scale-105 transition-transform duration-300">
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="py-20 bg-gray-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-display font-bold text-center text-amber-500 mb-12">What Our Gentlemen Say</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Testimonial Card 1 -->
-                    <div class="bg-gray-900 p-8 rounded-xl shadow-lg border border-gray-700">
-                        <p class="text-gray-300 italic text-lg mb-6">"The Gentleman's Cut consistently delivers an exceptional experience. The attention to detail in every cut and shave is unmatched. Truly a cut above the rest!"</p>
-                        <div class="flex items-center">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer Photo" class="w-12 h-12 rounded-full mr-4 border-2 border-amber-500">
-                            <div>
-                                <p class="font-semibold text-white">John Doe</p>
-                                <p class="text-sm text-gray-400">Regular Client</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Testimonial Card 2 -->
-                    <div class="bg-gray-900 p-8 rounded-xl shadow-lg border border-gray-700">
-                        <p class="text-gray-300 italic text-lg mb-6">"Finally found my go-to barber! The hot shave is pure luxury, and my beard has never looked better. The atmosphere is top-notch – classic yet comfortable."</p>
-                        <div class="flex items-center">
-                            <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Customer Photo" class="w-12 h-12 rounded-full mr-4 border-2 border-amber-500">
-                            <div>
-                                <p class="font-semibold text-white">Michael Smith</p>
-                                <p class="text-sm text-gray-400">First-Time Shave</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Testimonial Card 3 -->
-                    <div class="bg-gray-900 p-8 rounded-xl shadow-lg border border-gray-700">
-                        <p class="text-gray-300 italic text-lg mb-6">"From the warm welcome to the perfectly executed haircut, every visit is a pleasure. It's more than just a haircut; it's a grooming ritual I always look forward to."</p>
-                        <div class="flex items-center">
-                            <img src="https://randomuser.me/api/portraits/men/88.jpg" alt="Customer Photo" class="w-12 h-12 rounded-full mr-4 border-2 border-amber-500">
-                            <div>
-                                <p class="font-semibold text-white">David Williams</p>
-                                <p class="text-sm text-gray-400">Loyal Customer</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-gray-900">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-display font-bold text-center text-amber-500 mb-12">Visit Us or Get in Touch</h2>
-                <div class="grid md:grid-cols-2 gap-12 items-start">
-                    <!-- Contact Information -->
-                    <div>
-                        <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-                            Ready for the ultimate grooming experience? We invite you to visit our shop or contact us to schedule your next appointment. Our team is dedicated to providing you with impeccable service.
-                        </p>
-                        <div class="space-y-4 mb-8">
-                            <div>
-                                <h3 class="text-2xl font-display font-semibold text-white mb-2">Our Location</h3>
-                                <p class="text-gray-300 text-lg">
-                                    123 Barber Lane<br>
-                                    Suite 100, Metropolis, CA 90210
-                                </p>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-display font-semibold text-white mb-2">Hours of Operation</h3>
-                                <p class="text-gray-300 text-lg">
-                                    Tuesday - Saturday: 9:00 AM - 7:00 PM<br>
-                                    Sunday - Monday: Closed
-                                </p>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-display font-semibold text-white mb-2">Contact Details</h3>
-                                <p class="text-gray-300 text-lg">
-                                    Phone: <a href="tel:+15551234567" class="text-amber-500 hover:text-amber-600 transition duration-300">(555) 123-4567</a><br>
-                                    Email: <a href="mailto:info@gentlemanscut.com" class="text-amber-500 hover:text-amber-600 transition duration-300">info@gentlemanscut.com</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Contact Form -->
-                    <div>
-                        <form class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700">
-                            <div class="mb-6">
-                                <label for="name" class="block text-gray-300 text-lg font-semibold mb-2">Your Name</label>
-                                <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:border-amber-500 text-white text-lg" placeholder="John Doe">
-                            </div>
-                            <div class="mb-6">
-                                <label for="email" class="block text-gray-300 text-lg font-semibold mb-2">Your Email</label>
-                                <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:border-amber-500 text-white text-lg" placeholder="john.doe@example.com">
-                            </div>
-                            <div class="mb-6">
-                                <label for="message" class="block text-gray-300 text-lg font-semibold mb-2">Your Message</label>
-                                <textarea id="message" name="message" rows="6" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:border-amber-500 text-white text-lg" placeholder="I'd like to book an appointment..."></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold font-body py-3 px-8 rounded-full text-xl uppercase tracking-wide transition duration-300 ease-in-out shadow-lg hover:shadow-xl">
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <!-- About Us Section -->
+    <section class="py-16 md:py-24 bg-dark-bg border-t border-vintage-teal">
+        <div class="container mx-auto px-6 max-w-3xl text-center">
+            <h2 class="font-serif-display text-4xl md:text-5xl font-bold text-vintage-yellow mb-8">About The Analog Groove</h2>
+            <p class="text-lg text-gray-300 mb-4">
+                At The Analog Groove, we believe in the enduring magic of vinyl. Our mission is to preserve the rich, authentic listening experience that only records can provide. We meticulously curate a selection of classic rock masterpieces, ensuring every pressing meets our high standards for sound and quality.
+            </p>
+            <p class="text-lg text-gray-300">
+                Dive into our collection of rare finds and timeless albums, and rediscover the warmth and depth that digital formats simply can't replicate. We're more than a store; we're a community dedicated to the art of the spin.
+            </p>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-950 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <a href="#home" class="flex items-center justify-center space-x-2 mb-6">
-                <span class="text-4xl font-display text-amber-500">The Gentleman's Cut</span>
-            </a>
-            <div class="flex flex-wrap justify-center space-x-6 mb-6">
-                <a href="#home" class="text-lg font-semibold text-gray-300 hover:text-amber-500 transition duration-300">Home</a>
-                <a href="#about" class="text-lg font-semibold text-gray-300 hover:text-amber-500 transition duration-300">About Us</a>
-                <a href="#services" class="text-lg font-semibold text-gray-300 hover:text-amber-500 transition duration-300">Services</a>
-                <a href="#gallery" class="text-lg font-semibold text-gray-300 hover:text-amber-500 transition duration-300">Gallery</a>
-                <a href="#testimonials" class="text-lg font-semibold text-gray-300 hover:text-amber-500 transition duration-300">Testimonials</a>
-                <a href="#contact" class="text-lg font-semibold text-gray-300 hover:text-amber-500 transition duration-300">Contact</a>
-            </div>
-            <div class="text-gray-400 text-md">
-                &copy; 2023 The Gentleman's Cut. All rights reserved.
+    <footer class="bg-gray-900 py-10 md:py-12 text-gray-400 text-center border-t border-vintage-teal">
+        <div class="container mx-auto px-6">
+            <p class="font-serif-display text-2xl font-bold text-vintage-yellow mb-4">The Analog Groove</p>
+            <p>&copy; 2023 The Analog Groove. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-6">
+                <a href="#" class="text-gray-400 hover:text-vintage-orange transition duration-300" aria-label="Facebook">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.505 1.492-3.89 3.776-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-vintage-orange transition duration-300" aria-label="Instagram">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M12 0C8.74 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.636c-.78.303-1.488.7-2.16.711-.665.012-1.293.125-1.854.453C.342 2.378.006 3.093 0 4.316.014 5.617.07 6.012.07 12s-.056 6.383-.07 7.684c.006 1.223.342 1.938.856 2.585.561.328 1.189.441 1.854.453.672.012 1.38.412 2.16.711.765.303 1.635.504 2.913.564C8.333 23.986 8.74 24 12 24s3.667-.014 4.947-.072c1.278-.06 2.148-.261 2.913-.564.78-.303 1.488-.7 2.16-.711.665-.012 1.293-.125 1.854-.453.514-.328.85-.929.856-2.152.014-1.301.07-1.697.07-7.684s-.056-6.383-.07-7.684C23.994 3.093 23.658 2.378 23.144 1.731c-.561-.328-1.189-.441-1.854-.453-.672-.012-1.38-.412-2.16-.711C18.102.333 17.232.132 15.953.072 14.667.014 14.26 0 12 0zm0 2.16c3.2 0 3.58.012 4.85.071 1.17.055 1.7.247 2.05.385.39.148.67.298.92.547.25.25.4.53.547.92.138.35.33 1.05.385 2.05.059 1.27.071 1.65.071 4.85s-.012 3.58-.071 4.85c-.055 1.17-.247 1.7-.385 2.05-.148.39-.298.67-.547.92-.25.25-.53.4-.92.547-.35.138-1.05.33-2.05.385-1.27.059-1.65.071-4.85.071s-3.58-.012-4.85-.071c-1.17-.055-1.7-.247-2.05-.385-.39-.148-.67-.298-.92-.547-.25-.25-.4-.53-.547-.92-.138-.35-.33-1.05-.385-2.05-.059-1.27-.071-1.65-.071-4.85s.012-3.58.071-4.85c.055-1.17.247-1.7.385-2.05.148-.39.298-.67.547-.92.25-.25.53-.4.92-.547.35-.138 1.05-.33 2.05-.385C8.42 2.172 8.79 2.16 12 2.16zM12 6.865c-2.89 0-5.235 2.334-5.235 5.235 0 2.89 2.335 5.235 5.235 5.235 2.89 0 5.235-2.335 5.235-5.235 0-2.89-2.335-5.235-5.235-5.235zm0 8.535c-1.895 0-3.44-1.545-3.44-3.44 0-1.894 1.545-3.44 3.44-3.44 1.894 0 3.44 1.546 3.44 3.44 0 1.895-1.546 3.44-3.44 3.44zm5.338-8.86a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-vintage-orange transition duration-300" aria-label="X (formerly Twitter)">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.21-6.874L4.929 21.75H1.621l7.394-8.485L1.621 2.25H8.51l4.743 6.257L18.244 2.25zm-2.903 17.525h-1.516L12.563 8.354h1.76l4.908 11.421z" />
+                    </svg>
+                </a>
             </div>
         </div>
     </footer>
 
 </body>
 </html>
+```
