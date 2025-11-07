@@ -4,105 +4,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Secret Life of Everyday Objects</title>
+    <title>Vallerio - A New Era of Time</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Customizing Tailwind config for a fun palette and modern font if needed. -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons (social links) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Tailwind CSS Configuration with custom theme -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['"Inter"', 'sans-serif'], // A modern sans-serif font
-                    },
                     colors: {
-                        'primary-bg-light': '#f9fafb', // light gray background
-                        'accent-purple': '#8b5cf6',    // purple-500
-                        'accent-teal': '#14b8a6',      // teal-500
-                        'hero-start': '#dbeafe',       // blue-100
-                        'hero-end': '#ede9fe',         // violet-100
-                        'card-pencil-start': '#fffbeb',// yellow-50
-                        'card-pencil-end': '#fef3c7',  // amber-100
-                        'card-spoon-start': '#eff6ff', // blue-50
-                        'card-spoon-end': '#e0f2fe',   // sky-100
-                        'card-glasses-start': '#f0fdf4',// emerald-50
-                        'card-glasses-end': '#dcfce7', // green-100
+                        'v-black': '#0F0F0F', // Very dark black
+                        'v-gold': '#B89C6D', // Elegant gold
+                        'v-white': '#F5F5F5', // Off-white for background
+                        'v-gray': '#A0A0A0', // Muted gray for subtle text
+                    },
+                    fontFamily: {
+                        'heading': ['"Playfair Display"', 'serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'fade-in-up-200': 'fadeInUp 0.8s ease-out 0.2s forwards',
+                        'fade-in-up-400': 'fadeInUp 0.8s ease-out 0.4s forwards',
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-primary-bg-light font-sans text-gray-800 antialiased">
+<body class="font-body text-v-white bg-v-black antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-v-black bg-opacity-80 backdrop-blur-sm shadow-md py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-3xl font-heading text-v-gold tracking-wide uppercase">Vallerio</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#collection" class="text-v-white hover:text-v-gold transition-colors duration-300 text-lg">Collection</a>
+                <a href="#about" class="text-v-white hover:text-v-gold transition-colors duration-300 text-lg">About</a>
+                <a href="#craftsmanship" class="text-v-white hover:text-v-gold transition-colors duration-300 text-lg">Craftsmanship</a>
+                <a href="#lifestyle" class="text-v-white hover:text-v-gold transition-colors duration-300 text-lg">Lifestyle</a>
+                <a href="#contact" class="text-v-white hover:text-v-gold transition-colors duration-300 text-lg">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-v-white focus:outline-none" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-v-black bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8 text-3xl font-heading text-v-gold">
+            <button class="absolute top-6 right-6 text-v-white" id="close-mobile-menu">
+                <i class="fas fa-times text-3xl"></i>
+            </button>
+            <a href="#collection" class="hover:text-v-white transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Collection</a>
+            <a href="#about" class="hover:text-v-white transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a>
+            <a href="#craftsmanship" class="hover:text-v-white transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Craftsmanship</a>
+            <a href="#lifestyle" class="hover:text-v-white transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Lifestyle</a>
+            <a href="#contact" class="hover:text-v-white transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <header class="relative bg-gradient-to-br from-hero-start to-hero-end py-20 px-4 sm:px-6 lg:px-8 text-center overflow-hidden shadow-xl">
-        <!-- Subtle background pattern using inline SVG -->
-        <div class="absolute inset-0 opacity-20" style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c7d2fe' fill-opacity='0.5' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20V40zm20 0L40 20V0H0l20 20V40z'/%3E%3C/g%3E%3C/svg%3E&quot;);"></div>
-        
-        <div class="relative z-10 max-w-4xl mx-auto">
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-indigo-900 leading-tight mb-4 drop-shadow-lg">
-                The Secret Life of <br class="sm:hidden"/>Everyday Objects
-            </h1>
-            <p class="text-xl md:text-2xl text-indigo-700 max-w-2xl mx-auto mb-8">
-                Ever wonder what your humble spoon does when you're not looking? Discover the hidden personalities and nocturnal adventures of the items that share your world.
-            </p>
-            <a href="#objects" class="inline-block bg-accent-purple hover:bg-violet-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 text-lg">
-                Meet The Cast
-            </a>
+    <header class="relative h-screen bg-cover bg-center flex items-center justify-center text-center px-4" style="background-image: url('https://images.unsplash.com/photo-1523275335684-c9f227b68735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80');">
+        <div class="absolute inset-0 bg-v-black opacity-60"></div>
+        <div class="relative z-10 max-w-4xl mx-auto py-20 px-8">
+            <h1 class="text-5xl md:text-7xl font-heading text-v-gold leading-tight mb-6 opacity-0 animate-fade-in-up">A New Era of Time</h1>
+            <p class="text-lg md:text-2xl font-body text-v-white mb-10 opacity-0 animate-fade-in-up-200">Italian craftsmanship, precision engineering, timeless elegance.</p>
+            <a href="#collection" class="inline-block bg-v-gold text-v-black px-10 py-4 rounded-full text-xl font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:-translate-y-1 shadow-lg opacity-0 animate-fade-in-up-400">Explore Collection</a>
         </div>
     </header>
 
-    <!-- Objects Section -->
-    <section id="objects" class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12">Our Quirky Cast of Characters</h2>
+    <!-- Featured Watches Section -->
+    <section id="collection" class="py-20 md:py-32 bg-v-black text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-heading text-v-white mb-16 relative">
+                Our Signature Collection
+                <span class="block w-24 h-1 bg-v-gold mx-auto mt-4"></span>
+            </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                <!-- Card 1: Penelope Pencil -->
-                <div class="bg-gradient-to-br from-card-pencil-start to-card-pencil-end rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-all duration-300 ease-in-out border border-amber-200">
-                    <div class="text-6xl mb-4 text-center">✏️</div>
-                    <h3 class="text-2xl font-semibold text-amber-800 mb-2">Penelope Pencil</h3>
-                    <p class="text-lg font-medium text-orange-700 mb-4">The Meticulous Planner</p>
-                    <p class="text-gray-700 leading-relaxed">
-                        By day, a humble writing tool. By night, Penelope meticulously organizes the desk drawer's thoughts into intricate flowcharts, sketching out escape routes for rogue paperclips and drafting manifestos for forgotten erasers. Her lead may break, but her spirit never does!
-                    </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Watch Card 1 -->
+                <div class="group bg-v-black border border-v-gray border-opacity-30 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 ease-in-out cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1620625528657-611a37c4dd4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80" alt="Vallerio Lumina" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-6 text-v-white">
+                        <h3 class="text-2xl font-heading text-v-gold mb-2">The Lumina</h3>
+                        <p class="text-lg font-body mb-4">Sophisticated. Refined. Timeless.</p>
+                        <p class="text-xl font-heading text-v-gold">€4,800</p>
+                    </div>
                 </div>
 
-                <!-- Card 2: Cedric Spoon -->
-                <div class="bg-gradient-to-br from-card-spoon-start to-card-spoon-end rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-all duration-300 ease-in-out border border-sky-200">
-                    <div class="text-6xl mb-4 text-center">🥄</div>
-                    <h3 class="text-2xl font-semibold text-sky-800 mb-2">Cedric Spoon</h3>
-                    <p class="text-lg font-medium text-blue-700 mb-4">The Culinary Connoisseur</p>
-                    <p class="text-gray-700 leading-relaxed">
-                        After the last bite of cereal, Cedric transforms. He's a secret gourmet, spending his nights crafting miniature, imaginary feasts from kitchen dust and forgotten crumbs, all while critiquing the flavor profiles of last night's dinner leftovers. A true epicurean!
-                    </p>
+                <!-- Watch Card 2 -->
+                <div class="group bg-v-black border border-v-gray border-opacity-30 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 ease-in-out cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1609140974051-ab51206d09d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80" alt="Vallerio Zenith" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-6 text-v-white">
+                        <h3 class="text-2xl font-heading text-v-gold mb-2">The Zenith</h3>
+                        <p class="text-lg font-body mb-4">Peak performance. Unrivaled design.</p>
+                        <p class="text-xl font-heading text-v-gold">€6,200</p>
+                    </div>
                 </div>
 
-                <!-- Card 3: Olivia Glasses -->
-                <div class="bg-gradient-to-br from-card-glasses-start to-card-glasses-end rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-all duration-300 ease-in-out border border-green-200">
-                    <div class="text-6xl mb-4 text-center">👓</div>
-                    <h3 class="text-2xl font-semibold text-emerald-800 mb-2">Olivia Glasses</h3>
-                    <p class="text-lg font-medium text-green-700 mb-4">The Dream Weaver</p>
-                    <p class="text-gray-700 leading-relaxed">
-                        Once the world blurs into sleep, Olivia comes alive. She doesn't just magnify vision; she enhances dreams. Perched on the nightstand, she subtly adjusts the focus of slumber, ensuring vivid adventures and crystal-clear nighttime narratives for her human.
-                    </p>
+                <!-- Watch Card 3 -->
+                <div class="group bg-v-black border border-v-gray border-opacity-30 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 ease-in-out cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1599026046098-17a42a033f7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80" alt="Vallerio Titan" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-6 text-v-white">
+                        <h3 class="text-2xl font-heading text-v-gold mb-2">The Titan</h3>
+                        <p class="text-lg font-body mb-4">Bold presence. Enduring strength.</p>
+                        <p class="text-xl font-heading text-v-gold">€5,500</p>
+                    </div>
+                </div>
+
+                <!-- Watch Card 4 -->
+                <div class="group bg-v-black border border-v-gray border-opacity-30 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 ease-in-out cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1605703632344-0c57c430e793?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80" alt="Vallerio Aura" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-6 text-v-white">
+                        <h3 class="text-2xl font-heading text-v-gold mb-2">The Aura</h3>
+                        <p class="text-lg font-body mb-4">Subtle brilliance. Undeniable charm.</p>
+                        <p class="text-xl font-heading text-v-gold">€4,100</p>
+                    </div>
+                </div>
+
+                <!-- Watch Card 5 -->
+                <div class="group bg-v-black border border-v-gray border-opacity-30 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 ease-in-out cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1574635848529-57776ed76936?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80" alt="Vallerio Obsidian" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-6 text-v-white">
+                        <h3 class="text-2xl font-heading text-v-gold mb-2">The Obsidian</h3>
+                        <p class="text-lg font-body mb-4">Dark elegance. Pure sophistication.</p>
+                        <p class="text-xl font-heading text-v-gold">€7,500</p>
+                    </div>
+                </div>
+
+                <!-- Watch Card 6 -->
+                <div class="group bg-v-black border border-v-gray border-opacity-30 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 ease-in-out cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1622618991485-f5acb063806a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80" alt="Vallerio Celeste" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-6 text-v-white">
+                        <h3 class="text-2xl font-heading text-v-gold mb-2">The Celeste</h3>
+                        <p class="text-lg font-body mb-4">Celestial charm. Exquisite detail.</p>
+                        <p class="text-xl font-heading text-v-gold">€5,900</p>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="text-center">
-                <button class="bg-accent-teal hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 text-lg">
-                    Meet More Objects!
-                </button>
+    <!-- About the Brand Section -->
+    <section id="about" class="py-20 md:py-32 bg-cover bg-center text-center relative" style="background-image: url('https://images.unsplash.com/photo-1601614051016-1f357f83e0c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80');">
+        <div class="absolute inset-0 bg-v-black opacity-70"></div>
+        <div class="relative z-10 container mx-auto px-6 max-w-3xl">
+            <h2 class="text-4xl md:text-5xl font-heading text-v-white mb-16 relative">
+                The Vallerio Legacy
+                <span class="block w-24 h-1 bg-v-gold mx-auto mt-4"></span>
+            </h2>
+            <p class="text-xl md:text-3xl font-heading text-v-gold mb-8 italic leading-relaxed">
+                "Born in Milano. Inspired by tradition. Crafted for those who define their own time."
+            </p>
+            <p class="text-lg md:text-xl font-body text-v-white leading-relaxed">
+                Vallerio represents the pinnacle of Italian watchmaking artistry. Each timepiece is a testament to generations of dedicated artisans, blending classical elegance with innovative engineering. We believe a watch is more than an instrument; it's an extension of your legacy, a statement of your journey.
+            </p>
+        </div>
+    </section>
+
+    <!-- Craftsmanship Section -->
+    <section id="craftsmanship" class="py-20 md:py-32 bg-v-black">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-heading text-v-white text-center mb-16 relative">
+                Uncompromising Craftsmanship
+                <span class="block w-24 h-1 bg-v-gold mx-auto mt-4"></span>
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <p class="text-lg md:text-xl font-body text-v-white leading-relaxed mb-6">
+                        At Vallerio, every watch is a symphony of precision and passion. We meticulously select the finest materials – from scratch-resistant sapphire crystal to ethically sourced carbon steel – ensuring unparalleled durability and timeless beauty.
+                    </p>
+                    <p class="text-lg md:text-xl font-body text-v-white leading-relaxed mb-6">
+                        Our movements, inspired by Swiss tradition and perfected by Italian innovation, are assembled by master watchmakers with decades of experience. Each gear, spring, and jewel is a testament to our relentless pursuit of horological excellence.
+                    </p>
+                    <ul class="text-left space-y-3 text-v-gold text-xl font-heading">
+                        <li><i class="fas fa-gem mr-3"></i>Sapphire Crystal</li>
+                        <li><i class="fas fa-cog mr-3"></i>Swiss-inspired Automatic Movements</li>
+                        <li><i class="fas fa-diamond mr-3"></i>Premium Carbon Steel & Gold Plating</li>
+                        <li><i class="fas fa-hand-sparkles mr-3"></i>Hand-Polished Finishes</li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <img src="https://images.unsplash.com/photo-1610486749303-a1789c6753dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80" alt="Watch movement close-up" class="w-full h-auto rounded-lg shadow-xl object-cover transform hover:scale-105 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1627993043818-f2913e75e926?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80" alt="Watch crown close-up" class="w-full h-auto rounded-lg shadow-xl object-cover transform hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Influencer Style Imagery -->
+    <section id="lifestyle" class="py-20 md:py-32 bg-v-black">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-heading text-v-white text-center mb-16 relative">
+                The Vallerio Lifestyle
+                <span class="block w-24 h-1 bg-v-gold mx-auto mt-4"></span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="relative group overflow-hidden rounded-lg shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1606760227181-c7d9e4a1122f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80" alt="Luxury lifestyle with Vallerio watch" class="w-full h-96 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-v-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end p-6">
+                        <p class="text-v-white text-lg font-heading italic opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700">"Defining my own time."</p>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1622396340455-22d4c062c3e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80" alt="Sophisticated gentleman with Vallerio watch" class="w-full h-96 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-v-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end p-6">
+                        <p class="text-v-white text-lg font-heading italic opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700">"An extension of my ambition."</p>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1599388107953-b09e20a0b63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80" alt="Elegant woman with Vallerio watch" class="w-full h-96 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-v-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end p-6">
+                        <p class="text-v-white text-lg font-heading italic opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700">"Crafted perfection for every moment."</p>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1621213233303-ec5236774c10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80" alt="Vallerio watch on wrist in professional setting" class="w-full h-96 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-v-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end p-6">
+                        <p class="text-v-white text-lg font-heading italic opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700">"Precision that commands respect."</p>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1607590209761-45a2761661d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80" alt="Vallerio watch on hand, minimalist backdrop" class="w-full h-96 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-v-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end p-6">
+                        <p class="text-v-white text-lg font-heading italic opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700">"A touch of gold in every moment."</p>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1606760227181-c7d9e4a1122f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80" alt="Vallerio watch on wrist, driving luxury car" class="w-full h-96 object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-v-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-end p-6">
+                        <p class="text-v-white text-lg font-heading italic opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700">"Luxury on my terms."</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 py-8 px-4 sm:px-6 lg:px-8 text-center text-white text-opacity-75">
-        <p class="text-sm">&copy; 2025 Secret Object Society. All rights reserved.</p>
+    <footer id="contact" class="bg-v-black py-16 text-v-white border-t border-v-gray border-opacity-20">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 text-center md:text-left">
+            <!-- Brand Info -->
+            <div>
+                <a href="#" class="text-3xl font-heading text-v-gold tracking-wide uppercase block mb-4">Vallerio</a>
+                <p class="text-v-gray text-sm leading-relaxed">
+                    Italian craftsmanship, precision engineering, timeless elegance. Crafted for those who define their own time.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-xl font-heading text-v-white mb-6">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="#collection" class="text-v-gray hover:text-v-gold transition-colors duration-300">Collection</a></li>
+                    <li><a href="#about" class="text-v-gray hover:text-v-gold transition-colors duration-300">About Us</a></li>
+                    <li><a href="#craftsmanship" class="text-v-gray hover:text-v-gold transition-colors duration-300">Craftsmanship</a></li>
+                    <li><a href="#lifestyle" class="text-v-gray hover:text-v-gold transition-colors duration-300">Lifestyle</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact & Support -->
+            <div>
+                <h4 class="text-xl font-heading text-v-white mb-6">Contact & Support</h4>
+                <ul class="space-y-3">
+                    <li><a href="mailto:info@vallerio.com" class="text-v-gray hover:text-v-gold transition-colors duration-300">info@vallerio.com</a></li>
+                    <li><a href="tel:+1234567890" class="text-v-gray hover:text-v-gold transition-colors duration-300">+1 (234) 567-890</a></li>
+                    <li><a href="#" class="text-v-gray hover:text-v-gold transition-colors duration-300">Customer Service</a></li>
+                    <li><a href="#" class="text-v-gray hover:text-v-gold transition-colors duration-300">Warranty & Repair</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div>
+                <h4 class="text-xl font-heading text-v-white mb-6">Follow Us</h4>
+                <div class="flex justify-center md:justify-start space-x-6 text-2xl">
+                    <a href="#" class="text-v-gray hover:text-v-gold transition-colors duration-300"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-v-gray hover:text-v-gold transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-v-gray hover:text-v-gold transition-colors duration-300"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-v-gray hover:text-v-gold transition-colors duration-300"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <h4 class="text-xl font-heading text-v-white mt-8 mb-4">Locations</h4>
+                <p class="text-v-gray text-sm">
+                    Milano, Italy<br>
+                    New York, USA<br>
+                    London, UK
+                </p>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 mt-16 text-center text-v-gray text-sm">
+            &copy; 2023 Vallerio. All rights reserved.
+        </div>
     </footer>
 
+    <!-- Simple JavaScript for mobile menu toggle -->
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('hidden');
+        });
+
+        document.getElementById('close-mobile-menu').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        });
+    </script>
 </body>
 </html>
 ```
