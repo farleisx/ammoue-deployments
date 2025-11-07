@@ -4,542 +4,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zbeda Group - Driving Israel’s Automotive Future</title>
-    <!-- Google Fonts for Poppins and Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>The Secret Life of Everyday Objects</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- AOS CSS CDN -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        /* Custom CSS for specific animations and effects not directly available via Tailwind classes */
-
-        /* Ken Burns effect for hero background */
-        .ken-burns {
-            animation: kenBurnsZoom 30s infinite alternate ease-in-out;
-        }
-
-        @keyframes kenBurnsZoom {
-            0% {
-                transform: scale(1) translateX(0);
-                background-position: center center;
-            }
-            100% {
-                transform: scale(1.15) translateX(5%);
-                background-position: 60% center;
-            }
-        }
-
-        /* Parallax effect for backgrounds */
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        /* Custom glow effect on hover for cards/buttons */
-        .glow-hover {
-            transition: all 0.3s ease-in-out;
-            position: relative;
-            z-index: 0;
-            overflow: hidden; /* To contain the pseudo-element glow */
-        }
-        .glow-hover::before {
-            content: '';
-            position: absolute;
-            inset: -2px; /* Defines the spread of the glow */
-            border-radius: inherit;
-            background: linear-gradient(45deg, #0A73E0, #004AAD, #0A73E0); /* Zbeda blue gradient */
-            background-size: 200% 200%;
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out, background-position 0.5s ease-in-out;
-            z-index: -1;
-        }
-        .glow-hover:hover::before {
-            opacity: 1;
-            background-position: 100% 100%;
-        }
-
-        /* Marquee animation for logo carousel */
-        .animate-marquee {
-            animation: marquee 30s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); } /* Half the width of the duplicated content */
-        }
-    </style>
+    <!-- Customizing Tailwind config for a fun palette and modern font if needed. -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        'zbeda-blue': '#004AAD',
-                        'zbeda-silver': '#F3F6FA',
-                        'zbeda-gray': '#D9E0EC',
-                        'zbeda-blue-light': '#0A73E0', // Lighter shade for gradients/glows
-                        'zbeda-blue-dark': '#003380',  // Darker shade for gradients/glows
-                    },
                     fontFamily: {
-                        poppins: ['Poppins', 'sans-serif'],
-                        inter: ['Inter', 'sans-serif'],
+                        sans: ['"Inter"', 'sans-serif'], // A modern sans-serif font
                     },
-                    keyframes: {
-                        // Tailwind will automatically pick up global keyframes and make them utilities
-                        // if used with `animate-[animationName]`.
-                        // Marquee keyframe is defined in a style block above due to complexity of duplication.
-                    },
-                    animation: {
-                        // Custom animations can be defined here if needed, linking to @keyframes above
+                    colors: {
+                        'primary-bg-light': '#f9fafb', // light gray background
+                        'accent-purple': '#8b5cf6',    // purple-500
+                        'accent-teal': '#14b8a6',      // teal-500
+                        'hero-start': '#dbeafe',       // blue-100
+                        'hero-end': '#ede9fe',         // violet-100
+                        'card-pencil-start': '#fffbeb',// yellow-50
+                        'card-pencil-end': '#fef3c7',  // amber-100
+                        'card-spoon-start': '#eff6ff', // blue-50
+                        'card-spoon-end': '#e0f2fe',   // sky-100
+                        'card-glasses-start': '#f0fdf4',// emerald-50
+                        'card-glasses-end': '#dcfce7', // green-100
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="font-inter text-gray-800 antialiased overflow-x-hidden" style="scroll-behavior: smooth;">
-    <!-- Navbar -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 bg-transparent">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="flex items-center space-x-2">
-                <img src="https://www.duns100.co.il/Areas/Uploads/companies//438e755c-a474-464d-a9d7-78820f48a3a3.jpg" alt="Zbeda Group Logo" class="h-10">
-                <span class="text-white text-2xl font-poppins font-semibold hidden md:block">Zbeda Group</span>
-            </a>
-            <div class="hidden lg:flex space-x-8">
-                <a href="#hero" class="text-white hover:text-zbeda-silver font-poppins text-lg transition duration-300">Home</a>
-                <a href="#about" class="text-white hover:text-zbeda-silver font-poppins text-lg transition duration-300">About</a>
-                <a href="#divisions" class="text-white hover:text-zbeda-silver font-poppins text-lg transition duration-300">Divisions</a>
-                <a href="#logistics" class="text-white hover:text-zbeda-silver font-poppins text-lg transition duration-300">Logistics</a>
-                <a href="#partnerships" class="text-white hover:text-zbeda-silver font-poppins text-lg transition duration-300">Partnerships</a>
-                <a href="#careers" class="text-white hover:text-zbeda-silver font-poppins text-lg transition duration-300">Careers</a>
-                <a href="#contact" class="text-white hover:text-zbeda-silver font-poppins text-lg transition duration-300">Contact</a>
-            </div>
-            <div class="lg:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-zbeda-blue bg-opacity-95 z-40 hidden flex-col items-center justify-center space-y-8 text-xl">
-            <button id="close-mobile-menu" class="absolute top-6 right-6 text-white focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <a href="#hero" class="text-white hover:text-zbeda-silver font-poppins text-2xl" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.style.overflow = '';">Home</a>
-            <a href="#about" class="text-white hover:text-zbeda-silver font-poppins text-2xl" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.style.overflow = '';">About</a>
-            <a href="#divisions" class="text-white hover:text-zbeda-silver font-poppins text-2xl" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.style.overflow = '';">Divisions</a>
-            <a href="#logistics" class="text-white hover:text-zbeda-silver font-poppins text-2xl" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.style.overflow = '';">Logistics</a>
-            <a href="#partnerships" class="text-white hover:text-zbeda-silver font-poppins text-2xl" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.style.overflow = '';">Partnerships</a>
-            <a href="#careers" class="text-white hover:text-zbeda-silver font-poppins text-2xl" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.style.overflow = '';">Careers</a>
-            <a href="#contact" class="text-white hover:text-zbeda-silver font-poppins text-2xl" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.style.overflow = '';">Contact</a>
-        </div>
-    </nav>
+<body class="bg-primary-bg-light font-sans text-gray-800 antialiased">
 
     <!-- Hero Section -->
-    <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden bg-gray-900">
-        <div class="absolute inset-0 bg-[url('https://www.dhl.com/discover/content/dam/global-master/4-logistics-advice/import-and-export-advice/wec0759-what-is-logistics/Mobile_Image_991x558.jpg')] bg-cover bg-center parallax ken-burns"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-zbeda-blue/80 to-transparent"></div>
-        <div class="relative z-10 text-white p-6 max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="1500">
-            <h1 class="font-poppins text-4xl md:text-6xl font-semibold mb-4 drop-shadow-lg leading-tight">Driving Israel’s Automotive Future</h1>
-            <p class="font-inter text-xl md:text-2xl mb-8 drop-shadow-md">Since 1965 – Precision, Innovation, and Reliability.</p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="#divisions" class="bg-zbeda-blue-light hover:bg-zbeda-blue text-white font-poppins px-8 py-3 rounded-full text-lg shadow-xl hover:shadow-2xl transition-all duration-300 relative overflow-hidden group">
-                    <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
-                    Explore Divisions
-                </a>
-                <a href="#contact" class="bg-transparent border-2 border-white text-white font-poppins px-8 py-3 rounded-full text-lg shadow-xl hover:bg-white hover:text-zbeda-blue transition-all duration-300 relative overflow-hidden group">
-                    <span class="absolute inset-0 bg-zbeda-blue opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
-                    Contact Us
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="order-2 md:order-1" data-aos="fade-right" data-aos-duration="1000">
-                <img src="https://media.istockphoto.com/id/1432735210/photo/smiling-courier-loading-hand-truck-stacking-packages.jpg?s=612x612&w=0&k=20&c=IfF-7zoYl6f5P598avTbOBARLy57AXuOHfXvZsjQFqY=" alt="Team at work" class="rounded-2xl shadow-2xl w-full h-auto object-cover max-h-[500px] lazyload">
-            </div>
-            <div class="order-1 md:order-2" data-aos="fade-left" data-aos-duration="1000">
-                <h2 class="font-poppins text-4xl md:text-5xl font-semibold text-zbeda-blue mb-6">Over 60 Years of Excellence</h2>
-                <p class="font-inter text-lg text-gray-700 leading-relaxed mb-8">
-                    Since our inception in 1965, Zbeda Group has been at the forefront of Israel’s automotive aftermarket and logistics industry.
-                    We've built a legacy of precision, reliability, and innovation, constantly evolving to meet the dynamic needs of our partners and customers.
-                    Our commitment to excellence drives us forward, ensuring we deliver world-class solutions across every facet of our operations.
-                </p>
-
-                <!-- Animated Timeline -->
-                <div class="relative border-l-2 border-zbeda-gray ml-2 pl-6 mt-10">
-                    <div class="mb-8 relative" data-aos="fade-up" data-aos-delay="200">
-                        <div class="absolute -left-2 top-0 w-4 h-4 bg-zbeda-blue rounded-full shadow-md"></div>
-                        <h3 class="font-poppins text-xl font-semibold text-zbeda-blue">1965: Founding Vision</h3>
-                        <p class="font-inter text-gray-600 mt-1">Zbeda Group established, beginning its journey as a trusted automotive partner.</p>
-                    </div>
-                    <div class="mb-8 relative" data-aos="fade-up" data-aos-delay="400">
-                        <div class="absolute -left-2 top-0 w-4 h-4 bg-zbeda-blue rounded-full shadow-md"></div>
-                        <h3 class="font-poppins text-xl font-semibold text-zbeda-blue">1990s: Strategic Expansion</h3>
-                        <p class="font-inter text-gray-600 mt-1">Diversification into advanced logistics and new automotive divisions.</p>
-                    </div>
-                    <div class="mb-8 relative" data-aos="fade-up" data-aos-delay="600">
-                        <div class="absolute -left-2 top-0 w-4 h-4 bg-zbeda-blue rounded-full shadow-md"></div>
-                        <h3 class="font-poppins text-xl font-semibold text-zbeda-blue">2010s: Tech Integration</h3>
-                        <p class="font-inter text-gray-600 mt-1">Pioneering automation and digital solutions in supply chain management.</p>
-                    </div>
-                    <div class="mb-8 relative" data-aos="fade-up" data-aos-delay="800">
-                        <div class="absolute -left-2 top-0 w-4 h-4 bg-zbeda-blue rounded-full shadow-md"></div>
-                        <h3 class="font-poppins text-xl font-semibold text-zbeda-blue">Today: Future-Ready</h3>
-                        <p class="font-inter text-gray-600 mt-1">Leading Israel's automotive aftermarket with next-gen logistics and unparalleled service.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Divisions Showcase -->
-    <section id="divisions" class="py-16 md:py-24 bg-gradient-to-br from-zbeda-silver to-zbeda-gray">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="font-poppins text-4xl md:text-5xl font-semibold text-zbeda-blue mb-12" data-aos="fade-up">Our Divisions: Powering Every Segment</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Division Card 1 -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:rotate-1 transition-all duration-300 relative overflow-hidden group glow-hover" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="font-poppins text-2xl font-semibold text-zbeda-blue mb-4">Gal-Or</h3>
-                    <p class="font-inter text-gray-700 mb-6">Leading solutions for automotive parts and distribution.</p>
-                    <a href="#" class="inline-block bg-zbeda-blue hover:bg-zbeda-blue-light text-white font-poppins px-6 py-2 rounded-full transition-colors duration-300">Learn More</a>
-                </div>
-                <!-- Division Card 2 -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:rotate-1 transition-all duration-300 relative overflow-hidden group glow-hover" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="font-poppins text-2xl font-semibold text-zbeda-blue mb-4">Sher</h3>
-                    <p class="font-inter text-gray-700 mb-6">Advanced logistics and supply chain management for efficiency.</p>
-                    <a href="#" class="inline-block bg-zbeda-blue hover:bg-zbeda-blue-light text-white font-poppins px-6 py-2 rounded-full transition-colors duration-300">Learn More</a>
-                </div>
-                <!-- Division Card 3 -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:rotate-1 transition-all duration-300 relative overflow-hidden group glow-hover" data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="font-poppins text-2xl font-semibold text-zbeda-blue mb-4">Ferromat</h3>
-                    <p class="font-inter text-gray-700 mb-6">Specialized in heavy equipment parts and industrial solutions.</p>
-                    <a href="#" class="inline-block bg-zbeda-blue hover:bg-zbeda-blue-light text-white font-poppins px-6 py-2 rounded-full transition-colors duration-300">Learn More</a>
-                </div>
-                <!-- Division Card 4 -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:rotate-1 transition-all duration-300 relative overflow-hidden group glow-hover" data-aos="fade-up" data-aos-delay="400">
-                    <h3 class="font-poppins text-2xl font-semibold text-zbeda-blue mb-4">Drive Body</h3>
-                    <p class="font-inter text-gray-700 mb-6">Premium body shop supplies and collision repair expertise.</p>
-                    <a href="#" class="inline-block bg-zbeda-blue hover:bg-zbeda-blue-light text-white font-poppins px-6 py-2 rounded-full transition-colors duration-300">Learn More</a>
-                </div>
-                <!-- Division Card 5 -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:rotate-1 transition-all duration-300 relative overflow-hidden group glow-hover" data-aos="fade-up" data-aos-delay="500">
-                    <h3 class="font-poppins text-2xl font-semibold text-zbeda-blue mb-4">Elrom</h3>
-                    <p class="font-inter text-gray-700 mb-6">Electrical and electronic systems for modern vehicles.</p>
-                    <a href="#" class="inline-block bg-zbeda-blue hover:bg-zbeda-blue-light text-white font-poppins px-6 py-2 rounded-full transition-colors duration-300">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Innovation & Logistics Section -->
-    <section id="logistics" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="order-2 md:order-1" data-aos="fade-right" data-aos-duration="1000">
-                <img src="https://truckguru.co.in/blog/wp-content/uploads/2022/05/what-is-a-logistics-company-1024x1024.jpg" alt="Logistics operations" class="rounded-2xl shadow-2xl w-full h-auto object-cover max-h-[550px] lazyload">
-            </div>
-            <div class="order-1 md:order-2" data-aos="fade-left" data-aos-duration="1000">
-                <h2 class="font-poppins text-4xl md:text-5xl font-semibold text-zbeda-blue mb-6">Innovation in Motion</h2>
-                <p class="font-inter text-lg text-gray-700 leading-relaxed mb-8">
-                    Our logistics operations are powered by cutting-edge technology and a commitment to efficiency. From automated warehousing to intelligent route optimization,
-                    Zbeda Group ensures swift, accurate, and reliable delivery across Israel. Experience the future of automotive aftermarket logistics.
-                </p>
-
-                <div class="grid grid-cols-2 gap-8 mb-10">
-                    <div class="text-center p-4 bg-zbeda-silver rounded-lg shadow-md" data-aos="zoom-in" data-aos-delay="100">
-                        <p class="font-poppins text-4xl md:text-5xl font-bold text-zbeda-blue mb-2"><span id="counter1" class="counter" data-target="19320">0</span>+</p>
-                        <p class="font-inter text-lg text-gray-800">Boxes Handled Daily</p>
-                    </div>
-                    <div class="text-center p-4 bg-zbeda-silver rounded-lg shadow-md" data-aos="zoom-in" data-aos-delay="200">
-                        <p class="font-poppins text-4xl md:text-5xl font-bold text-zbeda-blue mb-2"><span id="counter2" class="counter" data-target="500">0</span>+</p>
-                        <p class="font-inter text-lg text-gray-800">Daily Dispatches</p>
-                    </div>
-                </div>
-
-                <div class="flex flex-wrap gap-6 justify-center md:justify-start">
-                    <div class="flex items-center space-x-3 p-4 bg-zbeda-silver rounded-full shadow-md" data-aos="fade-up" data-aos-delay="300">
-                        <svg class="w-8 h-8 text-zbeda-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        <span class="font-poppins text-lg text-gray-800">Speed</span>
-                    </div>
-                    <div class="flex items-center space-x-3 p-4 bg-zbeda-silver rounded-full shadow-md" data-aos="fade-up" data-aos-delay="400">
-                        <svg class="w-8 h-8 text-zbeda-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <span class="font-poppins text-lg text-gray-800">Automation</span>
-                    </div>
-                    <div class="flex items-center space-x-3 p-4 bg-zbeda-silver rounded-full shadow-md" data-aos="fade-up" data-aos-delay="500">
-                        <svg class="w-8 h-8 text-zbeda-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span class="font-poppins text-lg text-gray-800">Accuracy</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Global Partnerships -->
-    <section id="partnerships" class="py-16 md:py-24 bg-zbeda-silver">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="font-poppins text-4xl md:text-5xl font-semibold text-zbeda-blue mb-12" data-aos="fade-up">Our Global Partnership Network</h2>
-            <p class="font-inter text-lg text-gray-700 max-w-3xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="200">
-                Collaborating with leading brands worldwide, we bring the best of global automotive innovation to Israel. Our extensive network ensures unparalleled access and service.
+    <header class="relative bg-gradient-to-br from-hero-start to-hero-end py-20 px-4 sm:px-6 lg:px-8 text-center overflow-hidden shadow-xl">
+        <!-- Subtle background pattern using inline SVG -->
+        <div class="absolute inset-0 opacity-20" style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c7d2fe' fill-opacity='0.5' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20V40zm20 0L40 20V0H0l20 20V40z'/%3E%3C/g%3E%3C/svg%3E&quot;);"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-indigo-900 leading-tight mb-4 drop-shadow-lg">
+                The Secret Life of <br class="sm:hidden"/>Everyday Objects
+            </h1>
+            <p class="text-xl md:text-2xl text-indigo-700 max-w-2xl mx-auto mb-8">
+                Ever wonder what your humble spoon does when you're not looking? Discover the hidden personalities and nocturnal adventures of the items that share your world.
             </p>
-
-            <!-- Logo Carousel -->
-            <div class="relative overflow-hidden py-8">
-                <div class="flex animate-marquee whitespace-nowrap">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_DHL.svg/1200px-Logo_DHL.svg.png" alt="DHL Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Mercedes-Benz_Logo.svg/1200px-Mercedes-Benz_Logo.svg.png" alt="Mercedes-Benz Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_logo_%28gray%29.svg/1200px-BMW_logo_%28gray%29.svg.png" alt="BMW Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Bosch_logo.svg/1200px-Bosch_logo.svg.png" alt="Bosch Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Continental-Logo.svg/1200px-Continental-Logo.svg.png" alt="Continental Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
-                    <!-- Duplicate logos for seamless looping -->
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_DHL.svg/1200px-Logo_DHL.svg.png" alt="DHL Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Mercedes-Benz_Logo.svg/1200px-Mercedes-Benz_Logo.svg.png" alt="Mercedes-Benz Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_logo_%28gray%29.svg/1200px-BMW_logo_%28gray%29.svg.png" alt="BMW Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Bosch_logo.svg/1200px-Bosch_logo.svg.png" alt="Bosch Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Continental-Logo.svg/1200px-Continental-Logo.svg.png" alt="Continental Logo" class="h-16 mx-8 lazyload opacity-75 hover:opacity-100 transition-opacity duration-300">
-                </div>
-            </div>
+            <a href="#objects" class="inline-block bg-accent-purple hover:bg-violet-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 text-lg">
+                Meet The Cast
+            </a>
         </div>
-    </section>
+    </header>
 
-    <!-- Careers & Culture -->
-    <section id="careers" class="py-16 md:py-24 bg-gradient-to-tr from-white to-zbeda-silver">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="font-poppins text-4xl md:text-5xl font-semibold text-zbeda-blue mb-12" data-aos="fade-up">Join Israel’s Automotive Powerhouse</h2>
-            <p class="font-inter text-lg text-gray-700 max-w-3xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="200">
-                At Zbeda Group, we believe our people are our greatest asset. Join a team dedicated to innovation, collaboration, and making a real impact in Israel's automotive landscape.
-            </p>
+    <!-- Objects Section -->
+    <section id="objects" class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12">Our Quirky Cast of Characters</h2>
 
-            <!-- Image Slideshow -->
-            <div class="relative w-full max-w-4xl mx-auto h-96 bg-gray-200 rounded-2xl shadow-2xl overflow-hidden mb-12" data-aos="zoom-in" data-aos-delay="300">
-                <img id="slideshow-image" src="" alt="Team at Zbeda Group" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0 lazyload">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Card 1: Penelope Pencil -->
+                <div class="bg-gradient-to-br from-card-pencil-start to-card-pencil-end rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-all duration-300 ease-in-out border border-amber-200">
+                    <div class="text-6xl mb-4 text-center">✏️</div>
+                    <h3 class="text-2xl font-semibold text-amber-800 mb-2">Penelope Pencil</h3>
+                    <p class="text-lg font-medium text-orange-700 mb-4">The Meticulous Planner</p>
+                    <p class="text-gray-700 leading-relaxed">
+                        By day, a humble writing tool. By night, Penelope meticulously organizes the desk drawer's thoughts into intricate flowcharts, sketching out escape routes for rogue paperclips and drafting manifestos for forgotten erasers. Her lead may break, but her spirit never does!
+                    </p>
+                </div>
+
+                <!-- Card 2: Cedric Spoon -->
+                <div class="bg-gradient-to-br from-card-spoon-start to-card-spoon-end rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-all duration-300 ease-in-out border border-sky-200">
+                    <div class="text-6xl mb-4 text-center">🥄</div>
+                    <h3 class="text-2xl font-semibold text-sky-800 mb-2">Cedric Spoon</h3>
+                    <p class="text-lg font-medium text-blue-700 mb-4">The Culinary Connoisseur</p>
+                    <p class="text-gray-700 leading-relaxed">
+                        After the last bite of cereal, Cedric transforms. He's a secret gourmet, spending his nights crafting miniature, imaginary feasts from kitchen dust and forgotten crumbs, all while critiquing the flavor profiles of last night's dinner leftovers. A true epicurean!
+                    </p>
+                </div>
+
+                <!-- Card 3: Olivia Glasses -->
+                <div class="bg-gradient-to-br from-card-glasses-start to-card-glasses-end rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-all duration-300 ease-in-out border border-green-200">
+                    <div class="text-6xl mb-4 text-center">👓</div>
+                    <h3 class="text-2xl font-semibold text-emerald-800 mb-2">Olivia Glasses</h3>
+                    <p class="text-lg font-medium text-green-700 mb-4">The Dream Weaver</p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Once the world blurs into sleep, Olivia comes alive. She doesn't just magnify vision; she enhances dreams. Perched on the nightstand, she subtly adjusts the focus of slumber, ensuring vivid adventures and crystal-clear nighttime narratives for her human.
+                    </p>
+                </div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Job Card 1 -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-all duration-300 group overflow-hidden relative" data-aos="fade-up" data-aos-delay="400">
-                    <h3 class="font-poppins text-2xl font-semibold text-zbeda-blue mb-3">Logistics Manager</h3>
-                    <p class="font-inter text-gray-700 mb-4">Oversee and optimize supply chain operations.</p>
-                    <button class="bg-zbeda-blue hover:bg-zbeda-blue-light text-white font-poppins px-6 py-2 rounded-full transition-colors duration-300">Apply Now</button>
-                </div>
-                <!-- Job Card 2 -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-all duration-300 group overflow-hidden relative" data-aos="fade-up" data-aos-delay="500">
-                    <h3 class="font-poppins text-2xl font-semibold text-zbeda-blue mb-3">Automotive Technician</h3>
-                    <p class="font-inter text-gray-700 mb-4">Expert in vehicle diagnostics and repair.</p>
-                    <button class="bg-zbeda-blue hover:bg-zbeda-blue-light text-white font-poppins px-6 py-2 rounded-full transition-colors duration-300">Apply Now</button>
-                </div>
-                <!-- Job Card 3 -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-all duration-300 group overflow-hidden relative" data-aos="fade-up" data-aos-delay="600">
-                    <h3 class="font-poppins text-2xl font-semibold text-zbeda-blue mb-3">Sales Representative</h3>
-                    <p class="font-inter text-gray-700 mb-4">Drive growth and foster client relationships.</p>
-                    <button class="bg-zbeda-blue hover:bg-zbeda-blue-light text-white font-poppins px-6 py-2 rounded-full transition-colors duration-300">Apply Now</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact / B2B Portal -->
-    <section id="contact" class="py-16 md:py-24 bg-gradient-to-br from-zbeda-blue to-zbeda-blue-dark text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="font-poppins text-4xl md:text-5xl font-semibold mb-6" data-aos="fade-up">Get in Touch with Zbeda Group</h2>
-            <p class="font-inter text-lg max-w-3xl mx-auto mb-12 opacity-90" data-aos="fade-up" data-aos-delay="200">
-                Whether you're looking to partner with us, explore career opportunities, or simply have a question, we're here to help. Reach out and experience our commitment to service.
-            </p>
-
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="relative w-full h-80 md:h-[500px] rounded-2xl shadow-2xl overflow-hidden bg-gray-100" data-aos="zoom-in" data-aos-delay="300">
-                    <!-- Google Maps Embed for Tel Aviv-Yafo, Israel -->
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108221.0505199653!2d34.7360219616035!3d32.07172445831586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4ca61937ce2f%3A0x90c58e1c6b541300!2sTel%20Aviv-Yafo!5e0!3m2!1sen!2sil!4v1701388656789!5m2!1sen!2sil"
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-
-                <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl shadow-2xl p-8 md:p-10 text-left" data-aos="fade-up" data-aos-delay="400">
-                    <h3 class="font-poppins text-3xl font-semibold mb-6">Send Us a Message</h3>
-                    <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-white font-poppins text-sm mb-2">Name</label>
-                            <input type="text" id="name" class="w-full p-3 rounded-lg bg-white/20 border border-white/30 focus:border-white focus:outline-none text-white placeholder-white/70" placeholder="Your Name">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-white font-poppins text-sm mb-2">Email</label>
-                            <input type="email" id="email" class="w-full p-3 rounded-lg bg-white/20 border border-white/30 focus:border-white focus:outline-none text-white placeholder-white/70" placeholder="Your Email">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-white font-poppins text-sm mb-2">Message</label>
-                            <textarea id="message" rows="4" class="w-full p-3 rounded-lg bg-white/20 border border-white/30 focus:border-white focus:outline-none text-white placeholder-white/70" placeholder="Your Message"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-white text-zbeda-blue font-poppins px-8 py-3 rounded-full text-lg shadow-xl hover:bg-zbeda-silver transition-colors duration-300 relative overflow-hidden group">
-                            Send Message
-                        </button>
-                    </form>
-                    <div class="mt-8 flex flex-col sm:flex-row justify-center sm:space-x-4 space-y-4 sm:space-y-0">
-                        <a href="#" class="bg-white/20 hover:bg-white/30 border border-white/30 text-white font-poppins px-6 py-3 rounded-full transition-all duration-300 text-center">Retailer Login</a>
-                        <a href="#" class="bg-white/20 hover:bg-white/30 border border-white/30 text-white font-poppins px-6 py-3 rounded-full transition-all duration-300 text-center">Become a Partner</a>
-                    </div>
-                </div>
+            <div class="text-center">
+                <button class="bg-accent-teal hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 text-lg">
+                    Meet More Objects!
+                </button>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white py-12 md:py-16 relative">
-        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-zbeda-blue-light to-transparent"></div>
-        <div class="container mx-auto px-6 text-center">
-            <div class="mb-8">
-                <img src="https://www.duns100.co.il/Areas/Uploads/companies//438e755c-a474-464d-a9d7-78820f48a3a3.jpg" alt="Zbeda Group Logo" class="h-12 mx-auto">
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left md:text-center mb-10">
-                <div>
-                    <h4 class="font-poppins text-xl font-semibold text-zbeda-blue mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-700">
-                        <li><a href="#about" class="hover:text-zbeda-blue transition-colors">About Us</a></li>
-                        <li><a href="#divisions" class="hover:text-zbeda-blue transition-colors">Divisions</a></li>
-                        <li><a href="#careers" class="hover:text-zbeda-blue transition-colors">Careers</a></li>
-                        <li><a href="#" class="hover:text-zbeda-blue transition-colors">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-poppins text-xl font-semibold text-zbeda-blue mb-4">Contact Info</h4>
-                    <p class="text-gray-700 mb-2">123 Logistics St, Tel Aviv, Israel</p>
-                    <p class="text-gray-700 mb-2">Phone: +972-3-123-4567</p>
-                    <p class="text-gray-700">Email: info@zbedagroup.com</p>
-                </div>
-                <div>
-                    <h4 class="font-poppins text-xl font-semibold text-zbeda-blue mb-4">Follow Us</h4>
-                    <div class="flex justify-center space-x-6">
-                        <a href="#" class="text-zbeda-blue hover:text-zbeda-blue-light transition-colors" aria-label="LinkedIn">
-                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        </a>
-                        <a href="#" class="text-zbeda-blue hover:text-zbeda-blue-light transition-colors" aria-label="YouTube">
-                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.615 3.184c-3.623-.341-11.411-.341-15.034 0-2.072.195-2.072 2.898-2.072 2.898v11.834s0 2.703 2.072 2.898c3.623.341 11.411.341 15.034 0 2.072-.195 2.072-2.898 2.072-2.898v-11.834s0-2.703-2.072-2.898zm-11.615 11.816v-8l7 4-7 4z"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <p class="text-gray-500 text-sm mt-8">&copy; 2023 Zbeda Group. All rights reserved.</p>
-        </div>
+    <footer class="bg-gray-800 py-8 px-4 sm:px-6 lg:px-8 text-center text-white text-opacity-75">
+        <p class="text-sm">&copy; 2025 Secret Object Society. All rights reserved.</p>
     </footer>
 
-    <!-- AOS JS CDN -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS (Animate On Scroll)
-        AOS.init({
-            duration: 1000,
-            once: true, // Only animate once as you scroll down
-            mirror: false, // Do not animate on scroll up
-            easing: 'ease-out-cubic',
-        });
-
-        // Navbar Scroll Effect: turns translucent when scrolling
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-zbeda-blue', 'bg-opacity-80', 'backdrop-blur-md', 'shadow-lg');
-            } else {
-                navbar.classList.remove('bg-zbeda-blue', 'bg-opacity-80', 'backdrop-blur-md', 'shadow-lg');
-            }
-        });
-
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-        });
-
-        closeMobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            document.body.style.overflow = ''; // Restore scrolling
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Dynamic Counters
-        const counters = document.querySelectorAll('.counter');
-        const options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.5 // Trigger when 50% of the element is visible
-        };
-
-        const animateCounter = (entry, observer) => {
-            if (entry.isIntersecting) {
-                const target = parseInt(entry.target.dataset.target || 0);
-                let current = 0;
-                const duration = 2000; // 2 seconds
-                const start = performance.now();
-
-                const updateCounter = (timestamp) => {
-                    const progress = (timestamp - start) / duration;
-                    if (progress < 1) {
-                        current = Math.min(target, Math.floor(target * progress));
-                        entry.target.textContent = current.toLocaleString();
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        entry.target.textContent = target.toLocaleString();
-                    }
-                };
-                requestAnimationFrame(updateCounter);
-                observer.unobserve(entry.target); // Stop observing once animated
-            }
-        };
-
-        const counterObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => animateCounter(entry, observer));
-        }, options);
-
-        counters.forEach(counter => {
-            counterObserver.observe(counter);
-        });
-
-        // Careers Section Image Slideshow
-        const slideshowImage = document.getElementById('slideshow-image');
-        const images = [
-            "https://media.istockphoto.com/id/1432735210/photo/smiling-courier-loading-hand-truck-stacking-packages.jpg",
-            "https://media.istockphoto.com/id/1313360408/photo/male-and-female-engineers-standing-together-on-warehouse.jpg",
-            "https://media.istockphoto.com/id/1324741366/photo/multiethnic-team-of-employees-working-in-modern-auto-repair-shop.jpg",
-            "https://media.istockphoto.com/id/1360156942/photo/multiethnic-team-of-colleagues-collaborating-in-modern-office.jpg"
-        ];
-        let currentImageIndex = 0;
-
-        function changeSlide() {
-            slideshowImage.classList.add('opacity-0'); // Fade out
-            setTimeout(() => {
-                currentImageIndex = (currentImageIndex + 1) % images.length;
-                slideshowImage.src = images[currentImageIndex];
-                slideshowImage.classList.remove('opacity-0'); // Fade in
-            }, 1000); // Match this duration with CSS transition duration for opacity
-        }
-
-        // Set initial image and fade in after a short delay for AOS init
-        setTimeout(() => {
-            slideshowImage.src = images[0];
-            slideshowImage.classList.remove('opacity-0');
-            // Start slideshow, change every 5 seconds
-            setInterval(changeSlide, 5000);
-        }, 500); // Small delay to allow AOS to take effect on surrounding elements first
-    </script>
 </body>
 </html>
 ```
