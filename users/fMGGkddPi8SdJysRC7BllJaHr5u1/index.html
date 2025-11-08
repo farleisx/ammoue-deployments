@@ -4,154 +4,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nature's Canvas - Photography Portfolio</title>
+    <title>Nature's Lens - Photography Portfolio</title>
     <!-- Tailwind CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom styling for the hero background image -->
     <style>
-        /* Optional: Smooth scrolling for anchor links */
-        html {
-            scroll-behavior: smooth;
+        .hero-background {
+            background-image: url('https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Optional: for parallax-like effect */
         }
     </style>
 </head>
 <body class="font-sans antialiased text-gray-800 bg-gray-50">
 
-    <!-- Header/Navigation -->
-    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="text-3xl font-extrabold text-green-700 tracking-tight">Nature's Canvas</a>
-            <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="#gallery" class="text-lg text-gray-700 hover:text-green-700 font-semibold transition duration-300">Gallery</a></li>
-                    <li><a href="#contact" class="text-lg text-gray-700 hover:text-green-700 font-semibold transition duration-300">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+    <!-- Navigation Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-green-700 hover:text-green-800 transition duration-300">Nature's Lens</a>
+            <div class="space-x-6">
+                <a href="#gallery" class="text-gray-600 hover:text-green-700 font-medium transition duration-300">Gallery</a>
+                <a href="#contact" class="text-gray-600 hover:text-green-700 font-medium transition duration-300">Contact</a>
+            </div>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative h-auto md:h-screen bg-gradient-to-br from-green-100 to-blue-200 flex items-center justify-center py-20 md:py-0">
-        <div class="relative z-10 text-center max-w-5xl px-6 mx-auto">
-            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-gray-900 drop-shadow-lg">
-                Capture the Untamed Beauty
-            </h1>
-            <p class="text-xl md:text-2xl mb-10 text-gray-700 max-w-3xl mx-auto drop-shadow-md">
-                A journey through the lens, revealing the breathtaking artistry of nature.
-            </p>
-            
-            <!-- Hero Image -->
-            <div class="relative w-full max-w-4xl mx-auto mb-12">
-                <img src="https://images.pexels.com/photos/814449/pexels-photo-814449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                     alt="Misty forest with sunrays"
-                     class="w-full h-auto object-cover rounded-lg shadow-2xl border-4 border-white transform transition-transform duration-500 hover:scale-105">
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-background h-screen flex items-center justify-center text-white text-center relative">
+            <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Overlay for text readability -->
+            <div class="relative z-10 p-6 max-w-4xl">
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg animate-fade-in-up">
+                    Capture the Untamed Beauty of Earth
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 font-light drop-shadow-md animate-fade-in-up delay-200">
+                    Immersive nature photography that connects you to the heart of the wild.
+                </p>
+                <a href="#gallery" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up delay-400">
+                    View Our Gallery
+                </a>
             </div>
+        </section>
 
-            <a href="#gallery" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 text-lg">
-                Explore My Portfolio
-            </a>
-        </div>
-    </section>
-
-    <!-- About/Introduction Section -->
-    <section class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold text-gray-800 mb-6">About My Work</h2>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Welcome to Nature's Canvas, where every photograph tells a story of the wild's enduring spirit. I'm passionate about exploring remote landscapes and capturing moments that inspire awe and connection with our natural world. My goal is to bring the majesty of mountains, the tranquility of forests, and the drama of coastlines directly to you. Each image is a testament to the planet's untouched beauty.
-            </p>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-gray-800 text-center mb-12">My Portfolio</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                
-                <!-- Gallery Item 1 -->
-                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <img src="https://images.pexels.com/photos/1034662/pexels-photo-1034662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                         alt="Mountain lake" 
-                         class="w-full h-80 object-cover rounded-lg">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-xl font-semibold">Mountain Majesty</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 2 -->
-                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <img src="https://images.pexels.com/photos/235615/pexels-photo-235615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                         alt="Rolling green hills" 
-                         class="w-full h-80 object-cover rounded-lg">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-xl font-semibold">Emerald Hills</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 3 -->
-                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <img src="https://images.pexels.com/photos/360912/pexels-photo-360912.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                         alt="Serene forest path" 
-                         class="w-full h-80 object-cover rounded-lg">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-xl font-semibold">Forest Whispers</p>
-                    </div>
-                </div>
-
-                <!-- Gallery Item 4 -->
-                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <img src="https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                         alt="Sunset over ocean beach" 
-                         class="w-full h-80 object-cover rounded-lg">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-xl font-semibold">Coastal Serenity</p>
-                    </div>
-                </div>
-
+        <!-- About/Intro Section -->
+        <section class="py-16 bg-gradient-to-r from-green-50 to-emerald-50">
+            <div class="container mx-auto px-4 text-center max-w-3xl">
+                <h2 class="text-4xl font-bold text-green-800 mb-6">Our Passion, Your Perspective</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                    At Nature's Lens, we believe in the power of a single photograph to tell a thousand stories. We dedicate ourselves to exploring the planet's most pristine landscapes, capturing fleeting moments of wildlife, and revealing the intricate details of flora that often go unnoticed.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Join us on a visual journey through serene forests, majestic mountains, vibrant oceans, and boundless deserts, all seen through the eyes of passionate nature photographers.
+                </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Form Section -->
-    <section id="contact" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold text-gray-800 mb-6">Get in Touch</h2>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-10">
-                Have a question, a project idea, or just want to say hello? I'd love to hear from you!
-            </p>
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-green-800 mb-12">Nature's Masterpieces</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
+                    <!-- Gallery Item 1 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+                        <img src="https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                             alt="Sunlight filtering through a forest path"
+                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white text-lg font-semibold tracking-wide">Forest Path</p>
+                        </div>
+                    </div>
 
-            <form class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-xl">
-                <div class="mb-6 text-left">
-                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
-                    <input type="text" id="name" name="name" 
-                           class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-200" 
-                           placeholder="Your Full Name" required>
+                    <!-- Gallery Item 2 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+                        <img src="https://images.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                             alt="Close-up of a vibrant red dahlia flower"
+                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white text-lg font-semibold tracking-wide">Red Dahlia</p>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 3 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+                        <img src="https://images.pexels.com/photos/1000653/pexels-photo-1000653.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                             alt="Serene lake surrounded by majestic mountains"
+                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white text-lg font-semibold tracking-wide">Mountain Lake</p>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 4 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+                        <img src="https://images.pexels.com/photos/1619317/pexels-photo-1619317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                             alt="Vibrant autumn trees in a forest"
+                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white text-lg font-semibold tracking-wide">Autumn Forest</p>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 5 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+                        <img src="https://images.pexels.com/photos/158607/pexels-photo-158607.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                             alt="Close-up of dew drops on green grass blades"
+                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white text-lg font-semibold tracking-wide">Morning Dew</p>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 6 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+                        <img src="https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                             alt="Sunset over the ocean with waves crashing on the shore"
+                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white text-lg font-semibold tracking-wide">Ocean Sunset</p>
+                        </div>
+                    </div>
+
+                     <!-- Gallery Item 7 -->
+                     <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+                        <img src="https://images.pexels.com/photos/162240/bird-chick-animal-nature-162240.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                             alt="Small bird perched on a branch"
+                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white text-lg font-semibold tracking-wide">Little Bird</p>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 8 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+                        <img src="https://images.pexels.com/photos/33216/flower-butterfly-purple-nature.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                             alt="Butterfly on a purple flower"
+                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white text-lg font-semibold tracking-wide">Butterfly & Flower</p>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 9 -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+                        <img src="https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                             alt="Sunlight breaking through trees in a forest"
+                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white text-lg font-semibold tracking-wide">Forest Light</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-6 text-left">
-                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
-                    <input type="email" id="email" name="email" 
-                           class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-200" 
-                           placeholder="your@email.com" required>
-                </div>
-                <div class="mb-8 text-left">
-                    <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
-                    <textarea id="message" name="message" rows="6" 
-                              class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 resize-none transition duration-200" 
-                              placeholder="Type your message here..." required></textarea>
-                </div>
-                <button type="submit" 
-                        class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 text-lg">
-                    Send Message
-                </button>
-            </form>
-        </div>
-    </section>
+            </div>
+        </section>
+
+        <!-- Call to action before contact -->
+        <section class="py-16 bg-green-700 text-white text-center">
+            <div class="container mx-auto px-4 max-w-2xl">
+                <h2 class="text-4xl font-bold mb-4">Ready to Adorn Your Space?</h2>
+                <p class="text-xl mb-8 opacity-90">
+                    Our prints are available in various formats and sizes. Contact us for custom orders or collaborations.
+                </p>
+                <a href="#contact" class="bg-white text-green-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg">
+                    Inquire Now
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact" class="py-16 bg-gray-100">
+            <div class="container mx-auto px-4 max-w-2xl">
+                <h2 class="text-4xl font-bold text-center text-green-800 mb-12">Get in Touch</h2>
+                <form class="bg-white p-8 rounded-lg shadow-xl space-y-6">
+                    <div>
+                        <label for="name" class="block text-lg font-medium text-gray-700 mb-2">Name</label>
+                        <input type="text" id="name" name="name"
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200"
+                               placeholder="Your Name" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-lg font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" name="email"
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200"
+                               placeholder="your@example.com" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-lg font-medium text-gray-700 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="6"
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200"
+                                  placeholder="Tell us about your project or inquiry..." required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit"
+                                class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-10 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-sm">&copy; 2023 Nature's Canvas. All rights reserved.</p>
-            <p class="text-xs mt-2">Photography by [Your Name/Brand]. Images sourced from Pexels.</p>
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg">&copy; 2023 Nature's Lens. All rights reserved.</p>
+            <p class="text-sm mt-2 text-gray-400">Powered by the beauty of nature.</p>
         </div>
     </footer>
 
