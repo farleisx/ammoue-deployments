@@ -4,43 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee Break</title>
-    <meta name="description" content="A simple page featuring a relaxing coffee image.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
-
+    <title>Coffee Time</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Optional: Basic custom styles if needed, though Tailwind covers most. */
-        /* For a fully self-contained image without external requests,
-           you would replace the `src` with a base64 encoded image.
-           However, a direct URL is often preferred for performance unless offline
-           capability or extreme self-containment is strictly required. */
-    </style>
 </head>
-<body class="bg-gradient-to-br from-gray-50 to-gray-200 flex items-center justify-center min-h-screen p-4 font-sans antialiased">
-    <main class="max-w-md w-full bg-white rounded-xl shadow-2xl p-8 text-center border border-gray-100 transform hover:scale-105 transition-transform duration-300 ease-in-out">
-        <h1 class="text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
-            Your Daily Brew
+<body class="bg-gray-50 flex items-center justify-center min-h-screen p-4">
+
+    <div class="bg-white p-8 rounded-xl shadow-2xl max-w-lg w-full text-center space-y-6 transform hover:scale-105 transition-transform duration-300 ease-in-out">
+        <h1 class="text-5xl font-extrabold text-gray-800 mb-4 animate-fade-in">
+            <span class="block text-indigo-600">Your Daily</span>
+            <span class="block mt-2">Coffee Break</span>
         </h1>
-        <p class="text-lg text-gray-600 mb-8">
-            Take a moment to relax and enjoy the simple pleasure of coffee.
+        <p class="text-lg text-gray-600 mb-8 max-w-md mx-auto animate-fade-in delay-100">
+            Take a moment to relax and enjoy the simple pleasure of a perfect cup.
         </p>
         
-        <div class="image-section relative group">
-            <img 
-                src="https://images.unsplash.com/photo-1511920170033-de892677d2d8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                alt="A warm cup of coffee with beautiful latte art, placed on a dark surface." 
-                class="w-full h-auto rounded-xl shadow-lg border-2 border-gray-200 object-cover transform group-hover:rotate-1 group-hover:scale-102 transition-all duration-300 ease-in-out"
-                loading="lazy"
-            >
-            <!-- no images -->
-        </div>
+        <!-- Coffee Image -->
+        <img 
+            src="https://via.placeholder.com/600x400?text=Coffee+Time" 
+            alt="A comforting cup of coffee" 
+            class="rounded-lg shadow-xl border-4 border-indigo-200 mx-auto w-full h-auto object-cover animate-fade-in delay-200"
+        >
 
-        <p class="mt-8 text-gray-700 text-base">
-            Sip, savor, and refresh your mind.
+        <p class="text-sm text-gray-500 mt-6 animate-fade-in delay-300">
+            "Coffee - the favorite drink of the civilized world." - Thomas Jefferson
         </p>
-    </main>
+    </div>
+
 </body>
 </html>
 ```
