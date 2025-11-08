@@ -1,215 +1,254 @@
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nature's Lens - Photography Portfolio</title>
+    <title>Inner Peace Wellness - Meditation & Mindfulness</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom styling for the hero background image -->
     <style>
-        .hero-background {
-            background-image: url('https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        /* Custom Tailwind Configuration for specific colors */
+        :root {
+            --color-brand-primary: #6B7B8E; /* A calming blue-grey */
+            --color-brand-secondary: #A2B9BC; /* Lighter blue-grey */
+            --color-brand-accent: #D6BDA0; /* A warm, earthy tone */
+        }
+        .bg-brand-primary { background-color: var(--color-brand-primary); }
+        .text-brand-primary { color: var(--color-brand-primary); }
+        .bg-brand-secondary { background-color: var(--color-brand-secondary); }
+        .text-brand-secondary { color: var(--color-brand-secondary); }
+        .bg-brand-accent { background-color: var(--color-brand-accent); }
+        .text-brand-accent { color: var(--color-brand-accent); }
+
+        /* Custom button styling */
+        .btn-primary {
+            background-color: var(--color-brand-secondary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px; /* Pill shape */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #8C9CA0; /* Darker shade on hover */
+            transform: scale(1.05);
+        }
+
+        /* Gentle shadow for cards for a softer, calming look */
+        .card-shadow {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Hero section background styling using Pexels image */
+        .hero-bg {
+            background-image: url('https://images.pexels.com/photos/4046718/pexels-photo-4046718.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'); /* Pexels Image 1 */
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Optional: for parallax-like effect */
+            background-repeat: no-repeat;
         }
+
+        /* Overlay for better text readability on hero image */
+        .overlay-gradient {
+            position: relative;
+        }
+        .overlay-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+            z-index: 0;
+        }
+        .overlay-gradient > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Basic keyframe animations for a subtle entrance effect */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: var(--animation-delay, 0s);
+        }
+        /* Custom delays for elements */
+        .delay-150 { --animation-delay: 0.15s; }
+        .delay-300 { --animation-delay: 0.3s; }
+
+        /* Hide mobile menu button until needed for JS implementation */
+        .mobile-menu-button { display: none; } /* For this static example */
     </style>
 </head>
-<body class="font-sans antialiased text-gray-800 bg-gray-50">
+<body class="font-sans text-gray-800 antialiased">
 
-    <!-- Navigation Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-green-700 hover:text-green-800 transition duration-300">Nature's Lens</a>
-            <div class="space-x-6">
-                <a href="#gallery" class="text-gray-600 hover:text-green-700 font-medium transition duration-300">Gallery</a>
-                <a href="#contact" class="text-gray-600 hover:text-green-700 font-medium transition duration-300">Contact</a>
+    <!-- Header / Navigation -->
+    <nav class="bg-white bg-opacity-90 shadow-sm fixed w-full z-20 py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#hero" class="text-3xl font-bold text-brand-primary">Inner Peace</a>
+            <div class="space-x-8 hidden md:flex">
+                <a href="#hero" class="text-lg text-gray-700 hover:text-brand-primary transition duration-300 font-medium">Home</a>
+                <a href="#services" class="text-lg text-gray-700 hover:text-brand-primary transition duration-300 font-medium">Services</a>
+                <a href="#testimonials" class="text-lg text-gray-700 hover:text-brand-primary transition duration-300 font-medium">Testimonials</a>
+                <a href="#contact" class="text-lg text-gray-700 hover:text-brand-primary transition duration-300 font-medium">Contact</a>
             </div>
-        </nav>
-    </header>
+            <!-- Mobile Menu Button (Hamburger) - designed but not functional in this static HTML -->
+            <button class="mobile-menu-button md:hidden text-gray-600 hover:text-brand-primary focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero-background h-screen flex items-center justify-center text-white text-center relative">
-            <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Overlay for text readability -->
-            <div class="relative z-10 p-6 max-w-4xl">
-                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg animate-fade-in-up">
-                    Capture the Untamed Beauty of Earth
-                </h1>
-                <p class="text-xl md:text-2xl mb-8 font-light drop-shadow-md animate-fade-in-up delay-200">
-                    Immersive nature photography that connects you to the heart of the wild.
-                </p>
-                <a href="#gallery" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up delay-400">
-                    View Our Gallery
-                </a>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-bg min-h-screen flex items-center justify-center text-white text-center overlay-gradient pt-24 pb-12 md:pb-0">
+        <div class="relative z-10 max-w-5xl px-6">
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 animate-fade-in-up">
+                Find Your Inner Peace: A Journey to Wellness
+            </h1>
+            <p class="text-xl md:text-2xl mb-12 opacity-90 animate-fade-in-up delay-150">
+                Discover tranquility through guided meditation, mindful practices, and holistic well-being.
+            </p>
+            <a href="#services" class="btn-primary inline-block text-xl font-semibold animate-fade-in-up delay-300">
+                Explore Our Services
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-brand-primary animate-fade-in">Our Offerings</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Service 1: Guided Meditations -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-shadow hover:scale-105 transform transition duration-300">
+                    <img src="https://images.pexels.com/photos/934062/pexels-photo-934062.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Person meditating" class="w-full h-56 object-cover">
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-semibold mb-3 text-brand-primary">Guided Meditations</h3>
+                        <p class="text-gray-600 leading-relaxed">Experience deep relaxation and clarity with our expert-led meditation sessions tailored for all levels.</p>
+                    </div>
+                </div>
+                <!-- Service 2: Mindfulness Workshops -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-shadow hover:scale-105 transform transition duration-300">
+                    <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Mindful woman" class="w-full h-56 object-cover">
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-semibold mb-3 text-brand-primary">Mindfulness Workshops</h3>
+                        <p class="text-gray-600 leading-relaxed">Learn practical techniques to integrate mindfulness into your daily life for reduced stress and increased focus.</p>
+                    </div>
+                </div>
+                <!-- Service 3: Yoga & Movement -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-shadow hover:scale-105 transform transition duration-300">
+                    <img src="https://images.pexels.com/photos/7110193/pexels-photo-7110193.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Peaceful hands gesture" class="w-full h-56 object-cover">
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-semibold mb-3 text-brand-primary">Yoga & Movement</h3>
+                        <p class="text-gray-600 leading-relaxed">Connect mind and body with gentle yoga flows and conscious movement practices to build strength and flexibility.</p>
+                    </div>
+                </div>
+                <!-- Service 4: Wellness Coaching (Using Picsum as Pexels images are consumed) -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-shadow hover:scale-105 transform transition duration-300">
+                    <img src="https://picsum.photos/id/1084/600/400" alt="Wellness coaching session" class="w-full h-56 object-cover">
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-semibold mb-3 text-brand-primary">Personalized Coaching</h3>
+                        <p class="text-gray-600 leading-relaxed">Receive one-on-one guidance to achieve your personal wellness goals and foster lasting positive change.</p>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- About/Intro Section -->
-        <section class="py-16 bg-gradient-to-r from-green-50 to-emerald-50">
-            <div class="container mx-auto px-4 text-center max-w-3xl">
-                <h2 class="text-4xl font-bold text-green-800 mb-6">Our Passion, Your Perspective</h2>
-                <p class="text-lg text-gray-700 leading-relaxed mb-4">
-                    At Nature's Lens, we believe in the power of a single photograph to tell a thousand stories. We dedicate ourselves to exploring the planet's most pristine landscapes, capturing fleeting moments of wildlife, and revealing the intricate details of flora that often go unnoticed.
-                </p>
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    Join us on a visual journey through serene forests, majestic mountains, vibrant oceans, and boundless deserts, all seen through the eyes of passionate nature photographers.
-                </p>
-            </div>
-        </section>
-
-        <!-- Gallery Section -->
-        <section id="gallery" class="py-16 bg-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center text-green-800 mb-12">Nature's Masterpieces</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
-                    <!-- Gallery Item 1 -->
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
-                        <img src="https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                             alt="Sunlight filtering through a forest path"
-                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <p class="text-white text-lg font-semibold tracking-wide">Forest Path</p>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 md:py-24 bg-brand-secondary text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 animate-fade-in">What Our Clients Say</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Testimonial 1 -->
+                <div class="bg-white text-gray-800 p-8 rounded-xl shadow-lg card-shadow">
+                    <p class="italic mb-6 text-lg leading-relaxed">"Inner Peace has truly transformed my daily routine. I feel more centered, calm, and present. The guided meditations are simply life-changing!"</p>
+                    <div class="flex items-center">
+                        <img src="https://picsum.photos/id/1005/70/70" alt="Client Avatar Emily R." class="w-16 h-16 rounded-full mr-4 object-cover border-2 border-brand-accent">
+                        <div>
+                            <p class="font-semibold text-xl text-brand-primary">Emily R.</p>
+                            <p class="text-gray-500 text-base">Marketing Manager</p>
                         </div>
                     </div>
-
-                    <!-- Gallery Item 2 -->
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
-                        <img src="https://images.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                             alt="Close-up of a vibrant red dahlia flower"
-                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <p class="text-white text-lg font-semibold tracking-wide">Red Dahlia</p>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-white text-gray-800 p-8 rounded-xl shadow-lg card-shadow">
+                    <p class="italic mb-6 text-lg leading-relaxed">"The mindfulness workshops provided me with invaluable tools to manage stress effectively. I highly recommend Inner Peace to anyone seeking genuine well-being."</p>
+                    <div class="flex items-center">
+                        <img src="https://picsum.photos/id/1027/70/70" alt="Client Avatar David S." class="w-16 h-16 rounded-full mr-4 object-cover border-2 border-brand-accent">
+                        <div>
+                            <p class="font-semibold text-xl text-brand-primary">David S.</p>
+                            <p class="text-gray-500 text-base">Software Engineer</p>
                         </div>
                     </div>
-
-                    <!-- Gallery Item 3 -->
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
-                        <img src="https://images.pexels.com/photos/1000653/pexels-photo-1000653.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                             alt="Serene lake surrounded by majestic mountains"
-                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <p class="text-white text-lg font-semibold tracking-wide">Mountain Lake</p>
-                        </div>
-                    </div>
-
-                    <!-- Gallery Item 4 -->
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
-                        <img src="https://images.pexels.com/photos/1619317/pexels-photo-1619317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                             alt="Vibrant autumn trees in a forest"
-                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <p class="text-white text-lg font-semibold tracking-wide">Autumn Forest</p>
-                        </div>
-                    </div>
-
-                    <!-- Gallery Item 5 -->
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
-                        <img src="https://images.pexels.com/photos/158607/pexels-photo-158607.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                             alt="Close-up of dew drops on green grass blades"
-                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <p class="text-white text-lg font-semibold tracking-wide">Morning Dew</p>
-                        </div>
-                    </div>
-
-                    <!-- Gallery Item 6 -->
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
-                        <img src="https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                             alt="Sunset over the ocean with waves crashing on the shore"
-                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <p class="text-white text-lg font-semibold tracking-wide">Ocean Sunset</p>
-                        </div>
-                    </div>
-
-                     <!-- Gallery Item 7 -->
-                     <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
-                        <img src="https://images.pexels.com/photos/162240/bird-chick-animal-nature-162240.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                             alt="Small bird perched on a branch"
-                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <p class="text-white text-lg font-semibold tracking-wide">Little Bird</p>
-                        </div>
-                    </div>
-
-                    <!-- Gallery Item 8 -->
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
-                        <img src="https://images.pexels.com/photos/33216/flower-butterfly-purple-nature.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                             alt="Butterfly on a purple flower"
-                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <p class="text-white text-lg font-semibold tracking-wide">Butterfly & Flower</p>
-                        </div>
-                    </div>
-
-                    <!-- Gallery Item 9 -->
-                    <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
-                        <img src="https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                             alt="Sunlight breaking through trees in a forest"
-                             class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <p class="text-white text-lg font-semibold tracking-wide">Forest Light</p>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-white text-gray-800 p-8 rounded-xl shadow-lg card-shadow">
+                    <p class="italic mb-6 text-lg leading-relaxed">"I finally found a place that truly understands holistic wellness. The personalized coaching sessions were incredibly insightful and empowering."</p>
+                    <div class="flex items-center">
+                        <img src="https://picsum.photos/id/1081/70/70" alt="Client Avatar Sophia K." class="w-16 h-16 rounded-full mr-4 object-cover border-2 border-brand-accent">
+                        <div>
+                            <p class="font-semibold text-xl text-brand-primary">Sophia K.</p>
+                            <p class="text-gray-500 text-base">Yoga Instructor</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Call to action before contact -->
-        <section class="py-16 bg-green-700 text-white text-center">
-            <div class="container mx-auto px-4 max-w-2xl">
-                <h2 class="text-4xl font-bold mb-4">Ready to Adorn Your Space?</h2>
-                <p class="text-xl mb-8 opacity-90">
-                    Our prints are available in various formats and sizes. Contact us for custom orders or collaborations.
-                </p>
-                <a href="#contact" class="bg-white text-green-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg">
-                    Inquire Now
-                </a>
-            </div>
-        </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-brand-primary animate-fade-in">Get in Touch</h2>
+            <p class="text-center text-xl text-gray-700 mb-12 leading-relaxed">Ready to embark on your journey to inner peace and well-being? We'd love to hear from you and help you get started!</p>
 
-        <!-- Contact Form Section -->
-        <section id="contact" class="py-16 bg-gray-100">
-            <div class="container mx-auto px-4 max-w-2xl">
-                <h2 class="text-4xl font-bold text-center text-green-800 mb-12">Get in Touch</h2>
-                <form class="bg-white p-8 rounded-lg shadow-xl space-y-6">
-                    <div>
-                        <label for="name" class="block text-lg font-medium text-gray-700 mb-2">Name</label>
-                        <input type="text" id="name" name="name"
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200"
-                               placeholder="Your Name" required>
-                    </div>
-                    <div>
-                        <label for="email" class="block text-lg font-medium text-gray-700 mb-2">Email</label>
-                        <input type="email" id="email" name="email"
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200"
-                               placeholder="your@example.com" required>
-                    </div>
-                    <div>
-                        <label for="message" class="block text-lg font-medium text-gray-700 mb-2">Message</label>
-                        <textarea id="message" name="message" rows="6"
-                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200"
-                                  placeholder="Tell us about your project or inquiry..." required></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit"
-                                class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-10 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg">
-                            Send Message
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </main>
+            <form class="bg-white p-8 md:p-12 rounded-xl shadow-lg card-shadow">
+                <div class="mb-8">
+                    <label for="name" class="block text-gray-800 text-lg font-semibold mb-3">Name</label>
+                    <input type="text" id="name" name="name" class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary transition duration-200 text-lg" placeholder="Your Full Name" required>
+                </div>
+                <div class="mb-8">
+                    <label for="email" class="block text-gray-800 text-lg font-semibold mb-3">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary transition duration-200 text-lg" placeholder="your@example.com" required>
+                </div>
+                <div class="mb-10">
+                    <label for="message" class="block text-gray-800 text-lg font-semibold mb-3">Message</label>
+                    <textarea id="message" name="message" rows="7" class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary transition duration-200 text-lg" placeholder="Tell us about your wellness goals or questions..." required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn-primary inline-block text-xl font-semibold w-full md:w-auto px-10 py-4">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-lg">&copy; 2023 Nature's Lens. All rights reserved.</p>
-            <p class="text-sm mt-2 text-gray-400">Powered by the beauty of nature.</p>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-2xl font-semibold mb-4">Inner Peace Wellness</p>
+            <p class="text-gray-400 mb-6 text-base">&copy; 2023 All rights reserved. Cultivating Calm, Empowering Lives.</p>
+            <div class="flex justify-center space-x-8 text-base">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Sitemap</a>
+            </div>
+            <!-- Optional: Add the unused Pexels image as a subtle footer element -->
+            <div class="mt-10">
+                <img src="https://images.pexels.com/photos/4587855/pexels-photo-4587855.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Serene nature" class="w-48 h-auto mx-auto rounded-lg opacity-60 shadow-md">
+            </div>
         </div>
     </footer>
 
