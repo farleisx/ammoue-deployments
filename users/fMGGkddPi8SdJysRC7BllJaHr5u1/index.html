@@ -4,476 +4,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURELIA - Luxury Jewellery</title>
-    
+    <title>Aqua di Sereno - Pure Italian Elegance</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts for Playfair Display (Serif) and Montserrat (Sans-serif) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS Configuration for custom colors and fonts -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'black-deep': '#0A0A0A', // Deep black for background
-                        'gold': {
-                            DEFAULT: '#D4AF37', // Champagne Gold
-                            'light': '#F5D76E',
-                            'dark': '#A68C2E',
-                        },
-                        'ivory': '#F8F8F8', // Subtle Ivory text
+                        gold: '#D4AF37',
+                        'dark-gold': '#A67C00',
+                        'light-gold': '#FFD700',
+                        'platinum': '#E5E4E2',
                     },
-                    fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['Montserrat', 'sans-serif'],
+                    boxShadow: {
+                        gold: '0 0 20px rgba(212, 175, 55, 0.7)',
+                        'gold-light': '0 0 30px rgba(255, 215, 0, 0.8)',
                     },
-                    keyframes: {
-                        'fade-in-up': {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                    },
-                    animation: {
-                        'fade-in-up': 'fade-in-up 1s ease-out forwards',
+                    backgroundImage: {
+                        'marble': "url('https://images.unsplash.com/photo-1549646487-94d70889c17e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+                        'hero-marble': "url('https://images.unsplash.com/photo-1616075936746-8dd33e38712e?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" // A general luxury marble
                     }
                 }
             }
         }
     </script>
-    
-    <!-- Custom style for scrollbar hiding (not directly available in Tailwind utilities) -->
-    <style>
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-        .scrollbar-hide {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
-    </style>
 </head>
-<body class="bg-black-deep text-ivory font-sans antialiased overflow-x-hidden">
+<body class="font-sans text-gray-800 bg-gray-50 overflow-x-hidden">
+
+    <!-- Navbar (Optional, but good for professionalism) -->
+    <nav class="fixed top-0 left-0 w-full z-50 p-4 bg-white/75 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gold tracking-widest uppercase">Aqua di Sereno</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#signature" class="text-gray-700 hover:text-gold transition duration-300">Collection</a>
+                <a href="#craftsmanship" class="text-gray-700 hover:text-gold transition duration-300">Origin</a>
+                <a href="#lifestyle" class="text-gray-700 hover:text-gold transition duration-300">Lifestyle</a>
+                <a href="#vip" class="text-gray-700 hover:text-gold transition duration-300">VIP Access</a>
+            </div>
+            <button class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <header id="hero" class="relative h-screen bg-cover bg-center flex items-center justify-center text-center px-4"
-        style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf3fRjoWIMTbcYM0Td5mVRsJ6kVigWoJStmg&s');">
-        
-        <!-- Parallax background layer (dark overlay) -->
-        <div class="absolute inset-0 bg-black-deep opacity-80 z-0"></div>
-        
-        <!-- Parallax background layer (subtle gold glitter/texture via SVG data URI) -->
-        <div class="absolute inset-0 z-0" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzgiIGhlaWdodD0iNzgiIHZpZXdCb3g9IjAgMCA3OCA3OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjNjY1NTIyIiBmaWxsLW9wYWNpdHk9IjAuMDMiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHBhdGggZD0iTTcuNCAyLjVsNi4xIDYuMSA0LjkgNC45LTYuMSA2LjEgNC45IDQuOS0xMi4zIDEyLjMtNC45LTQuOS02LjEgNi4xLTQuOS00LjlsNi4xLTYuMSA0LjktNC45LTYuMS02LjEgNC45LTQuOXoiLz48L2c+PC9zdmc+'); background-size: 8px 8px; background-attachment: fixed;"></div>
-        
-        <!-- Logo (AURELIA in gold serif) -->
-        <a href="#hero" class="absolute top-8 left-8 z-20">
-            <svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <text x="0" y="30" font-family="Playfair Display, serif" font-weight="700" font-size="30" fill="#D4AF37">AURELIA</text>
-            </svg>
-        </a>
-
-        <!-- Hero Content -->
-        <div class="relative z-10 p-8 max-w-3xl opacity-0 animate-[fade-in-up_1s_ease-out_forwards]" data-animation="fade-in">
-            <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-ivory leading-tight mb-8">
-                Experience the Brilliance of Eternity.
+    <header class="relative h-screen flex items-center justify-center text-center overflow-hidden" id="hero-section">
+        <div id="hero-image-container" class="absolute inset-0 transition-all duration-1000 ease-out opacity-0 scale-95">
+            <img src="https://images.unsplash.com/photo-1627763661138-09559c6396b2?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Premium Blue Glass Water Bottle" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div class="relative z-10 p-4 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 tracking-wide drop-shadow-lg animate-fade-in-up">
+                Aqua di Sereno
             </h1>
-            <button class="bg-gold text-black-deep font-semibold py-3 px-8 rounded-full shadow-lg 
-                           hover:bg-transparent hover:text-gold hover:border-gold border border-transparent 
-                           transition duration-300 ease-in-out transform hover:scale-105">
-                Discover the Collection
-            </button>
+            <p class="text-lg md:text-xl text-platinum mb-8 font-light italic animate-fade-in-up delay-200">
+                Drawn from the untouched heart of the Italian Alps.
+                <br>Bottled like a jewel, tasted like a legend.
+            </p>
+            <a href="#vip" class="inline-block px-10 py-4 bg-gold text-white text-lg font-semibold uppercase tracking-wider rounded-full shadow-lg hover:bg-dark-gold hover:shadow-gold-light transition duration-500 transform hover:scale-105 animate-fade-in-up delay-400">
+                Reserve a Limited Edition Bottle
+            </a>
         </div>
     </header>
 
     <main>
-        <!-- Featured Collections Section -->
-        <section id="collections" class="py-24 px-4 md:px-8 max-w-7xl mx-auto">
-            <h2 class="font-serif text-4xl md:text-5xl text-center text-ivory mb-4" data-animation="fade-in">
-                Featured Collections
-            </h2>
-            <div class="h-1 bg-gradient-to-r from-transparent via-gold to-transparent w-24 mx-auto mb-16 transform scale-x-0 transition-transform duration-700 ease-out origin-center" data-animate-width></div>
+        <!-- Signature Collection -->
+        <section id="signature" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900 tracking-wide">Signature Collection</h2>
+                <div class="grid md:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Collection Item 1: Diamonds -->
-                <div class="group relative overflow-hidden rounded-lg shadow-xl 
-                            bg-black-deep/20 backdrop-blur-lg border border-gold/30 
-                            transition-all duration-500 hover:shadow-2xl hover:border-gold-light">
-                    <img src="https://www.diamondhouse.co.il/wp-content/uploads/%D7%98%D7%91%D7%A2%D7%AA-%D7%99%D7%94%D7%9C%D7%95%D7%9E%D7%99%D7%9D-%D7%A8%D7%97%D7%91%D7%94-%D7%A2%D7%92%D7%9C%D7%92%D7%9C%D7%94-%D7%95%D7%9E%D7%A8%D7%A9%D7%99%D7%9E%D7%94-ADR-00724-1-1200x675.jpg"
-                        alt="Diamonds Collection" class="w-full h-64 object-cover object-center 
-                                                      transform group-hover:scale-105 transition-transform duration-500 ease-in-out" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black-deep to-transparent 
-                                opacity-70 group-hover:opacity-80 transition-opacity duration-500"></div>
-                    <div class="p-6 relative z-10 text-center">
-                        <h3 class="font-serif text-2xl text-gold mb-2">Diamonds</h3>
-                        <p class="text-ivory text-sm">Where brilliance meets legacy.</p>
+                    <!-- Product 1 -->
+                    <div class="flex flex-col items-center group">
+                        <div class="relative w-full max-w-sm overflow-hidden rounded-xl shadow-xl transform transition duration-500 group-hover:scale-105 group-hover:shadow-gold-light">
+                            <img src="https://images.unsplash.com/photo-1627763661138-09559c6396b2?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Elegance N°1 Bottle" class="w-full h-auto object-cover transform transition duration-500 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                        <div class="relative -mt-16 w-11/12 max-w-xs p-6 bg-white/75 backdrop-blur-lg border border-gold rounded-lg shadow-lg text-center transform transition duration-500 group-hover:translate-y-2 group-hover:shadow-gold">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">The Classic Elixir</h3>
+                            <p class="text-gray-700 mb-3 text-sm leading-relaxed">Timeless purity, impeccably crafted for the discerning palate.</p>
+                            <p class="text-gold text-xl font-bold">&euro;29.99</p>
+                        </div>
                     </div>
-                    <!-- Gold light sweep effect on hover -->
-                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-gold-light/20 to-transparent 
-                                opacity-0 group-hover:opacity-100 transition-opacity duration-700 
-                                pointer-events-none transform -skew-x-12 scale-x-0 group-hover:scale-x-125"></div>
-                </div>
 
-                <!-- Collection Item 2: Gold -->
-                <div class="group relative overflow-hidden rounded-lg shadow-xl 
-                            bg-black-deep/20 backdrop-blur-lg border border-gold/30 
-                            transition-all duration-500 hover:shadow-2xl hover:border-gold-light">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbwbMlpWQBW-joWEyI4uLiyqBXW53TTjYkVg&s"
-                        alt="Gold Collection" class="w-full h-64 object-cover object-center 
-                                                      transform group-hover:scale-105 transition-transform duration-500 ease-in-out" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black-deep to-transparent 
-                                opacity-70 group-hover:opacity-80 transition-opacity duration-500"></div>
-                    <div class="p-6 relative z-10 text-center">
-                        <h3 class="font-serif text-2xl text-gold mb-2">Gold</h3>
-                        <p class="text-ivory text-sm">Where brilliance meets legacy.</p>
+                    <!-- Product 2 -->
+                    <div class="flex flex-col items-center group">
+                        <div class="relative w-full max-w-sm overflow-hidden rounded-xl shadow-xl transform transition duration-500 group-hover:scale-105 group-hover:shadow-gold-light">
+                            <img src="https://images.unsplash.com/photo-1605330366627-99b8b1b518c0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Serenity Luxe Bottle" class="w-full h-auto object-cover transform transition duration-500 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                        <div class="relative -mt-16 w-11/12 max-w-xs p-6 bg-white/75 backdrop-blur-lg border border-gold rounded-lg shadow-lg text-center transform transition duration-500 group-hover:translate-y-2 group-hover:shadow-gold">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Serenity Luxe</h3>
+                            <p class="text-gray-700 mb-3 text-sm leading-relaxed">A pristine taste, bottled for moments of calm and indulgence.</p>
+                            <p class="text-gold text-xl font-bold">&euro;39.99</p>
+                        </div>
                     </div>
-                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-gold-light/20 to-transparent 
-                                opacity-0 group-hover:opacity-100 transition-opacity duration-700 
-                                pointer-events-none transform -skew-x-12 scale-x-0 group-hover:scale-x-125"></div>
-                </div>
 
-                <!-- Collection Item 3: Engagement -->
-                <div class="group relative overflow-hidden rounded-lg shadow-xl 
-                            bg-black-deep/20 backdrop-blur-lg border border-gold/30 
-                            transition-all duration-500 hover:shadow-2xl hover:border-gold-light">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaDEhVAnYIGd5h7e_2kLh2Zo3G3GR6Av_QqQ&s"
-                        alt="Engagement Collection" class="w-full h-64 object-cover object-center 
-                                                      transform group-hover:scale-105 transition-transform duration-500 ease-in-out" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black-deep to-transparent 
-                                opacity-70 group-hover:opacity-80 transition-opacity duration-500"></div>
-                    <div class="p-6 relative z-10 text-center">
-                        <h3 class="font-serif text-2xl text-gold mb-2">Engagement</h3>
-                        <p class="text-ivory text-sm">Where brilliance meets legacy.</p>
+                    <!-- Product 3 -->
+                    <div class="flex flex-col items-center group">
+                        <div class="relative w-full max-w-sm overflow-hidden rounded-xl shadow-xl transform transition duration-500 group-hover:scale-105 group-hover:shadow-gold-light">
+                            <img src="https://images.unsplash.com/photo-1632747120612-9c3f0a506979?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Alpine Reserve Bottle" class="w-full h-auto object-cover transform transition duration-500 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                        <div class="relative -mt-16 w-11/12 max-w-xs p-6 bg-white/75 backdrop-blur-lg border border-gold rounded-lg shadow-lg text-center transform transition duration-500 group-hover:translate-y-2 group-hover:shadow-gold">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Alpine Reserve</h3>
+                            <p class="text-gray-700 mb-3 text-sm leading-relaxed">From the peaks to your glass, an exclusive, limited-edition experience.</p>
+                            <p class="text-gold text-xl font-bold">&euro;49.99</p>
+                        </div>
                     </div>
-                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-gold-light/20 to-transparent 
-                                opacity-0 group-hover:opacity-100 transition-opacity duration-700 
-                                pointer-events-none transform -skew-x-12 scale-x-0 group-hover:scale-x-125"></div>
-                </div>
 
-                <!-- Collection Item 4: Royal Sets -->
-                <div class="group relative overflow-hidden rounded-lg shadow-xl 
-                            bg-black-deep/20 backdrop-blur-lg border border-gold/30 
-                            transition-all duration-500 hover:shadow-2xl hover:border-gold-light">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5U3to0c4Pu6tvSKglJPVzKAydjmCCAd37DA&s"
-                        alt="Royal Sets Collection" class="w-full h-64 object-cover object-center 
-                                                      transform group-hover:scale-105 transition-transform duration-500 ease-in-out" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black-deep to-transparent 
-                                opacity-70 group-hover:opacity-80 transition-opacity duration-500"></div>
-                    <div class="p-6 relative z-10 text-center">
-                        <h3 class="font-serif text-2xl text-gold mb-2">Royal Sets</h3>
-                        <p class="text-ivory text-sm">Where brilliance meets legacy.</p>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-gold-light/20 to-transparent 
-                                opacity-0 group-hover:opacity-100 transition-opacity duration-700 
-                                pointer-events-none transform -skew-x-12 scale-x-0 group-hover:scale-x-125"></div>
                 </div>
             </div>
         </section>
 
-        <!-- About Aurelia Section -->
-        <section id="about" class="py-24 px-4 md:px-8 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16">
-            <div class="lg:w-1/2 order-2 lg:order-1 text-center lg:text-left opacity-0" data-animation="fade-in">
-                <h2 class="font-serif text-4xl md:text-5xl text-ivory mb-4">
-                    About Aurelia
-                </h2>
-                <div class="h-1 bg-gradient-to-r from-transparent via-gold to-transparent w-24 mx-auto lg:mx-0 mb-8 transform scale-x-0 transition-transform duration-700 ease-out origin-center" data-animate-width></div>
+        <!-- Craftsmanship & Origin -->
+        <section id="craftsmanship" class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900 tracking-wide">Craftsmanship & Origin</h2>
 
-                <p class="text-lg text-ivory/90 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                    At Aurelia, we believe in the timeless. Meticulously crafted in ateliers where each diamond is hand-selected and set in 24-carat gold. A legacy of opulence, a statement of you. Our commitment to unparalleled craftsmanship and exquisite design ensures that every piece tells a story of enduring beauty and exceptional quality. We don't just create jewellery; we forge heirlooms.
-                </p>
-                <div class="w-24 h-1 bg-gold rounded-full mt-12 mx-auto lg:mx-0"></div>
-            </div>
-            <div class="lg:w-1/2 order-1 lg:order-2 flex justify-center opacity-0" data-animation="fade-in">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgujxdO_v03SjQfm8NYJ3HlESNiAin235h0A&s"
-                    alt="Aurelia Craftsmanship" class="w-full max-w-md h-auto rounded-lg shadow-xl 
-                                                    border border-gold/50 hover:shadow-gold transition-shadow duration-300" />
-            </div>
-        </section>
+                <!-- Parallax 1: Italian Mountains -->
+                <div class="relative h-[60vh] bg-cover bg-fixed bg-center mb-12 flex items-center justify-center text-center rounded-lg overflow-hidden shadow-xl" style="background-image: url('https://images.unsplash.com/photo-1549474704-586820579e00?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                    <div class="absolute inset-0 bg-black/40"></div>
+                    <div class="relative p-6 bg-white/30 backdrop-blur-sm rounded-lg border border-gold/50 max-w-2xl mx-auto">
+                        <p class="text-white text-3xl md:text-4xl font-serif italic drop-shadow-lg leading-relaxed">
+                            "Where the majestic Italian Alps kiss the sky,
+                            <br>our journey begins."
+                        </p>
+                    </div>
+                </div>
 
-        <!-- Gallery Section -->
-        <section id="gallery" class="py-24 px-4 md:px-8 bg-black-deep">
-            <h2 class="font-serif text-4xl md:text-5xl text-center text-ivory mb-4" data-animation="fade-in">
-                Our Masterpieces
-            </h2>
-            <div class="h-1 bg-gradient-to-r from-transparent via-gold to-transparent w-24 mx-auto mb-16 transform scale-x-0 transition-transform duration-700 ease-out origin-center" data-animate-width></div>
+                <!-- Parallax 2: Clear Spring Water -->
+                <div class="relative h-[60vh] bg-cover bg-fixed bg-center mb-12 flex items-center justify-center text-center rounded-lg overflow-hidden shadow-xl" style="background-image: url('https://images.unsplash.com/photo-1609115715975-c9e5352c80c3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                    <div class="absolute inset-0 bg-black/40"></div>
+                    <div class="relative p-6 bg-white/30 backdrop-blur-sm rounded-lg border border-gold/50 max-w-2xl mx-auto">
+                        <p class="text-white text-3xl md:text-4xl font-serif italic drop-shadow-lg leading-relaxed">
+                            "Pure alpine springs, untouched and serene,
+                            <br>a gift from nature."
+                        </p>
+                    </div>
+                </div>
 
-            <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Gallery Item 1 -->
-                <div class="group relative overflow-hidden rounded-lg shadow-lg opacity-0" data-animation="fade-in">
-                    <img src="https://i0.wp.com/www.society19.com/wp-content/uploads/2021/06/etsy-jewelry-featured-image-1.jpg?fit=1200%2C900&ssl=1" alt="Jewellery Gallery Item 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105"/>
-                    <div class="absolute inset-0 border-2 border-transparent group-hover:border-gold transition-colors duration-300"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black-deep/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-ivory text-lg font-serif">Eternal Ring</p>
+                <!-- Parallax 3: Artisans Hand-crafting -->
+                <div class="relative h-[60vh] bg-cover bg-fixed bg-center flex items-center justify-center text-center rounded-lg overflow-hidden shadow-xl" style="background-image: url('https://images.unsplash.com/photo-1598282367503-6254050d53c5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                    <div class="absolute inset-0 bg-black/40"></div>
+                    <div class="relative p-6 bg-white/30 backdrop-blur-sm rounded-lg border border-gold/50 max-w-2xl mx-auto">
+                        <p class="text-white text-3xl md:text-4xl font-serif italic drop-shadow-lg leading-relaxed">
+                            "Hand-finished by master artisans,
+                            <br>each bottle a testament to perfection."
+                        </p>
                     </div>
                 </div>
-                <!-- Gallery Item 2 -->
-                <div class="group relative overflow-hidden rounded-lg shadow-lg opacity-0" data-animation="fade-in" style="transition-delay: 100ms;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaDEhVAnYIGd5h7e_2kLh2Zo3G3GR6Av_QqQ&s" alt="Jewellery Gallery Item 2" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105"/>
-                    <div class="absolute inset-0 border-2 border-transparent group-hover:border-gold transition-colors duration-300"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black-deep/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-ivory text-lg font-serif">Legacy Pendant</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 3 -->
-                <div class="group relative overflow-hidden rounded-lg shadow-lg opacity-0" data-animation="fade-in" style="transition-delay: 200ms;">
-                    <img src="https://www.diamondhouse.co.il/wp-content/uploads/%D7%98%D7%91%D7%A2%D7%AA-%D7%99%D7%94%D7%9C%D7%95%D7%9E%D7%99%D7%9D-%D7%A8%D7%97%D7%91%D7%94-%D7%A2%D7%92%D7%9C%D7%92%D7%9C%D7%94-%D7%95%D7%9E%D7%A8%D7%A9%D7%99%D7%9E%D7%94-ADR-00724-1-1200x675.jpg" alt="Jewellery Gallery Item 3" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105"/>
-                    <div class="absolute inset-0 border-2 border-transparent group-hover:border-gold transition-colors duration-300"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black-deep/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-ivory text-lg font-serif">Brilliant Earrings</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 4 -->
-                <div class="group relative overflow-hidden rounded-lg shadow-lg opacity-0" data-animation="fade-in" style="transition-delay: 300ms;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbwbMlpWQBW-joWEyI4uLiyqBXW53TTjYkVg&s" alt="Jewellery Gallery Item 4" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105"/>
-                    <div class="absolute inset-0 border-2 border-transparent group-hover:border-gold transition-colors duration-300"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black-deep/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-ivory text-lg font-serif">Golden Bracelet</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 5 -->
-                <div class="group relative overflow-hidden rounded-lg shadow-lg opacity-0" data-animation="fade-in" style="transition-delay: 400ms;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5U3to0c4Pu6tvSKglJPVzKAydjmCCAd37DA&s" alt="Jewellery Gallery Item 5" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105"/>
-                    <div class="absolute inset-0 border-2 border-transparent group-hover:border-gold transition-colors duration-300"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black-deep/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-ivory text-lg font-serif">Royal Tiara</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 6 -->
-                <div class="group relative overflow-hidden rounded-lg shadow-lg opacity-0" data-animation="fade-in" style="transition-delay: 500ms;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf3fRjoWIMTbcYM0Td5mVRsJ6kVigWoJStmg&s" alt="Jewellery Gallery Item 6" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105"/>
-                    <div class="absolute inset-0 border-2 border-transparent group-hover:border-gold transition-colors duration-300"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black-deep/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-ivory text-lg font-serif">Prestige Necklace</p>
-                    </div>
-                </div>
+
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="py-24 px-4 md:px-8 bg-black-deep">
-            <h2 class="font-serif text-4xl md:text-5xl text-center text-ivory mb-4" data-animation="fade-in">
-                Adorned by Royals & Icons
-            </h2>
-            <div class="h-1 bg-gradient-to-r from-transparent via-gold to-transparent w-24 mx-auto mb-16 transform scale-x-0 transition-transform duration-700 ease-out origin-center" data-animate-width></div>
+        <!-- Lifestyle Gallery -->
+        <section id="lifestyle" class="py-16 md:py-24 bg-gradient-to-br from-gold/10 to-white">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900 tracking-wide">The Aqua di Sereno Lifestyle</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
 
-            <div class="max-w-7xl mx-auto overflow-x-auto whitespace-nowrap scrollbar-hide">
-                <div class="inline-flex space-x-8 pb-4">
-                    <!-- Testimonial Card 1 -->
-                    <div class="flex-shrink-0 w-80 md:w-96 p-8 rounded-lg shadow-xl 
-                                bg-black-deep/20 backdrop-blur-lg border border-gold/30 
-                                hover:border-gold-light transition duration-300 opacity-0" data-animation="fade-in">
-                        <p class="font-serif text-gold text-5xl mb-4 leading-none">&ldquo;</p>
-                        <p class="text-ivory text-md leading-relaxed mb-6">
-                            "Aurelia's creations are truly breathtaking. Each piece is a work of art, radiating an unmatched elegance. My royal engagement ring from Aurelia is a cherished treasure."
-                        </p>
-                        <p class="font-semibold text-ivory">- Princess Isabella of Eldoria</p>
+                    <!-- Lifestyle Image 1 -->
+                    <div class="relative overflow-hidden rounded-xl shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1628172900760-4b2678d4624b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Aqua di Sereno on a yacht" class="w-full h-72 object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="text-white text-xl font-semibold">Yacht Retreats</p>
+                        </div>
                     </div>
-                    <!-- Testimonial Card 2 -->
-                    <div class="flex-shrink-0 w-80 md:w-96 p-8 rounded-lg shadow-xl 
-                                bg-black-deep/20 backdrop-blur-lg border border-gold/30 
-                                hover:border-gold-light transition duration-300 opacity-0" data-animation="fade-in" style="transition-delay: 100ms;">
-                        <p class="font-serif text-gold text-5xl mb-4 leading-none">&ldquo;</p>
-                        <p class="text-ivory text-md leading-relaxed mb-6">
-                            "The craftsmanship of Aurelia is simply peerless. I've worn their pieces on the biggest stages, and they never fail to garner admiration. Pure luxury."
-                        </p>
-                        <p class="font-semibold text-ivory">- Elena Petrova, Acclaimed Actress</p>
+
+                    <!-- Lifestyle Image 2 -->
+                    <div class="relative overflow-hidden rounded-xl shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1599557476834-df7cf26e56b4?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Aqua di Sereno at a marble bar" class="w-full h-72 object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="text-white text-xl font-semibold">Elegant Evenings</p>
+                        </div>
                     </div>
-                    <!-- Testimonial Card 3 -->
-                    <div class="flex-shrink-0 w-80 md:w-96 p-8 rounded-lg shadow-xl 
-                                bg-black-deep/20 backdrop-blur-lg border border-gold/30 
-                                hover:border-gold-light transition duration-300 opacity-0" data-animation="fade-in" style="transition-delay: 200ms;">
-                        <p class="font-serif text-gold text-5xl mb-4 leading-none">&ldquo;</p>
-                        <p class="text-ivory text-md leading-relaxed mb-6">
-                            "For me, Aurelia represents the pinnacle of sophistication. Their designs are classic yet contemporary, making every moment feel grand. An investment in timeless beauty."
-                        </p>
-                        <p class="font-semibold text-ivory">- Lord Alistair Finch, Philanthropist</p>
+
+                    <!-- Lifestyle Image 3 -->
+                    <div class="relative overflow-hidden rounded-xl shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1502302393397-226e637a77b7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Aqua di Sereno on a white-linen table" class="w-full h-72 object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="text-white text-xl font-semibold">Refined Dining</p>
+                        </div>
                     </div>
-                    <!-- Testimonial Card 4 -->
-                    <div class="flex-shrink-0 w-80 md:w-96 p-8 rounded-lg shadow-xl 
-                                bg-black-deep/20 backdrop-blur-lg border border-gold/30 
-                                hover:border-gold-light transition duration-300 opacity-0" data-animation="fade-in" style="transition-delay: 300ms;">
-                        <p class="font-serif text-gold text-5xl mb-4 leading-none">&ldquo;</p>
-                        <p class="text-ivory text-md leading-relaxed mb-6">
-                            "Aurelia's diamond necklace transformed my red carpet look. The way it catches light is mesmerizing. Truly a jewel fit for any queen or an aspiring one."
+
+                    <!-- Lifestyle Image 4 -->
+                    <div class="relative overflow-hidden rounded-xl shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1555567845-a134a654ec04?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Aqua di Sereno luxury outdoor" class="w-full h-72 object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="text-white text-xl font-semibold">Exclusive Moments</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Press & Awards -->
+        <section id="press" class="py-16 md:py-24 bg-gray-900 text-white">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-4xl md:text-5xl font-bold text-center mb-16 text-gold tracking-wide">Press & Awards</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    <!-- Vogue Italia -->
+                    <div class="flex flex-col items-center">
+                        <p class="text-6xl font-serif text-gold mb-4 italic">V</p>
+                        <p class="text-xl md:text-2xl font-light mb-4 leading-relaxed">
+                            “The most refined water ever bottled, a true liquid jewel.”
                         </p>
-                        <p class="font-semibold text-ivory">- Sophia Rossi, Fashion Icon</p>
+                        <p class="text-gold font-semibold uppercase tracking-wider">— Vogue Italia</p>
+                    </div>
+
+                    <!-- Forbes -->
+                    <div class="flex flex-col items-center">
+                        <p class="text-6xl font-serif text-gold mb-4 italic">F</p>
+                        <p class="text-xl md:text-2xl font-light mb-4 leading-relaxed">
+                            “Aqua di Sereno defines luxury hydration. An investment in well-being.”
+                        </p>
+                        <p class="text-gold font-semibold uppercase tracking-wider">— Forbes</p>
+                    </div>
+
+                    <!-- GQ -->
+                    <div class="flex flex-col items-center">
+                        <p class="text-6xl font-serif text-gold mb-4 italic">G</p>
+                        <p class="text-xl md:text-2xl font-light mb-4 leading-relaxed">
+                            “A masterpiece of purity and design. The connoisseur's choice.”
+                        </p>
+                        <p class="text-gold font-semibold uppercase tracking-wider">— GQ Magazine</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact / Visit Us Section -->
-        <section id="contact" class="py-24 px-4 md:px-8 bg-black-deep">
-            <h2 class="font-serif text-4xl md:text-5xl text-center text-ivory mb-4" data-animation="fade-in">
-                Connect With Us
-            </h2>
-            <div class="h-1 bg-gradient-to-r from-transparent via-gold to-transparent w-24 mx-auto mb-16 transform scale-x-0 transition-transform duration-700 ease-out origin-center" data-animate-width></div>
+        <!-- VIP Access Form -->
+        <section id="vip" class="py-16 md:py-24 bg-hero-marble bg-cover bg-center">
+            <div class="container mx-auto px-4 flex justify-center">
+                <div class="max-w-2xl w-full p-8 md:p-12 bg-white/70 backdrop-blur-md rounded-lg shadow-2xl border border-gold/70 text-center">
+                    <h2 class="section-title text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-wide">Join the Aqua Reserve Club</h2>
+                    <p class="text-lg text-gray-700 mb-8 max-w-xl mx-auto italic">
+                        For those who value purity, precision, and prestige.
+                        <br>Gain VIP access to private allocations and exclusive insights.
+                    </p>
 
-            <div class="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <!-- Contact Form -->
-                <div class="p-8 rounded-lg shadow-xl 
-                            bg-black-deep/20 backdrop-blur-lg border border-gold/30 opacity-0" data-animation="fade-in">
-                    <h3 class="font-serif text-3xl text-gold mb-6 text-center">Inquire</h3>
                     <form class="space-y-6">
                         <div>
-                            <label for="name" class="block text-ivory text-sm font-semibold mb-2">Name</label>
-                            <input type="text" id="name" name="name" 
-                                   class="w-full p-3 bg-black-deep/60 border border-gold/50 rounded-md 
-                                          focus:ring-2 focus:ring-gold outline-none text-ivory placeholder-ivory/60 
-                                          transition duration-200" placeholder="Your Name" />
+                            <input type="text" placeholder="Your Name" class="w-full p-4 bg-white/80 border border-gold rounded-md focus:outline-none focus:ring-2 focus:ring-gold focus:shadow-gold transition duration-300 placeholder-gray-600 text-gray-800">
                         </div>
                         <div>
-                            <label for="email" class="block text-ivory text-sm font-semibold mb-2">Email</label>
-                            <input type="email" id="email" name="email" 
-                                   class="w-full p-3 bg-black-deep/60 border border-gold/50 rounded-md 
-                                          focus:ring-2 focus:ring-gold outline-none text-ivory placeholder-ivory/60 
-                                          transition duration-200" placeholder="Your Email" />
+                            <input type="email" placeholder="Your Email Address" class="w-full p-4 bg-white/80 border border-gold rounded-md focus:outline-none focus:ring-2 focus:ring-gold focus:shadow-gold transition duration-300 placeholder-gray-600 text-gray-800">
                         </div>
                         <div>
-                            <label for="message" class="block text-ivory text-sm font-semibold mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" 
-                                      class="w-full p-3 bg-black-deep/60 border border-gold/50 rounded-md 
-                                             focus:ring-2 focus:ring-gold outline-none text-ivory placeholder-ivory/60 
-                                             transition duration-200" placeholder="Your Message"></textarea>
+                            <textarea placeholder="Message (Optional)" rows="4" class="w-full p-4 bg-white/80 border border-gold rounded-md focus:outline-none focus:ring-2 focus:ring-gold focus:shadow-gold transition duration-300 placeholder-gray-600 text-gray-800"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-gold text-black-deep font-semibold py-3 px-6 rounded-full 
-                                       shadow-lg hover:bg-transparent hover:text-gold hover:border-gold 
-                                       border border-transparent transition duration-300 ease-in-out transform hover:scale-105">
-                            Send Inquiry
+                        <button type="submit" class="w-full py-4 bg-gold text-white text-xl font-semibold uppercase tracking-wider rounded-md shadow-lg hover:bg-dark-gold hover:shadow-gold-light transition duration-500 transform hover:scale-105">
+                            Request VIP Access
                         </button>
                     </form>
-                </div>
-                <!-- Visit Us / Address -->
-                <div class="p-8 rounded-lg shadow-xl 
-                            bg-black-deep/20 backdrop-blur-lg border border-gold/30 opacity-0" data-animation="fade-in" style="transition-delay: 100ms;">
-                    <h3 class="font-serif text-3xl text-gold mb-6 text-center">Visit Our Boutique</h3>
-                    <address class="text-ivory text-center leading-relaxed text-lg mb-8">
-                        Aurelia Flagship Boutique<br>
-                        123 Lumina Avenue<br>
-                        Grand City, 78901<br>
-                        Kingdom of Aurelia<br><br>
-                        Phone: <a href="tel:+1234567890" class="text-gold hover:underline">+1 (234) 567-890</a><br>
-                        Email: <a href="mailto:info@aurelia.com" class="text-gold hover:underline">info@aurelia.com</a>
-                    </address>
-                    <div class="aspect-video w-full rounded-lg overflow-hidden border border-gold/50">
-                        <!-- Placeholder for Map Embed (Google Maps) -->
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.251921312389!2d144.96305751531776!3d-37.81720337975195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b36a19f6a5%3A0xf5d909b2d8d8d8d8!2sState%20Library%20Victoria!5e0!3m2!1sen!2sau!4v1678881234567!5m2!1sen!2sau"
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black-deep py-12 px-4 md:px-8 text-ivory text-sm border-t border-gold/50">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-center md:text-left">
-                <svg width="120" height="30" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto md:mx-0">
-                    <text x="0" y="24" font-family="Playfair Display, serif" font-weight="700" font-size="24" fill="#D4AF37">AURELIA</text>
-                </svg>
-                <p class="mt-2">&copy; 2024 Aurelia. All rights reserved.</p>
+    <footer class="bg-marble bg-cover bg-center py-12 md:py-16 text-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <a href="#" class="text-4xl font-bold text-gold tracking-widest uppercase mb-6 inline-block">Aqua di Sereno</a>
+            <div class="flex justify-center space-x-6 mb-8 text-xl">
+                <a href="#" class="hover:text-gold transition duration-300">Facebook</a>
+                <a href="#" class="hover:text-gold transition duration-300">Instagram</a>
+                <a href="#" class="hover:text-gold transition duration-300">Twitter</a>
             </div>
-            <nav class="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-2">
-                <a href="#hero" class="hover:text-gold transition duration-200">Home</a>
-                <a href="#collections" class="hover:text-gold transition duration-200">Collections</a>
-                <a href="#about" class="hover:text-gold transition duration-200">About</a>
-                <a href="#gallery" class="hover:text-gold transition duration-200">Gallery</a>
-                <a href="#contact" class="hover:text-gold transition duration-200">Contact</a>
-            </nav>
-            <div class="flex space-x-6">
-                <!-- Instagram Icon (SVG) -->
-                <a href="https://instagram.com/aurelia" target="_blank" class="text-ivory hover:text-gold transition duration-200">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
-                </a>
-                <!-- Facebook Icon (SVG) -->
-                <a href="https://facebook.com/aurelia" target="_blank" class="text-ivory hover:text-gold transition duration-200">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.262 0-4.192 1.023-4.192 4.004v3.996z"></path>
-                    </svg>
-                </a>
-            </div>
+            <p class="text-sm md:text-base">&copy; 2023 Aqua di Sereno. All rights reserved.</p>
+            <p class="text-xs md:text-sm mt-2 text-gray-700">Purity. Precision. Prestige.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for scroll animations and parallax -->
+    <!-- JavaScript for Animations -->
     <script>
-        // Smooth scroll for internal navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Adjust offset to account for potential fixed headers
-                        behavior: 'smooth'
-                    });
-                }
+        // Hero Image Fade-in and Zoom
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroImageContainer = document.getElementById('hero-image-container');
+            if (heroImageContainer) {
+                heroImageContainer.classList.remove('opacity-0', 'scale-95');
+                heroImageContainer.classList.add('opacity-100', 'scale-100');
+            }
+
+            // Section Title Slide Up on Scroll
+            const sectionTitles = document.querySelectorAll('.section-title');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-slide-up-fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sectionTitles.forEach(title => {
+                title.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
+                observer.observe(title);
             });
         });
 
-        // Intersection Observer for fade-in animations on elements with data-animation="fade-in"
-        const faders = document.querySelectorAll('[data-animation="fade-in"]');
-
-        const appearOptions = {
-            threshold: 0.3, // When 30% of the item is visible
-            rootMargin: "0px 0px -50px 0px" // Trigger animation 50px before element hits bottom of viewport
-        };
-
-        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                } else {
-                    entry.target.classList.add('opacity-100');
-                    entry.target.classList.add('transition-opacity', 'duration-1000', 'ease-out');
-                    observer.unobserve(entry.target); // Stop observing once animated
-                }
-            });
-        }, appearOptions);
-
-        faders.forEach(fader => {
-            // Elements are initially opacity-0 in HTML or via the hero's animation class.
-            appearOnScroll.observe(fader);
-        });
-
-        // Intersection Observer for animating width of gold lines
-        const animateWidthElements = document.querySelectorAll('[data-animate-width]');
-        const widthObserverOptions = {
-            threshold: 0.5 // Trigger when 50% of the element is visible
-        };
-
-        const widthObserver = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.remove('scale-x-0'); // Remove initial hidden state
-                    entry.target.classList.add('scale-x-100');  // Animate to full width
-                    observer.unobserve(entry.target); // Stop observing once animated
-                }
-            });
-        }, widthObserverOptions);
-
-        animateWidthElements.forEach(el => {
-            widthObserver.observe(el);
-        });
-
-        // Simple Parallax Effect for Hero Background Image
-        const hero = document.getElementById('hero');
-        window.addEventListener('scroll', () => {
-            let scrollPosition = window.pageYOffset;
-            // Adjust the multiplier (0.3) for desired parallax speed
-            hero.style.backgroundPositionY = -scrollPosition * 0.3 + 'px';
-        });
+        // Add custom keyframes for slide-up-fade-in
+        // Tailwind doesn't have direct utility for @keyframes in CDN mode.
+        // We'll simulate it by applying classes on intersection.
+        // The classes 'opacity-0', 'translate-y-10' are initial,
+        // and 'opacity-100', 'translate-y-0' are applied on intersection.
+        // The 'transition-all duration-1000 ease-out' takes care of the animation.
     </script>
 </body>
 </html>
