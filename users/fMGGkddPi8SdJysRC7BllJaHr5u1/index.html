@@ -4,38 +4,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee Break</title>
+    <title>Nature's Canvas - Photography Portfolio</title>
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        /* No custom styles needed, Tailwind covers everything */
+        /* Optional: Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
-<body class="bg-gray-100 font-sans text-gray-800 antialiased">
-    <div class="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
-        <main class="bg-white p-6 sm:p-8 lg:p-10 rounded-xl shadow-2xl max-w-xl w-full text-center transform hover:scale-105 transition-transform duration-300 ease-in-out">
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-indigo-700 mb-4 sm:mb-6 leading-tight">
-                Your Daily Moment of Zen
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-3xl font-extrabold text-green-700 tracking-tight">Nature's Canvas</a>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#gallery" class="text-lg text-gray-700 hover:text-green-700 font-semibold transition duration-300">Gallery</a></li>
+                    <li><a href="#contact" class="text-lg text-gray-700 hover:text-green-700 font-semibold transition duration-300">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-auto md:h-screen bg-gradient-to-br from-green-100 to-blue-200 flex items-center justify-center py-20 md:py-0">
+        <div class="relative z-10 text-center max-w-5xl px-6 mx-auto">
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-gray-900 drop-shadow-lg">
+                Capture the Untamed Beauty
             </h1>
-            <p class="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 max-w-md mx-auto">
-                Sip, relax, and savor the rich aroma.
+            <p class="text-xl md:text-2xl mb-10 text-gray-700 max-w-3xl mx-auto drop-shadow-md">
+                A journey through the lens, revealing the breathtaking artistry of nature.
+            </p>
+            
+            <!-- Hero Image -->
+            <div class="relative w-full max-w-4xl mx-auto mb-12">
+                <img src="https://images.pexels.com/photos/814449/pexels-photo-814449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                     alt="Misty forest with sunrays"
+                     class="w-full h-auto object-cover rounded-lg shadow-2xl border-4 border-white transform transition-transform duration-500 hover:scale-105">
+            </div>
+
+            <a href="#gallery" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 text-lg">
+                Explore My Portfolio
+            </a>
+        </div>
+    </section>
+
+    <!-- About/Introduction Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-gray-800 mb-6">About My Work</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Welcome to Nature's Canvas, where every photograph tells a story of the wild's enduring spirit. I'm passionate about exploring remote landscapes and capturing moments that inspire awe and connection with our natural world. My goal is to bring the majesty of mountains, the tranquility of forests, and the drama of coastlines directly to you. Each image is a testament to the planet's untouched beauty.
+            </p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-gray-800 text-center mb-12">My Portfolio</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                
+                <!-- Gallery Item 1 -->
+                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://images.pexels.com/photos/1034662/pexels-photo-1034662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                         alt="Mountain lake" 
+                         class="w-full h-80 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-xl font-semibold">Mountain Majesty</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://images.pexels.com/photos/235615/pexels-photo-235615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                         alt="Rolling green hills" 
+                         class="w-full h-80 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-xl font-semibold">Emerald Hills</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://images.pexels.com/photos/360912/pexels-photo-360912.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                         alt="Serene forest path" 
+                         class="w-full h-80 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-xl font-semibold">Forest Whispers</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                         alt="Sunset over ocean beach" 
+                         class="w-full h-80 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-xl font-semibold">Coastal Serenity</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-gray-800 mb-6">Get in Touch</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-10">
+                Have a question, a project idea, or just want to say hello? I'd love to hear from you!
             </p>
 
-            <!-- Coffee Image -->
-            <!-- Using a placeholder specifically for coffee, maintaining original image styling classes. -->
-            <img src="https://via.placeholder.com/600x400?text=Fresh+Coffee"
-                 alt="A steaming cup of fresh coffee"
-                 class="rounded-lg shadow-xl mx-auto my-4 w-full h-auto max-w-md border-4 border-indigo-200">
+            <form class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-xl">
+                <div class="mb-6 text-left">
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+                    <input type="text" id="name" name="name" 
+                           class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-200" 
+                           placeholder="Your Full Name" required>
+                </div>
+                <div class="mb-6 text-left">
+                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                    <input type="email" id="email" name="email" 
+                           class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-200" 
+                           placeholder="your@email.com" required>
+                </div>
+                <div class="mb-8 text-left">
+                    <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
+                    <textarea id="message" name="message" rows="6" 
+                              class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 resize-none transition duration-200" 
+                              placeholder="Type your message here..." required></textarea>
+                </div>
+                <button type="submit" 
+                        class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 text-lg">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
 
-            <p class="mt-6 sm:mt-8 text-sm sm:text-md text-gray-500">
-                Crafted with passion, just for you. Enjoy your coffee break.
-            </p>
-        </main>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm">&copy; 2023 Nature's Canvas. All rights reserved.</p>
+            <p class="text-xs mt-2">Photography by [Your Name/Brand]. Images sourced from Pexels.</p>
+        </div>
+    </footer>
 
-        <footer class="mt-10 text-gray-400 text-xs sm:text-sm">
-            &copy; 2023 Coffee Delights. All rights reserved.
-        </footer>
-    </div>
 </body>
 </html>
 ```
