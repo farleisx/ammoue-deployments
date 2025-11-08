@@ -8,54 +8,34 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Optional: Custom scrollbar for aesthetic, if content ever overflows */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #a78bfa; /* Tailwind purple-400 */
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #8b5cf6; /* Tailwind purple-500 */
-        }
+        /* No custom styles needed, Tailwind covers everything */
     </style>
 </head>
-<body class="font-sans antialiased text-gray-800 bg-gradient-to-br from-purple-100 to-pink-100 min-h-screen flex items-center justify-center p-4">
+<body class="bg-gray-100 font-sans text-gray-800 antialiased">
+    <div class="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+        <main class="bg-white p-6 sm:p-8 lg:p-10 rounded-xl shadow-2xl max-w-xl w-full text-center transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-indigo-700 mb-4 sm:mb-6 leading-tight">
+                Your Daily Moment of Zen
+            </h1>
+            <p class="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 max-w-md mx-auto">
+                Sip, relax, and savor the rich aroma.
+            </p>
 
-    <div class="container mx-auto px-4 py-12 bg-white rounded-xl shadow-2xl max-w-2xl text-center border-b-8 border-purple-400">
-        <h1 class="text-5xl font-extrabold text-purple-800 mb-6 leading-tight">
-            Your Daily Dose of Delight
-        </h1>
-        <p class="text-xl text-gray-600 mb-10 max-w-prose mx-auto">
-            Take a moment to relax and enjoy the simple pleasure of a warm cup of coffee.
-        </p>
+            <!-- Coffee Image -->
+            <!-- Using a placeholder specifically for coffee, maintaining original image styling classes. -->
+            <img src="https://via.placeholder.com/600x400?text=Fresh+Coffee"
+                 alt="A steaming cup of fresh coffee"
+                 class="rounded-lg shadow-xl mx-auto my-4 w-full h-auto max-w-md border-4 border-indigo-200">
 
-        <div class="relative w-full overflow-hidden rounded-lg shadow-xl border-4 border-purple-200 transform hover:scale-105 transition-transform duration-300 ease-in-out">
-            <img 
-                src="https://images.unsplash.com/photo-1517701777267-33f7d1b3f9c6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                alt="A beautiful cup of coffee with latte art on a wooden table" 
-                class="w-full h-auto object-cover rounded-md"
-                width="600"
-                height="400"
-            >
-            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-lg"></div>
-            <p class="absolute bottom-4 left-4 text-white text-sm opacity-80">Photo by <a href="https://unsplash.com/@alexifoto" target="_blank" rel="noopener noreferrer" class="underline hover:text-purple-200 transition-colors">alex ifoto</a> on Unsplash</p>
-        </div>
+            <p class="mt-6 sm:mt-8 text-sm sm:text-md text-gray-500">
+                Crafted with passion, just for you. Enjoy your coffee break.
+            </p>
+        </main>
 
-        <p class="text-lg text-gray-700 mt-10 mb-4">
-            May your coffee be strong and your day be productive.
-        </p>
-        <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-purple-300 focus:ring-opacity-75">
-            Grab Another Cup
-        </button>
+        <footer class="mt-10 text-gray-400 text-xs sm:text-sm">
+            &copy; 2023 Coffee Delights. All rights reserved.
+        </footer>
     </div>
-
 </body>
 </html>
 ```
