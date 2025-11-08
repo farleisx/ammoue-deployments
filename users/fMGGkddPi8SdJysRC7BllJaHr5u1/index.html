@@ -1,167 +1,432 @@
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vallerio - A New Era of Time</title>
+    <title>AURELIA - Experience the Brilliance of Eternity.</title>
+    <!-- Google Fonts for Playfair Display and Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for Playfair Display (Serif for headings) and Montserrat (Sans-serif for body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS Custom Configuration for Fonts and Colors -->
+    <!-- Tailwind Configuration (for custom colors, fonts, and animations) -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        playfair: ['"Playfair Display"', 'serif'],
-                        montserrat: ['Montserrat', 'sans-serif'],
-                    },
                     colors: {
-                        'vallerio-gold': '#D4AF37', // A sophisticated gold hue
-                        'vallerio-black': '#0A0A0A', // A very deep black
+                        'deep-black': '#0A0A0A',
+                        'champagne-gold': '#D4AF37',
+                        'gold-light': '#FFD700',
+                        'gold-dim': '#C19A6B',
+                        'gold-dark': '#8B7355',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    animation: {
+                        'shimmer': 'shimmer 3s infinite linear forwards',
+                        'shine': 'shine 2s infinite linear',
+                        'glow': 'glow 1.5s infinite alternate',
+                        'border-glow-slow': 'border-glow 2s infinite alternate',
+                        'text-shimmer': 'text-shimmer 2.5s infinite linear',
+                    },
+                    keyframes: {
+                        'shimmer': {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        },
+                        'shine': {
+                            '0%': { transform: 'translateX(-100%) skewX(-30deg)' },
+                            '100%': { transform: 'translateX(200%) skewX(-30deg)' },
+                        },
+                        'glow': {
+                            '0%': { textShadow: '0 0 5px rgba(212, 175, 55, 0.7)' },
+                            '100%': { textShadow: '0 0 20px rgba(255, 215, 0, 0.9), 0 0 30px rgba(255, 215, 0, 0.6)' },
+                        },
+                        'border-glow': {
+                            '0%': { boxShadow: '0 0 5px rgba(212, 175, 55, 0.5)' },
+                            '50%': { boxShadow: '0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.5)' },
+                            '100%': { boxShadow: '0 0 5px rgba(212, 175, 55, 0.5)' },
+                        },
+                        'text-shimmer': {
+                            '0%, 100%': {
+                                'background-size': '200% auto',
+                                'background-position': 'left center',
+                            },
+                            '50%': {
+                                'background-size': '200% auto',
+                                'background-position': 'right center',
+                            },
+                        }
                     }
                 }
             }
         }
     </script>
-</head>
-<body class="font-montserrat text-white bg-vallerio-black antialiased">
+    <style>
+        /* Custom CSS for effects not directly supported by Tailwind utility classes or for grouping complex styles */
 
-    <!-- Header (Simple Logo) -->
-    <header class="absolute top-0 left-0 right-0 z-20 p-6 md:p-8">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-3xl md:text-4xl font-playfair font-bold text-vallerio-gold tracking-wider uppercase drop-shadow-lg">Vallerio</a>
-        </div>
+        /* Shimmer text effect for hero tagline */
+        .shimmer-text {
+            background: linear-gradient(90deg, #D4AF37 0%, #FFD700 20%, #D4AF37 40%, #FFD700 60%, #D4AF37 80%, #FFD700 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: text-shimmer 2.5s infinite linear;
+        }
+
+        /* Glassmorphism base styles */
+        .glassmorphism {
+            background-color: rgba(10, 10, 10, 0.2); /* Deep Black with transparency */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3); /* Champagne Gold with transparency */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Shine effect for glassmorphism cards on hover */
+        .glass-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-shine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: skewX(-20deg);
+            filter: blur(10px);
+            transition: transform 0.5s ease-in-out;
+            pointer-events: none;
+        }
+
+        .glass-shine:hover::before {
+            transform: translateX(200%) skewX(-20deg);
+        }
+
+        /* Parallax effect for background images */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Fade-in scroll animation base styles */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform; /* Optimize for animation */
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-deep-black text-white font-sans overflow-x-hidden">
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 py-4 px-8 flex justify-between items-center bg-deep-black bg-opacity-80 backdrop-blur-sm shadow-lg">
+        <a href="#hero" class="text-3xl font-serif text-champagne-gold font-bold tracking-wider hover:text-gold-light transition-colors duration-300">AURELIA</a>
+        <nav class="hidden md:flex space-x-8 text-lg font-sans">
+            <a href="#hero" class="text-white hover:text-champagne-gold transition duration-300">Home</a>
+            <a href="#collections" class="text-white hover:text-champagne-gold transition duration-300">Collections</a>
+            <a href="#about" class="text-white hover:text-champagne-gold transition duration-300">About</a>
+            <a href="#gallery" class="text-white hover:text-champagne-gold transition duration-300">Gallery</a>
+            <a href="#testimonials" class="text-white hover:text-champagne-gold transition duration-300">Testimonials</a>
+            <a href="#contact" class="text-white hover:text-champagne-gold transition duration-300">Contact</a>
+        </nav>
+        <!-- Mobile menu toggle (optional, for a complete responsive nav) -->
+        <button class="md:hidden text-champagne-gold text-2xl">
+            &#9776; <!-- Hamburger icon -->
+        </button>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="Vallerio Hero Watch - A close-up of a luxurious black and gold watch" class="absolute inset-0 w-full h-full object-cover object-center transform scale-110 transition-transform duration-1000 ease-in-out">
-        <div class="absolute inset-0 bg-gradient-to-t from-vallerio-black via-black/60 to-black/30"></div>
-        <div class="relative z-10 text-center p-6 max-w-4xl mx-auto">
-            <h1 class="font-playfair text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-4 drop-shadow-lg">A New Era of Time</h1>
-            <p class="font-montserrat text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 drop-shadow-md">Italian craftsmanship, precision engineering, timeless elegance.</p>
-            <a href="#collection" class="inline-block bg-vallerio-gold text-vallerio-black px-10 py-4 rounded-full text-lg md:text-xl font-semibold hover:bg-opacity-90 transition duration-300 ease-in-out transform hover:scale-105 shadow-xl">Explore Collection</a>
-        </div>
-    </section>
-
-    <!-- Featured Watches Grid -->
-    <section id="collection" class="py-20 md:py-32 bg-vallerio-black">
-        <div class="container mx-auto px-6 lg:px-8">
-            <h2 class="font-playfair text-4xl md:text-5xl font-bold text-center text-vallerio-gold mb-16">The Vallerio Collection</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
-                <!-- Watch Card 1: Vallerio Nero Classico -->
-                <div class="group bg-vallerio-black border border-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-[1.01]">
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="Vallerio Nero Classico watch" class="w-full h-80 object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-110">
-                    <div class="p-8">
-                        <h3 class="font-playfair text-3xl font-semibold text-vallerio-gold mb-2">Vallerio Nero Classico</h3>
-                        <p class="font-montserrat text-xl text-gray-300 mb-4">$2,950</p>
-                        <p class="font-montserrat text-gray-400 text-sm md:text-base leading-relaxed">A deep-black dial with polished gold index markers, inspired by Milano night luxury. Sapphire crystal & Swiss automatic movement.</p>
-                    </div>
-                </div>
-
-                <!-- Watch Card 2: Vallerio Oro Eclipse -->
-                <div class="group bg-vallerio-black border border-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-[1.01]">
-                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314" alt="Vallerio Oro Eclipse watch" class="w-full h-80 object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-110">
-                    <div class="p-8">
-                        <h3 class="font-playfair text-3xl font-semibold text-vallerio-gold mb-2">Vallerio Oro Eclipse</h3>
-                        <p class="font-montserrat text-xl text-gray-300 mb-4">$3,870</p>
-                        <p class="font-montserrat text-gray-400 text-sm md:text-base leading-relaxed">Black & gold with lunar-phase window. Timeless bold elegance.</p>
-                    </div>
-                </div>
-
-                <!-- Watch Card 3: Vallerio Argento Mare -->
-                <div class="group bg-vallerio-black border border-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-[1.01]">
-                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf" alt="Vallerio Argento Mare watch" class="w-full h-80 object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-110">
-                    <div class="p-8">
-                        <h3 class="font-playfair text-3xl font-semibold text-vallerio-gold mb-2">Vallerio Argento Mare</h3>
-                        <p class="font-montserrat text-xl text-gray-300 mb-4">$2,420</p>
-                        <p class="font-montserrat text-gray-400 text-sm md:text-base leading-relaxed">Silver ocean dial, stainless steel bracelet, oceanic minimal luxury.</p>
-                    </div>
-                </div>
-
-                <!-- Watch Card 4: Vallerio Lume Notte -->
-                <div class="group bg-vallerio-black border border-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-[1.01]">
-                    <img src="https://images.unsplash.com/photo-1508253578933-e3d3a1e3b4d4" alt="Vallerio Lume Notte watch" class="w-full h-80 object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-110">
-                    <div class="p-8">
-                        <h3 class="font-playfair text-3xl font-semibold text-vallerio-gold mb-2">Vallerio Lume Notte</h3>
-                        <p class="font-montserrat text-xl text-gray-300 mb-4">$2,780</p>
-                        <p class="font-montserrat text-gray-400 text-sm md:text-base leading-relaxed">Navy luminous dial, smooth Italian leather, built for nightlife perfection.</p>
-                    </div>
-                </div>
-
-                <!-- Watch Card 5: Vallerio Chrono Imperiale -->
-                <div class="group bg-vallerio-black border border-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-[1.01]">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e" alt="Vallerio Chrono Imperiale watch" class="w-full h-80 object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-110">
-                    <div class="p-8">
-                        <h3 class="font-playfair text-3xl font-semibold text-vallerio-gold mb-2">Vallerio Chrono Imperiale</h3>
-                        <p class="font-montserrat text-xl text-gray-300 mb-4">$4,550</p>
-                        <p class="font-montserrat text-gray-400 text-sm md:text-base leading-relaxed">Bold chronograph with precision timing. The CEO watch.</p>
-                    </div>
-                </div>
-                <!-- Empty div for layout balance on large screens if needed for a 3-column grid, otherwise flex-grow or adjust grid -->
-                <div class="hidden lg:block"></div>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden parallax-bg"
+                 style="background-image: url('https://images.unsplash.com/photo-1586864387775-06a9d8f1e56d');">
+            <div class="absolute inset-0 bg-deep-black bg-opacity-60 z-10"></div>
+            <div class="relative z-20 max-w-4xl mx-auto p-6 md:p-10 bg-deep-black bg-opacity-30 backdrop-blur-md rounded-lg border border-champagne-gold border-opacity-30 shadow-2xl">
+                <h1 class="text-6xl md:text-8xl font-serif font-bold text-champagne-gold mb-6 animate-glow">AURELIA</h1>
+                <p class="text-3xl md:text-5xl font-serif font-light text-white shimmer-text mb-10">Experience the Brilliance of Eternity.</p>
+                <a href="#collections" class="inline-block px-10 py-4 text-xl font-sans font-semibold text-white bg-champagne-gold bg-opacity-20 border-2 border-champagne-gold rounded-full hover:bg-opacity-40 transition duration-500 ease-in-out relative overflow-hidden group">
+                    <span class="relative z-10">Discover Collections</span>
+                    <span class="absolute inset-0 bg-gradient-to-r from-transparent via-gold-light/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-shine"></span>
+                </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section class="py-20 md:py-32 bg-vallerio-black">
-        <div class="container mx-auto px-6 lg:px-8 text-center max-w-4xl">
-            <h2 class="font-playfair text-4xl md:text-5xl font-bold text-vallerio-gold mb-8">Our Heritage</h2>
-            <p class="font-montserrat text-xl md:text-2xl leading-relaxed text-gray-300 italic">
-                "Born in Milano. Inspired by tradition. Crafted for those who define their own time."
-            </p>
-        </div>
-    </section>
+        <!-- Featured Collections Section -->
+        <section id="collections" class="py-20 bg-deep-black fade-in-section">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-center text-champagne-gold mb-16 relative">
+                    Featured Collections
+                    <span class="block w-24 h-1 mx-auto mt-4 bg-gradient-to-r from-transparent via-gold-light to-transparent animate-shimmer"></span>
+                </h2>
 
-    <!-- Craftsmanship Section -->
-    <section class="py-20 md:py-32 bg-vallerio-black relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 pointer-events-none">
-            <!-- Background image for texture -->
-            <img src="https://images.unsplash.com/photo-1620623351233-0c4a0349f493?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTIyOTd8MHwxfHNlYXJjaHw0fHx3YXRjaCUyMGdlYXJzfGVufDB8fHx8MTY5OTI2NzcyNXww&ixlib=rb-4.0.3&q=80&w=1080" alt="Watch gears close up background" class="w-full h-full object-cover object-center scale-125">
-        </div>
-        <div class="container mx-auto px-6 lg:px-8 relative z-10">
-            <h2 class="font-playfair text-4xl md:text-5xl font-bold text-center text-vallerio-gold mb-16">Unrivaled Craftsmanship</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 max-w-5xl mx-auto">
-                <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-xl shadow-lg bg-vallerio-black/70 backdrop-blur-sm transition duration-300 hover:border-vallerio-gold transform hover:scale-[1.02]">
-                    <span class="text-6xl text-vallerio-gold mb-4">💎</span>
-                    <h3 class="font-playfair text-2xl font-semibold text-white mb-3">Sapphire Crystal</h3>
-                    <p class="font-montserrat text-gray-300 leading-relaxed">Each Vallerio timepiece is protected by an exquisite scratch-resistant sapphire crystal, ensuring clarity and durability for generations.</p>
-                </div>
-                <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-xl shadow-lg bg-vallerio-black/70 backdrop-blur-sm transition duration-300 hover:border-vallerio-gold transform hover:scale-[1.02]">
-                    <span class="text-6xl text-vallerio-gold mb-4">⚙️</span>
-                    <h3 class="font-playfair text-2xl font-semibold text-white mb-3">Swiss Automatic Movement</h3>
-                    <p class="font-montserrat text-gray-300 leading-relaxed">At the heart of every Vallerio beats a meticulously calibrated Swiss automatic movement, a testament to precision and reliability.</p>
-                </div>
-                <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-xl shadow-lg bg-vallerio-black/70 backdrop-blur-sm transition duration-300 hover:border-vallerio-gold transform hover:scale-[1.02]">
-                    <span class="text-6xl text-vallerio-gold mb-4">🛠️</span>
-                    <h3 class="font-playfair text-2xl font-semibold text-white mb-3">Artisan Assembly</h3>
-                    <p class="font-montserrat text-gray-300 leading-relaxed">Our watches are hand-assembled by master artisans in Milano, where every detail is perfected with unwavering dedication.</p>
-                </div>
-                <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-xl shadow-lg bg-vallerio-black/70 backdrop-blur-sm transition duration-300 hover:border-vallerio-gold transform hover:scale-[1.02]">
-                    <span class="text-6xl text-vallerio-gold mb-4">💪</span>
-                    <h3 class="font-playfair text-2xl font-semibold text-white mb-3">Carbon-Grade Steel</h3>
-                    <p class="font-montserrat text-gray-300 leading-relaxed">Constructed from high-grade, corrosion-resistant carbon steel, our cases offer exceptional strength and a lasting lustrous finish.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                    <!-- Collection Card 1: Diamonds -->
+                    <div class="group relative rounded-xl shadow-xl glassmorphism hover:border-gold-light transition-all duration-500 ease-in-out glass-shine">
+                        <img src="https://images.unsplash.com/photo-1620243218887-6f2db7a3f318" alt="Diamond Collection" class="w-full h-72 object-cover object-center rounded-t-xl group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="p-6 text-center">
+                            <h3 class="text-3xl font-serif font-semibold text-champagne-gold mb-2 group-hover:text-gold-light transition-colors duration-300">Diamonds</h3>
+                            <p class="text-sm text-gray-300">Timeless brilliance, exquisite cuts.</p>
+                        </div>
+                        <div class="absolute inset-0 rounded-xl pointer-events-none transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(255,215,0,0.8),_0_0_30px_rgba(255,215,0,0.5)]"></div>
+                    </div>
+
+                    <!-- Collection Card 2: Gold -->
+                    <div class="group relative rounded-xl shadow-xl glassmorphism hover:border-gold-light transition-all duration-500 ease-in-out glass-shine">
+                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4a3e5a4" alt="Gold Collection" class="w-full h-72 object-cover object-center rounded-t-xl group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="p-6 text-center">
+                            <h3 class="text-3xl font-serif font-semibold text-champagne-gold mb-2 group-hover:text-gold-light transition-colors duration-300">Gold</h3>
+                            <p class="text-sm text-gray-300">Pure luxury, handcrafted perfection.</p>
+                        </div>
+                        <div class="absolute inset-0 rounded-xl pointer-events-none transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(255,215,0,0.8),_0_0_30px_rgba(255,215,0,0.5)]"></div>
+                    </div>
+
+                    <!-- Collection Card 3: Engagement -->
+                    <div class="group relative rounded-xl shadow-xl glassmorphism hover:border-gold-light transition-all duration-500 ease-in-out glass-shine">
+                        <img src="https://images.unsplash.com/photo-1600180759316-1f3e545c5c7f" alt="Engagement Collection" class="w-full h-72 object-cover object-center rounded-t-xl group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="p-6 text-center">
+                            <h3 class="text-3xl font-serif font-semibold text-champagne-gold mb-2 group-hover:text-gold-light transition-colors duration-300">Engagement</h3>
+                            <p class="text-sm text-gray-300">Promises sealed in radiant gold.</p>
+                        </div>
+                        <div class="absolute inset-0 rounded-xl pointer-events-none transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(255,215,0,0.8),_0_0_30px_rgba(255,215,0,0.5)]"></div>
+                    </div>
+
+                    <!-- Collection Card 4: Royal Sets -->
+                    <div class="group relative rounded-xl shadow-xl glassmorphism hover:border-gold-light transition-all duration-500 ease-in-out glass-shine">
+                        <img src="https://images.unsplash.com/photo-1617038260897-7b8c926b7a57" alt="Royal Sets Collection" class="w-full h-72 object-cover object-center rounded-t-xl group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="p-6 text-center">
+                            <h3 class="text-3xl font-serif font-semibold text-champagne-gold mb-2 group-hover:text-gold-light transition-colors duration-300">Royal Sets</h3>
+                            <p class="text-sm text-gray-300">Fit for royalty, designed for elegance.</p>
+                        </div>
+                        <div class="absolute inset-0 rounded-xl pointer-events-none transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(255,215,0,0.8),_0_0_30px_rgba(255,215,0,0.5)]"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- About Aurelia Section -->
+        <section id="about" class="py-20 bg-deep-black bg-opacity-90 fade-in-section">
+            <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-champagne-gold mb-16 relative">
+                    About AURELIA
+                    <span class="block w-24 h-1 mx-auto mt-4 bg-gradient-to-r from-transparent via-gold-light to-transparent animate-shimmer"></span>
+                </h2>
+                <p class="text-xl md:text-2xl font-sans text-gray-200 leading-relaxed max-w-3xl mx-auto">
+                    AURELIA embodies the zenith of timeless luxury, where every meticulously crafted piece narrates a saga of unparalleled artistry and passion. We forge more than just jewelry; we sculpt legacies, intertwining the ethereal glow of the finest diamonds with the profound warmth of purest gold. Each creation is a testament to enduring beauty, designed to adorn moments of triumph and perpetuate the brilliance of eternity.
+                </p>
+                <p class="mt-8 text-xl font-serif text-gold-light italic">
+                    — The Art of Enduring Elegance.
+                </p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 bg-deep-black fade-in-section">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-center text-champagne-gold mb-16 relative">
+                    Our Exquisite Gallery
+                    <span class="block w-24 h-1 mx-auto mt-4 bg-gradient-to-r from-transparent via-gold-light to-transparent animate-shimmer"></span>
+                </h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Gallery Item 1 -->
+                    <div class="group relative rounded-lg shadow-xl glassmorphism glass-shine">
+                        <img src="https://images.unsplash.com/photo-1620870602735-7b0b06ad1e92" alt="Elegant Diamond Earrings" class="w-full h-72 object-cover object-center rounded-t-lg group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-deep-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg">
+                            <p class="text-white text-2xl font-serif">Diamond Earrings</p>
+                        </div>
+                    </div>
+                    <!-- Gallery Item 2 -->
+                    <div class="group relative rounded-lg shadow-xl glassmorphism glass-shine">
+                        <img src="https://images.unsplash.com/photo-1600180758890-6c2c6301fbb3" alt="Jewelry Showcase" class="w-full h-72 object-cover object-center rounded-t-lg group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-deep-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg">
+                            <p class="text-white text-2xl font-serif">Boutique Showcase</p>
+                        </div>
+                    </div>
+                    <!-- Gallery Item 3 -->
+                    <div class="group relative rounded-lg shadow-xl glassmorphism glass-shine">
+                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4a3e5a4" alt="Luxury Gold Necklace" class="w-full h-72 object-cover object-center rounded-t-lg group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-deep-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg">
+                            <p class="text-white text-2xl font-serif">Gold Necklace</p>
+                        </div>
+                    </div>
+                    <!-- Gallery Item 4 -->
+                    <div class="group relative rounded-lg shadow-xl glassmorphism glass-shine">
+                        <img src="https://images.unsplash.com/photo-1620243218887-6f2db7a3f318" alt="Golden Bracelet with Diamonds" class="w-full h-72 object-cover object-center rounded-t-lg group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-deep-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg">
+                            <p class="text-white text-2xl font-serif">Diamond Bracelet</p>
+                        </div>
+                    </div>
+                    <!-- Gallery Item 5 -->
+                    <div class="group relative rounded-lg shadow-xl glassmorphism glass-shine">
+                        <img src="https://images.unsplash.com/photo-1600180759316-1f3e545c5c7f" alt="Gold Rings Stacked" class="w-full h-72 object-cover object-center rounded-t-lg group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-deep-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg">
+                            <p class="text-white text-2xl font-serif">Stacked Gold Rings</p>
+                        </div>
+                    </div>
+                    <!-- Gallery Item 6 -->
+                    <div class="group relative rounded-lg shadow-xl glassmorphism glass-shine">
+                        <img src="https://images.unsplash.com/photo-1617038260897-7b8c926b7a57" alt="Model Wearing Diamond Set" class="w-full h-72 object-cover object-center rounded-t-lg group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-deep-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg">
+                            <p class="text-white text-2xl font-serif">Royal Diamond Set</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-deep-black bg-opacity-90 fade-in-section">
+            <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-champagne-gold mb-16 relative">
+                    Adorned by Royals and Icons
+                    <span class="block w-24 h-1 mx-auto mt-4 bg-gradient-to-r from-transparent via-gold-light to-transparent animate-shimmer"></span>
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-10">
+                    <!-- Testimonial 1 -->
+                    <div class="p-8 rounded-lg glassmorphism glass-shine">
+                        <p class="text-lg italic text-gray-200 mb-6 leading-relaxed">"AURELIA's craftsmanship is simply unparalleled. Each piece feels like a fragment of history, imbued with a modern elegance that truly sets it apart."</p>
+                        <p class="font-semibold text-gold-light text-xl">- Queen Isabella M.</p>
+                        <p class="text-sm text-gray-400">Monarch & Philanthropist</p>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="p-8 rounded-lg glassmorphism glass-shine">
+                        <p class="text-lg italic text-gray-200 mb-6 leading-relaxed">"Wearing AURELIA is an experience in itself. The way the diamonds catch the light, the weight of the gold – it's pure artistry. My favorite brand, without a doubt."</p>
+                        <p class="font-semibold text-gold-light text-xl">- Lady Seraphina L.</p>
+                        <p class="text-sm text-gray-400">Celebrated Actress</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-deep-black fade-in-section">
+            <div class="max-w-4xl mx-auto px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-center text-champagne-gold mb-16 relative">
+                    Contact & Visit Us
+                    <span class="block w-24 h-1 mx-auto mt-4 bg-gradient-to-r from-transparent via-gold-light to-transparent animate-shimmer"></span>
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-10">
+                    <!-- Contact Form -->
+                    <div class="p-8 rounded-lg glassmorphism glass-shine">
+                        <h3 class="text-3xl font-serif text-champagne-gold mb-8 text-center">Enquire Now</h3>
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-300 text-lg mb-2">Name</label>
+                                <input type="text" id="name" class="w-full p-4 bg-deep-black bg-opacity-40 border border-champagne-gold border-opacity-30 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-light text-white transition duration-300" placeholder="Your Name">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-300 text-lg mb-2">Email</label>
+                                <input type="email" id="email" class="w-full p-4 bg-deep-black bg-opacity-40 border border-champagne-gold border-opacity-30 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-light text-white transition duration-300" placeholder="Your Email">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-300 text-lg mb-2">Message</label>
+                                <textarea id="message" rows="5" class="w-full p-4 bg-deep-black bg-opacity-40 border border-champagne-gold border-opacity-30 rounded-md focus:outline-none focus:ring-2 focus:ring-gold-light text-white transition duration-300" placeholder="Your Inquiry"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-4 text-xl font-semibold text-white bg-champagne-gold bg-opacity-20 border-2 border-champagne-gold rounded-md hover:bg-opacity-40 transition duration-500 ease-in-out relative overflow-hidden group">
+                                <span class="relative z-10">Send Message</span>
+                                <span class="absolute inset-0 bg-gradient-to-r from-transparent via-gold-light/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-shine"></span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Google Maps Embed -->
+                    <div class="rounded-lg shadow-xl overflow-hidden glassmorphism p-4 glass-shine">
+                        <h3 class="text-3xl font-serif text-champagne-gold mb-8 text-center">Our Boutique</h3>
+                        <div class="aspect-w-16 aspect-h-9 w-full">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.0569106041075!2d-0.14157978423089472!3d51.51268487963665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d3e38c353d%3A0xf6d628d0e7e17c0!2sCartier%20Boutique%20Bond%20Street!5e0!3m2!1sen!2suk!4v1678893456789!5m2!1sen!2suk"
+                                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                class="rounded-md border border-champagne-gold border-opacity-30"></iframe>
+                        </div>
+                        <div class="mt-8 text-center">
+                            <p class="text-xl text-gold-light font-semibold">AURELIA Flagship Boutique</p>
+                            <p class="text-md text-gray-300">123 Royal Avenue, Diamond District, London, SW1A 1AA</p>
+                            <p class="text-md text-gray-300">Phone: +44 20 7123 4567</p>
+                            <p class="text-md text-gray-300">Email: info@aureliajewels.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-vallerio-black py-12 md:py-16 border-t border-gray-800">
-        <div class="container mx-auto px-6 lg:px-8 text-center">
-            <p class="font-playfair text-vallerio-gold text-2xl font-semibold mb-4">Vallerio</p>
-            <p class="font-montserrat text-gray-500 text-sm md:text-base">&copy; 2023 Vallerio. All rights reserved. Crafted with timeless precision.</p>
+    <footer class="bg-deep-black bg-opacity-90 py-10 px-8 text-center text-gray-400 border-t border-champagne-gold border-opacity-20 fade-in-section">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-2xl font-serif text-champagne-gold mb-4">AURELIA</p>
+            <p class="text-sm mb-2">&copy; 2023 AURELIA. All rights reserved.</p>
+            <p class="text-sm">Crafting Legacies, Adorning Eternities.</p>
+            <div class="flex justify-center space-x-6 mt-6">
+                <a href="#" class="text-gray-400 hover:text-champagne-gold transition duration-300">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-champagne-gold transition duration-300">Terms of Service</a>
+                <a href="#" class="text-gray-400 hover:text-champagne-gold transition duration-300">Press</a>
+            </div>
         </div>
     </footer>
 
+    <!-- JavaScript for Fade-in Scroll Animations and Smooth Scrolling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.fade-in-section');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the section is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Stop observing once it's visible
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        // Offset for fixed header if necessary
+                        const headerOffset = document.querySelector('header').offsetHeight;
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = elementPosition - headerOffset - 20; // Added 20px extra padding
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
 ```
