@@ -4,319 +4,380 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L'Atelier Éternelle - Haute Parfumerie</title>
-    <meta name="description" content="Discover L'Atelier Éternelle, a world of exclusive haute parfumerie reflecting rare craftsmanship, timeless elegance, and exquisite ingredients.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚜️</text></svg>">
+    <title>VoltWave - Ride the Future of Waves</title>
+    <meta name="description" content="VoltWave offers high-performance electric surfboards for the next generation of riders. Experience the thrill of silent, powerful surfing.">
+    <meta name="keywords" content="electric surfboard, efoil, e-surf, hydrofoil, VoltWave, watersports, futuristic surfing, sustainable adventure">
+    <meta name="author" content="VoltWave Team">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts: Playfair Display for headings, Inter for body -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Custom Tailwind Configuration (for custom colors and animations) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'electric-blue': '#00F0FF',
+                        'neon-glow': 'rgba(0, 240, 255, 0.7)',
+                        'dark-bg': '#0A0A0A',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%, 100%': { boxShadow: '0 0 5px rgba(0, 240, 255, 0.4), 0 0 10px rgba(0, 240, 255, 0.4)' },
+                            '50%': { boxShadow: '0 0 15px rgba(0, 240, 255, 0.8), 0 0 30px rgba(0, 240, 255, 0.8)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { transform: 'scale(1)', filter: 'brightness(1)', boxShadow: '0 0 8px rgba(0, 240, 255, 0.6)' },
+                            '50%': { transform: 'scale(1.03)', filter: 'brightness(1.2)', boxShadow: '0 0 20px rgba(0, 240, 255, 1)' },
+                        },
+                        waveMotion: {
+                            '0%, 100%': { transform: 'translateX(0%)' },
+                            '50%': { transform: 'translateX(-5%)' }, /* Simulates a gentle wave drift */
+                        },
+                        loadingBar: {
+                            '0%': { width: '0%' },
+                            '100%': { width: '75%' },
+                        },
+                        loadingBar2: {
+                            '0%': { width: '0%' },
+                            '100%': { width: '85%' },
+                        }
+                    },
+                    animation: {
+                        glow: 'glow 2s ease-in-out infinite',
+                        pulseGlow: 'pulseGlow 2s ease-in-out infinite',
+                        waveMotion: 'waveMotion 10s ease-in-out infinite alternate',
+                        loadingBar: 'loadingBar 2s ease-in-out infinite alternate',
+                        loadingBar2: 'loadingBar2 2s ease-in-out infinite alternate',
+                    },
+                    backgroundImage: {
+                        'wave-pattern': "url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1440 320\"><path fill=\"%2300F0FF\" fill-opacity=\"0.05\" d=\"M0,192L48,192C96,192,192,192,288,176C384,160,480,128,576,128C672,128,768,160,864,165.3C960,171,1056,149,1152,149.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z\"></path></svg>')"
+                    }
+                }
+            }
+        }
+    </script>
 
-    <!-- Custom CSS for fonts and gold color -->
+    <!-- Custom Styles -->
     <style>
-        :root {
-            --color-gold-light: #D4AF37; /* A refined, soft gold */
-            --color-gold-dark: #A67C00; /* A slightly deeper gold */
-        }
-        .font-playfair {
-            font-family: 'Playfair Display', serif;
-        }
-        .font-inter {
-            font-family: 'Inter', sans-serif;
-        }
-        .text-gold-light {
-            color: var(--color-gold-light);
-        }
-        .border-gold-light {
-            border-color: var(--color-gold-light);
-        }
-        .bg-gold-light {
-            background-color: var(--color-gold-light);
-        }
-        .hover\:bg-gold-dark:hover {
-            background-color: var(--color-gold-dark);
-        }
-        .hover\:text-gold-light:hover {
-            color: var(--color-gold-light);
+        /* Google Fonts for a futuristic and clean look */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0A0A0A; /* Dark background */
+            color: #E0E0E0; /* Light grey text */
         }
 
-        /* Base styles for fade-in effect */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-            transition-delay: 0.2s;
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Orbitron', sans-serif;
         }
-        .fade-in-section.is-visible {
+
+        .neon-text-shadow {
+            text-shadow: 0 0 5px var(--tw-electric-blue), 0 0 10px var(--tw-electric-blue), 0 0 15px rgba(0, 240, 255, 0.5);
+        }
+
+        /* Gradient for hero section overlay to ensure text readability */
+        .gradient-bg-hero {
+            background: linear-gradient(180deg, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0) 50%, rgba(10,10,10,0.8) 100%);
+        }
+
+        /* Custom scrollbar for a sleek look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1A1A1A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00F0FF;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00C0D0;
+        }
+
+        /* Tech Spec Item animation on hover */
+        .tech-spec-item {
+            transform: scale(0.9);
+            opacity: 0.7;
+            transition: all 0.5s ease-out;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+        }
+        .tech-spec-item:hover {
+            transform: scale(1);
             opacity: 1;
-            transform: translateY(0);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
         }
     </style>
 </head>
-<body class="bg-black text-gray-200 font-inter antialiased">
+<body class="bg-dark-bg text-gray-200 leading-relaxed">
 
-    <!-- Header Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 py-6 px-8 flex justify-between items-center bg-black bg-opacity-70 backdrop-blur-sm shadow-lg">
-        <div class="text-2xl font-playfair text-white tracking-widest">
-            <a href="#hero" class="hover:text-gold-light transition-colors duration-300">L’Atelier Éternelle</a>
-        </div>
-        <nav class="hidden md:flex space-x-8">
-            <a href="#collection" class="text-lg text-white hover:text-gold-light transition-colors duration-300 relative group">
-                Collection
-                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold-light scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-            </a>
-            <a href="#story" class="text-lg text-white hover:text-gold-light transition-colors duration-300 relative group">
-                Our Story
-                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold-light scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-            </a>
-            <a href="#craftsmanship" class="text-lg text-white hover:text-gold-light transition-colors duration-300 relative group">
-                Craftsmanship
-                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold-light scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-            </a>
-            <a href="#access" class="text-lg text-white hover:text-gold-light transition-colors duration-300 relative group">
-                Private Access
-                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold-light scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-            </a>
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-dark-bg bg-opacity-80 backdrop-blur-sm shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-3xl font-bold text-electric-blue font-heading neon-text-shadow">VoltWave</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-300 hover:text-electric-blue transition duration-300">Home</a>
+                <a href="#products" class="text-gray-300 hover:text-electric-blue transition duration-300">Products</a>
+                <a href="#tech" class="text-gray-300 hover:text-electric-blue transition duration-300">Technology</a>
+                <a href="#testimonials" class="text-gray-300 hover:text-electric-blue transition duration-300">Testimonials</a>
+                <a href="#shop" class="px-4 py-2 bg-electric-blue text-dark-bg rounded-full hover:bg-opacity-80 transition duration-300 font-semibold shadow-lg hover:shadow-electric-blue animate-glow">Shop Now</a>
+            </div>
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button class="md:hidden text-electric-blue focus:outline-none" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </nav>
-        <!-- Mobile menu icon placeholder if needed for future expansion -->
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-bg bg-opacity-95 py-4 text-center">
+            <a href="#home" class="block py-2 text-gray-300 hover:text-electric-blue transition duration-300">Home</a>
+            <a href="#products" class="block py-2 text-gray-300 hover:text-electric-blue transition duration-300">Products</a>
+            <a href="#tech" class="block py-2 text-gray-300 hover:text-electric-blue transition duration-300">Technology</a>
+            <a href="#testimonials" class="block py-2 text-gray-300 hover:text-electric-blue transition duration-300">Testimonials</a>
+            <a href="#shop" class="block py-2 text-electric-blue font-semibold mt-2">Shop Now</a>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center text-center overflow-hidden bg-cover bg-center bg-fixed"
-        style="background-image: url('https://images.pexels.com/photos/3856051/pexels-photo-3856051.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');">
-        <div class="absolute inset-0 bg-black/70 z-10"></div>
-        <div class="relative z-20 p-8">
-            <h1 class="font-playfair text-6xl md:text-8xl text-white tracking-widest leading-tight drop-shadow-lg mb-4 transform translate-y-0 opacity-100 transition-all duration-1000 ease-out" id="hero-title">
-                L’Atelier Éternelle
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
+            <!-- Pexels video for a cinematic effect (kitesurfing, adaptable for electric surfboard vibe) -->
+            <source src="https://videos.pexels.com/video-files/2801452/2801452-hd_1920_1080_30fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <!-- Overlay for text readability and aesthetic blend -->
+        <div class="absolute top-0 left-0 w-full h-full gradient-bg-hero z-10"></div>
+        <div class="relative z-20 text-center text-white px-6">
+            <h1 class="text-5xl md:text-7xl font-bold font-heading mb-4 neon-text-shadow leading-tight">
+                Ride the Future of Waves.
             </h1>
-            <p class="font-inter text-lg md:text-xl text-gray-300 mt-4 max-w-2xl mx-auto drop-shadow mb-10 transform translate-y-0 opacity-100 transition-all duration-1000 ease-out delay-200" id="hero-tagline">
-                Where rarity meets reverence, distilled into a timeless essence.
+            <p class="text-lg md:text-2xl mb-8 max-w-2xl mx-auto">
+                High-performance electric surfboards for the next generation of riders.
             </p>
-            <a href="#collection" class="inline-block px-10 py-4 mt-8 text-white border-2 border-white text-lg uppercase tracking-wider hover:bg-gold-light hover:border-gold-light hover:text-black transition-all duration-500 ease-in-out transform translate-y-0 opacity-100 delay-300" id="hero-cta">
-                Discover the Essence
+            <a href="#products" class="inline-block px-10 py-4 bg-electric-blue text-dark-bg text-xl font-bold rounded-full transition duration-300 hover:scale-105 active:scale-95 animate-pulseGlow">
+                Explore Models
             </a>
         </div>
     </section>
 
-    <!-- Signature Collection Showcase Section -->
-    <section id="collection" class="py-24 bg-black text-white fade-in-section">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="font-playfair text-5xl text-center mb-16 text-gold-light leading-tight">
-                The Signature Collection
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                <!-- Perfume 1 -->
-                <div class="group relative overflow-hidden bg-gray-900 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-500">
-                    <img src="https://images.pexels.com/photos/6263153/pexels-photo-6263153.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Éclat de Lune perfume bottle" class="w-full h-96 object-contain p-4 transform group-hover:scale-105 transition-transform duration-700 ease-in-out">
-                    <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out">
-                        <h3 class="font-playfair text-3xl text-gold-light mb-2">Éclat de Lune</h3>
-                        <p class="font-inter text-md text-gray-300 leading-relaxed max-w-xs">
-                            A luminous symphony of jasmine, bergamot, and a whisper of rare amber. For evenings that shimmer.
-                        </p>
+    <!-- About VoltWave Section (with parallax effect using background-attachment: fixed) -->
+    <section class="py-20 bg-dark-bg text-center relative overflow-hidden bg-fixed" style="background-image: url('https://images.pexels.com/photos/934062/pexels-photo-934062.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'); background-size: cover; background-position: center; background-blend-mode: overlay; background-color: rgba(10,10,10,0.7);">
+        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-dark-bg opacity-90 z-0"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl font-bold font-heading mb-6 text-electric-blue neon-text-shadow">Unleash the Power of Silence</h2>
+            <p class="text-lg mb-8 max-w-3xl mx-auto text-gray-300">
+                VoltWave is at the forefront of aquatic innovation, crafting electric surfboards that combine cutting-edge technology with unparalleled performance. Experience the thrill of gliding effortlessly across water, powered by silent, emission-free electric propulsion.
+            </p>
+            <p class="text-lg max-w-3xl mx-auto text-gray-300">
+                Designed for adventurers, thrill-seekers, and eco-conscious riders, VoltWave boards offer an exhilarating connection with the ocean, redefining the future of watersports.
+            </p>
+        </div>
+    </section>
+
+    <!-- Product Lineup Section -->
+    <section id="products" class="py-24 bg-dark-bg relative overflow-hidden">
+        <!-- Subtle wave-like background animation -->
+        <div class="absolute inset-0 w-full h-full bg-wave-pattern bg-repeat-x opacity-10 animate-waveMotion z-0"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-5xl font-bold font-heading text-center mb-16 text-electric-blue neon-text-shadow">Our Product Lineup</h2>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Product Card 1: Board -->
+                <div class="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg hover:shadow-electric-blue transition-all duration-300 p-8 flex flex-col items-center border-2 border-transparent hover:border-electric-blue">
+                    <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="VoltWave Explorer Electric Surfboard" class="w-full h-48 object-cover rounded-md mb-6 transform hover:scale-105 transition duration-300">
+                    <h3 class="text-3xl font-heading text-electric-blue mb-3 neon-text-shadow">VoltWave Explorer</h3>
+                    <p class="text-gray-400 text-center mb-6 flex-grow">
+                        The ultimate all-rounder. Perfect for beginners and experienced riders seeking adventure and speed. Unmatched stability and control.
+                    </p>
+                    <ul class="text-left text-gray-300 mb-6 w-full space-y-2">
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Top Speed: 50 km/h</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Ride Time: 45-60 min</li>
+                    </ul>
+                    <a href="#shop" class="mt-auto px-6 py-3 bg-electric-blue text-dark-bg font-semibold rounded-full hover:bg-opacity-80 transition duration-300 animate-glow">
+                        Learn More
+                    </a>
+                </div>
+
+                <!-- Product Card 2: Battery -->
+                <div class="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg hover:shadow-electric-blue transition-all duration-300 p-8 flex flex-col items-center border-2 border-transparent hover:border-electric-blue">
+                    <!-- This image is a placeholder, as the Pexels images provided don't have a direct battery image. -->
+                    <img src="https://images.pexels.com/photos/7110193/pexels-photo-7110193.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="VoltWave Power Pack Battery" class="w-full h-48 object-cover rounded-md mb-6 transform hover:scale-105 transition duration-300">
+                    <h3 class="text-3xl font-heading text-electric-blue mb-3 neon-text-shadow">Power Pack Pro</h3>
+                    <p class="text-gray-400 text-center mb-6 flex-grow">
+                        High-capacity lithium-ion battery. Extend your ride with quick-swap technology and intelligent charging.
+                    </p>
+                    <ul class="text-left text-gray-300 mb-6 w-full space-y-2">
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Capacity: 3.5 kWh</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Charge Time: 120 min</li>
+                    </ul>
+                    <a href="#shop" class="mt-auto px-6 py-3 bg-electric-blue text-dark-bg font-semibold rounded-full hover:bg-opacity-80 transition duration-300 animate-glow">
+                        Add to Cart
+                    </a>
+                </div>
+
+                <!-- Product Card 3: Accessories -->
+                <div class="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg hover:shadow-electric-blue transition-all duration-300 p-8 flex flex-col items-center border-2 border-transparent hover:border-electric-blue">
+                    <img src="https://images.pexels.com/photos/4050335/pexels-photo-4050335.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="VoltWave Accessories Kit" class="w-full h-48 object-cover rounded-md mb-6 transform hover:scale-105 transition duration-300">
+                    <h3 class="text-3xl font-heading text-electric-blue mb-3 neon-text-shadow">Pro Rider Kit</h3>
+                    <p class="text-gray-400 text-center mb-6 flex-grow">
+                        Enhance your ride with essential gear: smart controller, safety vest, and premium board bag.
+                    </p>
+                    <ul class="text-left text-gray-300 mb-6 w-full space-y-2">
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Wireless Handheld Controller</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Impact-resistant Safety Vest</li>
+                    </ul>
+                    <a href="#shop" class="mt-auto px-6 py-3 bg-electric-blue text-dark-bg font-semibold rounded-full hover:bg-opacity-80 transition duration-300 animate-glow">
+                        View Kit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Specs Section (with parallax effect using background-attachment: fixed) -->
+    <section id="tech" class="py-24 bg-dark-bg relative overflow-hidden text-center bg-fixed" style="background-image: url('https://images.pexels.com/photos/1007025/pexels-photo-1007025.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'); background-size: cover; background-position: center; background-blend-mode: overlay; background-color: rgba(10,10,10,0.8);">
+         <div class="absolute inset-0 bg-gradient-to-b from-dark-bg via-transparent to-dark-bg opacity-90 z-0"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-5xl font-bold font-heading mb-16 text-electric-blue neon-text-shadow">Unrivaled Technology</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Tech Spec Item 1 -->
+                <div class="bg-gray-800 bg-opacity-70 p-8 rounded-xl border border-electric-blue tech-spec-item">
+                    <div class="text-5xl text-electric-blue mb-4 leading-none"><span class="font-heading">50</span><span class="text-2xl font-normal">km/h</span></div>
+                    <h3 class="text-xl font-heading text-white mb-2">Blazing Speed</h3>
+                    <p class="text-gray-400">Experience exhilarating speeds with our high-thrust propulsion system.</p>
+                </div>
+
+                <!-- Tech Spec Item 2 -->
+                <div class="bg-gray-800 bg-opacity-70 p-8 rounded-xl border border-electric-blue tech-spec-item">
+                    <div class="text-5xl text-electric-blue mb-4 leading-none"><span class="font-heading">60</span><span class="text-2xl font-normal">min+</span></div>
+                    <h3 class="text-xl font-heading text-white mb-2">Extended Ride</h3>
+                    <p class="text-gray-400">Long-lasting battery ensures more time on the water, less time charging.</p>
+                </div>
+
+                <!-- Tech Spec Item 3 -->
+                <div class="bg-gray-800 bg-opacity-70 p-8 rounded-xl border border-electric-blue tech-spec-item">
+                    <div class="text-5xl text-electric-blue mb-4 leading-none"><span class="font-heading">IP68</span></div>
+                    <h3 class="text-xl font-heading text-white mb-2">Waterproof</h3>
+                    <p class="text-gray-400">Engineered for extreme conditions with complete water and dust protection.</p>
+                </div>
+
+                <!-- Tech Spec Item 4 -->
+                <div class="bg-gray-800 bg-opacity-70 p-8 rounded-xl border border-electric-blue tech-spec-item">
+                    <div class="text-5xl text-electric-blue mb-4 leading-none"><span class="font-heading">AI</span><span class="text-2xl font-normal">Stabilization</span></div>
+                    <h3 class="text-xl font-heading text-white mb-2">Intelligent Control</h3>
+                    <p class="text-gray-400">Self-optimizing stabilization for a smooth and intuitive ride.</p>
+                </div>
+            </div>
+
+            <!-- Animated Graphic (simulated progress bars) -->
+            <div class="mt-20 max-w-4xl mx-auto bg-gray-900 bg-opacity-60 rounded-xl p-8 border border-electric-blue shadow-lg">
+                <h3 class="text-3xl font-heading text-electric-blue mb-6 neon-text-shadow">Aerodynamic Hydrodynamics</h3>
+                <div class="relative h-3 bg-gray-700 rounded-full mb-4 overflow-hidden">
+                    <div class="absolute top-0 left-0 h-full bg-electric-blue rounded-full w-3/4 animate-loadingBar"></div>
+                </div>
+                <p class="text-gray-400 text-sm">Advanced computational fluid dynamics ensure minimal drag and maximum lift for peak efficiency.</p>
+                <div class="relative h-3 bg-gray-700 rounded-full mt-6 mb-4 overflow-hidden">
+                    <div class="absolute top-0 left-0 h-full bg-electric-blue rounded-full w-5/6 animate-loadingBar2"></div>
+                </div>
+                <p class="text-gray-400 text-sm">Lightweight carbon fiber construction for superior strength-to-weight ratio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 bg-dark-bg relative overflow-hidden">
+         <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-5xl font-bold font-heading text-center mb-16 text-electric-blue neon-text-shadow">What Our Pro Riders Say</h2>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-800 bg-opacity-70 p-8 rounded-xl shadow-lg border-l-4 border-electric-blue transform hover:scale-105 transition duration-300">
+                    <p class="text-lg italic text-gray-300 mb-6">
+                        "VoltWave has completely revolutionized my water sports experience. The speed is incredible, and the control feels so intuitive. It's like flying on water!"
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Using Pexels image for avatar, cropped to fit -->
+                        <img src="https://images.pexels.com/photos/934062/pexels-photo-934062.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=50&h=50" alt="Avatar of Alex 'The Wave Rider' Chen" class="w-12 h-12 rounded-full mr-4 object-cover border-2 border-electric-blue">
+                        <div>
+                            <p class="font-semibold text-white">Alex 'The Wave Rider' Chen</p>
+                            <p class="text-sm text-electric-blue">Professional E-Surfer</p>
+                        </div>
                     </div>
                 </div>
-                <!-- Perfume 2 -->
-                <div class="group relative overflow-hidden bg-gray-900 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-500">
-                    <img src="https://images.pexels.com/photos/6263100/pexels-photo-6263100.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Sillage Noir perfume bottle" class="w-full h-96 object-contain p-4 transform group-hover:scale-105 transition-transform duration-700 ease-in-out">
-                    <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out">
-                        <h3 class="font-playfair text-3xl text-gold-light mb-2">Sillage Noir</h3>
-                        <p class="font-inter text-md text-gray-300 leading-relaxed max-w-xs">
-                            An enigmatic trail of oud, dark rose, and smoky incense. The essence of alluring mystery.
-                        </p>
-                    </div>
-                </div>
-                <!-- Perfume 3 -->
-                <div class="group relative overflow-hidden bg-gray-900 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-500">
-                    <img src="https://images.pexels.com/photos/6102181/pexels-photo-6102181.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Souffle d'Or perfume bottle" class="w-full h-96 object-contain p-4 transform group-hover:scale-105 transition-transform duration-700 ease-in-out">
-                    <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out">
-                        <h3 class="font-playfair text-3xl text-gold-light mb-2">Souffle d'Or</h3>
-                        <p class="font-inter text-md text-gray-300 leading-relaxed max-w-xs">
-                            Golden whispers of saffron, vanilla, and white musk. A delicate caress, eternally cherished.
-                        </p>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-800 bg-opacity-70 p-8 rounded-xl shadow-lg border-l-4 border-electric-blue transform hover:scale-105 transition duration-300">
+                    <p class="text-lg italic text-gray-300 mb-6">
+                        "As an extreme athlete, I demand the best. VoltWave boards deliver power, agility, and durability. Pushing boundaries has never been this thrilling!"
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Using Pexels image for avatar, cropped to fit -->
+                        <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=50&h=50" alt="Avatar of Maya 'Ocean Whisper' Singh" class="w-12 h-12 rounded-full mr-4 object-cover border-2 border-electric-blue">
+                        <div>
+                            <p class="font-semibold text-white">Maya 'Ocean Whisper' Singh</p>
+                            <p class="text-sm text-electric-blue">Freeride Champion</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Brand Story Section -->
-    <section id="story" class="relative py-24 bg-gray-900 text-white overflow-hidden fade-in-section">
-        <div class="absolute inset-0 bg-cover bg-center opacity-10"
-             style="background-image: url('https://images.pexels.com/photos/3747396/pexels-photo-3747396.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');">
-        </div>
-        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
-            <h2 class="font-playfair text-5xl mb-16 text-gold-light leading-tight">
-                Our Heritage, Our Art
-            </h2>
-            <p class="font-inter text-xl leading-relaxed mb-8 text-gray-300">
-                At L’Atelier Éternelle, we believe perfumery is an art, a devotion passed through generations. Our journey began in the hushed elegance of a Parisian atelier, where passion for the ephemeral beauty of scent blossomed into an unwavering commitment to excellence. Each creation is a narrative, a secret whispered from the very soul of the earth, captured in a precious flacon.
+    <!-- Call to Action / Shop Now Section -->
+    <section id="shop" class="py-24 bg-gradient-to-r from-dark-bg to-gray-900 text-center relative overflow-hidden">
+        <!-- Subtle wave-like background animation -->
+        <div class="absolute inset-0 bg-wave-pattern bg-repeat-x opacity-15 animate-waveMotion z-0"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-5xl font-bold font-heading mb-8 text-electric-blue neon-text-shadow">Ready to Ride the Future?</h2>
+            <p class="text-xl max-w-2xl mx-auto mb-10 text-gray-300">
+                Experience the next generation of aquatic adventure. Your journey begins now.
             </p>
-            <p class="font-inter text-xl leading-relaxed mb-8 text-gray-300">
-                We celebrate the poetry of rare ingredients and the artistry of the human hand. Our fragrances are more than compositions; they are expressions of timeless beauty, designed to evoke emotion, stir memories, and leave an indelible mark on the soul. To wear L’Atelier Éternelle is to embrace an inheritance of sensuality, exclusivity, and profound elegance.
-            </p>
-            <p class="font-inter text-xl leading-relaxed text-gray-300">
-                It is for those who seek not merely a scent, but a signature.
-            </p>
-        </div>
-    </section>
-
-    <!-- Ingredients & Craftsmanship Section -->
-    <section id="craftsmanship" class="py-24 bg-black text-white fade-in-section">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="font-playfair text-5xl text-center mb-16 text-gold-light leading-tight">
-                The Art of Distillation
-            </h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="space-y-12">
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 mr-6 text-gold-light text-5xl font-playfair">&mdash;</div>
-                        <div>
-                            <h3 class="font-playfair text-3xl mb-3 text-white">Rare Essences, Hand-Selected</h3>
-                            <p class="font-inter text-lg text-gray-300 leading-relaxed">
-                                Our quest for unparalleled scent begins at the source. From the sun-drenched fields of Grasse for the purest jasmine to the sacred forests of India for the finest sandalwood, our ingredients are hand-selected by master perfumers, ensuring only materials of exceptional quality and ethical provenance grace our atelier.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 mr-6 text-gold-light text-5xl font-playfair">&mdash;</div>
-                        <div>
-                            <h3 class="font-playfair text-3xl mb-3 text-white">Slow Extraction, Pure Artistry</h3>
-                            <p class="font-inter text-lg text-gray-300 leading-relaxed">
-                                We honor ancient techniques of slow extraction, allowing nature's profound complexities to unfurl. Each drop of essence is a testament to patience and precision, from meticulous enfleurage to delicate steam distillation, preserving the integrity and vibrant soul of every botanical.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 mr-6 text-gold-light text-5xl font-playfair">&mdash;</div>
-                        <div>
-                            <h3 class="font-playfair text-3xl mb-3 text-white">Limited Seasonal Harvests</h3>
-                            <p class="font-inter text-lg text-gray-300 leading-relaxed">
-                                True luxury acknowledges nature’s rhythm. Many of our most cherished components are sourced from limited seasonal harvests, making each bottle a rare embodiment of time and place. This scarcity ensures the exclusivity and profound depth that defines L’Atelier Éternelle.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-8">
-                    <img src="https://cdn.pixabay.com/photo/2016/06/17/12/32/jasmine-1462947_1280.jpg" alt="Macro shot of jasmine flowers" class="w-full h-80 object-cover rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500" loading="lazy">
-                    <img src="https://cdn.pixabay.com/photo/2019/07/21/20/38/sandalwood-4353406_1280.jpg" alt="Sandalwood pieces" class="w-full h-80 object-cover rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500" loading="lazy">
-                    <img src="https://cdn.pixabay.com/photo/2019/09/20/12/57/amber-4491761_1280.jpg" alt="Amber resin chunks" class="w-full h-80 object-cover rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500" loading="lazy">
-                    <img src="https://cdn.pixabay.com/photo/2016/11/29/03/40/dark-1867142_1280.jpg" alt="Incense smoke" class="w-full h-80 object-cover rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials / Reputation Section -->
-    <section id="testimonials" class="py-24 bg-gray-900 text-white fade-in-section">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <h2 class="font-playfair text-5xl mb-16 text-gold-light leading-tight">
-                Whispers of Acclaim
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div>
-                    <blockquote class="font-playfair italic text-3xl leading-snug mb-6 text-gray-200">
-                        “A scent that lingers not just on the skin, but in the memory, long after the last drop.”
-                    </blockquote>
-                    <p class="font-inter text-lg text-gray-400">&mdash; Madame Genevieve Dubois, Connoisseur</p>
-                </div>
-                <div>
-                    <blockquote class="font-playfair italic text-3xl leading-snug mb-6 text-gray-200">
-                        “For those who refuse the ordinary, L’Atelier Éternelle offers an olfactory journey into pure, unadulterated luxury.”
-                    </blockquote>
-                    <p class="font-inter text-lg text-gray-400">&mdash; Monsieur Alain Leclerc, Art Critic</p>
-                </div>
-                <!-- More testimonials if desired -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Exclusive Access / Contact Section -->
-    <section id="access" class="py-24 bg-black text-white fade-in-section">
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            <h2 class="font-playfair text-5xl mb-16 text-gold-light leading-tight">
-                Request Private Access
-            </h2>
-            <p class="font-inter text-xl leading-relaxed mb-12 text-gray-300">
-                L’Atelier Éternelle operates by invitation and private consultation. To discover our complete repertoire and bespoke services, we welcome your esteemed inquiry. A member of our team will discreetly contact you.
-            </p>
-            <form class="space-y-6 max-w-xl mx-auto">
-                <div>
-                    <input type="text" id="name" name="name" placeholder="Your Esteemed Name" class="w-full p-4 bg-gray-900 border border-gray-700 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-gold-light transition-colors duration-300" required>
-                </div>
-                <div>
-                    <input type="email" id="email" name="email" placeholder="Your Discreet Email Address" class="w-full p-4 bg-gray-900 border border-gray-700 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-gold-light transition-colors duration-300" required>
-                </div>
-                <div>
-                    <textarea id="message" name="message" rows="6" placeholder="Your Inquiry or Specific Interest" class="w-full p-4 bg-gray-900 border border-gray-700 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-gold-light transition-colors duration-300"></textarea>
-                </div>
-                <div>
-                    <button type="submit" class="w-full px-10 py-4 mt-6 text-white bg-transparent border-2 border-gold-light text-lg uppercase tracking-wider hover:bg-gold-dark hover:border-gold-dark transition-all duration-500 ease-in-out">
-                        Submit Request
-                    </button>
-                </div>
-            </form>
+            <a href="#products" class="inline-block px-12 py-5 bg-electric-blue text-dark-bg text-2xl font-bold rounded-full transition duration-300 hover:scale-105 active:scale-95 shadow-lg animate-glow">
+                Shop VoltWave Now
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-950 py-12 text-gray-400 text-center text-sm">
-        <div class="max-w-7xl mx-auto px-6">
-            <p class="mb-4">&copy; 2023 L’Atelier Éternelle. All rights reserved. Exclusivity by design.</p>
-            <div class="flex justify-center space-x-6">
-                <a href="#" class="hover:text-gold-light transition-colors duration-300">Privacy Policy</a>
-                <a href="#" class="hover:text-gold-light transition-colors duration-300">Terms of Service</a>
-                <a href="#access" class="hover:text-gold-light transition-colors duration-300">Contact</a>
+    <footer class="bg-gray-950 py-10 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <div class="mb-6">
+                <a href="#home" class="text-2xl font-bold text-electric-blue font-heading neon-text-shadow">VoltWave</a>
             </div>
-            <p class="mt-4 text-xs">Crafted with devotion for those who discern true luxury.</p>
+            <div class="flex flex-wrap justify-center space-x-6 mb-6 text-sm">
+                <a href="#" class="text-gray-400 hover:text-electric-blue transition duration-300">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-electric-blue transition duration-300">Terms of Service</a>
+                <a href="#" class="text-gray-400 hover:text-electric-blue transition duration-300">Contact Us</a>
+            </div>
+            <div class="flex justify-center space-x-4 text-2xl mb-6">
+                <a href="#" class="text-gray-400 hover:text-electric-blue transition duration-300" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-400 hover:text-electric-blue transition duration-300" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-electric-blue transition duration-300" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-400 hover:text-electric-blue transition duration-300" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2023 VoltWave. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Fade-In Animations -->
+    <!-- FontAwesome for social icons (defer loading) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
+
+    <!-- JavaScript for Mobile Menu Functionality -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.fade-in-section');
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
 
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15 // Adjust this value: 0.1 means 10% of the section must be visible
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Stop observing once visible
-                    }
-                });
-            }, observerOptions);
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-
-            // Hero section scroll animation for text
-            const heroTitle = document.getElementById('hero-title');
-            const heroTagline = document.getElementById('hero-tagline');
-            const heroCta = document.getElementById('hero-cta');
-
-            window.addEventListener('scroll', () => {
-                const scrollY = window.scrollY;
-                const opacityFactor = Math.max(0, 1 - scrollY / 600); // Fades out over 600px scroll
-                const translateYFactor = scrollY * 0.3; // Moves up 0.3px for every 1px scroll
-
-                heroTitle.style.opacity = opacityFactor;
-                heroTitle.style.transform = `translateY(${translateYFactor}px)`;
-
-                heroTagline.style.opacity = opacityFactor;
-                heroTagline.style.transform = `translateY(${translateYFactor * 1.2}px)`; // Slightly faster
-                
-                heroCta.style.opacity = opacityFactor;
-                heroCta.style.transform = `translateY(${translateYFactor * 1.5}px)`; // Even faster
+        // Close mobile menu when a navigation link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(item => {
+            item.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
             });
         });
     </script>
