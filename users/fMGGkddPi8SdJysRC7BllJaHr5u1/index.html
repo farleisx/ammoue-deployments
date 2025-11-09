@@ -1,386 +1,141 @@
+Here's a complete, single-file HTML website for "Brew District," a warm and modern coffee shop, incorporating all your requirements.
+
+I've used the provided Pexels images where suitable and supplemented with additional Pexels images (not Unsplash) to ensure rich, relevant visuals for the gallery and other sections. Subtle aroma animations (rising steam and a subtle bean glow) are integrated using Tailwind's animation capabilities and custom CSS keyframes.
+
 ```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoltWave - Ride the Future of Waves</title>
-    <meta name="description" content="VoltWave offers high-performance electric surfboards for the next generation of riders. Experience the thrill of silent, powerful surfing.">
-    <meta name="keywords" content="electric surfboard, efoil, e-surf, hydrofoil, VoltWave, watersports, futuristic surfing, sustainable adventure">
-    <meta name="author" content="VoltWave Team">
+    <title>Brew District - Wake Up to Something Real.</title>
+    <meta name="description" content="Brew District offers locally roasted, lovingly brewed coffee in a cozy, modern setting. Discover our story, menu, gallery, and find your perfect cup.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23E0A800' d='M20 3H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V5a2 2 0 00-2-2zM4 5h16v8h-16z'%3E%3C/path%3E%3Cpath fill='%232C1B14' d='M10 16a2 2 0 100 4h4a2 2 0 100-4z'%3E%3C/path%3E%3Cpath fill='%23F8F4E3' d='M16 11V5H8v6a4 4 0 008 0z'%3E%3C/path%3E%3Cpath fill='%23E0A800' d='M12 16a2 2 0 100 4 2 2 0 000-4z'%3E%3C/path%3E%3C/svg%3E" type="image/svg+xml">
+
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Custom Tailwind Configuration (for custom colors and animations) -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'electric-blue': '#00F0FF',
-                        'neon-glow': 'rgba(0, 240, 255, 0.7)',
-                        'dark-bg': '#0A0A0A',
+                        'brew-dark': '#2C1B14', // Dark Roast Brown
+                        'brew-brown': '#4A312B', // Medium Roast Brown
+                        'brew-cream': '#F8F4E3', // Cream Tone
+                        'brew-amber': '#E0A800', // Soft Amber
+                        'brew-light-amber': '#FFD166', // Lighter Amber for highlights
+                    },
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'serif'],
+                        body: ['Inter', 'sans-serif'],
                     },
                     keyframes: {
+                        steam: {
+                            '0%': { transform: 'translateY(0) scale(0.5)', opacity: '0.2' },
+                            '50%': { transform: 'translateY(-20px) scale(0.7)', opacity: '0.5' },
+                            '100%': { transform: 'translateY(-40px) scale(1)', opacity: '0' },
+                        },
                         glow: {
-                            '0%, 100%': { boxShadow: '0 0 5px rgba(0, 240, 255, 0.4), 0 0 10px rgba(0, 240, 255, 0.4)' },
-                            '50%': { boxShadow: '0 0 15px rgba(0, 240, 255, 0.8), 0 0 30px rgba(0, 240, 255, 0.8)' },
+                            '0%, 100%': { filter: 'drop-shadow(0 0 5px rgba(224, 168, 0, 0.4))' },
+                            '50%': { filter: 'drop-shadow(0 0 15px rgba(224, 168, 0, 0.7))' },
                         },
-                        pulseGlow: {
-                            '0%, 100%': { transform: 'scale(1)', filter: 'brightness(1)', boxShadow: '0 0 8px rgba(0, 240, 255, 0.6)' },
-                            '50%': { transform: 'scale(1.03)', filter: 'brightness(1.2)', boxShadow: '0 0 20px rgba(0, 240, 255, 1)' },
-                        },
-                        waveMotion: {
-                            '0%, 100%': { transform: 'translateX(0%)' },
-                            '50%': { transform: 'translateX(-5%)' }, /* Simulates a gentle wave drift */
-                        },
-                        loadingBar: {
-                            '0%': { width: '0%' },
-                            '100%': { width: '75%' },
-                        },
-                        loadingBar2: {
-                            '0%': { width: '0%' },
-                            '100%': { width: '85%' },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         }
                     },
                     animation: {
-                        glow: 'glow 2s ease-in-out infinite',
-                        pulseGlow: 'pulseGlow 2s ease-in-out infinite',
-                        waveMotion: 'waveMotion 10s ease-in-out infinite alternate',
-                        loadingBar: 'loadingBar 2s ease-in-out infinite alternate',
-                        loadingBar2: 'loadingBar2 2s ease-in-out infinite alternate',
+                        steam: 'steam 6s ease-out infinite',
+                        glow: 'glow 3s ease-in-out infinite alternate',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
                     },
-                    backgroundImage: {
-                        'wave-pattern': "url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1440 320\"><path fill=\"%2300F0FF\" fill-opacity=\"0.05\" d=\"M0,192L48,192C96,192,192,192,288,176C384,160,480,128,576,128C672,128,768,160,864,165.3C960,171,1056,149,1152,149.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z\"></path></svg>')"
+                    animationDelay: { // Custom plugin for animation delay
+                        '0': '0s',
+                        '200': '0.2s',
+                        '400': '0.4s',
+                        '600': '0.6s',
                     }
                 }
             }
         }
     </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Custom Styles -->
+    <!-- Custom CSS for aroma animations and utility animation delay -->
     <style>
-        /* Google Fonts for a futuristic and clean look */
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap');
+        .steam-animation {
+            animation: steam 6s ease-out infinite;
+            pointer-events: none;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            filter: blur(8px);
+            z-index: 10;
+        }
+        .glow-animation {
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        /* Custom utility for animation delays */
+        .animation-delay-200 { animation-delay: 0.2s; }
+        .animation-delay-400 { animation-delay: 0.4s; }
+        .animation-delay-600 { animation-delay: 0.6s; }
+        .animation-delay-800 { animation-delay: 0.8s; }
+        .animation-delay-1000 { animation-delay: 1s; }
+        .animation-delay-1200 { animation-delay: 1.2s; }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #0A0A0A; /* Dark background */
-            color: #E0E0E0; /* Light grey text */
+        /* Ensure smooth image transitions without layout shifts on hover */
+        .group:hover .group-hover-scale {
+            transform: scale(1.1);
         }
-
-        h1, h2, h3, h4, .font-heading {
-            font-family: 'Orbitron', sans-serif;
+        .group-hover-scale {
+            transition: transform 0.4s ease-in-out;
         }
-
-        .neon-text-shadow {
-            text-shadow: 0 0 5px var(--tw-electric-blue), 0 0 10px var(--tw-electric-blue), 0 0 15px rgba(0, 240, 255, 0.5);
+        .group-hover-overlay {
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
         }
-
-        /* Gradient for hero section overlay to ensure text readability */
-        .gradient-bg-hero {
-            background: linear-gradient(180deg, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0) 50%, rgba(10,10,10,0.8) 100%);
-        }
-
-        /* Custom scrollbar for a sleek look */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1A1A1A;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #00F0FF;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00C0D0;
-        }
-
-        /* Tech Spec Item animation on hover */
-        .tech-spec-item {
-            transform: scale(0.9);
-            opacity: 0.7;
-            transition: all 0.5s ease-out;
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
-        }
-        .tech-spec-item:hover {
-            transform: scale(1);
+        .group:hover .group-hover-overlay {
             opacity: 1;
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
         }
     </style>
 </head>
-<body class="bg-dark-bg text-gray-200 leading-relaxed">
+<body class="font-body text-brew-cream bg-brew-dark overflow-x-hidden">
 
-    <!-- Header / Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-dark-bg bg-opacity-80 backdrop-blur-sm shadow-lg">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-3xl font-bold text-electric-blue font-heading neon-text-shadow">VoltWave</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-gray-300 hover:text-electric-blue transition duration-300">Home</a>
-                <a href="#products" class="text-gray-300 hover:text-electric-blue transition duration-300">Products</a>
-                <a href="#tech" class="text-gray-300 hover:text-electric-blue transition duration-300">Technology</a>
-                <a href="#testimonials" class="text-gray-300 hover:text-electric-blue transition duration-300">Testimonials</a>
-                <a href="#shop" class="px-4 py-2 bg-electric-blue text-dark-bg rounded-full hover:bg-opacity-80 transition duration-300 font-semibold shadow-lg hover:shadow-electric-blue animate-glow">Shop Now</a>
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-brew-dark bg-opacity-90 shadow-lg py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-3xl font-display font-bold text-brew-amber hover:text-brew-light-amber transition duration-300">Brew District</a>
+            <div class="md:hidden">
+                <button id="menu-button" class="text-brew-cream focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
             </div>
-            <!-- Mobile Menu Button (Hamburger) -->
-            <button class="md:hidden text-electric-blue focus:outline-none" id="mobile-menu-button" aria-label="Toggle mobile menu">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-dark-bg bg-opacity-95 py-4 text-center">
-            <a href="#home" class="block py-2 text-gray-300 hover:text-electric-blue transition duration-300">Home</a>
-            <a href="#products" class="block py-2 text-gray-300 hover:text-electric-blue transition duration-300">Products</a>
-            <a href="#tech" class="block py-2 text-gray-300 hover:text-electric-blue transition duration-300">Technology</a>
-            <a href="#testimonials" class="block py-2 text-gray-300 hover:text-electric-blue transition duration-300">Testimonials</a>
-            <a href="#shop" class="block py-2 text-electric-blue font-semibold mt-2">Shop Now</a>
+            <ul id="menu" class="hidden md:flex space-x-8">
+                <li><a href="#about" class="text-brew-cream hover:text-brew-amber transition duration-300 text-lg">Our Story</a></li>
+                <li><a href="#menu" class="text-brew-cream hover:text-brew-amber transition duration-300 text-lg">Menu</a></li>
+                <li><a href="#gallery" class="text-brew-cream hover:text-brew-amber transition duration-300 text-lg">Gallery</a></li>
+                <li><a href="#location" class="text-brew-cream hover:text-brew-amber transition duration-300 text-lg">Location</a></li>
+                <li><a href="#cta" class="bg-brew-amber text-brew-dark px-5 py-2 rounded-full hover:bg-brew-light-amber transition duration-300 font-semibold shadow-lg">Order Now</a></li>
+            </ul>
         </div>
-    </header>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-brew-dark bg-opacity-95 py-4">
+            <ul class="flex flex-col items-center space-y-4">
+                <li><a href="#about" class="text-brew-cream hover:text-brew-amber transition duration-300 text-lg" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Our Story</a></li>
+                <li><a href="#menu" class="text-brew-cream hover:text-brew-amber transition duration-300 text-lg" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Menu</a></li>
+                <li><a href="#gallery" class="text-brew-cream hover:text-brew-amber transition duration-300 text-lg" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Gallery</a></li>
+                <li><a href="#location" class="text-brew-cream hover:text-brew-amber transition duration-300 text-lg" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Location</a></li>
+                <li><a href="#cta" class="bg-brew-amber text-brew-dark px-5 py-2 rounded-full hover:bg-brew-light-amber transition duration-300 font-semibold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Order Now</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
-            <!-- Pexels video for a cinematic effect (kitesurfing, adaptable for electric surfboard vibe) -->
-            <source src="https://videos.pexels.com/video-files/2801452/2801452-hd_1920_1080_30fps.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <!-- Overlay for text readability and aesthetic blend -->
-        <div class="absolute top-0 left-0 w-full h-full gradient-bg-hero z-10"></div>
-        <div class="relative z-20 text-center text-white px-6">
-            <h1 class="text-5xl md:text-7xl font-bold font-heading mb-4 neon-text-shadow leading-tight">
-                Ride the Future of Waves.
-            </h1>
-            <p class="text-lg md:text-2xl mb-8 max-w-2xl mx-auto">
-                High-performance electric surfboards for the next generation of riders.
-            </p>
-            <a href="#products" class="inline-block px-10 py-4 bg-electric-blue text-dark-bg text-xl font-bold rounded-full transition duration-300 hover:scale-105 active:scale-95 animate-pulseGlow">
-                Explore Models
-            </a>
-        </div>
-    </section>
-
-    <!-- About VoltWave Section (with parallax effect using background-attachment: fixed) -->
-    <section class="py-20 bg-dark-bg text-center relative overflow-hidden bg-fixed" style="background-image: url('https://images.pexels.com/photos/934062/pexels-photo-934062.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'); background-size: cover; background-position: center; background-blend-mode: overlay; background-color: rgba(10,10,10,0.7);">
-        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-dark-bg opacity-90 z-0"></div>
-        <div class="container mx-auto px-6 relative z-10">
-            <h2 class="text-4xl font-bold font-heading mb-6 text-electric-blue neon-text-shadow">Unleash the Power of Silence</h2>
-            <p class="text-lg mb-8 max-w-3xl mx-auto text-gray-300">
-                VoltWave is at the forefront of aquatic innovation, crafting electric surfboards that combine cutting-edge technology with unparalleled performance. Experience the thrill of gliding effortlessly across water, powered by silent, emission-free electric propulsion.
-            </p>
-            <p class="text-lg max-w-3xl mx-auto text-gray-300">
-                Designed for adventurers, thrill-seekers, and eco-conscious riders, VoltWave boards offer an exhilarating connection with the ocean, redefining the future of watersports.
-            </p>
-        </div>
-    </section>
-
-    <!-- Product Lineup Section -->
-    <section id="products" class="py-24 bg-dark-bg relative overflow-hidden">
-        <!-- Subtle wave-like background animation -->
-        <div class="absolute inset-0 w-full h-full bg-wave-pattern bg-repeat-x opacity-10 animate-waveMotion z-0"></div>
-        <div class="container mx-auto px-6 relative z-10">
-            <h2 class="text-5xl font-bold font-heading text-center mb-16 text-electric-blue neon-text-shadow">Our Product Lineup</h2>
-
-            <div class="grid md:grid-cols-3 gap-12">
-                <!-- Product Card 1: Board -->
-                <div class="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg hover:shadow-electric-blue transition-all duration-300 p-8 flex flex-col items-center border-2 border-transparent hover:border-electric-blue">
-                    <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="VoltWave Explorer Electric Surfboard" class="w-full h-48 object-cover rounded-md mb-6 transform hover:scale-105 transition duration-300">
-                    <h3 class="text-3xl font-heading text-electric-blue mb-3 neon-text-shadow">VoltWave Explorer</h3>
-                    <p class="text-gray-400 text-center mb-6 flex-grow">
-                        The ultimate all-rounder. Perfect for beginners and experienced riders seeking adventure and speed. Unmatched stability and control.
-                    </p>
-                    <ul class="text-left text-gray-300 mb-6 w-full space-y-2">
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Top Speed: 50 km/h</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Ride Time: 45-60 min</li>
-                    </ul>
-                    <a href="#shop" class="mt-auto px-6 py-3 bg-electric-blue text-dark-bg font-semibold rounded-full hover:bg-opacity-80 transition duration-300 animate-glow">
-                        Learn More
-                    </a>
-                </div>
-
-                <!-- Product Card 2: Battery -->
-                <div class="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg hover:shadow-electric-blue transition-all duration-300 p-8 flex flex-col items-center border-2 border-transparent hover:border-electric-blue">
-                    <!-- This image is a placeholder, as the Pexels images provided don't have a direct battery image. -->
-                    <img src="https://images.pexels.com/photos/7110193/pexels-photo-7110193.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="VoltWave Power Pack Battery" class="w-full h-48 object-cover rounded-md mb-6 transform hover:scale-105 transition duration-300">
-                    <h3 class="text-3xl font-heading text-electric-blue mb-3 neon-text-shadow">Power Pack Pro</h3>
-                    <p class="text-gray-400 text-center mb-6 flex-grow">
-                        High-capacity lithium-ion battery. Extend your ride with quick-swap technology and intelligent charging.
-                    </p>
-                    <ul class="text-left text-gray-300 mb-6 w-full space-y-2">
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Capacity: 3.5 kWh</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Charge Time: 120 min</li>
-                    </ul>
-                    <a href="#shop" class="mt-auto px-6 py-3 bg-electric-blue text-dark-bg font-semibold rounded-full hover:bg-opacity-80 transition duration-300 animate-glow">
-                        Add to Cart
-                    </a>
-                </div>
-
-                <!-- Product Card 3: Accessories -->
-                <div class="bg-gray-800 bg-opacity-70 rounded-xl shadow-lg hover:shadow-electric-blue transition-all duration-300 p-8 flex flex-col items-center border-2 border-transparent hover:border-electric-blue">
-                    <img src="https://images.pexels.com/photos/4050335/pexels-photo-4050335.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="VoltWave Accessories Kit" class="w-full h-48 object-cover rounded-md mb-6 transform hover:scale-105 transition duration-300">
-                    <h3 class="text-3xl font-heading text-electric-blue mb-3 neon-text-shadow">Pro Rider Kit</h3>
-                    <p class="text-gray-400 text-center mb-6 flex-grow">
-                        Enhance your ride with essential gear: smart controller, safety vest, and premium board bag.
-                    </p>
-                    <ul class="text-left text-gray-300 mb-6 w-full space-y-2">
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Wireless Handheld Controller</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Impact-resistant Safety Vest</li>
-                    </ul>
-                    <a href="#shop" class="mt-auto px-6 py-3 bg-electric-blue text-dark-bg font-semibold rounded-full hover:bg-opacity-80 transition duration-300 animate-glow">
-                        View Kit
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tech Specs Section (with parallax effect using background-attachment: fixed) -->
-    <section id="tech" class="py-24 bg-dark-bg relative overflow-hidden text-center bg-fixed" style="background-image: url('https://images.pexels.com/photos/1007025/pexels-photo-1007025.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'); background-size: cover; background-position: center; background-blend-mode: overlay; background-color: rgba(10,10,10,0.8);">
-         <div class="absolute inset-0 bg-gradient-to-b from-dark-bg via-transparent to-dark-bg opacity-90 z-0"></div>
-        <div class="container mx-auto px-6 relative z-10">
-            <h2 class="text-5xl font-bold font-heading mb-16 text-electric-blue neon-text-shadow">Unrivaled Technology</h2>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-                <!-- Tech Spec Item 1 -->
-                <div class="bg-gray-800 bg-opacity-70 p-8 rounded-xl border border-electric-blue tech-spec-item">
-                    <div class="text-5xl text-electric-blue mb-4 leading-none"><span class="font-heading">50</span><span class="text-2xl font-normal">km/h</span></div>
-                    <h3 class="text-xl font-heading text-white mb-2">Blazing Speed</h3>
-                    <p class="text-gray-400">Experience exhilarating speeds with our high-thrust propulsion system.</p>
-                </div>
-
-                <!-- Tech Spec Item 2 -->
-                <div class="bg-gray-800 bg-opacity-70 p-8 rounded-xl border border-electric-blue tech-spec-item">
-                    <div class="text-5xl text-electric-blue mb-4 leading-none"><span class="font-heading">60</span><span class="text-2xl font-normal">min+</span></div>
-                    <h3 class="text-xl font-heading text-white mb-2">Extended Ride</h3>
-                    <p class="text-gray-400">Long-lasting battery ensures more time on the water, less time charging.</p>
-                </div>
-
-                <!-- Tech Spec Item 3 -->
-                <div class="bg-gray-800 bg-opacity-70 p-8 rounded-xl border border-electric-blue tech-spec-item">
-                    <div class="text-5xl text-electric-blue mb-4 leading-none"><span class="font-heading">IP68</span></div>
-                    <h3 class="text-xl font-heading text-white mb-2">Waterproof</h3>
-                    <p class="text-gray-400">Engineered for extreme conditions with complete water and dust protection.</p>
-                </div>
-
-                <!-- Tech Spec Item 4 -->
-                <div class="bg-gray-800 bg-opacity-70 p-8 rounded-xl border border-electric-blue tech-spec-item">
-                    <div class="text-5xl text-electric-blue mb-4 leading-none"><span class="font-heading">AI</span><span class="text-2xl font-normal">Stabilization</span></div>
-                    <h3 class="text-xl font-heading text-white mb-2">Intelligent Control</h3>
-                    <p class="text-gray-400">Self-optimizing stabilization for a smooth and intuitive ride.</p>
-                </div>
-            </div>
-
-            <!-- Animated Graphic (simulated progress bars) -->
-            <div class="mt-20 max-w-4xl mx-auto bg-gray-900 bg-opacity-60 rounded-xl p-8 border border-electric-blue shadow-lg">
-                <h3 class="text-3xl font-heading text-electric-blue mb-6 neon-text-shadow">Aerodynamic Hydrodynamics</h3>
-                <div class="relative h-3 bg-gray-700 rounded-full mb-4 overflow-hidden">
-                    <div class="absolute top-0 left-0 h-full bg-electric-blue rounded-full w-3/4 animate-loadingBar"></div>
-                </div>
-                <p class="text-gray-400 text-sm">Advanced computational fluid dynamics ensure minimal drag and maximum lift for peak efficiency.</p>
-                <div class="relative h-3 bg-gray-700 rounded-full mt-6 mb-4 overflow-hidden">
-                    <div class="absolute top-0 left-0 h-full bg-electric-blue rounded-full w-5/6 animate-loadingBar2"></div>
-                </div>
-                <p class="text-gray-400 text-sm">Lightweight carbon fiber construction for superior strength-to-weight ratio.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-24 bg-dark-bg relative overflow-hidden">
-         <div class="container mx-auto px-6 relative z-10">
-            <h2 class="text-5xl font-bold font-heading text-center mb-16 text-electric-blue neon-text-shadow">What Our Pro Riders Say</h2>
-
-            <div class="grid md:grid-cols-2 gap-10">
-                <!-- Testimonial 1 -->
-                <div class="bg-gray-800 bg-opacity-70 p-8 rounded-xl shadow-lg border-l-4 border-electric-blue transform hover:scale-105 transition duration-300">
-                    <p class="text-lg italic text-gray-300 mb-6">
-                        "VoltWave has completely revolutionized my water sports experience. The speed is incredible, and the control feels so intuitive. It's like flying on water!"
-                    </p>
-                    <div class="flex items-center">
-                        <!-- Using Pexels image for avatar, cropped to fit -->
-                        <img src="https://images.pexels.com/photos/934062/pexels-photo-934062.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=50&h=50" alt="Avatar of Alex 'The Wave Rider' Chen" class="w-12 h-12 rounded-full mr-4 object-cover border-2 border-electric-blue">
-                        <div>
-                            <p class="font-semibold text-white">Alex 'The Wave Rider' Chen</p>
-                            <p class="text-sm text-electric-blue">Professional E-Surfer</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="bg-gray-800 bg-opacity-70 p-8 rounded-xl shadow-lg border-l-4 border-electric-blue transform hover:scale-105 transition duration-300">
-                    <p class="text-lg italic text-gray-300 mb-6">
-                        "As an extreme athlete, I demand the best. VoltWave boards deliver power, agility, and durability. Pushing boundaries has never been this thrilling!"
-                    </p>
-                    <div class="flex items-center">
-                        <!-- Using Pexels image for avatar, cropped to fit -->
-                        <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=50&h=50" alt="Avatar of Maya 'Ocean Whisper' Singh" class="w-12 h-12 rounded-full mr-4 object-cover border-2 border-electric-blue">
-                        <div>
-                            <p class="font-semibold text-white">Maya 'Ocean Whisper' Singh</p>
-                            <p class="text-sm text-electric-blue">Freeride Champion</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action / Shop Now Section -->
-    <section id="shop" class="py-24 bg-gradient-to-r from-dark-bg to-gray-900 text-center relative overflow-hidden">
-        <!-- Subtle wave-like background animation -->
-        <div class="absolute inset-0 bg-wave-pattern bg-repeat-x opacity-15 animate-waveMotion z-0"></div>
-        <div class="container mx-auto px-6 relative z-10">
-            <h2 class="text-5xl font-bold font-heading mb-8 text-electric-blue neon-text-shadow">Ready to Ride the Future?</h2>
-            <p class="text-xl max-w-2xl mx-auto mb-10 text-gray-300">
-                Experience the next generation of aquatic adventure. Your journey begins now.
-            </p>
-            <a href="#products" class="inline-block px-12 py-5 bg-electric-blue text-dark-bg text-2xl font-bold rounded-full transition duration-300 hover:scale-105 active:scale-95 shadow-lg animate-glow">
-                Shop VoltWave Now
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-950 py-10 border-t border-gray-800">
-        <div class="container mx-auto px-6 text-center text-gray-400">
-            <div class="mb-6">
-                <a href="#home" class="text-2xl font-bold text-electric-blue font-heading neon-text-shadow">VoltWave</a>
-            </div>
-            <div class="flex flex-wrap justify-center space-x-6 mb-6 text-sm">
-                <a href="#" class="text-gray-400 hover:text-electric-blue transition duration-300">Privacy Policy</a>
-                <a href="#" class="text-gray-400 hover:text-electric-blue transition duration-300">Terms of Service</a>
-                <a href="#" class="text-gray-400 hover:text-electric-blue transition duration-300">Contact Us</a>
-            </div>
-            <div class="flex justify-center space-x-4 text-2xl mb-6">
-                <a href="#" class="text-gray-400 hover:text-electric-blue transition duration-300" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-gray-400 hover:text-electric-blue transition duration-300" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-gray-400 hover:text-electric-blue transition duration-300" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-gray-400 hover:text-electric-blue transition duration-300" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
-            <p>&copy; 2023 VoltWave. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- FontAwesome for social icons (defer loading) -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
-
-    <!-- JavaScript for Mobile Menu Functionality -->
-    <script>
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when a navigation link is clicked
-        document.querySelectorAll('#mobile-menu a').forEach(item => {
-            item.addEventListener('click', () => {
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
-        });
-    </script>
-</body>
-</html>
-```
+    <header class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+            <!-- Video by Pavel Danilyuk from Pexels: https://www.pexels.com/video/a-coffee-machine-making-coffee-3209594/ -->
+            <source src="https://videos.
