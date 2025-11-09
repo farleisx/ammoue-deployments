@@ -4,231 +4,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inner Peace Wellness - Meditation & Mindfulness</title>
+    <title>L'Atelier Éternelle - Haute Parfumerie</title>
+    <meta name="description" content="Discover L'Atelier Éternelle, a world of exclusive haute parfumerie reflecting rare craftsmanship, timeless elegance, and exquisite ingredients.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚜️</text></svg>">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Playfair Display for headings, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS for fonts and gold color -->
     <style>
-        /* Custom Tailwind Configuration for specific colors */
         :root {
-            --color-brand-primary: #6B7B8E; /* A calming blue-grey */
-            --color-brand-secondary: #A2B9BC; /* Lighter blue-grey */
-            --color-brand-accent: #D6BDA0; /* A warm, earthy tone */
+            --color-gold-light: #D4AF37; /* A refined, soft gold */
+            --color-gold-dark: #A67C00; /* A slightly deeper gold */
         }
-        .bg-brand-primary { background-color: var(--color-brand-primary); }
-        .text-brand-primary { color: var(--color-brand-primary); }
-        .bg-brand-secondary { background-color: var(--color-brand-secondary); }
-        .text-brand-secondary { color: var(--color-brand-secondary); }
-        .bg-brand-accent { background-color: var(--color-brand-accent); }
-        .text-brand-accent { color: var(--color-brand-accent); }
-
-        /* Custom button styling */
-        .btn-primary {
-            background-color: var(--color-brand-secondary);
-            color: white;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px; /* Pill shape */
-            transition: background-color 0.3s ease, transform 0.3s ease;
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
         }
-        .btn-primary:hover {
-            background-color: #8C9CA0; /* Darker shade on hover */
-            transform: scale(1.05);
+        .font-inter {
+            font-family: 'Inter', sans-serif;
         }
-
-        /* Gentle shadow for cards for a softer, calming look */
-        .card-shadow {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        .text-gold-light {
+            color: var(--color-gold-light);
+        }
+        .border-gold-light {
+            border-color: var(--color-gold-light);
+        }
+        .bg-gold-light {
+            background-color: var(--color-gold-light);
+        }
+        .hover\:bg-gold-dark:hover {
+            background-color: var(--color-gold-dark);
+        }
+        .hover\:text-gold-light:hover {
+            color: var(--color-gold-light);
         }
 
-        /* Hero section background styling using Pexels image */
-        .hero-bg {
-            background-image: url('https://images.pexels.com/photos/4046718/pexels-photo-4046718.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'); /* Pexels Image 1 */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+        /* Base styles for fade-in effect */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            transition-delay: 0.2s;
         }
-
-        /* Overlay for better text readability on hero image */
-        .overlay-gradient {
-            position: relative;
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .overlay-gradient::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
-            z-index: 0;
-        }
-        .overlay-gradient > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Basic keyframe animations for a subtle entrance effect */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fadeIn 1s ease-out forwards;
-        }
-        .animate-fade-in-up {
-            animation: fadeInUp 1s ease-out forwards;
-            animation-delay: var(--animation-delay, 0s);
-        }
-        /* Custom delays for elements */
-        .delay-150 { --animation-delay: 0.15s; }
-        .delay-300 { --animation-delay: 0.3s; }
-
-        /* Hide mobile menu button until needed for JS implementation */
-        .mobile-menu-button { display: none; } /* For this static example */
     </style>
 </head>
-<body class="font-sans text-gray-800 antialiased">
+<body class="bg-black text-gray-200 font-inter antialiased">
 
-    <!-- Header / Navigation -->
-    <nav class="bg-white bg-opacity-90 shadow-sm fixed w-full z-20 py-4">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="#hero" class="text-3xl font-bold text-brand-primary">Inner Peace</a>
-            <div class="space-x-8 hidden md:flex">
-                <a href="#hero" class="text-lg text-gray-700 hover:text-brand-primary transition duration-300 font-medium">Home</a>
-                <a href="#services" class="text-lg text-gray-700 hover:text-brand-primary transition duration-300 font-medium">Services</a>
-                <a href="#testimonials" class="text-lg text-gray-700 hover:text-brand-primary transition duration-300 font-medium">Testimonials</a>
-                <a href="#contact" class="text-lg text-gray-700 hover:text-brand-primary transition duration-300 font-medium">Contact</a>
-            </div>
-            <!-- Mobile Menu Button (Hamburger) - designed but not functional in this static HTML -->
-            <button class="mobile-menu-button md:hidden text-gray-600 hover:text-brand-primary focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 py-6 px-8 flex justify-between items-center bg-black bg-opacity-70 backdrop-blur-sm shadow-lg">
+        <div class="text-2xl font-playfair text-white tracking-widest">
+            <a href="#hero" class="hover:text-gold-light transition-colors duration-300">L’Atelier Éternelle</a>
         </div>
-    </nav>
+        <nav class="hidden md:flex space-x-8">
+            <a href="#collection" class="text-lg text-white hover:text-gold-light transition-colors duration-300 relative group">
+                Collection
+                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold-light scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </a>
+            <a href="#story" class="text-lg text-white hover:text-gold-light transition-colors duration-300 relative group">
+                Our Story
+                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold-light scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </a>
+            <a href="#craftsmanship" class="text-lg text-white hover:text-gold-light transition-colors duration-300 relative group">
+                Craftsmanship
+                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold-light scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </a>
+            <a href="#access" class="text-lg text-white hover:text-gold-light transition-colors duration-300 relative group">
+                Private Access
+                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold-light scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </a>
+        </nav>
+        <!-- Mobile menu icon placeholder if needed for future expansion -->
+    </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero-bg min-h-screen flex items-center justify-center text-white text-center overlay-gradient pt-24 pb-12 md:pb-0">
-        <div class="relative z-10 max-w-5xl px-6">
-            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 animate-fade-in-up">
-                Find Your Inner Peace: A Journey to Wellness
+    <section id="hero" class="relative min-h-screen flex items-center justify-center text-center overflow-hidden bg-cover bg-center bg-fixed"
+        style="background-image: url('https://images.pexels.com/photos/3856051/pexels-photo-3856051.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');">
+        <div class="absolute inset-0 bg-black/70 z-10"></div>
+        <div class="relative z-20 p-8">
+            <h1 class="font-playfair text-6xl md:text-8xl text-white tracking-widest leading-tight drop-shadow-lg mb-4 transform translate-y-0 opacity-100 transition-all duration-1000 ease-out" id="hero-title">
+                L’Atelier Éternelle
             </h1>
-            <p class="text-xl md:text-2xl mb-12 opacity-90 animate-fade-in-up delay-150">
-                Discover tranquility through guided meditation, mindful practices, and holistic well-being.
+            <p class="font-inter text-lg md:text-xl text-gray-300 mt-4 max-w-2xl mx-auto drop-shadow mb-10 transform translate-y-0 opacity-100 transition-all duration-1000 ease-out delay-200" id="hero-tagline">
+                Where rarity meets reverence, distilled into a timeless essence.
             </p>
-            <a href="#services" class="btn-primary inline-block text-xl font-semibold animate-fade-in-up delay-300">
-                Explore Our Services
+            <a href="#collection" class="inline-block px-10 py-4 mt-8 text-white border-2 border-white text-lg uppercase tracking-wider hover:bg-gold-light hover:border-gold-light hover:text-black transition-all duration-500 ease-in-out transform translate-y-0 opacity-100 delay-300" id="hero-cta">
+                Discover the Essence
             </a>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-16 md:py-24 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-brand-primary animate-fade-in">Our Offerings</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-                <!-- Service 1: Guided Meditations -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-shadow hover:scale-105 transform transition duration-300">
-                    <img src="https://images.pexels.com/photos/934062/pexels-photo-934062.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Person meditating" class="w-full h-56 object-cover">
-                    <div class="p-8 text-center">
-                        <h3 class="text-2xl font-semibold mb-3 text-brand-primary">Guided Meditations</h3>
-                        <p class="text-gray-600 leading-relaxed">Experience deep relaxation and clarity with our expert-led meditation sessions tailored for all levels.</p>
+    <!-- Signature Collection Showcase Section -->
+    <section id="collection" class="py-24 bg-black text-white fade-in-section">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-playfair text-5xl text-center mb-16 text-gold-light leading-tight">
+                The Signature Collection
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Perfume 1 -->
+                <div class="group relative overflow-hidden bg-gray-900 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-500">
+                    <img src="https://images.pexels.com/photos/6263153/pexels-photo-6263153.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Éclat de Lune perfume bottle" class="w-full h-96 object-contain p-4 transform group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                    <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out">
+                        <h3 class="font-playfair text-3xl text-gold-light mb-2">Éclat de Lune</h3>
+                        <p class="font-inter text-md text-gray-300 leading-relaxed max-w-xs">
+                            A luminous symphony of jasmine, bergamot, and a whisper of rare amber. For evenings that shimmer.
+                        </p>
                     </div>
                 </div>
-                <!-- Service 2: Mindfulness Workshops -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-shadow hover:scale-105 transform transition duration-300">
-                    <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Mindful woman" class="w-full h-56 object-cover">
-                    <div class="p-8 text-center">
-                        <h3 class="text-2xl font-semibold mb-3 text-brand-primary">Mindfulness Workshops</h3>
-                        <p class="text-gray-600 leading-relaxed">Learn practical techniques to integrate mindfulness into your daily life for reduced stress and increased focus.</p>
+                <!-- Perfume 2 -->
+                <div class="group relative overflow-hidden bg-gray-900 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-500">
+                    <img src="https://images.pexels.com/photos/6263100/pexels-photo-6263100.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Sillage Noir perfume bottle" class="w-full h-96 object-contain p-4 transform group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                    <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out">
+                        <h3 class="font-playfair text-3xl text-gold-light mb-2">Sillage Noir</h3>
+                        <p class="font-inter text-md text-gray-300 leading-relaxed max-w-xs">
+                            An enigmatic trail of oud, dark rose, and smoky incense. The essence of alluring mystery.
+                        </p>
                     </div>
                 </div>
-                <!-- Service 3: Yoga & Movement -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-shadow hover:scale-105 transform transition duration-300">
-                    <img src="https://images.pexels.com/photos/7110193/pexels-photo-7110193.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Peaceful hands gesture" class="w-full h-56 object-cover">
-                    <div class="p-8 text-center">
-                        <h3 class="text-2xl font-semibold mb-3 text-brand-primary">Yoga & Movement</h3>
-                        <p class="text-gray-600 leading-relaxed">Connect mind and body with gentle yoga flows and conscious movement practices to build strength and flexibility.</p>
-                    </div>
-                </div>
-                <!-- Service 4: Wellness Coaching (Using Picsum as Pexels images are consumed) -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-shadow hover:scale-105 transform transition duration-300">
-                    <img src="https://picsum.photos/id/1084/600/400" alt="Wellness coaching session" class="w-full h-56 object-cover">
-                    <div class="p-8 text-center">
-                        <h3 class="text-2xl font-semibold mb-3 text-brand-primary">Personalized Coaching</h3>
-                        <p class="text-gray-600 leading-relaxed">Receive one-on-one guidance to achieve your personal wellness goals and foster lasting positive change.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 md:py-24 bg-brand-secondary text-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 animate-fade-in">What Our Clients Say</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Testimonial 1 -->
-                <div class="bg-white text-gray-800 p-8 rounded-xl shadow-lg card-shadow">
-                    <p class="italic mb-6 text-lg leading-relaxed">"Inner Peace has truly transformed my daily routine. I feel more centered, calm, and present. The guided meditations are simply life-changing!"</p>
-                    <div class="flex items-center">
-                        <img src="https://picsum.photos/id/1005/70/70" alt="Client Avatar Emily R." class="w-16 h-16 rounded-full mr-4 object-cover border-2 border-brand-accent">
-                        <div>
-                            <p class="font-semibold text-xl text-brand-primary">Emily R.</p>
-                            <p class="text-gray-500 text-base">Marketing Manager</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 2 -->
-                <div class="bg-white text-gray-800 p-8 rounded-xl shadow-lg card-shadow">
-                    <p class="italic mb-6 text-lg leading-relaxed">"The mindfulness workshops provided me with invaluable tools to manage stress effectively. I highly recommend Inner Peace to anyone seeking genuine well-being."</p>
-                    <div class="flex items-center">
-                        <img src="https://picsum.photos/id/1027/70/70" alt="Client Avatar David S." class="w-16 h-16 rounded-full mr-4 object-cover border-2 border-brand-accent">
-                        <div>
-                            <p class="font-semibold text-xl text-brand-primary">David S.</p>
-                            <p class="text-gray-500 text-base">Software Engineer</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 3 -->
-                <div class="bg-white text-gray-800 p-8 rounded-xl shadow-lg card-shadow">
-                    <p class="italic mb-6 text-lg leading-relaxed">"I finally found a place that truly understands holistic wellness. The personalized coaching sessions were incredibly insightful and empowering."</p>
-                    <div class="flex items-center">
-                        <img src="https://picsum.photos/id/1081/70/70" alt="Client Avatar Sophia K." class="w-16 h-16 rounded-full mr-4 object-cover border-2 border-brand-accent">
-                        <div>
-                            <p class="font-semibold text-xl text-brand-primary">Sophia K.</p>
-                            <p class="text-gray-500 text-base">Yoga Instructor</p>
-                        </div>
+                <!-- Perfume 3 -->
+                <div class="group relative overflow-hidden bg-gray-900 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-500">
+                    <img src="https://images.pexels.com/photos/6102181/pexels-photo-6102181.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Souffle d'Or perfume bottle" class="w-full h-96 object-contain p-4 transform group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                    <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out">
+                        <h3 class="font-playfair text-3xl text-gold-light mb-2">Souffle d'Or</h3>
+                        <p class="font-inter text-md text-gray-300 leading-relaxed max-w-xs">
+                            Golden whispers of saffron, vanilla, and white musk. A delicate caress, eternally cherished.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 md:py-24 bg-gray-100">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-brand-primary animate-fade-in">Get in Touch</h2>
-            <p class="text-center text-xl text-gray-700 mb-12 leading-relaxed">Ready to embark on your journey to inner peace and well-being? We'd love to hear from you and help you get started!</p>
+    <!-- Brand Story Section -->
+    <section id="story" class="relative py-24 bg-gray-900 text-white overflow-hidden fade-in-section">
+        <div class="absolute inset-0 bg-cover bg-center opacity-10"
+             style="background-image: url('https://images.pexels.com/photos/3747396/pexels-photo-3747396.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');">
+        </div>
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <h2 class="font-playfair text-5xl mb-16 text-gold-light leading-tight">
+                Our Heritage, Our Art
+            </h2>
+            <p class="font-inter text-xl leading-relaxed mb-8 text-gray-300">
+                At L’Atelier Éternelle, we believe perfumery is an art, a devotion passed through generations. Our journey began in the hushed elegance of a Parisian atelier, where passion for the ephemeral beauty of scent blossomed into an unwavering commitment to excellence. Each creation is a narrative, a secret whispered from the very soul of the earth, captured in a precious flacon.
+            </p>
+            <p class="font-inter text-xl leading-relaxed mb-8 text-gray-300">
+                We celebrate the poetry of rare ingredients and the artistry of the human hand. Our fragrances are more than compositions; they are expressions of timeless beauty, designed to evoke emotion, stir memories, and leave an indelible mark on the soul. To wear L’Atelier Éternelle is to embrace an inheritance of sensuality, exclusivity, and profound elegance.
+            </p>
+            <p class="font-inter text-xl leading-relaxed text-gray-300">
+                It is for those who seek not merely a scent, but a signature.
+            </p>
+        </div>
+    </section>
 
-            <form class="bg-white p-8 md:p-12 rounded-xl shadow-lg card-shadow">
-                <div class="mb-8">
-                    <label for="name" class="block text-gray-800 text-lg font-semibold mb-3">Name</label>
-                    <input type="text" id="name" name="name" class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary transition duration-200 text-lg" placeholder="Your Full Name" required>
+    <!-- Ingredients & Craftsmanship Section -->
+    <section id="craftsmanship" class="py-24 bg-black text-white fade-in-section">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-playfair text-5xl text-center mb-16 text-gold-light leading-tight">
+                The Art of Distillation
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-12">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mr-6 text-gold-light text-5xl font-playfair">&mdash;</div>
+                        <div>
+                            <h3 class="font-playfair text-3xl mb-3 text-white">Rare Essences, Hand-Selected</h3>
+                            <p class="font-inter text-lg text-gray-300 leading-relaxed">
+                                Our quest for unparalleled scent begins at the source. From the sun-drenched fields of Grasse for the purest jasmine to the sacred forests of India for the finest sandalwood, our ingredients are hand-selected by master perfumers, ensuring only materials of exceptional quality and ethical provenance grace our atelier.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mr-6 text-gold-light text-5xl font-playfair">&mdash;</div>
+                        <div>
+                            <h3 class="font-playfair text-3xl mb-3 text-white">Slow Extraction, Pure Artistry</h3>
+                            <p class="font-inter text-lg text-gray-300 leading-relaxed">
+                                We honor ancient techniques of slow extraction, allowing nature's profound complexities to unfurl. Each drop of essence is a testament to patience and precision, from meticulous enfleurage to delicate steam distillation, preserving the integrity and vibrant soul of every botanical.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mr-6 text-gold-light text-5xl font-playfair">&mdash;</div>
+                        <div>
+                            <h3 class="font-playfair text-3xl mb-3 text-white">Limited Seasonal Harvests</h3>
+                            <p class="font-inter text-lg text-gray-300 leading-relaxed">
+                                True luxury acknowledges nature’s rhythm. Many of our most cherished components are sourced from limited seasonal harvests, making each bottle a rare embodiment of time and place. This scarcity ensures the exclusivity and profound depth that defines L’Atelier Éternelle.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-8">
-                    <label for="email" class="block text-gray-800 text-lg font-semibold mb-3">Email</label>
-                    <input type="email" id="email" name="email" class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary transition duration-200 text-lg" placeholder="your@example.com" required>
+                <div class="grid grid-cols-2 gap-8">
+                    <img src="https://cdn.pixabay.com/photo/2016/06/17/12/32/jasmine-1462947_1280.jpg" alt="Macro shot of jasmine flowers" class="w-full h-80 object-cover rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500" loading="lazy">
+                    <img src="https://cdn.pixabay.com/photo/2019/07/21/20/38/sandalwood-4353406_1280.jpg" alt="Sandalwood pieces" class="w-full h-80 object-cover rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500" loading="lazy">
+                    <img src="https://cdn.pixabay.com/photo/2019/09/20/12/57/amber-4491761_1280.jpg" alt="Amber resin chunks" class="w-full h-80 object-cover rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500" loading="lazy">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/29/03/40/dark-1867142_1280.jpg" alt="Incense smoke" class="w-full h-80 object-cover rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500" loading="lazy">
                 </div>
-                <div class="mb-10">
-                    <label for="message" class="block text-gray-800 text-lg font-semibold mb-3">Message</label>
-                    <textarea id="message" name="message" rows="7" class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary transition duration-200 text-lg" placeholder="Tell us about your wellness goals or questions..." required></textarea>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Reputation Section -->
+    <section id="testimonials" class="py-24 bg-gray-900 text-white fade-in-section">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="font-playfair text-5xl mb-16 text-gold-light leading-tight">
+                Whispers of Acclaim
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <blockquote class="font-playfair italic text-3xl leading-snug mb-6 text-gray-200">
+                        “A scent that lingers not just on the skin, but in the memory, long after the last drop.”
+                    </blockquote>
+                    <p class="font-inter text-lg text-gray-400">&mdash; Madame Genevieve Dubois, Connoisseur</p>
                 </div>
-                <div class="text-center">
-                    <button type="submit" class="btn-primary inline-block text-xl font-semibold w-full md:w-auto px-10 py-4">
-                        Send Message
+                <div>
+                    <blockquote class="font-playfair italic text-3xl leading-snug mb-6 text-gray-200">
+                        “For those who refuse the ordinary, L’Atelier Éternelle offers an olfactory journey into pure, unadulterated luxury.”
+                    </blockquote>
+                    <p class="font-inter text-lg text-gray-400">&mdash; Monsieur Alain Leclerc, Art Critic</p>
+                </div>
+                <!-- More testimonials if desired -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Exclusive Access / Contact Section -->
+    <section id="access" class="py-24 bg-black text-white fade-in-section">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="font-playfair text-5xl mb-16 text-gold-light leading-tight">
+                Request Private Access
+            </h2>
+            <p class="font-inter text-xl leading-relaxed mb-12 text-gray-300">
+                L’Atelier Éternelle operates by invitation and private consultation. To discover our complete repertoire and bespoke services, we welcome your esteemed inquiry. A member of our team will discreetly contact you.
+            </p>
+            <form class="space-y-6 max-w-xl mx-auto">
+                <div>
+                    <input type="text" id="name" name="name" placeholder="Your Esteemed Name" class="w-full p-4 bg-gray-900 border border-gray-700 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-gold-light transition-colors duration-300" required>
+                </div>
+                <div>
+                    <input type="email" id="email" name="email" placeholder="Your Discreet Email Address" class="w-full p-4 bg-gray-900 border border-gray-700 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-gold-light transition-colors duration-300" required>
+                </div>
+                <div>
+                    <textarea id="message" name="message" rows="6" placeholder="Your Inquiry or Specific Interest" class="w-full p-4 bg-gray-900 border border-gray-700 rounded-md text-white placeholder-gray-500 focus:outline-none focus:border-gold-light transition-colors duration-300"></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="w-full px-10 py-4 mt-6 text-white bg-transparent border-2 border-gold-light text-lg uppercase tracking-wider hover:bg-gold-dark hover:border-gold-dark transition-all duration-500 ease-in-out">
+                        Submit Request
                     </button>
                 </div>
             </form>
@@ -236,22 +263,63 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-2xl font-semibold mb-4">Inner Peace Wellness</p>
-            <p class="text-gray-400 mb-6 text-base">&copy; 2023 All rights reserved. Cultivating Calm, Empowering Lives.</p>
-            <div class="flex justify-center space-x-8 text-base">
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Sitemap</a>
+    <footer class="bg-gray-950 py-12 text-gray-400 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="mb-4">&copy; 2023 L’Atelier Éternelle. All rights reserved. Exclusivity by design.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="hover:text-gold-light transition-colors duration-300">Privacy Policy</a>
+                <a href="#" class="hover:text-gold-light transition-colors duration-300">Terms of Service</a>
+                <a href="#access" class="hover:text-gold-light transition-colors duration-300">Contact</a>
             </div>
-            <!-- Optional: Add the unused Pexels image as a subtle footer element -->
-            <div class="mt-10">
-                <img src="https://images.pexels.com/photos/4587855/pexels-photo-4587855.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Serene nature" class="w-48 h-auto mx-auto rounded-lg opacity-60 shadow-md">
-            </div>
+            <p class="mt-4 text-xs">Crafted with devotion for those who discern true luxury.</p>
         </div>
     </footer>
 
+    <!-- JavaScript for Fade-In Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.fade-in-section');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 // Adjust this value: 0.1 means 10% of the section must be visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Hero section scroll animation for text
+            const heroTitle = document.getElementById('hero-title');
+            const heroTagline = document.getElementById('hero-tagline');
+            const heroCta = document.getElementById('hero-cta');
+
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                const opacityFactor = Math.max(0, 1 - scrollY / 600); // Fades out over 600px scroll
+                const translateYFactor = scrollY * 0.3; // Moves up 0.3px for every 1px scroll
+
+                heroTitle.style.opacity = opacityFactor;
+                heroTitle.style.transform = `translateY(${translateYFactor}px)`;
+
+                heroTagline.style.opacity = opacityFactor;
+                heroTagline.style.transform = `translateY(${translateYFactor * 1.2}px)`; // Slightly faster
+                
+                heroCta.style.opacity = opacityFactor;
+                heroCta.style.transform = `translateY(${translateYFactor * 1.5}px)`; // Even faster
+            });
+        });
+    </script>
 </body>
 </html>
 ```
