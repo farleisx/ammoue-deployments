@@ -1,184 +1,222 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bye World - Welcome to Our Digital Space</title>
+    <title>אביתר פודטראק – האוכל הרחוב שאתה לא שוכח</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Heebo for modern Hebrew typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        /* Custom styles for background images with fallbacks */
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: #f8f8f8; /* A very light gray for background */
+            color: #333;
+        }
         .hero-background {
-            background-image: url('https://images.pexels.com/photos/7147961/pexels-photo-7147961.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');
-            background-size: cover;
+            /* Pexels image for hero background: Food truck from outside */
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/7110193/pexels-photo-7110193.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');
             background-position: center;
+            background-size: cover;
             background-repeat: no-repeat;
         }
-        .cta-background {
-            background-image: url('https://images.pexels.com/photos/34652535/pexels-photo-34652535.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        /* Overlay for text readability on hero image */
-        .hero-overlay {
-            background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
-        }
-        /* Overlay for CTA background image */
-        .cta-overlay {
-            background-image: linear-gradient(to bottom right, rgba(79, 70, 229, 0.9), rgba(139, 92, 246, 0.9)); /* Indigo to Purple gradient */
+        .container {
+            max-width: 1200px; /* Wider container for spacious feel */
         }
     </style>
 </head>
-<body class="font-sans antialiased text-gray-800 bg-white">
+<body class="text-gray-800">
 
-    <!-- Navigation Bar -->
-    <nav class="bg-white shadow-md p-4 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-indigo-700">Bye.</a>
-            <div class="hidden md:flex space-x-4">
-                <a href="#welcome" class="text-gray-600 hover:text-indigo-700 transition duration-300">Welcome</a>
-                <a href="#features" class="text-gray-600 hover:text-indigo-700 transition duration-300">Features</a>
-                <a href="#about" class="text-gray-600 hover:text-indigo-700 transition duration-300">About Us</a>
-                <a href="#contact" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-300 shadow-md">Contact</a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-gray-600 hover:text-indigo-700 focus:outline-none" id="mobile-menu-button" aria-label="Toggle mobile menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 shadow-inner">
-            <a href="#welcome" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Welcome</a>
-            <a href="#features" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Features</a>
-            <a href="#about" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">About Us</a>
-            <a href="#contact" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Contact</a>
-        </div>
-    </nav>
+    <!-- Header / ניווט עליון -->
+    <header class="bg-red-700 text-white p-4 shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <a href="#home" class="text-3xl font-extrabold tracking-wide mb-4 md:mb-0 hover:text-red-200 transition duration-300">אביתר פודטראק</a>
+            <ul class="flex space-x-6 space-x-reverse text-lg font-medium">
+                <li><a href="#home" class="hover:text-red-200 transition duration-300 py-2 px-3 rounded-md">דף הבית</a></li>
+                <li><a href="#menu" class="hover:text-red-200 transition duration-300 py-2 px-3 rounded-md">תפריט</a></li>
+                <li><a href="#about" class="hover:text-red-200 transition duration-300 py-2 px-3 rounded-md">אודות</a></li>
+                <li><a href="#contact" class="hover:text-red-200 transition duration-300 py-2 px-3 rounded-md">יצירת קשר</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Hero Section (Image 1: 7147961) -->
-    <section id="welcome" class="hero-background relative h-[60vh] md:h-[70vh] flex items-center justify-center text-center">
-        <div class="absolute inset-0 bg-black opacity-60 hero-overlay"></div> <!-- Dark overlay for text readability -->
-        <div class="relative z-10 text-white p-6 max-w-4xl mx-auto">
-            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-4 tracking-tight">Bye!</h1>
-            <p class="text-xl md:text-2xl font-light mb-8 opacity-90">Welcome to our corner of the digital world. We're delighted to have you here.</p>
-            <a href="#features" class="inline-block bg-indigo-600 text-white text-lg font-semibold px-8 py-3 rounded-full hover:bg-indigo-700 transition duration-300 transform hover:scale-105 shadow-lg">Explore More</a>
+    <!-- Hero Section / גיבור -->
+    <section id="home" class="hero-background text-white py-24 md:py-32 lg:py-40 flex items-center justify-center min-h-[70vh]">
+        <div class="text-center p-6 bg-black bg-opacity-50 rounded-lg max-w-4xl mx-auto backdrop-blur-sm">
+            <h1 class="text-4xl md:text-6xl font-black mb-4 leading-tight">אביתר פודטראק – האוכל הרחוב שאתה לא שוכח</h1>
+            <p class="text-lg md:text-xl mb-8 font-light max-w-2xl mx-auto">טרי, טעים, באווירה טובה – נסגר עליכם במקום, בכל מקום</p>
+            <a href="#menu" class="bg-red-600 hover:bg-red-800 text-white text-xl font-bold py-4 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">לצפייה בתפריט</a>
         </div>
     </section>
 
-    <!-- Feature Section 1 (Image 2: 7528930) -->
-    <section id="features" class="py-16 bg-gray-50">
+    <!-- About Section / אודות -->
+    <section id="about" class="bg-white py-16 md:py-20">
         <div class="container mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2">
-                <img src="https://images.pexels.com/photos/7528930/pexels-photo-7528930.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Person using a smartphone, symbolizing connection" class="rounded-lg shadow-xl w-full h-auto object-cover max-h-96 md:max-h-[500px]">
-            </div>
-            <div class="md:w-1/2 text-center md:text-left">
-                <h2 class="text-4xl font-bold text-gray-900 mb-6">Connect with the World</h2>
-                <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    In today's fast-paced environment, staying connected is more crucial than ever. Our platform helps you bridge distances, fostering communication and collaboration seamlessly. Experience the joy of connection, no matter where you are.
+            <div class="md:w-1/2 text-center md:text-right">
+                <h2 class="text-4xl font-bold mb-6 text-red-700">מי אנחנו</h2>
+                <p class="text-lg leading-relaxed text-gray-700">
+                    אביתר פודטראק התחיל מתוך אהבה לאוכל איכותי ומהיר. אנחנו מביאים את הניחוחות, הטעמים והחיוך אליכם – איפה שאתם נמצאים.
+                    הפילוסופיה שלנו פשוטה: להשתמש בחומרי גלם טריים ואיכותיים ביותר, להכין כל מנה באהבה ותשומת לב, ולספק חווית שירות חמה וידידותית, ממש כמו אוכל רחוב אמיתי וטוב.
+                    אנו מתמחים בהגשה מהירה, טעימה וכיפית, בין אם אתם עוברים ברחוב, באירוע מיוחד או פשוט מחפשים ארוחה מהירה ומשביעה.
                 </p>
-                <ul class="list-disc list-inside text-gray-600 text-left md:ml-4 space-y-2">
-                    <li>Effortless Communication</li>
-                    <li>Global Reach & Accessibility</li>
-                    <li>Community Building Tools</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Feature Section 2 (Image 3: 16474955) -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center gap-12">
-            <div class="md:w-1/2 text-center md:text-left">
-                <h2 class="text-4xl font-bold text-gray-900 mb-6">Innovate & Create</h2>
-                <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    Unleash your potential with tools designed for creativity and innovation. From concept to execution, we provide the resources you need to bring your ideas to life. Let your imagination flourish and build something extraordinary.
-                </p>
-                <ul class="list-disc list-inside text-gray-600 text-left md:ml-4 space-y-2">
-                    <li>Advanced Creative Tools</li>
-                    <li>Streamlined Workflow Integration</li>
-                    <li>Inspiring & Productive Environment</li>
-                </ul>
             </div>
             <div class="md:w-1/2">
-                <img src="https://images.pexels.com/photos/16474955/pexels-photo-16474955.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Hands typing on a keyboard with a plant, symbolizing creation" class="rounded-lg shadow-xl w-full h-auto object-cover max-h-96 md:max-h-[500px]">
+                <!-- Pexels image: Burger and fries -->
+                <img src="https://images.pexels.com/photos/4046718/pexels-photo-4046718.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="המבורגר וצ'יפס טריים" class="rounded-xl shadow-xl border-4 border-red-100 object-cover w-full h-80 md:h-96">
             </div>
         </div>
     </section>
 
-    <!-- About Us Section (Image 4: 15391619) -->
-    <section id="about" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2">
-                <img src="https://images.pexels.com/photos/15391619/pexels-photo-15391619.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Group of people collaborating, symbolizing teamwork" class="rounded-lg shadow-xl w-full h-auto object-cover max-h-96 md:max-h-[500px]">
-            </div>
-            <div class="md:w-1/2 text-center md:text-left">
-                <h2 class="text-4xl font-bold text-gray-900 mb-6">Our Collaborative Spirit</h2>
-                <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    We believe in the power of working together. Our team is dedicated to fostering an environment where ideas are shared, diverse perspectives are valued, and collective goals are achieved. Join us in building a better future.
-                </p>
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    Every member contributes to our vibrant culture of innovation and mutual support. We're more than just a platform; we're a community driven by shared success.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section (Image 5: 34652535 as background) -->
-    <section id="contact" class="py-20 text-white relative overflow-hidden">
-        <div class="absolute inset-0 cta-background"></div>
-        <div class="absolute inset-0 cta-overlay"></div>
-        <div class="relative z-10 container mx-auto px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold mb-6">Ready to Experience the Difference?</h2>
-            <p class="text-xl mb-10 max-w-2xl mx-auto">
-                Discover how our solutions can empower you. Reach out today and let's start a conversation about your needs.
-            </p>
-            <a href="mailto:info@example.com" class="inline-block bg-white text-indigo-700 text-lg font-semibold px-10 py-4 rounded-full hover:bg-gray-200 transition duration-300 transform hover:scale-105 shadow-lg">Get in Touch</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 py-10">
+    <!-- Menu Section / תפריט -->
+    <section id="menu" class="bg-gray-100 py-16 md:py-20">
         <div class="container mx-auto px-6 lg:px-8 text-center">
-            <div class="flex flex-col md:flex-row justify-center md:space-x-8 mb-6">
-                <a href="#welcome" class="hover:text-white transition duration-300 py-2 md:py-0">Home</a>
-                <a href="#features" class="hover:text-white transition duration-300 py-2 md:py-0">Services</a>
-                <a href="#about" class="hover:text-white transition duration-300 py-2 md:py-0">About</a>
-                <a href="#contact" class="hover:text-white transition duration-300 py-2 md:py-0">Contact</a>
+            <h2 class="text-4xl font-bold mb-12 text-red-700">התפריט שלנו</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Menu Item 1: צ'יפס ביתי -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
+                    <!-- Pexels image: Fries and ketchup -->
+                    <img src="https://images.pexels.com/photos/4587855/pexels-photo-4587855.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="צ'יפס ביתי פריך" class="w-full h-64 object-cover">
+                    <div class="p-6 text-right">
+                        <h3 class="text-2xl font-semibold mb-2 text-red-600">צ'יפס ביתי</h3>
+                        <p class="text-gray-700 mb-4">מתובל ומטוגן במקום, פריך וטעים במיוחד. חובה לכל מנה!</p>
+                        <span class="text-xl font-bold text-gray-900">18₪</span>
+                    </div>
+                </div>
+
+                <!-- Menu Item 2: כריך שניצל -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
+                    <!-- Pexels image: Hotdog/sandwich -->
+                    <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="כריך שניצל עסיסי" class="w-full h-64 object-cover">
+                    <div class="p-6 text-right">
+                        <h3 class="text-2xl font-semibold mb-2 text-red-600">כריך שניצל</h3>
+                        <p class="text-gray-700 mb-4">שניצל עוף פריך ועסיסי, מוגש בלחמנייה טרייה עם ירקות טריים ורטבים לבחירה.</p>
+                        <span class="text-xl font-bold text-gray-900">28₪</span>
+                    </div>
+                </div>
+
+                <!-- Menu Item 3: המבורגר 220 גרם -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
+                    <!-- Pexels image: Burger on a plate -->
+                    <img src="https://images.pexels.com/photos/934062/pexels-photo-934062.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="המבורגר בקר 220 גרם" class="w-full h-64 object-cover">
+                    <div class="p-6 text-right">
+                        <h3 class="text-2xl font-semibold mb-2 text-red-600">המבורגר 220 גרם</h3>
+                        <p class="text-gray-700 mb-4">בקר עסיסי ואיכותי במשקל 220 גרם, בלחמניית בריוש, עם ירקות טריים ורטבים לבחירה.</p>
+                        <span class="text-xl font-bold text-gray-900">42₪</span>
+                    </div>
+                </div>
+
+                <!-- Menu Item 4: שווארמה בפיתה -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
+                    <!-- Public web image from Pexels: Shawarma -->
+                    <img src="https://images.pexels.com/photos/4071343/pexels-photo-4071343.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="שווארמה עוף בפיתה" class="w-full h-64 object-cover">
+                    <div class="p-6 text-right">
+                        <h3 class="text-2xl font-semibold mb-2 text-red-600">שווארמה בפיתה</h3>
+                        <p class="text-gray-700 mb-4">נתחי עוף שווארמה מתובלים, מוגשים בפיתה חמה עם סלטים טריים וטחינה.</p>
+                        <span class="text-xl font-bold text-gray-900">35₪</span>
+                    </div>
+                </div>
+
+                <!-- Menu Item 5: נקניקייה בלחמנייה -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
+                    <!-- Public web image from Pexels: Hotdog -->
+                    <img src="https://images.pexels.com/photos/10107755/pexels-photo-10107755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="נקניקייה בלחמנייה עם תוספות" class="w-full h-64 object-cover">
+                    <div class="p-6 text-right">
+                        <h3 class="text-2xl font-semibold mb-2 text-red-600">נקניקייה בלחמנייה</h3>
+                        <p class="text-gray-700 mb-4">נקניקייה איכותית בלחמנייה טרייה, בתוספת כרוב כבוש, חמוצים ורטבים לבחירה.</p>
+                        <span class="text-xl font-bold text-gray-900">25₪</span>
+                    </div>
+                </div>
+
+                <!-- Menu Item 6: שתייה קלה -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
+                    <!-- Public web image from Pexels: Soft drinks -->
+                    <img src="https://images.pexels.com/photos/1039867/pexels-photo-1039867.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="מגוון שתיה קלה ומרעננת" class="w-full h-64 object-cover">
+                    <div class="p-6 text-right">
+                        <h3 class="text-2xl font-semibold mb-2 text-red-600">שתייה קלה</h3>
+                        <p class="text-gray-700 mb-4">מגוון רחב של משקאות קלים ומרעננים לכל טעם.</p>
+                        <span class="text-xl font-bold text-gray-900">10₪</span>
+                    </div>
+                </div>
             </div>
-            <p class="text-sm">&copy; <span id="current-year"></span> Bye World. All rights reserved. Made with <span class="text-red-500">&hearts;</span> by AI Developer.</p>
+        </div>
+    </section>
+
+    <!-- Location & Working Hours / מיקום ושעות פעילות -->
+    <section class="bg-white py-16 md:py-20">
+        <div class="container mx-auto px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-8 text-red-700">איפה ומתי למצוא אותנו</h2>
+            <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+                <p class="mb-4">
+                    אנו פודטראק נייד ודינמי, וזה אומר שאנחנו מגיעים אליכם! עקבו אחרינו בעמודי המדיה החברתית שלנו כדי לדעת היכן תמצאו אותנו בכל יום נתון.
+                    אל תחמיצו את ההזדמנות ליהנות מהטעמים שלנו, ממש לידכם!
+                </p>
+                <p class="text-xl font-semibold text-gray-800 mb-2 mt-8">שעות פעילות טיפוסיות:</p>
+                <ul class="list-disc list-inside space-y-1 mx-auto max-w-sm text-right">
+                    <li>א' - ה': 17:00 - 23:00</li>
+                    <li>ו': 12:00 - 16:00</li>
+                    <li>שבת: סגור (אלא אם כן נקבע אירוע מיוחד)</li>
+                </ul>
+                <p class="mt-6 text-gray-600 text-base">מומלץ לוודא את מיקומנו ושעות הפעילות שלנו לפני הגעה. אנו זמינים גם לאירועים פרטיים ועסקיים!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section / יצירת קשר -->
+    <section id="contact" class="bg-gray-100 py-16 md:py-20">
+        <div class="container mx-auto px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-10 text-red-700">יצירת קשר</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- Contact Info & WhatsApp -->
+                <div class="flex flex-col justify-center items-center md:items-start text-right">
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        יש לכם שאלות? רוצים להזמין לאירוע פרטי או עסקי? נשמח לשמוע מכם!
+                        צרו קשר באמצעות וואטסאפ לשרות מהיר, או בטלפון.
+                    </p>
+                    <a href="https://wa.me/972501234567" target="_blank" class="bg-green-500 hover:bg-green-600 text-white text-xl font-bold py-3 px-8 rounded-full mb-6 flex items-center justify-center space-x-2 space-x-reverse transition duration-300 transform hover:scale-105">
+                        <span class="ml-2 text-2xl">📱</span>
+                        <span>להזמנות בוואטסאפ</span>
+                    </a>
+                    <p class="text-2xl font-semibold text-gray-800 mb-6">טלפון: <a href="tel:0501234567" class="text-red-600 hover:underline">050-1234567</a></p>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white p-8 rounded-xl shadow-lg text-right">
+                    <h3 class="text-3xl font-bold mb-6 text-red-700">שלח לנו הודעה</h3>
+                    <form action="#" method="POST" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">שם מלא:</label>
+                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent" placeholder="הכנס את שמך" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">כתובת אימייל:</label>
+                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent" placeholder="הכנס את האימייל שלך" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 text-sm font-bold mb-2">הודעה:</label>
+                            <textarea id="message" name="message" rows="6" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent" placeholder="כתוב את הודעתך כאן..." required></textarea>
+                        </div>
+                        <button type="submit" class="bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 w-full md:w-auto">שלח הודעה</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / כותרת תחתונה -->
+    <footer class="bg-red-800 text-white py-8">
+        <div class="container mx-auto px-6 lg:px-8 text-center text-sm">
+            <p class="mb-4">&copy; 2023 אביתר פודטראק. כל הזכויות שמורות.</p>
+            <div class="flex justify-center space-x-6 space-x-reverse text-lg">
+                <a href="#" class="hover:text-red-200 transition duration-300">אינסטגרם</a>
+                <a href="#" class="hover:text-red-200 transition duration-300">טיקטוק</a>
+            </div>
         </div>
     </footer>
 
-    <!-- Simple JS for smooth scrolling and mobile menu -->
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-
-                // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Set current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
 </body>
 </html>
+```
