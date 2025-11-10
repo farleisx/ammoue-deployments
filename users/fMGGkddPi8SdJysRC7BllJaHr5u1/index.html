@@ -4,219 +4,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אביתר פודטראק – האוכל הרחוב שאתה לא שוכח</title>
+    <title>אביתר פודטראק - Fresh, Flavorful, Unforgettable Street Food</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Heebo for modern Hebrew typography -->
+    <!-- Google Fonts - Heebo for Hebrew and modern look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Heebo', sans-serif;
-            background-color: #f8f8f8; /* A very light gray for background */
-            color: #333;
+            /* Default direction for Hebrew content */
+            direction: rtl; 
+            /* Default text alignment for RTL */
+            text-align: right; 
         }
-        .hero-background {
-            /* Pexels image for hero background: Food truck from outside */
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/7110193/pexels-photo-7110193.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
+        /* Override specific elements for LTR if needed, or re-align for center */
+        .text-center {
+            text-align: center;
         }
-        .container {
-            max-width: 1200px; /* Wider container for spacious feel */
+        /* Adjust navigation links for RTL - space-x-reverse handles gap correctly */
+        .nav-links-rtl {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-start; /* Align links to the right (start in RTL) */
+        }
+        .header-logo-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @media (max-width: 767px) { /* Adjust for mobile if hamburger menu is active */
+            .mobile-menu-open {
+                display: block !important;
+            }
         }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="bg-gray-50 text-gray-800 antialiased">
 
-    <!-- Header / ניווט עליון -->
-    <header class="bg-red-700 text-white p-4 shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <a href="#home" class="text-3xl font-extrabold tracking-wide mb-4 md:mb-0 hover:text-red-200 transition duration-300">אביתר פודטראק</a>
-            <ul class="flex space-x-6 space-x-reverse text-lg font-medium">
-                <li><a href="#home" class="hover:text-red-200 transition duration-300 py-2 px-3 rounded-md">דף הבית</a></li>
-                <li><a href="#menu" class="hover:text-red-200 transition duration-300 py-2 px-3 rounded-md">תפריט</a></li>
-                <li><a href="#about" class="hover:text-red-200 transition duration-300 py-2 px-3 rounded-md">אודות</a></li>
-                <li><a href="#contact" class="hover:text-red-200 transition duration-300 py-2 px-3 rounded-md">יצירת קשר</a></li>
-            </ul>
+    <!-- Header / Navigation -->
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 header-logo-nav">
+            <!-- Logo -->
+            <a href="#" class="text-3xl font-black text-amber-600">אביתר פודטראק</a>
+
+            <!-- Navigation Menu (Desktop) -->
+            <nav class="hidden md:flex space-x-reverse space-x-6 nav-links-rtl">
+                <a href="#home" class="text-gray-700 hover:text-amber-600 font-semibold transition duration-300">ראשי</a>
+                <a href="#menu" class="text-gray-700 hover:text-amber-600 font-semibold transition duration-300">תפריט</a>
+                <a href="#about" class="text-gray-700 hover:text-amber-600 font-semibold transition duration-300">אודות</a>
+                <a href="#contact" class="text-gray-700 hover:text-amber-600 font-semibold transition duration-300">צור קשר</a>
+            </nav>
+
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-amber-600 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu (Hidden by default) -->
+        <nav id="mobile-menu" class="md:hidden bg-white py-2 shadow-inner hidden">
+            <a href="#home" class="block px-4 py-2 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition duration-300 border-b border-gray-100">ראשי</a>
+            <a href="#menu" class="block px-4 py-2 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition duration-300 border-b border-gray-100">תפריט</a>
+            <a href="#about" class="block px-4 py-2 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition duration-300 border-b border-gray-100">אודות</a>
+            <a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition duration-300">צור קשר</a>
         </nav>
     </header>
 
-    <!-- Hero Section / גיבור -->
-    <section id="home" class="hero-background text-white py-24 md:py-32 lg:py-40 flex items-center justify-center min-h-[70vh]">
-        <div class="text-center p-6 bg-black bg-opacity-50 rounded-lg max-w-4xl mx-auto backdrop-blur-sm">
-            <h1 class="text-4xl md:text-6xl font-black mb-4 leading-tight">אביתר פודטראק – האוכל הרחוב שאתה לא שוכח</h1>
-            <p class="text-lg md:text-xl mb-8 font-light max-w-2xl mx-auto">טרי, טעים, באווירה טובה – נסגר עליכם במקום, בכל מקום</p>
-            <a href="#menu" class="bg-red-600 hover:bg-red-800 text-white text-xl font-bold py-4 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">לצפייה בתפריט</a>
+    <!-- Hero Section -->
+    <section id="home" class="relative h-[600px] bg-cover bg-center flex items-center justify-center text-white p-4"
+        style="background-image: url('https://images.pexels.com/photos/4046718/pexels-photo-4046718.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="relative z-10 text-center max-w-3xl">
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg">
+                מאכלים טריים, טעימים ובלתי נשכחים
+            </h1>
+            <p class="text-xl md:text-2xl font-light mb-8 drop-shadow-md">
+                נעשה באהבה. מוגש באנרגיה. בכל מקום בו אתם נמצאים.
+            </p>
+            <a href="#menu" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 shadow-lg transform hover:scale-105">
+                צפו בתפריט
+            </a>
         </div>
     </section>
 
-    <!-- About Section / אודות -->
-    <section id="about" class="bg-white py-16 md:py-20">
-        <div class="container mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2 text-center md:text-right">
-                <h2 class="text-4xl font-bold mb-6 text-red-700">מי אנחנו</h2>
-                <p class="text-lg leading-relaxed text-gray-700">
-                    אביתר פודטראק התחיל מתוך אהבה לאוכל איכותי ומהיר. אנחנו מביאים את הניחוחות, הטעמים והחיוך אליכם – איפה שאתם נמצאים.
-                    הפילוסופיה שלנו פשוטה: להשתמש בחומרי גלם טריים ואיכותיים ביותר, להכין כל מנה באהבה ותשומת לב, ולספק חווית שירות חמה וידידותית, ממש כמו אוכל רחוב אמיתי וטוב.
-                    אנו מתמחים בהגשה מהירה, טעימה וכיפית, בין אם אתם עוברים ברחוב, באירוע מיוחד או פשוט מחפשים ארוחה מהירה ומשביעה.
-                </p>
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row-reverse items-center gap-12">
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                     alt="Food truck chef preparing food" class="rounded-lg shadow-xl max-w-full h-auto object-cover max-h-[400px]">
             </div>
             <div class="md:w-1/2">
-                <!-- Pexels image: Burger and fries -->
-                <img src="https://images.pexels.com/photos/4046718/pexels-photo-4046718.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="המבורגר וצ'יפס טריים" class="rounded-xl shadow-xl border-4 border-red-100 object-cover w-full h-80 md:h-96">
-            </div>
-        </div>
-    </section>
-
-    <!-- Menu Section / תפריט -->
-    <section id="menu" class="bg-gray-100 py-16 md:py-20">
-        <div class="container mx-auto px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold mb-12 text-red-700">התפריט שלנו</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Menu Item 1: צ'יפס ביתי -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
-                    <!-- Pexels image: Fries and ketchup -->
-                    <img src="https://images.pexels.com/photos/4587855/pexels-photo-4587855.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="צ'יפס ביתי פריך" class="w-full h-64 object-cover">
-                    <div class="p-6 text-right">
-                        <h3 class="text-2xl font-semibold mb-2 text-red-600">צ'יפס ביתי</h3>
-                        <p class="text-gray-700 mb-4">מתובל ומטוגן במקום, פריך וטעים במיוחד. חובה לכל מנה!</p>
-                        <span class="text-xl font-bold text-gray-900">18₪</span>
-                    </div>
-                </div>
-
-                <!-- Menu Item 2: כריך שניצל -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
-                    <!-- Pexels image: Hotdog/sandwich -->
-                    <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="כריך שניצל עסיסי" class="w-full h-64 object-cover">
-                    <div class="p-6 text-right">
-                        <h3 class="text-2xl font-semibold mb-2 text-red-600">כריך שניצל</h3>
-                        <p class="text-gray-700 mb-4">שניצל עוף פריך ועסיסי, מוגש בלחמנייה טרייה עם ירקות טריים ורטבים לבחירה.</p>
-                        <span class="text-xl font-bold text-gray-900">28₪</span>
-                    </div>
-                </div>
-
-                <!-- Menu Item 3: המבורגר 220 גרם -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
-                    <!-- Pexels image: Burger on a plate -->
-                    <img src="https://images.pexels.com/photos/934062/pexels-photo-934062.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="המבורגר בקר 220 גרם" class="w-full h-64 object-cover">
-                    <div class="p-6 text-right">
-                        <h3 class="text-2xl font-semibold mb-2 text-red-600">המבורגר 220 גרם</h3>
-                        <p class="text-gray-700 mb-4">בקר עסיסי ואיכותי במשקל 220 גרם, בלחמניית בריוש, עם ירקות טריים ורטבים לבחירה.</p>
-                        <span class="text-xl font-bold text-gray-900">42₪</span>
-                    </div>
-                </div>
-
-                <!-- Menu Item 4: שווארמה בפיתה -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
-                    <!-- Public web image from Pexels: Shawarma -->
-                    <img src="https://images.pexels.com/photos/4071343/pexels-photo-4071343.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="שווארמה עוף בפיתה" class="w-full h-64 object-cover">
-                    <div class="p-6 text-right">
-                        <h3 class="text-2xl font-semibold mb-2 text-red-600">שווארמה בפיתה</h3>
-                        <p class="text-gray-700 mb-4">נתחי עוף שווארמה מתובלים, מוגשים בפיתה חמה עם סלטים טריים וטחינה.</p>
-                        <span class="text-xl font-bold text-gray-900">35₪</span>
-                    </div>
-                </div>
-
-                <!-- Menu Item 5: נקניקייה בלחמנייה -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
-                    <!-- Public web image from Pexels: Hotdog -->
-                    <img src="https://images.pexels.com/photos/10107755/pexels-photo-10107755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="נקניקייה בלחמנייה עם תוספות" class="w-full h-64 object-cover">
-                    <div class="p-6 text-right">
-                        <h3 class="text-2xl font-semibold mb-2 text-red-600">נקניקייה בלחמנייה</h3>
-                        <p class="text-gray-700 mb-4">נקניקייה איכותית בלחמנייה טרייה, בתוספת כרוב כבוש, חמוצים ורטבים לבחירה.</p>
-                        <span class="text-xl font-bold text-gray-900">25₪</span>
-                    </div>
-                </div>
-
-                <!-- Menu Item 6: שתייה קלה -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
-                    <!-- Public web image from Pexels: Soft drinks -->
-                    <img src="https://images.pexels.com/photos/1039867/pexels-photo-1039867.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="מגוון שתיה קלה ומרעננת" class="w-full h-64 object-cover">
-                    <div class="p-6 text-right">
-                        <h3 class="text-2xl font-semibold mb-2 text-red-600">שתייה קלה</h3>
-                        <p class="text-gray-700 mb-4">מגוון רחב של משקאות קלים ומרעננים לכל טעם.</p>
-                        <span class="text-xl font-bold text-gray-900">10₪</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Location & Working Hours / מיקום ושעות פעילות -->
-    <section class="bg-white py-16 md:py-20">
-        <div class="container mx-auto px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold mb-8 text-red-700">איפה ומתי למצוא אותנו</h2>
-            <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
-                <p class="mb-4">
-                    אנו פודטראק נייד ודינמי, וזה אומר שאנחנו מגיעים אליכם! עקבו אחרינו בעמודי המדיה החברתית שלנו כדי לדעת היכן תמצאו אותנו בכל יום נתון.
-                    אל תחמיצו את ההזדמנות ליהנות מהטעמים שלנו, ממש לידכם!
+                <h2 class="text-4xl font-bold text-amber-700 mb-6 border-b-4 border-amber-300 pb-2 inline-block">אודותינו</h2>
+                <p class="text-lg leading-relaxed text-gray-700 mb-4">
+                    אביתר פודטראק מביא טעם נהדר לרחובות. אנו מתמקדים במרכיבים טריים, טעמים נועזים, וחווית אוכל רחוב כיפית וידידותית.
+                    בין אם אתם חוטפים ביס מהיר או מבלים עם חברים, האוכל שלנו פוגע בול במטרה.
                 </p>
-                <p class="text-xl font-semibold text-gray-800 mb-2 mt-8">שעות פעילות טיפוסיות:</p>
-                <ul class="list-disc list-inside space-y-1 mx-auto max-w-sm text-right">
-                    <li>א' - ה': 17:00 - 23:00</li>
-                    <li>ו': 12:00 - 16:00</li>
-                    <li>שבת: סגור (אלא אם כן נקבע אירוע מיוחד)</li>
-                </ul>
-                <p class="mt-6 text-gray-600 text-base">מומלץ לוודא את מיקומנו ושעות הפעילות שלנו לפני הגעה. אנו זמינים גם לאירועים פרטיים ועסקיים!</p>
+                <p class="text-lg leading-relaxed text-gray-700">
+                    הכל מוגש עם חיוך ואהבה, מההמבורגרים העסיסיים שלנו ועד הצ'יפס הפריך. הצטרפו אלינו לחוויה קולינרית שתשאיר לכם טעם של עוד!
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section / יצירת קשר -->
-    <section id="contact" class="bg-gray-100 py-16 md:py-20">
-        <div class="container mx-auto px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold mb-10 text-red-700">יצירת קשר</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                <!-- Contact Info & WhatsApp -->
-                <div class="flex flex-col justify-center items-center md:items-start text-right">
-                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-                        יש לכם שאלות? רוצים להזמין לאירוע פרטי או עסקי? נשמח לשמוע מכם!
-                        צרו קשר באמצעות וואטסאפ לשרות מהיר, או בטלפון.
-                    </p>
-                    <a href="https://wa.me/972501234567" target="_blank" class="bg-green-500 hover:bg-green-600 text-white text-xl font-bold py-3 px-8 rounded-full mb-6 flex items-center justify-center space-x-2 space-x-reverse transition duration-300 transform hover:scale-105">
-                        <span class="ml-2 text-2xl">📱</span>
-                        <span>להזמנות בוואטסאפ</span>
-                    </a>
-                    <p class="text-2xl font-semibold text-gray-800 mb-6">טלפון: <a href="tel:0501234567" class="text-red-600 hover:underline">050-1234567</a></p>
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 bg-gradient-to-b from-amber-50 to-amber-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-amber-700 mb-12 border-b-4 border-amber-400 pb-2 inline-block mx-auto">התפריט שלנו</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Menu Item 1: Homemade Fries -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden flex flex-col">
+                    <img src="https://images.pexels.com/photos/934062/pexels-photo-934062.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                         alt="צ'יפס ביתי" class="w-full h-56 object-cover">
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">צ'יפס ביתי</h3>
+                            <p class="text-gray-600 mb-4">פריך, זהוב ומתובל בדיוק כמו שצריך.</p>
+                        </div>
+                        <span class="text-3xl font-extrabold text-amber-600">18₪</span>
+                    </div>
                 </div>
 
-                <!-- Contact Form -->
-                <div class="bg-white p-8 rounded-xl shadow-lg text-right">
-                    <h3 class="text-3xl font-bold mb-6 text-red-700">שלח לנו הודעה</h3>
-                    <form action="#" method="POST" class="space-y-4">
+                <!-- Menu Item 2: Schnitzel Sandwich -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden flex flex-col">
+                    <img src="https://images.pexels.com/photos/7110193/pexels-photo-7110193.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                         alt="כריך שניצל" class="w-full h-56 object-cover">
+                    <div class="p-6 flex-grow flex flex-col justify-between">
                         <div>
-                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">שם מלא:</label>
-                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent" placeholder="הכנס את שמך" required>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">כתובת אימייל:</label>
-                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent" placeholder="הכנס את האימייל שלך" required>
-                        </div>
-                        <div>
-                            <label for="message" class="block text-gray-700 text-sm font-bold mb-2">הודעה:</label>
-                            <textarea id="message" name="message" rows="6" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent" placeholder="כתוב את הודעתך כאן..." required></textarea>
-                        </div>
-                        <button type="submit" class="bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 w-full md:w-auto">שלח הודעה</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer / כותרת תחתונה -->
-    <footer class="bg-red-800 text-white py-8">
-        <div class="container mx-auto px-6 lg:px-8 text-center text-sm">
-            <p class="mb-4">&copy; 2023 אביתר פודטראק. כל הזכויות שמורות.</p>
-            <div class="flex justify-center space-x-6 space-x-reverse text-lg">
-                <a href="#" class="hover:text-red-200 transition duration-300">אינסטגרם</a>
-                <a href="#" class="hover:text-red-200 transition duration-300">טיקטוק</a>
-            </div>
-        </div>
-    </footer>
-
-</body>
-</html>
-```
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">כריך שניצל</h3>
+                            <p class="text-gray-600 mb-4">שניצל מטוגן טרי בלחמנייה
