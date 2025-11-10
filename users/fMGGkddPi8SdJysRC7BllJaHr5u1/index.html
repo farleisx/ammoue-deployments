@@ -1,139 +1,250 @@
 ```html
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אביתר פודטראק - Fresh, Flavorful, Unforgettable Street Food</title>
+    <title>Street Flame Grill - Fire-Grilled Street Food</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Heebo for Hebrew and modern look -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Heebo', sans-serif;
-            /* Default direction for Hebrew content */
-            direction: rtl; 
-            /* Default text alignment for RTL */
-            text-align: right; 
+        /* Smooth scrolling for navigation links */
+        html {
+            scroll-behavior: smooth;
         }
-        /* Override specific elements for LTR if needed, or re-align for center */
-        .text-center {
-            text-align: center;
+        /* Custom scrollbar for a sleek look (optional, but enhances modern feel) */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        /* Adjust navigation links for RTL - space-x-reverse handles gap correctly */
-        .nav-links-rtl {
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: flex-start; /* Align links to the right (start in RTL) */
+        ::-webkit-scrollbar-track {
+            background: #1f2937; /* Gray-800 */
         }
-        .header-logo-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        ::-webkit-scrollbar-thumb {
+            background: #dc2626; /* Red-600 */
+            border-radius: 4px;
         }
-        @media (max-width: 767px) { /* Adjust for mobile if hamburger menu is active */
-            .mobile-menu-open {
-                display: block !important;
-            }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ef4444; /* Red-500 */
         }
+        /* Further enforce specific colors for consistency if Tailwind classes aren't enough */
+        .text-red-600 { color: #dc2626; }
+        .bg-red-600 { background-color: #dc2626; }
+        .bg-gray-900 { background-color: #111827; }
+        .bg-black { background-color: #000000; }
+        .text-gray-200 { color: #e5e7eb; }
+        .text-gray-400 { color: #9ca3af; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased">
+<body class="font-sans antialiased text-gray-200 bg-gray-900">
 
     <!-- Header / Navigation -->
-    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
-        <div class="container mx-auto px-4 header-logo-nav">
-            <!-- Logo -->
-            <a href="#" class="text-3xl font-black text-amber-600">אביתר פודטראק</a>
-
-            <!-- Navigation Menu (Desktop) -->
-            <nav class="hidden md:flex space-x-reverse space-x-6 nav-links-rtl">
-                <a href="#home" class="text-gray-700 hover:text-amber-600 font-semibold transition duration-300">ראשי</a>
-                <a href="#menu" class="text-gray-700 hover:text-amber-600 font-semibold transition duration-300">תפריט</a>
-                <a href="#about" class="text-gray-700 hover:text-amber-600 font-semibold transition duration-300">אודות</a>
-                <a href="#contact" class="text-gray-700 hover:text-amber-600 font-semibold transition duration-300">צור קשר</a>
-            </nav>
-
-            <!-- Mobile Menu Button (Hamburger) -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-amber-600 focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
-        </div>
-
-        <!-- Mobile Navigation Menu (Hidden by default) -->
-        <nav id="mobile-menu" class="md:hidden bg-white py-2 shadow-inner hidden">
-            <a href="#home" class="block px-4 py-2 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition duration-300 border-b border-gray-100">ראשי</a>
-            <a href="#menu" class="block px-4 py-2 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition duration-300 border-b border-gray-100">תפריט</a>
-            <a href="#about" class="block px-4 py-2 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition duration-300 border-b border-gray-100">אודות</a>
-            <a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition duration-300">צור קשר</a>
+    <header class="sticky top-0 z-50 bg-gray-900 bg-opacity-95 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
+            <a href="#home" class="text-3xl font-extrabold text-red-600 uppercase tracking-wide mb-4 md:mb-0">Street Flame Grill</a>
+            <div class="flex flex-wrap justify-center space-x-6 md:space-x-8">
+                <a href="#home" class="text-white hover:text-red-600 text-lg font-semibold transition duration-300">Home</a>
+                <a href="#menu" class="text-white hover:text-red-600 text-lg font-semibold transition duration-300">Menu</a>
+                <a href="#about" class="text-white hover:text-red-600 text-lg font-semibold transition duration-300">About</a>
+                <a href="#locations" class="text-white hover:text-red-600 text-lg font-semibold transition duration-300">Locations</a>
+                <a href="#contact" class="text-white hover:text-red-600 text-lg font-semibold transition duration-300">Contact</a>
+            </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative h-[600px] bg-cover bg-center flex items-center justify-center text-white p-4"
-        style="background-image: url('https://images.pexels.com/photos/4046718/pexels-photo-4046718.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');">
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-black opacity-60"></div>
-        <div class="relative z-10 text-center max-w-3xl">
-            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg">
-                מאכלים טריים, טעימים ובלתי נשכחים
-            </h1>
-            <p class="text-xl md:text-2xl font-light mb-8 drop-shadow-md">
-                נעשה באהבה. מוגש באנרגיה. בכל מקום בו אתם נמצאים.
-            </p>
-            <a href="#menu" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 shadow-lg transform hover:scale-105">
-                צפו בתפריט
-            </a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row-reverse items-center gap-12">
-            <div class="md:w-1/2 flex justify-center">
-                <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                     alt="Food truck chef preparing food" class="rounded-lg shadow-xl max-w-full h-auto object-cover max-h-[400px]">
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://images.pexels.com/photos/4046718/pexels-photo-4046718.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+            <div class="absolute inset-0 bg-black opacity-60"></div>
+            <div class="z-10 text-center text-white p-8 max-w-5xl">
+                <h1 class="text-6xl sm:text-7xl md:text-8xl font-extrabold leading-tight tracking-tight mb-4 uppercase drop-shadow-lg">Grilled. Fresh. Street-Made.</h1>
+                <p class="text-xl md:text-2xl mb-8 font-light drop-shadow-md">Authentic street flavors cooked over fire and served hot.</p>
+                <a href="#menu" class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-10 rounded-full text-xl uppercase tracking-wide transition duration-300 transform hover:scale-105 shadow-lg">View Our Menu</a>
             </div>
-            <div class="md:w-1/2">
-                <h2 class="text-4xl font-bold text-amber-700 mb-6 border-b-4 border-amber-300 pb-2 inline-block">אודותינו</h2>
-                <p class="text-lg leading-relaxed text-gray-700 mb-4">
-                    אביתר פודטראק מביא טעם נהדר לרחובות. אנו מתמקדים במרכיבים טריים, טעמים נועזים, וחווית אוכל רחוב כיפית וידידותית.
-                    בין אם אתם חוטפים ביס מהיר או מבלים עם חברים, האוכל שלנו פוגע בול במטרה.
-                </p>
-                <p class="text-lg leading-relaxed text-gray-700">
-                    הכל מוגש עם חיוך ואהבה, מההמבורגרים העסיסיים שלנו ועד הצ'יפס הפריך. הצטרפו אלינו לחוויה קולינרית שתשאיר לכם טעם של עוד!
-                </p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-gray-900 text-gray-200">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://images.pexels.com/photos/7110193/pexels-photo-7110193.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Chef grilling food with flames" class="rounded-lg shadow-xl object-cover w-full h-80 md:h-96">
+                </div>
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h2 class="text-5xl font-extrabold text-red-600 mb-6 uppercase tracking-tight">Our Story</h2>
+                    <p class="text-lg leading-relaxed mb-4">At Street Flame Grill, our passion is igniting senses with bold flavors and authentic street food experiences. We master the art of fire-grilling, transforming fresh, high-quality ingredients into culinary masterpieces right before your eyes.</p>
+                    <p class="text-lg leading-relaxed">Our journey began with a love for vibrant street culture and a commitment to speed without sacrificing an ounce of flavor. Every dish tells a story of unique spices, perfect char, and a dash of street-side magic, ensuring a fast, fresh, and unforgettable meal every time.</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Menu Section -->
-    <section id="menu" class="py-16 bg-gradient-to-b from-amber-50 to-amber-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-amber-700 mb-12 border-b-4 border-amber-400 pb-2 inline-block mx-auto">התפריט שלנו</h2>
+        <!-- Menu Section -->
+        <section id="menu" class="py-20 bg-black text-gray-200">
+            <div class="container mx-auto px-6">
+                <h2 class="text-5xl font-extrabold text-red-600 mb-12 text-center uppercase tracking-tight">Menu</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Menu Item 1: Homemade Fries -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden flex flex-col">
-                    <img src="https://images.pexels.com/photos/934062/pexels-photo-934062.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                         alt="צ'יפס ביתי" class="w-full h-56 object-cover">
-                    <div class="p-6 flex-grow flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-2">צ'יפס ביתי</h3>
-                            <p class="text-gray-600 mb-4">פריך, זהוב ומתובל בדיוק כמו שצריך.</p>
+                    <!-- Menu Item 1: Smoky BBQ Chicken Wrap -->
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="https://images.pexels.com/photos/4587855/pexels-photo-4587855.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Smoky BBQ Chicken Wrap" class="w-full h-64 object-cover object-center">
+                        <div class="p-6">
+                            <h3 class="text-3xl font-bold text-white mb-2 uppercase">Smoky BBQ Chicken Wrap</h3>
+                            <p class="text-lg text-gray-300 mb-4">Warm tortilla, fire-grilled chicken, rich smoky BBQ sauce, crisp slaw.</p>
+                            <span class="text-2xl font-extrabold text-red-600">$9</span>
                         </div>
-                        <span class="text-3xl font-extrabold text-amber-600">18₪</span>
+                    </div>
+
+                    <!-- Menu Item 2: Flame-Grilled Angus Burger -->
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Flame-Grilled Angus Burger" class="w-full h-64 object-cover object-center">
+                        <div class="p-6">
+                            <h3 class="text-3xl font-bold text-white mb-2 uppercase">Flame-Grilled Angus Burger</h3>
+                            <p class="text-lg text-gray-300 mb-4">100% juicy Angus beef, special flame sauce, fresh toppings, toasted brioche bun.</p>
+                            <span class="text-2xl font-extrabold text-red-600">$12</span>
+                        </div>
+                    </div>
+
+                    <!-- Menu Item 3: Loaded Street Fries -->
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="https://images.pexels.com/photos/934062/pexels-photo-934062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Loaded Street Fries" class="w-full h-64 object-cover object-center">
+                        <div class="p-6">
+                            <h3 class="text-3xl font-bold text-white mb-2 uppercase">Loaded Street Fries</h3>
+                            <p class="text-lg text-gray-300 mb-4">Crispy golden fries loaded with your choice of savory toppings and zesty sauces.</p>
+                            <span class="text-2xl font-extrabold text-red-600">$7</span>
+                        </div>
+                    </div>
+
+                    <!-- Additional Menu Item 4: Spicy Chipotle Pork Tacos -->
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Spicy Chipotle Pork Tacos" class="w-full h-64 object-cover object-center">
+                        <div class="p-6">
+                            <h3 class="text-3xl font-bold text-white mb-2 uppercase">Spicy Chipotle Pork Tacos</h3>
+                            <p class="text-lg text-gray-300 mb-4">Tender flame-grilled pork, fiery chipotle salsa, fresh cilantro, warm tortillas.</p>
+                            <span class="text-2xl font-extrabold text-red-600">$10</span>
+                        </div>
+                    </div>
+
+                    <!-- Additional Menu Item 5: Halloumi & Veggie Skewers -->
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="https://images.pexels.com/photos/1639565/pexels-photo-1639565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Halloumi & Veggie Skewers" class="w-full h-64 object-cover object-center">
+                        <div class="p-6">
+                            <h3 class="text-3xl font-bold text-white mb-2 uppercase">Halloumi & Veggie Skewers</h3>
+                            <p class="text-lg text-gray-300 mb-4">Grilled halloumi cheese with bell peppers, zucchini, and a lemon-herb marinade.</p>
+                            <span class="text-2xl font-extrabold text-red-600">$8</span>
+                        </div>
+                    </div>
+
+                    <!-- Additional Menu Item 6: Mango Habanero Shrimp Skewers -->
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="https://images.pexels.com/photos/10756779/pexels-photo-10756779.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Mango Habanero Shrimp Skewers" class="w-full h-64 object-cover object-center">
+                        <div class="p-6">
+                            <h3 class="text-3xl font-bold text-white mb-2 uppercase">Mango Habanero Shrimp Skewers</h3>
+                            <p class="text-lg text-gray-300 mb-4">Succulent shrimp grilled to perfection with a sweet and spicy mango habanero glaze.</p>
+                            <span class="text-2xl font-extrabold text-red-600">$13</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Locations Section -->
+        <section id="locations" class="py-20 bg-gray-900 text-gray-200">
+            <div class="container mx-auto px-6">
+                <h2 class="text-5xl font-extrabold text-red-600 mb-12 text-center uppercase tracking-tight">Find the Truck</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2 text-center md:text-left">
+                        <p class="text-xl leading-relaxed mb-6">Our Street Flame Grill truck is always on the move, bringing the heat to a neighborhood near you! Check our weekly schedule below to catch your favorite fire-grilled street food.</p>
+                        <ul class="text-lg space-y-3 mb-8">
+                            <li class="font-bold text-red-400">Monday:</li>
+                            <li><span class="font-semibold">Downtown Plaza</span> (11 AM - 2 PM) - Corner of Main St. & 1st Ave.</li>
+                            <li class="font-bold text-red-400">Wednesday:</li>
+                            <li><span class="font-semibold">Tech Park Loop</span> (11 AM - 2 PM) - Near Building C Entrance.</li>
+                            <li class="font-bold text-red-400">Friday:</li>
+                            <li><span class="font-semibold">Riverside Market</span> (5 PM - 9 PM) - By the old bridge.</li>
+                            <li class="font-bold text-red-400">Saturday:</li>
+                            <li><span class="font-semibold">City Fairgrounds</span> (12 PM - 8 PM) - Special event parking.</li>
+                        </ul>
+                        <p class="text-base text-gray-400 italic">Schedule subject to change. Follow us on social media for real-time updates and pop-up events!</p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <!-- Visually relevant image from Pixabay as Pexels priority images were used up -->
+                        <img src="https://cdn.pixabay.com/photo/2020/06/17/20/08/food-truck-5311099_1280.jpg" alt="Street Flame Grill Food Truck" class="rounded-lg shadow-xl object-cover w-full h-80 md:h-96">
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Menu Item 2: Schnitzel Sandwich -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden flex flex-col">
-                    <img src="https://images.pexels.com/photos/7110193/pexels-photo-7110193.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                         alt="כריך שניצל" class="w-full h-56 object-cover">
-                    <div class="p-6 flex-grow flex flex-col justify-between">
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-black text-gray-200">
+            <div class="container mx-auto px-6">
+                <h2 class="text-5xl font-extrabold text-red-600 mb-12 text-center uppercase tracking-tight">Get in Touch</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="text-center md:text-left">
+                        <p class="text-xl leading-relaxed mb-6">Have a question, want to book us for an event, or just craving some fire-grilled goodness? Reach out to us!</p>
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-bold text-red-600 mb-2">Order Hotline:</h3>
+                            <p class="text-3xl font-extrabold text-white">(555) STREET-FLAME</p>
+                            <p class="text-lg text-gray-400">(555) 787-3383</p>
+                        </div>
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-2">כריך שניצל</h3>
-                            <p class="text-gray-600 mb-4">שניצל מטוגן טרי בלחמנייה
+                            <h3 class="text-2xl font-bold text-red-600 mb-4">Connect With Us:</h3>
+                            <div class="flex justify-center md:justify-start space-x-6">
+                                <!-- Instagram Icon (SVG from Heroicons, modified for currentColor) -->
+                                <a href="https://instagram.com/streetflamegrill" target="_blank" rel="noopener noreferrer" class="text-white hover:text-red-600 transition duration-300">
+                                    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M12 2C8.07 2 7.56 2 7.04 2.08 6.55 2.15 6.13 2.27 5.74 2.45 5.35 2.63 5.01 2.89 4.69 3.22 4.37 3.53 4.11 3.88 3.93 4.28 3.75 4.67 3.63 5.09 3.56 5.58 3.48 6.1 3.48 8.07 3.48 12 3.48 15.93 3.48 16.44 3.48 16.96 3.56 17.45 3.63 17.87 3.75 18.26 3.93 18.65 4.11 18.99 4.37 19.31 4.69 19.63 4.99 19.89 5.35 20.07 5.74 20.25 6.13 20.37 6.55 20.44 7.04 20.52 7.56 20.52 8.07 20.52 12 20.52 15.93 20.52 16.44 20.52 16.96 20.44 17.45 20.37 17.87 20.25 18.26 20.07 18.65 19.89 18.99 19.63 19.31 19.31 19.63 18.99 19.89 18.65 20.07 18.26 20.25 17.87 20.37 17.45 20.44 16.96 20.52 16.44 20.52 15.93 20.52 12 20.52 8.07 20.52 7.56 20.52 7.04 20.44 6.55 20.37 6.13 20.25 5.74 20.07 5.35 19.89 5.01 19.63 4.69 19.31 4.37 18.99 4.11 18.65 3.93 18.26 3.75 17.87 3.63 17.45 3.56 16.96 3.48 16.44 3.48 15.93 3.48 12 3.48Zm0 1.5c-4.07 0-4.59.01-5.18.11-.47.09-.77.16-1.04.28-.27.12-.49.26-.7.47-.21.21-.35.43-.47.7-.12.27-.19.57-.28 1.04-.1.59-.11 1.11-.11 5.18s.01 4.59.11 5.18c.09.47.16.77.28 1.04.12.27.26.49.47.7.21.21.43.35.47.7.12.27.19.57.28 1.04.1.59.11 1.11.11 5.18s-.01-4.59-.11-5.18c-.09-.47-.16-.77-.28-1.04-.12-.27-.26-.49-.47-.7-.21-.21-.35-.43-.47-.7-.12-.27-.19-.57-.28-1.04-.1-.59-.11-1.11-.11-5.18ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 1.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.5-7A1.5 1.5 0 1 0 18 4a1.5 1.5 0 0 0 0 3Z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                                <!-- TikTok Icon (SVG from social media icon libraries, modified for currentColor) -->
+                                <a href="https://tiktok.com/@streetflamegrill" target="_blank" rel="noopener noreferrer" class="text-white hover:text-red-600 transition duration-300">
+                                    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12.54 0c-.82 0-1.44.62-1.44 1.44v21.12c0 .82.62 1.44 1.44 1.44h.06c4.52-.3 8.16-4.02 8.16-8.64V7.5c0-1.1-1.1-2-2-2h-3.48c-.9 0-1.62.72-1.62 1.62v3.66c0 .9.72 1.62 1.62 1.62h3.42c.82 0 1.44.62 1.44 1.44v1.2c0 .82-.62 1.44-1.44 1.44H12.54c-.82 0-1.44.62-1.44 1.44v2.76c0 .82.62 1.44 1.44 1.44h.06c4.52-.3 8.16-4.02 8.16-8.64V7.5c0-1.1-1.1-2-2-2h-3.48c-.9 0-1.62.72-1.62 1.62v3.66c0 .9.72 1.62 1.62 1.62h3.42c.82 0 1.44.62 1.44 1.44v1.2c0 .82-.62 1.44-1.44 1.44H12.54c-.82 0-1.44.62-1.44 1.44v2.76c0 .82.62 1.44 1.44 1.44Z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-lg mx-auto">
+                        <form action="#" method="POST" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                                <input type="text" id="name" name="name" class="block w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition duration-300" placeholder="Your Name" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                                <input type="email" id="email" name="email" class="block w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition duration-300" placeholder="your@example.com" required>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                                <textarea id="message" name="message" rows="5" class="block w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition duration-300" placeholder="Tell us what's on your mind..." required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-md text-lg uppercase tracking-wide transition duration-300 transform hover:scale-105 shadow-md">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-10 text-gray-400 text-center">
+        <div class="container mx-auto px-6">
+            <p class="mb-4">&copy; 2023 Street Flame Grill. All Rights Reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <!-- Social media icons (re-using SVG path data from contact section) -->
+                <a href="https://instagram.com/streetflamegrill" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-red-600 transition duration-300">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M12 2C8.07 2 7.56 2 7.04 2.08 6.55 2.15 6.13 2.27 5.74 2.45 5.35 2.63 5.01 2.89 4.69 3.22 4.37 3.53 4.11 3.88 3.93 4.28 3.75 4.67 3.63 5.09 3.56 5.58 3.48 6.1 3.48 8.07 3.48 12 3.48 15.93 3.48 16.44 3.48 16.96 3.56 17.45 3.63 17.87 3.75 18.26 3.93 18.65 4.11 18.99 4.37 19.31 4.69 19.63 4.99 19.89 5.35 20.07 5.74 20.25 6.13 20.37 6.55 20.44 7.04 20.52 7.56 20.52 8.07 20.52 12 20.52 15.93 20.52 16.44 20.52 16.96 20.44 17.45 20.37 17.87 20.25 18.26 20.07 18.65 19.89 18.99 19.63 19.31 19.31 19.63 18.99 19.89 18.65 20.07 18.26 20.25 17.87 20.37 17.45 20.44 16.96 20.52 16.44 20.52 15.93 20.52 12 20.52 8.07 20.52 7.56 20.52 7.04 20.44 6.55 20.37 6.13 20.25 5.74 20.07 5.35 19.89 5.01 19.63 4.69 19.31 4.37 18.99 4.11 18.65 3.93 18.26 3.75 17.87 3.63 17.45 3.56 16.96 3.48 16.44 3.48 15.93 3.48 12 3.48Zm0 1.5c-4.07 0-4.59.01-5.18.11-.47.09-.77.16-1.04.28-.27.12-.49.26-.7.47-.21.21-.35.43-.47.7-.12.27-.19.57-.28 1.04-.1.59-.11 1.11-.11 5.18s.01 4.59.11 5.18c.09.47.16.77.28 1.04.12.27.26.49.47.7.21.21.43.35.47.7.12.27.19.57.28 1.04.1.59.11 1.11.11 5.18s-.01-4.59-.11-5.18c-.09-.47-.16-.77-.28-1.04-.12-.27-.26-.49-.47-.7-.21-.21-.35-.43-.47-.7-.12-.27-.19-.57-.28-1.04-.1-.59-.11-1.11-.11-5.18ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 1.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.5-7A1.5 1.5 0 1 0 18 4a1.5 1.5 0 0 0 0 3Z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="https://tiktok.com/@streetflamegrill" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-red-600 transition duration-300">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12.54 0c-.82 0-1.44.62-1.44 1.44v21.12c0 .82.62 1.44 1.44 1.44h.06c4.52-.3 8.16-4.02 8.16-8.64V7.5c0-1.1-1.1-2-2-2h-3.48c-.9 0-1.62.72-1.62 1.62v3.66c0 .9.72 1.62 1.62 1.62h3.42c.82 0 1.44.62 1.44 1.44v1.2c0 .82-.62 1.44-1.44 1.44H12.54c-.82 0-1.44.62-1.44 1.44v2.76c0 .82.62 1.44 1.44 1.44h.06c4.52-.3 8.16-4.02 8.16-8.64V7.5c0-1.1-1.1-2-2-2h-3.48c-.9 0-1.62.72-1.62 1.62v3.66c0 .9.72 1.62 1.62 1.62h3.42c.82 0 1.44.62 1.44 1.44v1.2c0 .82-.62 1.44-1.44 1.44H12.54c-.82 0-1.44.62-1.44 1.44v2.76c0 .82.62 1.44 1.44 1.44Z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+```
