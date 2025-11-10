@@ -4,247 +4,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Street Flame Grill - Fire-Grilled Street Food</title>
+    <title>coffeeDoors - Your Daily Dose of Happiness</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Smooth scrolling for navigation links */
-        html {
-            scroll-behavior: smooth;
+        /* Custom styles for the hero background image */
+        .hero-bg {
+            background-image: url('https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');
+            background-size: cover;
+            background-position: center;
         }
-        /* Custom scrollbar for a sleek look (optional, but enhances modern feel) */
-        ::-webkit-scrollbar {
-            width: 8px;
+        /* Aspect Ratio for embedded map */
+        .aspect-w-16 { --tw-aspect-w: 16; }
+        .aspect-h-9 { --tw-aspect-h: 9; }
+        .aspect-w-16 > * {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
         }
-        ::-webkit-scrollbar-track {
-            background: #1f2937; /* Gray-800 */
+        .aspect-w-16.aspect-h-9 {
+            padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
         }
-        ::-webkit-scrollbar-thumb {
-            background: #dc2626; /* Red-600 */
-            border-radius: 4px;
+        .relative.aspect-w-16.aspect-h-9 {
+            position: relative;
+            height: 0;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #ef4444; /* Red-500 */
-        }
-        /* Further enforce specific colors for consistency if Tailwind classes aren't enough */
-        .text-red-600 { color: #dc2626; }
-        .bg-red-600 { background-color: #dc2626; }
-        .bg-gray-900 { background-color: #111827; }
-        .bg-black { background-color: #000000; }
-        .text-gray-200 { color: #e5e7eb; }
-        .text-gray-400 { color: #9ca3af; }
     </style>
 </head>
-<body class="font-sans antialiased text-gray-200 bg-gray-900">
+<body class="font-sans text-gray-800 bg-gray-50">
 
-    <!-- Header / Navigation -->
-    <header class="sticky top-0 z-50 bg-gray-900 bg-opacity-95 shadow-lg">
-        <nav class="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
-            <a href="#home" class="text-3xl font-extrabold text-red-600 uppercase tracking-wide mb-4 md:mb-0">Street Flame Grill</a>
-            <div class="flex flex-wrap justify-center space-x-6 md:space-x-8">
-                <a href="#home" class="text-white hover:text-red-600 text-lg font-semibold transition duration-300">Home</a>
-                <a href="#menu" class="text-white hover:text-red-600 text-lg font-semibold transition duration-300">Menu</a>
-                <a href="#about" class="text-white hover:text-red-600 text-lg font-semibold transition duration-300">About</a>
-                <a href="#locations" class="text-white hover:text-red-600 text-lg font-semibold transition duration-300">Locations</a>
-                <a href="#contact" class="text-white hover:text-red-600 text-lg font-semibold transition duration-300">Contact</a>
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-amber-800">coffeeDoors</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-600 hover:text-amber-700 transition duration-300">Home</a>
+                <a href="#menu" class="text-gray-600 hover:text-amber-700 transition duration-300">Menu</a>
+                <a href="#about" class="text-gray-600 hover:text-amber-700 transition duration-300">About Us</a>
+                <a href="#contact" class="text-gray-600 hover:text-amber-700 transition duration-300">Contact</a>
             </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-amber-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
         </nav>
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg py-2">
+            <a href="#home" class="block px-6 py-2 text-gray-800 hover:bg-gray-100">Home</a>
+            <a href="#menu" class="block px-6 py-2 text-gray-800 hover:bg-gray-100">Menu</a>
+            <a href="#about" class="block px-6 py-2 text-gray-800 hover:bg-gray-100">About Us</a>
+            <a href="#contact" class="block px-6 py-2 text-gray-800 hover:bg-gray-100">Contact</a>
+        </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://images.pexels.com/photos/4046718/pexels-photo-4046718.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
-            <div class="absolute inset-0 bg-black opacity-60"></div>
-            <div class="z-10 text-center text-white p-8 max-w-5xl">
-                <h1 class="text-6xl sm:text-7xl md:text-8xl font-extrabold leading-tight tracking-tight mb-4 uppercase drop-shadow-lg">Grilled. Fresh. Street-Made.</h1>
-                <p class="text-xl md:text-2xl mb-8 font-light drop-shadow-md">Authentic street flavors cooked over fire and served hot.</p>
-                <a href="#menu" class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-10 rounded-full text-xl uppercase tracking-wide transition duration-300 transform hover:scale-105 shadow-lg">View Our Menu</a>
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center justify-center text-white relative">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="text-center z-10 px-6">
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-4">
+                Step Into <span class="text-amber-400">coffeeDoors</span>
+            </h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
+                Where every cup tells a story, and every moment is brewed to perfection. Experience the rich aroma and vibrant atmosphere.
+            </p>
+            <a href="#menu" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                Explore Our Menu
+            </a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <h2 class="text-4xl font-bold text-amber-800 mb-6">Our Passion for Perfection</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    At <span class="font-semibold text-amber-700">coffeeDoors</span>, we believe that coffee is more than just a drink; it's an experience, a ritual, a moment of joy. We meticulously source the finest beans from sustainable farms around the globe, ensuring exceptional quality and ethical practices.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Our expert baristas, true artisans of their craft, are dedicated to brewing each cup with precision and care. From the perfect espresso shot to a beautifully crafted latte, every detail is considered to deliver a taste that awakens your senses and brightens your day.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Come in and discover your new favorite blend in our cozy, welcoming atmosphere.
+                </p>
             </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="py-20 bg-gray-900 text-gray-200">
-            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <img src="https://images.pexels.com/photos/7110193/pexels-photo-7110193.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Chef grilling food with flames" class="rounded-lg shadow-xl object-cover w-full h-80 md:h-96">
-                </div>
-                <div class="md:w-1/2 text-center md:text-left">
-                    <h2 class="text-5xl font-extrabold text-red-600 mb-6 uppercase tracking-tight">Our Story</h2>
-                    <p class="text-lg leading-relaxed mb-4">At Street Flame Grill, our passion is igniting senses with bold flavors and authentic street food experiences. We master the art of fire-grilling, transforming fresh, high-quality ingredients into culinary masterpieces right before your eyes.</p>
-                    <p class="text-lg leading-relaxed">Our journey began with a love for vibrant street culture and a commitment to speed without sacrificing an ounce of flavor. Every dish tells a story of unique spices, perfect char, and a dash of street-side magic, ensuring a fast, fresh, and unforgettable meal every time.</p>
-                </div>
+            <div class="order-1 md:order-2">
+                <img src="https://images.pexels.com/photos/4559592/pexels-photo-4559592.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Person enjoying coffee at coffeeDoors" class="rounded-xl shadow-lg w-full h-80 object-cover object-center">
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Menu Section -->
-        <section id="menu" class="py-20 bg-black text-gray-200">
-            <div class="container mx-auto px-6">
-                <h2 class="text-5xl font-extrabold text-red-600 mb-12 text-center uppercase tracking-tight">Menu</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-                    <!-- Menu Item 1: Smoky BBQ Chicken Wrap -->
-                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                        <img src="https://images.pexels.com/photos/4587855/pexels-photo-4587855.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Smoky BBQ Chicken Wrap" class="w-full h-64 object-cover object-center">
-                        <div class="p-6">
-                            <h3 class="text-3xl font-bold text-white mb-2 uppercase">Smoky BBQ Chicken Wrap</h3>
-                            <p class="text-lg text-gray-300 mb-4">Warm tortilla, fire-grilled chicken, rich smoky BBQ sauce, crisp slaw.</p>
-                            <span class="text-2xl font-extrabold text-red-600">$9</span>
-                        </div>
-                    </div>
-
-                    <!-- Menu Item 2: Flame-Grilled Angus Burger -->
-                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                        <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Flame-Grilled Angus Burger" class="w-full h-64 object-cover object-center">
-                        <div class="p-6">
-                            <h3 class="text-3xl font-bold text-white mb-2 uppercase">Flame-Grilled Angus Burger</h3>
-                            <p class="text-lg text-gray-300 mb-4">100% juicy Angus beef, special flame sauce, fresh toppings, toasted brioche bun.</p>
-                            <span class="text-2xl font-extrabold text-red-600">$12</span>
-                        </div>
-                    </div>
-
-                    <!-- Menu Item 3: Loaded Street Fries -->
-                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                        <img src="https://images.pexels.com/photos/934062/pexels-photo-934062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Loaded Street Fries" class="w-full h-64 object-cover object-center">
-                        <div class="p-6">
-                            <h3 class="text-3xl font-bold text-white mb-2 uppercase">Loaded Street Fries</h3>
-                            <p class="text-lg text-gray-300 mb-4">Crispy golden fries loaded with your choice of savory toppings and zesty sauces.</p>
-                            <span class="text-2xl font-extrabold text-red-600">$7</span>
-                        </div>
-                    </div>
-
-                    <!-- Additional Menu Item 4: Spicy Chipotle Pork Tacos -->
-                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                        <img src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Spicy Chipotle Pork Tacos" class="w-full h-64 object-cover object-center">
-                        <div class="p-6">
-                            <h3 class="text-3xl font-bold text-white mb-2 uppercase">Spicy Chipotle Pork Tacos</h3>
-                            <p class="text-lg text-gray-300 mb-4">Tender flame-grilled pork, fiery chipotle salsa, fresh cilantro, warm tortillas.</p>
-                            <span class="text-2xl font-extrabold text-red-600">$10</span>
-                        </div>
-                    </div>
-
-                    <!-- Additional Menu Item 5: Halloumi & Veggie Skewers -->
-                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                        <img src="https://images.pexels.com/photos/1639565/pexels-photo-1639565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Halloumi & Veggie Skewers" class="w-full h-64 object-cover object-center">
-                        <div class="p-6">
-                            <h3 class="text-3xl font-bold text-white mb-2 uppercase">Halloumi & Veggie Skewers</h3>
-                            <p class="text-lg text-gray-300 mb-4">Grilled halloumi cheese with bell peppers, zucchini, and a lemon-herb marinade.</p>
-                            <span class="text-2xl font-extrabold text-red-600">$8</span>
-                        </div>
-                    </div>
-
-                    <!-- Additional Menu Item 6: Mango Habanero Shrimp Skewers -->
-                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                        <img src="https://images.pexels.com/photos/10756779/pexels-photo-10756779.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Mango Habanero Shrimp Skewers" class="w-full h-64 object-cover object-center">
-                        <div class="p-6">
-                            <h3 class="text-3xl font-bold text-white mb-2 uppercase">Mango Habanero Shrimp Skewers</h3>
-                            <p class="text-lg text-gray-300 mb-4">Succulent shrimp grilled to perfection with a sweet and spicy mango habanero glaze.</p>
-                            <span class="text-2xl font-extrabold text-red-600">$13</span>
-                        </div>
-                    </div>
-
-                </div>
+    <!-- Our Craft / Quality Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <img src="https://images.pexels.com/photos/6001378/pexels-photo-6001378.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Barista preparing coffee" class="rounded-xl shadow-lg w-full h-80 object-cover object-center">
             </div>
-        </section>
+            <div>
+                <h2 class="text-4xl font-bold text-amber-800 mb-6">The Art of Coffee Making</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Our baristas are not just making coffee; they are performing an art. With years of experience and a genuine love for coffee, they master the delicate balance of temperature, pressure, and extraction time to bring out the deepest flavors of our premium beans.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    From the first grind to the final pour, every step is a testament to our commitment to excellence. We believe in transparency and invite you to witness the magic as your perfect cup comes to life.
+                </p>
+            </div>
+        </div>
+    </section>
 
-        <!-- Locations Section -->
-        <section id="locations" class="py-20 bg-gray-900 text-gray-200">
-            <div class="container mx-auto px-6">
-                <h2 class="text-5xl font-extrabold text-red-600 mb-12 text-center uppercase tracking-tight">Find the Truck</h2>
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/2 text-center md:text-left">
-                        <p class="text-xl leading-relaxed mb-6">Our Street Flame Grill truck is always on the move, bringing the heat to a neighborhood near you! Check our weekly schedule below to catch your favorite fire-grilled street food.</p>
-                        <ul class="text-lg space-y-3 mb-8">
-                            <li class="font-bold text-red-400">Monday:</li>
-                            <li><span class="font-semibold">Downtown Plaza</span> (11 AM - 2 PM) - Corner of Main St. & 1st Ave.</li>
-                            <li class="font-bold text-red-400">Wednesday:</li>
-                            <li><span class="font-semibold">Tech Park Loop</span> (11 AM - 2 PM) - Near Building C Entrance.</li>
-                            <li class="font-bold text-red-400">Friday:</li>
-                            <li><span class="font-semibold">Riverside Market</span> (5 PM - 9 PM) - By the old bridge.</li>
-                            <li class="font-bold text-red-400">Saturday:</li>
-                            <li><span class="font-semibold">City Fairgrounds</span> (12 PM - 8 PM) - Special event parking.</li>
-                        </ul>
-                        <p class="text-base text-gray-400 italic">Schedule subject to change. Follow us on social media for real-time updates and pop-up events!</p>
-                    </div>
-                    <div class="md:w-1/2">
-                        <!-- Visually relevant image from Pixabay as Pexels priority images were used up -->
-                        <img src="https://cdn.pixabay.com/photo/2020/06/17/20/08/food-truck-5311099_1280.jpg" alt="Street Flame Grill Food Truck" class="rounded-lg shadow-xl object-cover w-full h-80 md:h-96">
-                    </div>
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-5xl font-extrabold text-amber-800 mb-12">Our Delicious Menu</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Menu Item 1: Signature Latte -->
+                <div class="bg-gray-50 rounded-lg shadow-md hover:shadow-xl transition duration-300 p-6 flex flex-col items-center">
+                    <img src="https://images.pexels.com/photos/4050335/pexels-photo-4050335.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Signature Latte with Art" class="w-full h-56 object-cover rounded-md mb-4">
+                    <h3 class="text-2xl font-semibold text-amber-700 mb-2">Signature Latte</h3>
+                    <p class="text-gray-600 text-center mb-4">Smooth, creamy, and topped with exquisite latte art. A true masterpiece.</p>
+                    <span class="text-2xl font-bold text-gray-900">$4.50</span>
+                </div>
+
+                <!-- Menu Item 2: Rich Espresso -->
+                <div class="bg-gray-50 rounded-lg shadow-md hover:shadow-xl transition duration-300 p-6 flex flex-col items-center">
+                    <img src="https://images.pexels.com/photos/4050350/pexels-photo-4050350.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Rich Espresso Shot" class="w-full h-56 object-cover rounded-md mb-4">
+                    <h3 class="text-2xl font-semibold text-amber-700 mb-2">Rich Espresso</h3>
+                    <p class="text-gray-600 text-center mb-4">A powerful burst of flavor, perfectly extracted for the purist.</p>
+                    <span class="text-2xl font-bold text-gray-900">$3.00</span>
+                </div>
+
+                <!-- Menu Item 3: Classic Cappuccino -->
+                <div class="bg-gray-50 rounded-lg shadow-md hover:shadow-xl transition duration-300 p-6 flex flex-col items-center">
+                    <!-- Reusing a Pexels image here, as it fits well for a coffee item -->
+                    <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Classic Cappuccino" class="w-full h-56 object-cover rounded-md mb-4">
+                    <h3 class="text-2xl font-semibold text-amber-700 mb-2">Classic Cappuccino</h3>
+                    <p class="text-gray-600 text-center mb-4">Balanced and frothy, a timeless favorite that comforts and energizes.</p>
+                    <span class="text-2xl font-bold text-gray-900">$4.00</span>
+                </div>
+
+                <!-- Additional Menu Items (using Picsum.photos for variety and to avoid Unsplash as per instructions) -->
+                <!-- Menu Item 4: Bold Americano -->
+                <div class="bg-gray-50 rounded-lg shadow-md hover:shadow-xl transition duration-300 p-6 flex flex-col items-center">
+                    <img src="https://picsum.photos/400/300?random=1" alt="Bold Americano" class="w-full h-56 object-cover rounded-md mb-4">
+                    <h3 class="text-2xl font-semibold text-amber-700 mb-2">Bold Americano</h3>
+                    <p class="text-gray-600 text-center mb-4">Simple yet profound, for those who love their coffee strong and straightforward.</p>
+                    <span class="text-2xl font-bold text-gray-900">$3.50</span>
+                </div>
+                <!-- Menu Item 5: Fresh Pastries -->
+                <div class="bg-gray-50 rounded-lg shadow-md hover:shadow-xl transition duration-300 p-6 flex flex-col items-center">
+                    <img src="https://picsum.photos/400/300?random=2" alt="Fresh Pastries" class="w-full h-56 object-cover rounded-md mb-4">
+                    <h3 class="text-2xl font-semibold text-amber-700 mb-2">Fresh Pastries</h3>
+                    <p class="text-gray-600 text-center mb-4">Perfectly paired with your coffee, baked fresh daily.</p>
+                    <span class="text-2xl font-bold text-gray-900">From $2.50</span>
+                </div>
+                <!-- Menu Item 6: Refreshing Iced Coffee -->
+                <div class="bg-gray-50 rounded-lg shadow-md hover:shadow-xl transition duration-300 p-6 flex flex-col items-center">
+                    <img src="https://picsum.photos/400/300?random=3" alt="Refreshing Iced Coffee" class="w-full h-56 object-cover rounded-md mb-4">
+                    <h3 class="text-2xl font-semibold text-amber-700 mb-2">Refreshing Iced Coffee</h3>
+                    <p class="text-gray-600 text-center mb-4">Cool down with our invigorating iced coffee, perfect for any time.</p>
+                    <span class="text-2xl font-bold text-gray-900">$4.75</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-black text-gray-200">
-            <div class="container mx-auto px-6">
-                <h2 class="text-5xl font-extrabold text-red-600 mb-12 text-center uppercase tracking-tight">Get in Touch</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div class="text-center md:text-left">
-                        <p class="text-xl leading-relaxed mb-6">Have a question, want to book us for an event, or just craving some fire-grilled goodness? Reach out to us!</p>
-                        <div class="mb-8">
-                            <h3 class="text-2xl font-bold text-red-600 mb-2">Order Hotline:</h3>
-                            <p class="text-3xl font-extrabold text-white">(555) STREET-FLAME</p>
-                            <p class="text-lg text-gray-400">(555) 787-3383</p>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-red-600 mb-4">Connect With Us:</h3>
-                            <div class="flex justify-center md:justify-start space-x-6">
-                                <!-- Instagram Icon (SVG from Heroicons, modified for currentColor) -->
-                                <a href="https://instagram.com/streetflamegrill" target="_blank" rel="noopener noreferrer" class="text-white hover:text-red-600 transition duration-300">
-                                    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M12 2C8.07 2 7.56 2 7.04 2.08 6.55 2.15 6.13 2.27 5.74 2.45 5.35 2.63 5.01 2.89 4.69 3.22 4.37 3.53 4.11 3.88 3.93 4.28 3.75 4.67 3.63 5.09 3.56 5.58 3.48 6.1 3.48 8.07 3.48 12 3.48 15.93 3.48 16.44 3.48 16.96 3.56 17.45 3.63 17.87 3.75 18.26 3.93 18.65 4.11 18.99 4.37 19.31 4.69 19.63 4.99 19.89 5.35 20.07 5.74 20.25 6.13 20.37 6.55 20.44 7.04 20.52 7.56 20.52 8.07 20.52 12 20.52 15.93 20.52 16.44 20.52 16.96 20.44 17.45 20.37 17.87 20.25 18.26 20.07 18.65 19.89 18.99 19.63 19.31 19.31 19.63 18.99 19.89 18.65 20.07 18.26 20.25 17.87 20.37 17.45 20.44 16.96 20.52 16.44 20.52 15.93 20.52 12 20.52 8.07 20.52 7.56 20.52 7.04 20.44 6.55 20.37 6.13 20.25 5.74 20.07 5.35 19.89 5.01 19.63 4.69 19.31 4.37 18.99 4.11 18.65 3.93 18.26 3.75 17.87 3.63 17.45 3.56 16.96 3.48 16.44 3.48 15.93 3.48 12 3.48Zm0 1.5c-4.07 0-4.59.01-5.18.11-.47.09-.77.16-1.04.28-.27.12-.49.26-.7.47-.21.21-.35.43-.47.7-.12.27-.19.57-.28 1.04-.1.59-.11 1.11-.11 5.18s.01 4.59.11 5.18c.09.47.16.77.28 1.04.12.27.26.49.47.7.21.21.43.35.47.7.12.27.19.57.28 1.04.1.59.11 1.11.11 5.18s-.01-4.59-.11-5.18c-.09-.47-.16-.77-.28-1.04-.12-.27-.26-.49-.47-.7-.21-.21-.35-.43-.47-.7-.12-.27-.19-.57-.28-1.04-.1-.59-.11-1.11-.11-5.18ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 1.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.5-7A1.5 1.5 0 1 0 18 4a1.5 1.5 0 0 0 0 3Z" clip-rule="evenodd" />
-                                    </svg>
-                                </a>
-                                <!-- TikTok Icon (SVG from social media icon libraries, modified for currentColor) -->
-                                <a href="https://tiktok.com/@streetflamegrill" target="_blank" rel="noopener noreferrer" class="text-white hover:text-red-600 transition duration-300">
-                                    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M12.54 0c-.82 0-1.44.62-1.44 1.44v21.12c0 .82.62 1.44 1.44 1.44h.06c4.52-.3 8.16-4.02 8.16-8.64V7.5c0-1.1-1.1-2-2-2h-3.48c-.9 0-1.62.72-1.62 1.62v3.66c0 .9.72 1.62 1.62 1.62h3.42c.82 0 1.44.62 1.44 1.44v1.2c0 .82-.62 1.44-1.44 1.44H12.54c-.82 0-1.44.62-1.44 1.44v2.76c0 .82.62 1.44 1.44 1.44h.06c4.52-.3 8.16-4.02 8.16-8.64V7.5c0-1.1-1.1-2-2-2h-3.48c-.9 0-1.62.72-1.62 1.62v3.66c0 .9.72 1.62 1.62 1.62h3.42c.82 0 1.44.62 1.44 1.44v1.2c0 .82-.62 1.44-1.44 1.44H12.54c-.82 0-1.44.62-1.44 1.44v2.76c0 .82.62 1.44 1.44 1.44Z" />
-                                    </svg>
-                                </a>
-                            </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-5xl font-extrabold text-amber-800 mb-12">Visit Us</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <h3 class="text-3xl font-semibold text-amber-700 mb-4">Find Your Way to coffeeDoors</h3>
+                    <p class="text-gray-700 text-lg mb-4">
+                        We're located in the heart of the city, easily accessible and always ready to welcome you with a warm smile and a fantastic cup of coffee.
+                    </p>
+                    <div class="text-left inline-block text-lg">
+                        <p class="mb-2"><strong class="text-amber-800">Address:</strong> 123 Coffee Bean Lane, Brewton, CA 90210</p>
+                        <p class="mb-2"><strong class="text-amber-800">Phone:</strong> (555) 123-4567</p>
+                        <p class="mb-2"><strong class="text-amber-800">Email:</strong> <a href="mailto:info@coffeedoors.com" class="text-amber-600 hover:underline">info@coffeedoors.com</a></p>
+                        <p class="mb-4"><strong class="text-amber-800">Hours:</strong> Mon-Fri: 7 AM - 7 PM | Sat-Sun: 8 AM - 6 PM</p>
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="text-2xl font-semibold text-amber-700 mb-4">Follow Us</h3>
+                        <div class="flex justify-center space-x-6">
+                            <!-- Facebook -->
+                            <a href="#" class="text-gray-600 hover:text-amber-700 transition duration-300">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.776-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                            <!-- Instagram -->
+                            <a href="#" class="text-gray-600 hover:text-amber-700 transition duration-300">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.717.01 3.653.047 1.014.035 1.746.173 2.288.35c.6.194 1.092.49 1.516.914.424.424.72.916.914 1.516.177.542.315 1.274.35 2.288.036.936.047 1.222.047 3.653 0 2.43-.01 2.717-.047 3.653-.035 1.014-.173 1.746-.35 2.288-.194.6-.49 1.092-.914 1.516-.424.424-.72-.916-.914-1.516-.177-.542-.315-1.274-.35-2.288-.036-.936-.047-1.222-.047-3.653 0-2.43.01-2.717.047-3.653.035-1.014.173-1.746.35-2.288.194-.6.49-1.092.914-1.516.424-.424.72-.916.914-1.516.177-.542.315-1.274.35-2.288-.036-.936-.047-1.222-.047-3.653Z" />
+                                    <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" />
+                                </svg>
+                            </a>
+                            <!-- Twitter -->
+                            <a href="#" class="text-gray-600 hover:text-amber-700 transition duration-300">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M8.29 20.352c-1.127.348-2.316.533-3.553.533-1.422 0-2.7-.22-3.905-.625.96-.345 1.944-.75 2.914-1.218 1.095-.527 2.146-1.164 3.125-1.87 1.002-.705 1.942-1.47 2.825-2.286C10.63 13.91 10.33 12.015 10.33 10c0-1.848.33-3.61 1-5.228C11.66 4.312 12.66 3.01 14 2c-.11.025-.22.05-.33.075-1.378.348-2.584.86-3.61 1.532-1.026.673-1.888 1.48-2.584 2.37-1.192 1.565-1.78 3.394-1.78 5.4 0 2.228.6 4.293 1.8 6.195C8.01 18.773 8.16 19.56 8.29 20.352zM15 4h-2V2h2v2zm-4 0H9V2h2v2zm-4 0H5V2h2v2zm12 10.5h-2V12h2v2.5zm-4 0h-2V12h2v2.5zM7 8h-2V6h2v2zm4 0H9V6h2v2zm4 0h-2V6h2v2zm4 0h-2V6h2v2zm-8 4h-2v-2h2v2zm-4 0H5v-2h2v2zm12 4h-2v-2h2v2z" />
+                                </svg>
+                            </a>
                         </div>
                     </div>
-                    <div class="bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-lg mx-auto">
-                        <form action="#" method="POST" class="space-y-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
-                                <input type="text" id="name" name="name" class="block w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition duration-300" placeholder="Your Name" required>
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
-                                <input type="email" id="email" name="email" class="block w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition duration-300" placeholder="your@example.com" required>
-                            </div>
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
-                                <textarea id="message" name="message" rows="5" class="block w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition duration-300" placeholder="Tell us what's on your mind..." required></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-md text-lg uppercase tracking-wide transition duration-300 transform hover:scale-105 shadow-md">Send Message</button>
-                        </form>
+                </div>
+                <!-- Embedded Map (Google Maps example) -->
+                <div>
+                    <h3 class="text-3xl font-semibold text-amber-700 mb-4">Our Location</h3>
+                    <div class="relative aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-lg">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.255979505509!2d144.96305781531776!3d-37.81720807975191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b5a19c5c9b%3A0x6d9a9f23e7f457a!2sFlinders%20Street%20Station!5e0!3m2!1sen!2sau!4v1678901234567!5m2!1sen!2sau"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-xl">
+                        </iframe>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 py-10 text-gray-400 text-center">
-        <div class="container mx-auto px-6">
-            <p class="mb-4">&copy; 2023 Street Flame Grill. All Rights Reserved.</p>
-            <div class="flex justify-center space-x-6">
-                <!-- Social media icons (re-using SVG path data from contact section) -->
-                <a href="https://instagram.com/streetflamegrill" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-red-600 transition duration-300">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M12 2C8.07 2 7.56 2 7.04 2.08 6.55 2.15 6.13 2.27 5.74 2.45 5.35 2.63 5.01 2.89 4.69 3.22 4.37 3.53 4.11 3.88 3.93 4.28 3.75 4.67 3.63 5.09 3.56 5.58 3.48 6.1 3.48 8.07 3.48 12 3.48 15.93 3.48 16.44 3.48 16.96 3.56 17.45 3.63 17.87 3.75 18.26 3.93 18.65 4.11 18.99 4.37 19.31 4.69 19.63 4.99 19.89 5.35 20.07 5.74 20.25 6.13 20.37 6.55 20.44 7.04 20.52 7.56 20.52 8.07 20.52 12 20.52 15.93 20.52 16.44 20.52 16.96 20.44 17.45 20.37 17.87 20.25 18.26 20.07 18.65 19.89 18.99 19.63 19.31 19.31 19.63 18.99 19.89 18.65 20.07 18.26 20.25 17.87 20.37 17.45 20.44 16.96 20.52 16.44 20.52 15.93 20.52 12 20.52 8.07 20.52 7.56 20.52 7.04 20.44 6.55 20.37 6.13 20.25 5.74 20.07 5.35 19.89 5.01 19.63 4.69 19.31 4.37 18.99 4.11 18.65 3.93 18.26 3.75 17.87 3.63 17.45 3.56 16.96 3.48 16.44 3.48 15.93 3.48 12 3.48Zm0 1.5c-4.07 0-4.59.01-5.18.11-.47.09-.77.16-1.04.28-.27.12-.49.26-.7.47-.21.21-.35.43-.47.7-.12.27-.19.57-.28 1.04-.1.59-.11 1.11-.11 5.18s.01 4.59.11 5.18c.09.47.16.77.28 1.04.12.27.26.49.47.7.21.21.43.35.47.7.12.27.19.57.28 1.04.1.59.11 1.11.11 5.18s-.01-4.59-.11-5.18c-.09-.47-.16-.77-.28-1.04-.12-.27-.26-.49-.47-.7-.21-.21-.35-.43-.47-.7-.12-.27-.19-.57-.28-1.04-.1-.59-.11-1.11-.11-5.18ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 1.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.5-7A1.5 1.5 0 1 0 18 4a1.5 1.5 0 0 0 0 3Z" clip-rule="evenodd" />
-                    </svg>
-                </a>
-                <a href="https://tiktok.com/@streetflamegrill" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-red-600 transition duration-300">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12.54 0c-.82 0-1.44.62-1.44 1.44v21.12c0 .82.62 1.44 1.44 1.44h.06c4.52-.3 8.16-4.02 8.16-8.64V7.5c0-1.1-1.1-2-2-2h-3.48c-.9 0-1.62.72-1.62 1.62v3.66c0 .9.72 1.62 1.62 1.62h3.42c.82 0 1.44.62 1.44 1.44v1.2c0 .82-.62 1.44-1.44 1.44H12.54c-.82 0-1.44.62-1.44 1.44v2.76c0 .82.62 1.44 1.44 1.44h.06c4.52-.3 8.16-4.02 8.16-8.64V7.5c0-1.1-1.1-2-2-2h-3.48c-.9 0-1.62.72-1.62 1.62v3.66c0 .9.72 1.62 1.62 1.62h3.42c.82 0 1.44.62 1.44 1.44v1.2c0 .82-.62 1.44-1.44 1.44H12.54c-.82 0-1.44.62-1.44 1.44v2.76c0 .82.62 1.44 1.44 1.44Z" />
-                    </svg>
-                </a>
+    <footer class="bg-amber-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-4 text-xl font-bold">coffeeDoors</p>
+            <p>&copy; 2023 coffeeDoors. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="text-white hover:text-amber-300 transition duration-300">Privacy Policy</a>
+                <a href="#" class="text-white hover:text-amber-300 transition duration-300">Terms of Service</a>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript for Mobile Menu Toggle and Smooth Scrolling -->
+    <script>
+        document.getElementById('mobile-menu-button').onclick = function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        };
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu if open
+                if (!document.getElementById('mobile-menu').classList.contains('hidden')) {
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 ```
