@@ -4,468 +4,434 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valente Motors - Where Automotive Excellence Meets Prestige</title>
-    <meta name="description" content="Valente Motors: A private, invitation-only automotive dealership specializing in premium & exotic vehicles. Experience rarity, exclusivity, and luxury.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+    <title>Drift & Co. — Limited Drops & Urban Goods</title>
+    <meta name="description" content="Limited-run street goods, community drops, and handcrafted essentials from Drift & Co. Join the list for early access.">
     
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.driftandco.com/"> <!-- Placeholder URL -->
+    <meta property="og:title" content="Drift & Co. — Limited Drops & Urban Goods">
+    <meta property="og:description" content="Limited-run street goods, community drops, and handcrafted essentials from Drift & Co. Join the list for early access.">
+    <meta property="og:image" content="https://images.pexels.com/photos/34680255/pexels-photo-34680255.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"> 
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.driftandco.com/"> <!-- Placeholder URL -->
+    <meta property="twitter:title" content="Drift & Co. — Limited Drops & Urban Goods">
+    <meta property="twitter:description" content="Limited-run street goods, community drops, and handcrafted essentials from Drift & Co. Join the list for early access.">
+    <meta property="twitter:image" content="https://images.pexels.com/photos/34680255/pexels-photo-34680255.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+
+    <!-- Favicon - Simple emoji placeholder -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💨</text></svg>">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Playfair Display & Montserrat -->
+
+    <!-- Google Fonts for H1 (Bebas Neue for condensed, expressive) and body (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- AOS (Animate On Scroll) CDN -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Custom Tailwind Configuration */
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        playfair: ['Playfair Display', 'serif'],
-                        montserrat: ['Montserrat', 'sans-serif'],
-                    },
-                    colors: {
-                        'graphite': '#1a1a1a', /* Darker graphite */
-                        'deep-gold': '#A07A00', /* A rich, deep gold */
-                        'accent-gold': '#D4AF37', /* A brighter gold for highlights */
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        }
-                    },
-                    animation: {
-                        fadeInUp: 'fadeInUp 0.8s ease-out',
-                        fadeIn: 'fadeIn 0.6s ease-out',
-                    }
-                }
+        /* Custom CSS Variables for color palette */
+        :root {
+            --color-charcoal: #111;
+            --color-off-white: #F6F6F6;
+            --color-neon-amber: #FFB55A;
+        }
+
+        /* Base body styles using Inter font and defined colors */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-charcoal);
+            background-color: var(--color-off-white);
+        }
+
+        /* H1 and elements with .font-bebas class use Bebas Neue */
+        h1, .font-bebas {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.05em; /* A bit of letter spacing for display fonts */
+        }
+
+        /* Tailwind custom colors via CSS variables for consistency */
+        .bg-charcoal { background-color: var(--color-charcoal); }
+        .text-charcoal { color: var(--color-charcoal); }
+        .bg-off-white { background-color: var(--color-off-white); }
+        .text-off-white { color: var(--color-off-white); }
+        .bg-neon-amber { background-color: var(--color-neon-amber); }
+        .text-neon-amber { color: var(--color-neon-amber); }
+        .border-neon-amber { border-color: var(--color-neon-amber); }
+
+        /* Keyframes for subtle fade-in-up animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        /* General Body Styling & Scroll Behavior */
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #0d0d0d; /* Very dark background */
-            color: #e0e0e0;
+        /* Apply animation to elements with this class */
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0; /* Ensures element is invisible before animation starts */
         }
 
-        /* Custom Scrollbar (optional, for aesthetics) */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4a4a4a;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6a6a6a;
-        }
-
-        /* Parallax-like effect for background images/videos */
-        .parallax-bg {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        
-        /* Ensure video background fills container correctly */
-        .hero-video {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1; /* Ensure video is behind overlay */
-        }
-
-        /* Navbar dynamic background on scroll (using JS) */
-        .navbar-scrolled {
-            background-color: rgba(0, 0, 0, 0.9); /* Slightly transparent black */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
+        /* Animation delays for staggered effect */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
     </style>
 </head>
-<body class="font-montserrat">
+<body class="bg-off-white text-charcoal antialiased">
 
-    <!-- Navbar -->
-    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4" id="navbar">
-        <nav class="container mx-auto flex justify-between items-center px-6">
-            <a href="#" class="text-3xl font-playfair font-bold text-accent-gold hover:text-deep-gold transition duration-300" aria-label="Valente Motors Home">Valente Motors</a>
-            <ul class="hidden md:flex space-x-8">
-                <li><a href="#about" class="text-gray-200 hover:text-accent-gold transition duration-300 text-lg font-semibold">About Us</a></li>
-                <li><a href="#vehicles" class="text-gray-200 hover:text-accent-gold transition duration-300 text-lg font-semibold">Vehicles</a></li>
-                <li><a href="#services" class="text-gray-200 hover:text-accent-gold transition duration-300 text-lg font-semibold">Services</a></li>
-                <li><a href="#contact" class="text-gray-200 hover:text-accent-gold transition duration-300 text-lg font-semibold">Contact</a></li>
-            </ul>
-            <button id="mobile-menu-button" class="md:hidden text-gray-200 focus:outline-none" aria-label="Toggle mobile menu">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
-        </nav>
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-black bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8 transform -translate-y-full transition-transform duration-300 ease-in-out">
-            <button id="close-mobile-menu" class="absolute top-6 right-6 text-gray-200 text-4xl focus:outline-none" aria-label="Close mobile menu">&times;</button>
-            <ul class="text-center">
-                <li><a href="#about" class="block text-gray-200 hover:text-accent-gold text-4xl font-playfair py-4 transition duration-300">About Us</a></li>
-                <li><a href="#vehicles" class="block text-gray-200 hover:text-accent-gold text-4xl font-playfair py-4 transition duration-300">Vehicles</a></li>
-                <li><a href="#services" class="block text-gray-200 hover:text-accent-gold text-4xl font-playfair py-4 transition duration-300">Services</a></li>
-                <li><a href="#contact" class="block text-gray-200 hover:text-accent-gold text-4xl font-playfair py-4 transition duration-300">Contact</a></li>
-            </ul>
+    <!-- Micro-UI: Free shipping badge (Fixed position for visibility) -->
+    <div class="fixed top-4 left-4 z-50 bg-charcoal text-off-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">
+        Free worldwide shipping over $60
+    </div>
+
+    <!-- Hero Section: Full-screen video background with content overlay -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Hero Video Background (looping, muted, playing inline) -->
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+            <source src="https://videos.pexels.com/video-files/34671853/14695623_640_360_30fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Dark Gradient Overlay for text readability -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+
+        <!-- Hero Content: Headline, Subheadline, CTAs -->
+        <div class="relative z-10 text-center text-off-white px-4">
+            <h1 class="font-bebas text-5xl md:text-7xl lg:text-8xl tracking-wide mb-4 animate-fade-in-up">
+                Move Faster. Live Louder.
+            </h1>
+            <p class="text-lg md:text-xl lg:text-2xl font-light mb-8 max-w-2xl mx-auto animate-fade-in-up delay-200">
+                Limited-run goods & experiences for people who refuse average.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-400">
+                <a href="#shop" class="bg-neon-amber text-charcoal font-semibold px-8 py-3 rounded-full hover:scale-105 transition-transform duration-300 shadow-lg text-lg">
+                    Shop the Drop
+                </a>
+                <a href="#about" class="text-off-white border-b-2 border-off-white/50 hover:border-neon-amber transition-colors duration-300 text-lg">
+                    Learn the story &rarr;
+                </a>
+            </div>
         </div>
-    </header>
+    </section>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
-            <video autoplay loop muted playsinline class="hero-video">
-                <source src="https://videos.pexels.com/video-files/30418727/13035251_640_360_24fps.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="absolute inset-0 bg-black opacity-70 z-10"></div>
-            <div class="relative z-20 px-4" data-aos="fade-up" data-aos-duration="1000">
-                <h1 class="text-6xl md:text-8xl font-playfair font-bold text-accent-gold leading-tight mb-4 drop-shadow-lg">Valente Motors</h1>
-                <p class="text-xl md:text-3xl font-montserrat font-light text-gray-200 mb-10 tracking-wide">Where Automotive Excellence Meets Prestige</p>
-                <a href="#contact" class="inline-block bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-4 px-10 rounded-full text-lg uppercase tracking-wider shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">Schedule a Private Viewing</a>
+    <!-- Featured Drop / Shop preview Section -->
+    <section id="shop" class="py-16 md:py-24 px-4 bg-off-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bebas text-charcoal text-center mb-8">Featured Drops</h2>
+
+            <!-- Simple filter navigation (visual, not functional) -->
+            <div class="flex justify-center gap-6 mb-12 text-lg font-medium">
+                <span class="text-neon-amber border-b-2 border-neon-amber pb-1">New</span>
+                <span class="text-gray-500 hover:text-neon-amber cursor-pointer transition-colors pb-1">Popular</span>
+                <span class="text-gray-500 hover:text-neon-amber cursor-pointer transition-colors pb-1">Limited</span>
             </div>
-        </section>
 
-        <!-- About Us Section -->
-        <section id="about" class="relative py-20 md:py-32 bg-graphite text-gray-200 text-center parallax-bg" style="background-image: url('https://images.pexels.com/photos/16883139/pexels-photo-16883139.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'); background-position: center top;" >
-            <div class="absolute inset-0 bg-black opacity-80 z-0"></div>
-            <div class="relative container mx-auto px-6 max-w-5xl" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                <h2 class="text-5xl font-playfair font-bold text-accent-gold mb-10 leading-tight">Our Legacy of Luxury</h2>
-                <p class="text-lg md:text-xl font-montserrat leading-relaxed mb-6">
-                    Valente Motors stands as a beacon of automotive excellence, an exclusive, invitation-only dealership dedicated to the connoisseurs of distinction. We meticulously curate a collection of the world's most desired premium and exotic vehicles, each a testament to unparalleled engineering and design.
-                </p>
-                <p class="text-lg md:text-xl font-montserrat leading-relaxed">
-                    Our discerning clientele understands that true luxury is defined by rarity, exceptional service, and an experience tailored to their exacting standards. At Valente Motors, we don't just sell cars; we facilitate the acquisition of automotive masterpieces.
-                </p>
-            </div>
-        </section>
+            <!-- Product Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product Card 1 -->
+                <div class="bg-charcoal text-off-white rounded-xl shadow-xl overflow-hidden hover:scale-105 transition-transform duration-300 group">
+                    <img src="https://images.pexels.com/photos/34680255/pexels-photo-34680255.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Hand-stitched canvas tote bag in urban setting" class="w-full h-72 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bebas mb-2">Urban Canvas Tote</h3>
+                        <p class="text-sm text-gray-400 mb-3">Hand-stitched canvas tote — washes like a champ.</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xl font-semibold text-neon-amber">$49.99</span>
+                            <a href="#" class="text-sm bg-neon-amber text-charcoal px-4 py-2 rounded-full hover:bg-neon-amber/80 transition-colors">View</a>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Featured Vehicles Gallery -->
-        <section id="vehicles" class="py-20 md:py-32 bg-black text-gray-200">
-            <div class="container mx-auto px-6">
-                <h2 class="text-5xl font-playfair font-bold text-accent-gold text-center mb-16" data-aos="fade-down" data-aos-duration="1000">Featured Vehicles</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                    <!-- Car Card 1 -->
-                    <div class="bg-graphite rounded-xl shadow-2xl overflow-hidden group hover:shadow-accent-gold/40 transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Red Ferrari 488 GTB" class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out">
-                        <div class="p-6">
-                            <h3 class="text-3xl font-playfair text-accent-gold mb-2">Ferrari 488 GTB</h3>
-                            <p class="text-gray-400 text-md mb-3">2019</p>
-                            <p class="text-2xl font-montserrat font-semibold text-gray-50 mb-4">€ 285,000</p>
-                            <a href="#contact" class="block w-full text-center bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-3 rounded-full text-md uppercase transition duration-300">Request Availability</a>
+                <!-- Product Card 2 -->
+                <div class="bg-charcoal text-off-white rounded-xl shadow-xl overflow-hidden hover:scale-105 transition-transform duration-300 group">
+                    <img src="https://images.pexels.com/photos/34653539/pexels-photo-34653539.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Premium leather wallet on concrete surface" class="w-full h-72 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bebas mb-2">Apex Leather Wallet</h3>
+                        <p class="text-sm text-gray-400 mb-3">Minimalist design, maximum utility, ethically sourced.</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xl font-semibold text-neon-amber">$79.00</span>
+                            <a href="#" class="text-sm bg-neon-amber text-charcoal px-4 py-2 rounded-full hover:bg-neon-amber/80 transition-colors">View</a>
                         </div>
                     </div>
-                    <!-- Car Card 2 -->
-                    <div class="bg-graphite rounded-xl shadow-2xl overflow-hidden group hover:shadow-accent-gold/40 transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Yellow Porsche 911 Turbo S" class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out">
-                        <div class="p-6">
-                            <h3 class="text-3xl font-playfair text-accent-gold mb-2">Porsche 911 Turbo S</h3>
-                            <p class="text-gray-400 text-md mb-3">2021</p>
-                            <p class="text-2xl font-montserrat font-semibold text-gray-50 mb-4">€ 250,000</p>
-                            <a href="#contact" class="block w-full text-center bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-3 rounded-full text-md uppercase transition duration-300">Request Availability</a>
-                        </div>
-                    </div>
-                    <!-- Car Card 3 -->
-                    <div class="bg-graphite rounded-xl shadow-2xl overflow-hidden group hover:shadow-accent-gold/40 transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
-                        <img src="https://images.pexels.com/photos/16883139/pexels-photo-16883139.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Black Mercedes-Maybach S-Class" class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out">
-                        <div class="p-6">
-                            <h3 class="text-3xl font-playfair text-accent-gold mb-2">Mercedes-Maybach S-Class</h3>
-                            <p class="text-gray-400 text-md mb-3">2022</p>
-                            <p class="text-2xl font-montserrat font-semibold text-gray-50 mb-4">€ 210,000</p>
-                            <a href="#contact" class="block w-full text-center bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-3 rounded-full text-md uppercase transition duration-300">Request Availability</a>
-                        </div>
-                    </div>
-                    <!-- Car Card 4 -->
-                    <div class="bg-graphite rounded-xl shadow-2xl overflow-hidden group hover:shadow-accent-gold/40 transition-shadow duration-300" data-aos="fade-up" data-aos-delay="400">
-                        <img src="https://images.pexels.com/photos/7144181/pexels-photo-7144181.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Orange Lamborghini Huracán" class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out">
-                        <div class="p-6">
-                            <h3 class="text-3xl font-playfair text-accent-gold mb-2">Lamborghini Huracán</h3>
-                            <p class="text-gray-400 text-md mb-3">2020</p>
-                            <p class="text-2xl font-montserrat font-semibold text-gray-50 mb-4">€ 260,000</p>
-                            <a href="#contact" class="block w-full text-center bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-3 rounded-full text-md uppercase transition duration-300">Request Availability</a>
-                        </div>
-                    </div>
-                    <!-- Car Card 5 -->
-                    <div class="bg-graphite rounded-xl shadow-2xl overflow-hidden group hover:shadow-accent-gold/40 transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://images.pexels.com/photos/2127012/pexels-photo-2127012.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Silver Rolls-Royce Phantom" class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out">
-                        <div class="p-6">
-                            <h3 class="text-3xl font-playfair text-accent-gold mb-2">Rolls-Royce Phantom</h3>
-                            <p class="text-gray-400 text-md mb-3">2022</p>
-                            <p class="text-2xl font-montserrat font-semibold text-gray-50 mb-4">€ 520,000</p>
-                            <a href="#contact" class="block w-full text-center bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-3 rounded-full text-md uppercase transition duration-300">Request Availability</a>
-                        </div>
-                    </div>
-                    <!-- Car Card 6 -->
-                    <div class="bg-graphite rounded-xl shadow-2xl overflow-hidden group hover:shadow-accent-gold/40 transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://images.pexels.com/photos/2127039/pexels-photo-2127039.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="White Bentley Continental GT" class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out">
-                        <div class="p-6">
-                            <h3 class="text-3xl font-playfair text-accent-gold mb-2">Bentley Continental GT</h3>
-                            <p class="text-gray-400 text-md mb-3">2021</p>
-                            <p class="text-2xl font-montserrat font-semibold text-gray-50 mb-4">€ 235,000</p>
-                            <a href="#contact" class="block w-full text-center bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-3 rounded-full text-md uppercase transition duration-300">Request Availability</a>
-                        </div>
-                    </div>
-                    <!-- Car Card 7 -->
-                    <div class="bg-graphite rounded-xl shadow-2xl overflow-hidden group hover:shadow-accent-gold/40 transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
-                        <img src="https://images.pexels.com/photos/7144185/pexels-photo-7144185.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Blue McLaren 720S" class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out">
-                        <div class="p-6">
-                            <h3 class="text-3xl font-playfair text-accent-gold mb-2">McLaren 720S</h3>
-                            <p class="text-gray-400 text-md mb-3">2020</p>
-                            <p class="text-2xl font-montserrat font-semibold text-gray-50 mb-4">€ 310,000</p>
-                            <a href="#contact" class="block w-full text-center bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-3 rounded-full text-md uppercase transition duration-300">Request Availability</a>
-                        </div>
-                    </div>
-                    <!-- Car Card 8 -->
-                    <div class="bg-graphite rounded-xl shadow-2xl overflow-hidden group hover:shadow-accent-gold/40 transition-shadow duration-300" data-aos="fade-up" data-aos-delay="400">
-                        <img src="https://images.pexels.com/photos/5058350/pexels-photo-5058350.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Dark Grey Aston Martin DBS Superleggera" class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out">
-                        <div class="p-6">
-                            <h3 class="text-3xl font-playfair text-accent-gold mb-2">Aston Martin DBS Superleggera</h3>
-                            <p class="text-gray-400 text-md mb-3">2019</p>
-                            <p class="text-2xl font-montserrat font-semibold text-gray-50 mb-4">€ 295,000</p>
-                            <a href="#contact" class="block w-full text-center bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-3 rounded-full text-md uppercase transition duration-300">Request Availability</a>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="bg-charcoal text-off-white rounded-xl shadow-xl overflow-hidden hover:scale-105 transition-transform duration-300 group">
+                    <img src="https://images.pexels.com/photos/34659907/pexels-photo-34659907.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Limited edition graphic t-shirt in city street" class="w-full h-72 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bebas mb-2">Vortex Graphic Tee</h3>
+                        <p class="text-sm text-gray-400 mb-3">Soft-touch cotton, unique artwork, limited run.</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xl font-semibold text-neon-amber">$34.50</span>
+                            <a href="#" class="text-sm bg-neon-amber text-charcoal px-4 py-2 rounded-full hover:bg-neon-amber/80 transition-colors">View</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Private Client Services -->
-        <section id="services" class="relative py-20 md:py-32 bg-graphite text-gray-200 overflow-hidden">
-            <video autoplay loop muted playsinline class="hero-video opacity-20">
-                <source src="https://videos.pexels.com/video-files/3066451/3066451-sd_640_338_24fps.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="absolute inset-0 bg-graphite opacity-90 z-0"></div>
-            <div class="relative container mx-auto px-6 max-w-4xl text-center" data-aos="fade-up" data-aos-duration="1000">
-                <h2 class="text-5xl font-playfair font-bold text-accent-gold mb-12">Private Client Services</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    <div class="p-6 bg-black bg-opacity-70 rounded-xl shadow-xl border border-gray-700 hover:border-accent-gold transition duration-300" data-aos="fade-up" data-aos-delay="100">
-                        <h3 class="text-3xl font-playfair text-accent-gold mb-4">Vehicle Sourcing Concierge</h3>
-                        <p class="text-lg font-montserrat leading-relaxed">Leverage our global network to find your dream vehicle, no matter how rare or exclusive.</p>
-                    </div>
-                    <div class="p-6 bg-black bg-opacity-70 rounded-xl shadow-xl border border-gray-700 hover:border-accent-gold transition duration-300" data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="text-3xl font-playfair text-accent-gold mb-4">Secure Global Delivery</h3>
-                        <p class="text-lg font-montserrat leading-relaxed">Experience peace of mind with our white-glove, insured international delivery service.</p>
-                    </div>
-                    <div class="p-6 bg-black bg-opacity-70 rounded-xl shadow-xl border border-gray-700 hover:border-accent-gold transition duration-300" data-aos="fade-up" data-aos-delay="300">
-                        <h3 class="text-3xl font-playfair text-accent-gold mb-4">Showroom Appointments</h3>
-                        <p class="text-lg font-montserrat leading-relaxed">Arrange a private, one-on-one viewing at our exclusive showroom, by appointment only.</p>
-                    </div>
+    <!-- About Section: Our Story with founder quote and photo grid -->
+    <section id="about" class="py-16 md:py-24 px-4 bg-charcoal text-off-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bebas text-off-white text-center mb-12">Our Story</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-lg leading-relaxed">
+                    <p>At Drift & Co., we believe in the power of conscious creation. Every item is part of a small, meticulously crafted batch, ensuring unparalleled quality and a distinct character that mass production simply can't replicate.</p>
+                    <p>We're deeply committed to ethical sourcing, partnering with suppliers who share our values for sustainable practices and fair labor. This isn't just about making goods; it's about making a positive impact, from our workshop to your hands.</p>
+                    <p>Beyond products, Drift & Co. is a hub for urban culture. We regularly host community events, pop-ups, and collaborations that bring together creators, artists, and enthusiasts who share our passion for authentic experiences.</p>
+                    <p class="italic text-neon-amber text-xl mt-8">&ldquo;We build things we'd buy ourselves.&rdquo;</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Financing & Trade-In -->
-        <section id="financing" class="py-20 md:py-32 bg-black text-gray-200">
-            <div class="container mx-auto px-6 max-w-3xl">
-                <h2 class="text-5xl font-playfair font-bold text-accent-gold text-center mb-12" data-aos="fade-down" data-aos-duration="1000">Financing & Trade-In</h2>
-                <p class="text-lg md:text-xl font-montserrat leading-relaxed text-center mb-10" data-aos="fade-up" data-aos-delay="100">
-                    Valente Motors offers bespoke financing solutions tailored for qualified buyers. Furthermore, we provide professional, discreet evaluations for trade-in vehicles, ensuring a seamless upgrade to your next automotive masterpiece.
-                </p>
-                <form class="bg-graphite p-10 rounded-xl shadow-2xl border border-gray-700" data-aos="fade-up" data-aos-delay="200">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Full Name</label>
-                            <input type="text" id="name" name="name" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="John Doe" required>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Email Address</label>
-                            <input type="email" id="email" name="email" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="john.doe@example.com" required>
-                        </div>
-                    </div>
-                    <div class="mb-6">
-                        <label for="phone" class="block text-gray-300 text-sm font-bold mb-2">Phone Number (Optional)</label>
-                        <input type="tel" id="phone" name="phone" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="+1 (555) 123-4567">
-                    </div>
-                    <div class="mb-6">
-                        <label for="tradein" class="block text-gray-300 text-sm font-bold mb-2">Vehicle for Trade-In (Optional)</label>
-                        <input type="text" id="tradein" name="tradein" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="e.g., 2018 BMW M5">
-                    </div>
-                    <div class="mb-8">
-                        <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Message / Specific Request</label>
-                        <textarea id="message" name="message" rows="5" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="I am interested in financing options or a trade-in evaluation..."></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-4 rounded-md text-lg uppercase tracking-wider transition duration-300">Submit Request</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section id="testimonials" class="relative py-20 md:py-32 bg-graphite text-gray-200 parallax-bg" style="background-image: url('https://images.pexels.com/photos/34612360/pexels-photo-34612360.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');">
-            <div class="absolute inset-0 bg-black opacity-80 z-0"></div>
-            <div class="relative container mx-auto px-6 max-w-5xl text-center" data-aos="fade-up" data-aos-duration="1000">
-                <h2 class="text-5xl font-playfair font-bold text-accent-gold mb-12">Client Appreciations</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <!-- Testimonial 1 -->
-                    <div class="bg-black bg-opacity-70 p-8 rounded-xl shadow-xl border border-gray-700 hover:border-accent-gold transition duration-300" data-aos="fade-up" data-aos-delay="100">
-                        <p class="italic text-xl font-playfair leading-relaxed mb-6">"The acquisition experience at Valente Motors transcends mere transactions. It is a refined journey, handled with utmost discretion and expertise. A truly unparalleled service for discerning individuals."</p>
-                        <p class="font-montserrat font-semibold text-accent-gold text-lg">- Mr. Alexander V., London</p>
-                    </div>
-                    <!-- Testimonial 2 -->
-                    <div class="bg-black bg-opacity-70 p-8 rounded-xl shadow-xl border border-gray-700 hover:border-accent-gold transition duration-300" data-aos="fade-up" data-aos-delay="200">
-                        <p class="italic text-xl font-playfair leading-relaxed mb-6">"From the initial consultation to the bespoke delivery of my vehicle, Valente Motors demonstrated an exceptional commitment to perfection. Their curated selection is simply peerless."</p>
-                        <p class="font-montserrat font-semibold text-accent-gold text-lg">- Madame Isabelle C., Monaco</p>
-                    </div>
-                    <!-- Testimonial 3 -->
-                    <div class="bg-black bg-opacity-70 p-8 rounded-xl shadow-xl border border-gray-700 hover:border-accent-gold transition duration-300" data-aos="fade-up" data-aos-delay="300">
-                        <p class="italic text-xl font-playfair leading-relaxed mb-6">"Valente Motors redefines automotive luxury. Their professionalism and attentiveness ensured that my specific requirements were not just met, but exceeded with impressive efficiency."</p>
-                        <p class="font-montserrat font-semibold text-accent-gold text-lg">- Sheikh Hamad F., Dubai</p>
-                    </div>
-                    <!-- Testimonial 4 -->
-                    <div class="bg-black bg-opacity-70 p-8 rounded-xl shadow-xl border border-gray-700 hover:border-accent-gold transition duration-300" data-aos="fade-up" data-aos-delay="400">
-                        <p class="italic text-xl font-playfair leading-relaxed mb-6">"Having sought vehicles from various high-end dealerships, I can unequivocally state that Valente Motors offers an echelon of service few can rival. Truly a benchmark for exclusivity."</p>
-                        <p class="font-montserrat font-semibold text-accent-gold text-lg">- Dr. Evelyn R., Geneva</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact & Visit -->
-        <section id="contact" class="py-20 md:py-32 bg-black text-gray-200">
-            <div class="container mx-auto px-6 max-w-5xl">
-                <h2 class="text-5xl font-playfair font-bold text-accent-gold text-center mb-12" data-aos="fade-down" data-aos-duration="1000">Contact Valente Motors</h2>
                 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div class="lg:col-span-1" data-aos="fade-right" data-aos-delay="200">
-                        <p class="text-lg md:text-xl font-montserrat leading-relaxed mb-8">
-                            We invite you to experience the distinction of Valente Motors. Please use the form below to initiate your private consultation or book a showroom appointment. Our dedicated team awaits the opportunity to serve you.
-                        </p>
-                        <form class="bg-graphite p-10 rounded-xl shadow-2xl border border-gray-700">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                <div>
-                                    <label for="contact-name" class="block text-gray-300 text-sm font-bold mb-2">Full Name</label>
-                                    <input type="text" id="contact-name" name="contact-name" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="Your Name" required>
-                                </div>
-                                <div>
-                                    <label for="contact-email" class="block text-gray-300 text-sm font-bold mb-2">Email Address</label>
-                                    <input type="email" id="contact-email" name="contact-email" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="your.email@example.com" required>
-                                </div>
-                            </div>
-                            <div class="mb-6">
-                                <label for="contact-phone" class="block text-gray-300 text-sm font-bold mb-2">Phone Number (Optional)</label>
-                                <input type="tel" id="contact-phone" name="contact-phone" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="+1 (555) 123-4567">
-                            </div>
-                            <div class="mb-8">
-                                <label for="contact-message" class="block text-gray-300 text-sm font-bold mb-2">Your Message</label>
-                                <textarea id="contact-message" name="contact-message" rows="6" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="I would like to inquire about..."></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-4 rounded-md text-lg uppercase tracking-wider transition duration-300">Submit Inquiry</button>
-                        </form>
+                <!-- Inline Photo Grid (2x2) -->
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.pexels.com/photos/34649167/pexels-photo-34649167.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Behind the scenes: Crafting detail" class="w-full h-full object-cover rounded-lg shadow-lg" loading="lazy">
+                    <img src="https://images.pexels.com/photos/34664047/pexels-photo-34664047.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Behind the scenes: Design workspace" class="w-full h-full object-cover rounded-lg shadow-lg" loading="lazy">
+                    <img src="https://images.pexels.com/photos/34689341/pexels-photo-34689341.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Behind the scenes: Material sampling" class="w-full h-full object-cover rounded-lg shadow-lg" loading="lazy">
+                    <img src="https://images.pexels.com/photos/34637184/pexels-photo-34637184.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Behind the scenes: Product quality check" class="w-full h-full object-cover rounded-lg shadow-lg" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Drift? Section: Three columns with icons and benefits -->
+    <section id="why-drift" class="py-16 md:py-24 px-4 bg-off-white">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bebas text-charcoal mb-12">Why Choose Drift & Co.?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Benefit 1: Handmade Quality -->
+                <div class="p-6 rounded-xl border border-charcoal/10 hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-neon-amber mb-4">
+                        <!-- Example Icon (Tailwind Heroicons style) -->
+                        <svg class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 1.343 3 3v2a3 3 0 01-3 3 3 3 0 01-3-3v-2c0-1.657 1.343-3 3-3z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 16H6a2 2 0 01-2-2v-4a2 2 0 012-2h3m3 4h3a2 2 0 002-2v-4a2 2 0 00-2-2h-3m-3 4V4m0 16v-4"/>
+                        </svg>
                     </div>
+                    <h3 class="text-2xl font-bebas text-charcoal mb-2">Handmade Quality</h3>
+                    <p class="text-gray-600">Every piece is built with intention and expertise, ensuring it's made to last.</p>
+                </div>
 
-                    <div class="lg:col-span-1" data-aos="fade-left" data-aos-delay="300">
-                        <h3 class="text-4xl font-playfair font-bold text-accent-gold mb-6">Our Showroom</h3>
-                        <p class="text-lg font-montserrat leading-relaxed text-gray-300 mb-6">
-                            Visit our exclusive showroom, where elegance meets automotive artistry. View our curated collection in an environment of unparalleled sophistication.
-                        </p>
-                        <address class="not-italic text-lg font-montserrat text-gray-300 mb-8">
-                            <p class="font-bold">Valente Motors Headquarters</p>
-                            <p>123 Prestige Drive,</p>
-                            <p>Luxury Estate, CA 90210,</p>
-                            <p>United States</p>
-                            <p>Email: <a href="mailto:info@valentemotors.com" class="text-accent-gold hover:underline">info@valentemotors.com</a></p>
-                            <p>Phone: <a href="tel:+15551234567" class="text-accent-gold hover:underline">+1 (555) 123-4567</a></p>
-                        </address>
-                        
-                        <!-- Map Placeholder -->
-                        <div class="h-80 w-full bg-gray-800 rounded-xl overflow-hidden shadow-xl border border-gray-700 mb-8">
-                            <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.8143160404097!2d-118.39999999999999!3d34.073620999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b94e80f2d577%3A0x6d0e8e0d6a2e4e1!2sRodeo%20Drive!5e0!3m2!1sen!2sus!4v1701768652418!5m2!1sen!2sus" 
-                                width="100%" 
-                                height="100%" 
-                                style="border:0;" 
-                                allowfullscreen="" 
-                                loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade"
-                                aria-label="Google Map showing Valente Motors location near Rodeo Drive">
-                            </iframe>
+                <!-- Benefit 2: Limited Runs -->
+                <div class="p-6 rounded-xl border border-charcoal/10 hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-neon-amber mb-4">
+                        <!-- Example Icon (Tailwind Heroicons style) -->
+                        <svg class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bebas text-charcoal mb-2">Limited Runs</h3>
+                    <p class="text-gray-600">Exclusive releases mean you're always getting something unique and special.</p>
+                </div>
+
+                <!-- Benefit 3: Community Focused -->
+                <div class="p-6 rounded-xl border border-charcoal/10 hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-neon-amber mb-4">
+                        <!-- Example Icon (Tailwind Heroicons style) -->
+                        <svg class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h-5m-5 0h5m-5 0a2 2 0 114 0m-4 0v-2a2 2 0 012-2h2a2 2 0 012 2v2M15 11H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bebas text-charcoal mb-2">Community Focused</h3>
+                    <p class="text-gray-600">Join our pop-ups, events, and collaborations connecting urban creatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events & Drops Calendar Section -->
+    <section id="events" class="py-16 md:py-24 px-4 bg-charcoal text-off-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bebas text-off-white text-center mb-12">Upcoming Drops & Events</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Timeline of drops -->
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-16 text-right text-neon-amber font-semibold text-lg">AUG 15</div>
+                        <div>
+                            <h4 class="text-xl font-bebas">Summer City Tees Drop</h4>
+                            <p class="text-gray-400">Online exclusive at driftandco.com</p>
                         </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-16 text-right text-neon-amber font-semibold text-lg">SEP 01</div>
+                        <div>
+                            <h4 class="text-xl font-bebas">Limited Edition Sketchbooks</h4>
+                            <p class="text-gray-400">The Urban Gallery, Downtown</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-16 text-right text-neon-amber font-semibold text-lg">OCT 05</div>
+                        <div>
+                            <h4 class="text-xl font-bebas">Winter Gear Preview Party</h4>
+                            <p class="text-gray-400">Pop-up, location TBA</p>
+                        </div>
+                    </div>
+                </div>
 
-                        <a href="#contact" class="inline-block bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-4 px-10 rounded-md text-lg uppercase tracking-wider shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">Book a Private Appointment</a>
+                <!-- CTA: Get drop alerts with email field -->
+                <div class="bg-off-white text-charcoal p-8 rounded-xl shadow-lg text-center">
+                    <h3 class="text-3xl font-bebas mb-4">Never Miss a Drop.</h3>
+                    <p class="text-gray-700 mb-6">Sign up for exclusive early access and event notifications.</p>
+                    <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                        <input type="email" placeholder="Enter your email" class="flex-grow p-3 rounded-full border-2 border-charcoal/20 focus:outline-none focus:border-neon-amber bg-white text-charcoal" required>
+                        <button type="submit" class="bg-neon-amber text-charcoal font-semibold px-6 py-3 rounded-full hover:scale-105 transition-transform duration-300">
+                            Get Drop Alerts
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Social proof Section -->
+    <section id="social-proof" class="py-16 md:py-24 px-4 bg-off-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bebas text-charcoal text-center mb-12">What Our Community Says</h2>
+            
+            <!-- Testimonials Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border border-charcoal/5 hover:shadow-lg transition-shadow duration-300">
+                    <p class="text-lg italic text-gray-700 mb-4">"Seriously the best quality gear out there!"</p>
+                    <div class="flex items-center">
+                        <img src="https://images.pexels.com/photos/34663323/pexels-photo-34663323.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Avatar of Alex, a person with dark hair" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy">
+                        <div>
+                            <p class="font-semibold text-charcoal">Alex M.</p>
+                            <p class="text-sm text-gray-500">@alex.urban</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border border-charcoal/5 hover:shadow-lg transition-shadow duration-300">
+                    <p class="text-lg italic text-gray-700 mb-4">"Love the unique designs and limited drops."</p>
+                    <div class="flex items-center">
+                        <img src="https://images.pexels.com/photos/34662600/pexels-photo-34662600.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Avatar of Maya, a person with blonde hair" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy">
+                        <div>
+                            <p class="font-semibold text-charcoal">Maya L.</p>
+                            <p class="text-sm text-gray-500">@mika.design</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border border-charcoal/5 hover:shadow-lg transition-shadow duration-300">
+                    <p class="text-lg italic text-gray-700 mb-4">"Drift & Co. gets urban style right, every time."</p>
+                    <div class="flex items-center">
+                        <img src="https://images.pexels.com/photos/34651541/pexels-photo-34651541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Avatar of Chris, a person with glasses" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy">
+                        <div>
+                            <p class="font-semibold text-charcoal">Chris P.</p>
+                            <p class="text-sm text-gray-500">@urban_pulse</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-    </main>
+            <!-- Logo Row: Press/Partners (simple grayscale text logos) -->
+            <div class="text-center">
+                <h3 class="text-2xl font-bebas text-gray-700 mb-8">Featured In / Partners</h3>
+                <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 grayscale opacity-60">
+                    <div class="h-8 md:h-10 flex items-center justify-center font-bold text-xl md:text-2xl text-charcoal/70">VICE</div>
+                    <div class="h-8 md:h-10 flex items-center justify-center font-bold text-xl md:text-2xl text-charcoal/70">HYPEBEAST</div>
+                    <div class="h-8 md:h-10 flex items-center justify-center font-bold text-xl md:text-2xl text-charcoal/70">ADIDAS</div>
+                    <div class="h-8 md:h-10 flex items-center justify-center font-bold text-xl md:text-2xl text-charcoal/70">URBAN MAG</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="bg-black py-10 text-gray-500 text-center text-sm border-t border-gray-800">
-        <div class="container mx-auto px-6">
-            <p>&copy; 2024 Valente Motors. All rights reserved.</p>
-            <p class="mt-2">Crafted with Precision. Driven by Passion.</p>
+    <!-- Email capture / Footer CTA Section -->
+    <section id="join-list" class="bg-charcoal text-off-white py-20 px-4 text-center">
+        <div class="max-w-xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bebas mb-6">Join the List — New drops, low key deals.</h2>
+            <p class="text-lg text-gray-300 mb-8">Get exclusive access to limited releases, community events, and insider perks.</p>
+            <form class="flex flex-col sm:flex-row gap-4">
+                <input type="email" placeholder="Your best email here" class="flex-grow p-3 rounded-full border-2 border-charcoal/20 focus:outline-none focus:border-neon-amber bg-white text-charcoal" required>
+                <button type="submit" class="bg-neon-amber text-charcoal font-semibold px-6 py-3 rounded-full hover:scale-105 transition-transform duration-300">
+                    Get Early Access
+                </button>
+            </form>
+            <p id="email-success" class="mt-4 text-neon-amber opacity-0 transition-opacity duration-300">You're in. Watch your inbox for the next drop.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-black text-gray-400 py-10 px-4 text-center">
+        <div class="max-w-7xl mx-auto">
+            <!-- Footer Navigation Links -->
+            <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-6 text-lg">
+                <a href="#shop" class="hover:text-off-white transition-colors">Shop</a>
+                <a href="#about" class="hover:text-off-white transition-colors">About</a>
+                <a href="#events" class="hover:text-off-white transition-colors">Events</a>
+                <a href="#" class="hover:text-off-white transition-colors">Contact</a>
+                <a href="#" class="hover:text-off-white transition-colors">Privacy</a>
+            </nav>
+
+            <!-- Social Icons (Placeholder SVGs from Heroicons/simple paths) -->
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="#" aria-label="Drift & Co. on Instagram" class="text-gray-400 hover:text-off-white transition-colors">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M12 2C9.11 2 8.76 2.01 7.61 2.07c-1.12.06-1.85.24-2.5.5C4.46 2.8 3.76 3.5 3.5 4.11c-.26.65-.44 1.38-.5 2.5-.06 1.15-.07 1.5-0.07 4.39s.01 3.24.07 4.39c.06 1.12.24 1.85.5 2.5.26.65.96 1.35 1.61 1.61.65.26 1.38.44 2.5.5 1.15.06 1.5.07 4.39.07s3.24-.01 4.39-.07c1.12-.06 1.85-.24 2.5-.5.65-.26 1.35-.96 1.61-1.61.26-.65.44-1.38.5-2.5.06-1.15.07-1.5.07-4.39s-.01-3.24-.07-4.39c-.06-1.12-.24-1.85-.5-2.5-.26-.65-.96-1.35-1.61-1.61-.65-.26-1.38-.44-2.5-.5C15.24 2.01 14.89 2 12 2zm0 2.2c2.89 0 3.23.01 4.37.07 1.05.05 1.44.22 1.7.32.26.11.45.26.66.47s.36.4.47.66c.1.26.27.65.32 1.7.06 1.14.07 1.48.07 4.37s-.01 3.23-.07 4.37c-.05 1.05-.22 1.44-.32 1.7-.11.26-.26.45-.47.66s-.4.36-.66.47c-.26.1-.65.27-1.7.32-1.14.06-1.48.07-4.37.07s-3.23-.01-4.37-.07c-1.05-.05-1.44-.22-1.7-.32-.26-.11-.45-.26-.66-.47s-.36-.4-.47-.66c-.1-.26-.27-.65-.32-1.7-.06-1.14-.07-1.48-.07-4.37s.01-3.23.07-4.37c.05-1.05.22-1.44.32-1.7.11-.26.26-.45.47-.66s.4-.36.66-.47c.26-.1.65-.27 1.7-.32C8.77 4.21 9.11 4.2 12 4.2zm0 2.75a5.05 5.05 0 100 10.1 5.05 5.05 0 000-10.1zM12 15a3 3 0 110-6 3 3 0 010 6zm5.85-8.45a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Drift & Co. on Twitter" class="text-gray-400 hover:text-off-white transition-colors">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.75 1.04C18.42 4.67 17.2 4 15.86 4c-2.3 0-4.17 1.87-4.17 4.17 0 .33.04.65.11.96-3.47-.17-6.54-1.84-8.6-4.34-.36.62-.56 1.35-.56 2.12 0 1.45.74 2.73 1.88 3.48-.68-.02-1.32-.2-1.88-.52v.05c0 2.03 1.44 3.72 3.35 4.1-.35.1-.7.15-1.06.15-.26 0-.5-.02-.74-.07.53 1.66 2.07 2.87 3.89 2.91-1.42 1.11-3.2 1.77-5.14 1.77-.33 0-.66-.02-.98-.06C5 20.3 7 21 9.07 21c7.25 0 11.21-6 11.21-11.22 0-.17-.0-.33-.01-.5.77-.55 1.44-1.23 1.97-2.02z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Drift & Co. on Facebook" class="text-gray-400 hover:text-off-white transition-colors">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.19 6 14.24 6c1.23 0 2.4.09 2.68.13V8h-1.5c-1.87 0-2.31.95-2.31 2.22V12h3.29l-.53 3H13v6.79c4.56-.93 8-4.96 8-9.79z"/>
+                    </svg>
+                </a>
+            </div>
+
+            <p class="text-sm">&copy; 2024 Drift & Co. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- AOS Initialization -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Simple JavaScript for email form submission feedback -->
     <script>
-        AOS.init({
-            once: true, // Whether animation should happen only once - while scrolling down
-            mirror: false, // Whether elements should animate out while scrolling past them
-            duration: 1200, // Values from 0 to 3000, with step 50ms
-            easing: 'ease-out-cubic', // default easing for AOS animations
-            offset: 100, // offset (in px) from the top of the screen
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const emailForm = document.querySelector('#join-list form');
+            const emailSuccessMessage = document.getElementById('email-success');
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('navbar-scrolled', 'py-3');
-                navbar.classList.remove('py-4');
-            } else {
-                navbar.classList.remove('navbar-scrolled', 'py-3');
-                navbar.classList.add('py-4');
+            if (emailForm && emailSuccessMessage) {
+                emailForm.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Prevent actual form submission
+
+                    // Simulate form submission delay
+                    setTimeout(() => {
+                        emailSuccessMessage.classList.remove('opacity-0');
+                        emailSuccessMessage.classList.add('opacity-100');
+                        
+                        // Clear the input field
+                        e.target.querySelector('input[type="email"]').value = '';
+
+                        // Hide message after a few seconds
+                        setTimeout(() => {
+                            emailSuccessMessage.classList.remove('opacity-100');
+                            emailSuccessMessage.classList.add('opacity-0');
+                        }, 5000); // Message disappears after 5 seconds
+                    }, 500); // Simulate network delay of 0.5 seconds
+                });
             }
         });
-
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMobileMenu = document.getElementById('close-mobile-menu');
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('-translate-y-full');
-            mobileMenu.classList.toggle('translate-y-0');
-            document.body.style.overflow = mobileMenu.classList.contains('hidden') ? '' : 'hidden'; // Disable scroll when menu open
-        });
-
-        closeMobileMenu.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.add('-translate-y-full');
-            mobileMenu.classList.remove('translate-y-0');
-            document.body.style.overflow = ''; // Enable scroll
-        });
-
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.add('-translate-y-full');
-                mobileMenu.classList.remove('translate-y-0');
-                document.body.style.overflow = '';
-            });
-        });
-
     </script>
 </body>
 </html>
