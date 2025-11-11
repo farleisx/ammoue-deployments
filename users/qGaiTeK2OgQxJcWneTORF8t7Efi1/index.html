@@ -4,447 +4,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isola d’Oro - Elite Private Island Resort</title>
-    <meta name="description" content="Experience unparalleled luxury at Isola d’Oro, an elite private island resort with exquisite villas, private dining, and yacht experiences. Your private sanctuary in paradise.">
-    <meta name="keywords" content="Isola d’Oro, luxury resort, private island, elite travel, high-end vacation, bespoke, exclusive getaway, villas, yacht charter, fine dining, tropical, paradise, serene, sophisticated">
+    <title>AquaFix Pro - 24/7 Emergency Plumbing Services | Fast & Reliable Local Plumbers</title>
+    <meta name="description" content="AquaFix Pro offers 24/7 emergency plumbing services, same-day repairs, and expert technicians. Your trusted local plumber for pipe leaks, drain unclogging, water heaters, and more. Licensed & Insured. Get a free quote today!">
+    <meta name="keywords" content="emergency plumber near me, local plumber, same day plumber, 24/7 plumbing, plumbing services, drain unclogging, water heater repair, pipe leak repair, AquaFix Pro, residential plumbing, commercial plumbing, Anytown plumbing">
+    <meta name="author" content="AquaFix Pro">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts: Playfair Display for headings, Lato for body -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoIF2RgV7rYd2M/SSz/x2+5tPz4g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Tailwind Custom Configuration -->
+    <!-- Google Fonts - Poppins (optional, but good for modern feel) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom Tailwind Configuration (optional, for specific colors or extensions) -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        gold: {
-                            50: '#fffdf6',
-                            100: '#fff9e6',
-                            200: '#fff0be',
-                            300: '#ffe396',
-                            400: '#ffd15c',
-                            500: '#e5b932', // Main gold
-                            600: '#cc9e28',
-                            700: '#99761e',
-                            800: '#664e14',
-                            900: '#33270a',
-                        },
-                        darkblue: '#0A1128', // A deep, rich blue for a luxurious base
+                        'primary-blue': '#1a75bc', // A deep blue
+                        'secondary-blue': '#155e97', // A slightly darker blue
+                        'light-gray': '#f5f5f5',
+                        'dark-gray': '#333333',
                     },
                     fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['Lato', 'sans-serif'],
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        }
-                    },
-                    animation: {
-                        fadeInUp: 'fadeInUp 1s ease-out forwards',
-                        fadeIn: 'fadeIn 1s ease-out forwards',
+                        sans: ['Poppins', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
 
-    <!-- Custom CSS for cinematic effects, parallax, and scrollbar -->
-    <style>
-        /* Ensures the hero video covers the entire viewport */
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1; /* Place video behind content */
-        }
-        
-        /* For a subtle parallax effect on background images */
-        .parallax-bg {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        /* Custom scrollbar for a sleeker, high-end look */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0A1128; /* darkblue */
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #e5b932; /* gold-500 */
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #cc9e28; /* gold-600 */
-        }
-
-        /* Styles for elegant fade-in-up animations on scroll */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .animate-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Specific style for a full-width video in content sections */
-        .full-width-content-video {
-            position: relative;
-            width: 100%;
-            height: 0; /* Control height via padding-bottom for aspect ratio */
-            padding-bottom: 56.25%; /* 16:9 aspect ratio (height / width * 100) */
-            overflow: hidden;
-            background: #000; /* Fallback for slow loading video */
-        }
-        .full-width-content-video video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Adjust input date picker color for dark theme */
-        input[type="date"] {
-            color-scheme: dark; /* Improves appearance of date picker in dark mode */
-        }
-    </style>
+    <!-- Local Business Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "LocalBusiness",
+      "name": "AquaFix Pro Plumbing Services",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Main Street",
+        "addressLocality": "Anytown",
+        "addressRegion": "CA",
+        "postalCode": "90210",
+        "addressCountry": "US"
+      },
+      "telephone": "+1-800-AQUAFX",
+      "url": "https://www.aquafixpro.com",
+      "openingHours": "Mo-Su 00:00-23:59",
+      "hasMap": "https://www.google.com/maps/place/Anytown,CA",
+      "priceRange": "$$",
+      "image": "https://www.aquafixpro.com/logo.png",
+      "description": "AquaFix Pro offers 24/7 emergency plumbing services, same-day repairs, and expert technicians for all your residential and commercial plumbing needs. Licensed & Insured.",
+      "sameAs": [
+        "https://www.facebook.com/aquafixpro",
+        "https://twitter.com/aquafixpro"
+      ],
+      "areaServed": {
+        "@type": "State",
+        "name": "California"
+      },
+      "serviceType": ["Plumbing", "Emergency Plumbing", "Drain Cleaning", "Water Heater Repair", "Sewer Line Repair", "Toilet Repair", "Sink Repair"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "250"
+      }
+    }
+    </script>
 </head>
-<body class="font-sans text-white bg-darkblue">
+<body class="font-sans text-dark-gray bg-white">
 
-    <!-- Header / Navigation -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-darkblue bg-opacity-80 backdrop-blur-sm shadow-lg">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-3xl font-serif font-bold text-gold-500 tracking-wider">Isola d’Oro</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="text-lg text-white hover:text-gold-500 transition duration-300">About</a>
-                <a href="#villas" class="text-lg text-white hover:text-gold-500 transition duration-300">Villas</a>
-                <a href="#dining" class="text-lg text-white hover:text-gold-500 transition duration-300">Dining</a>
-                <a href="#yachts" class="text-lg text-white hover:text-gold-500 transition duration-300">Yachts</a>
-                <a href="#contact" class="text-lg text-white hover:text-gold-500 transition duration-300">Contact</a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-label="Open mobile menu">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
-        </nav>
-        <!-- Mobile Menu (hidden by default) -->
-        <div id="mobile-menu" class="md:hidden hidden bg-darkblue bg-opacity-95 py-4 transition-all duration-300 ease-in-out">
-            <a href="#about" class="block px-6 py-3 text-lg text-white hover:text-gold-500 transition duration-300">About</a>
-            <a href="#villas" class="block px-6 py-3 text-lg text-white hover:text-gold-500 transition duration-300">Villas</a>
-            <a href="#dining" class="block px-6 py-3 text-lg text-white hover:text-gold-500 transition duration-300">Dining</a>
-            <a href="#yachts" class="block px-6 py-3 text-lg text-white hover:text-gold-500 transition duration-300">Yachts</a>
-            <a href="#contact" class="block px-6 py-3 text-lg text-white hover:text-gold-500 transition duration-300">Contact</a>
+    <!-- Sticky Header -->
+    <header class="fixed top-0 left-0 right-0 bg-primary-blue text-white shadow-lg z-50 py-4 px-6 md:px-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl md:text-3xl font-extrabold tracking-tight">AquaFix <span class="text-white">Pro</span></a>
+            <a href="tel:+1800AQUAFX" class="bg-white text-primary-blue py-2 px-5 rounded-full font-semibold hover:bg-gray-100 transition duration-300 ease-in-out shadow-md flex items-center">
+                <i class="fas fa-phone-alt mr-2 text-lg"></i> <span class="hidden sm:inline">Call Now: </span> 1-800-AQUAFX
+            </a>
         </div>
     </header>
 
-    <!-- Hero Section with Background Video -->
-    <section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
-        <video class="hero-video" autoplay loop muted playsinline aria-label="Ocean waves gently crashing on a pristine beach">
-            <source src="https://videos.pexels.com/video-files/6263486/6263486-hd_1280_720_25fps.mp4" type="video/mp4">
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="https://videos.pexels.com/video-files/15959642/15959642-uhd_2560_1440_60fps.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <div class="absolute inset-0 bg-black opacity-60"></div>
-        <div class="relative z-10 p-4 animate-[fadeInUp_1.5s_ease-out_forwards_0.5s]">
-            <h1 class="text-6xl md:text-8xl font-serif text-gold-500 mb-4 drop-shadow-lg" style="animation-delay: 0.5s;">Isola d’Oro</h1>
-            <p class="text-xl md:text-3xl font-sans text-white mb-8 drop-shadow-md" style="animation-delay: 1s;">Your Private Sanctuary in Paradise</p>
-            <a href="#villas" class="inline-block bg-gold-500 text-darkblue text-lg md:text-xl font-bold px-8 py-4 rounded-full hover:bg-gold-600 transition duration-300 transform hover:scale-105" style="animation-delay: 1.5s;">Explore Villas</a>
+        <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+        <div class="relative z-20 text-white p-6 max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+                Fast & Reliable Plumbing Services You Can Count On.
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 font-light">
+                24/7 Emergency Repairs | Same-Day Service | Licensed & Insured
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="tel:+1800AQUAFX" class="bg-primary-blue text-white py-4 px-8 rounded-full text-xl font-bold hover:bg-secondary-blue transition duration-300 ease-in-out shadow-lg transform hover:scale-105">
+                    <i class="fas fa-phone-alt mr-3"></i> Call Now
+                </a>
+                <a href="#contact" class="bg-white text-primary-blue py-4 px-8 rounded-full text-xl font-bold hover:bg-gray-200 transition duration-300 ease-in-out shadow-lg transform hover:scale-105">
+                    <i class="fas fa-file-invoice-dollar mr-3"></i> Get a Free Quote
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- About Isola d’Oro Section -->
-    <section id="about" class="relative py-24 md:py-32 bg-cover bg-center parallax-bg animate-on-scroll" style="background-image: url('https://images.pexels.com/photos/6263153/pexels-photo-6263153.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');">
-        <div class="absolute inset-0 bg-darkblue opacity-70"></div>
-        <div class="container mx-auto px-6 relative z-10 text-center max-w-4xl">
-            <h2 class="text-5xl font-serif text-gold-500 mb-8 animate-fadeInUp">Welcome to Isola d’Oro</h2>
-            <p class="text-lg md:text-xl font-sans text-white leading-relaxed mb-6 animate-fadeInUp" style="animation-delay: 0.2s;">
-                Nestled amidst the azure embrace of the Indian Ocean, Isola d’Oro is more than a resort—it is a private masterpiece. Crafted for the discerning few, our island offers an sanctuary where time slows, luxury is boundless, and every desire is anticipated. Experience bespoke service, breathtaking natural beauty, and the unparalleled elegance that defines true escape.
-            </p>
-            <p class="text-lg md:text-xl font-sans text-white leading-relaxed animate-fadeInUp" style="animation-delay: 0.4s;">
-                From the whisper of the waves against your private villa to the curated culinary journeys and thrilling yacht expeditions, Isola d’Oro promises an unforgettable symphony of exclusivity and serenity.
-            </p>
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="py-16 md:py-24 bg-light-gray">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-primary-blue">Why Choose AquaFix Pro?</h2>
+
+            <!-- Trust Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 max-w-5xl mx-auto">
+                <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <i class="fas fa-certificate text-5xl text-primary-blue mb-4"></i>
+                    <p class="font-semibold text-lg">Licensed & Insured</p>
+                </div>
+                <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <i class="fas fa-hourglass-half text-5xl text-primary-blue mb-4"></i>
+                    <p class="font-semibold text-lg">10+ Years Experience</p>
+                </div>
+                <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <i class="fas fa-star text-5xl text-primary-blue mb-4"></i>
+                    <p class="font-semibold text-lg">5-Star Rated</p>
+                </div>
+                <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <i class="fas fa-shield-alt text-5xl text-primary-blue mb-4"></i>
+                    <p class="font-semibold text-lg">Guaranteed Work</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
+                <div class="text-left md:pr-8">
+                    <ul class="space-y-6 text-lg">
+                        <li class="flex items-start">
+                            <i class="fas fa-clock text-primary-blue text-2xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-xl mb-1">Rapid 24/7 Emergency Response</h3>
+                                <p>Plumbing emergencies don't wait, and neither do we. We're available day and night to fix your urgent issues.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-hand-holding-usd text-primary-blue text-2xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-xl mb-1">Upfront Transparent Pricing</h3>
+                                <p>No hidden fees, no surprises. You'll know the cost before we start, every time.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-hard-hat text-primary-blue text-2xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-xl mb-1">Certified & Experienced Technicians</h3>
+                                <p>Our team consists of highly trained, licensed, and experienced professionals dedicated to quality workmanship.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-wrench text-primary-blue text-2xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-xl mb-1">Guaranteed Quality Work</h3>
+                                <p>We stand behind our services with a solid guarantee, ensuring your peace of mind.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative rounded-lg overflow-hidden shadow-xl">
+                    <img src="https://images.pexels.com/photos/8486978/pexels-photo-8486978.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Professional plumber working on pipes" class="w-full h-80 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                </div>
+            </div>
+            <div class="mt-12">
+                <a href="#contact" class="bg-primary-blue text-white py-3 px-7 rounded-full text-lg font-bold hover:bg-secondary-blue transition duration-300 ease-in-out shadow-lg transform hover:scale-105">
+                    <i class="fas fa-calendar-check mr-3"></i> Book Your Service
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Villa Suites Section -->
-    <section id="villas" class="py-24 md:py-32 bg-darkblue animate-on-scroll">
+    <!-- List of Services -->
+    <section id="services" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-primary-blue">Our Expert Plumbing Services</h2>
+            <p class="text-lg mb-12 max-w-3xl mx-auto">AquaFix Pro provides a full range of residential and commercial plumbing solutions. No job is too big or small for our certified experts.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Service Card 1 -->
+                <div class="bg-light-gray p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <i class="fas fa-faucet text-5xl text-primary-blue mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Pipe Leaks & Repairs</h3>
+                    <p class="text-gray-700">From minor drips to burst pipes, we diagnose and fix all types of pipe leaks quickly and efficiently.</p>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="bg-light-gray p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <i class="fas fa-drain text-5xl text-primary-blue mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Drain Unclogging</h3>
+                    <p class="text-gray-700">Clear any blockage with our professional drain cleaning services, restoring proper flow to your plumbing.</p>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="bg-light-gray p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <i class="fas fa-toilet text-5xl text-primary-blue mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Toilet / Sink Repair & Installation</h3>
+                    <p class="text-gray-700">Expert repair and seamless installation for all your toilet and sink fixtures.</p>
+                </div>
+                <!-- Service Card 4 -->
+                <div class="bg-light-gray p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <i class="fas fa-dumpster-fire text-5xl text-primary-blue mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Sewer Line Repair</h3>
+                    <p class="text-gray-700">Comprehensive sewer line inspection, repair, and replacement services to prevent major issues.</p>
+                </div>
+                <!-- Service Card 5 -->
+                <div class="bg-light-gray p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <i class="fas fa-water text-5xl text-primary-blue mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Water Heater Services</h3>
+                    <p class="text-gray-700">Installation, repair, and maintenance for traditional and tankless water heaters.</p>
+                </div>
+                <!-- Service Card 6 -->
+                <div class="bg-light-gray p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <i class="fas fa-bath text-5xl text-primary-blue mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Kitchen & Bathroom Plumbing</h3>
+                    <p class="text-gray-700">From leaky faucets to full fixture installations, we handle all your kitchen and bathroom plumbing needs.</p>
+                </div>
+            </div>
+            <div class="mt-12">
+                <a href="tel:+1800AQUAFX" class="bg-primary-blue text-white py-4 px-8 rounded-full text-xl font-bold hover:bg-secondary-blue transition duration-300 ease-in-out shadow-lg transform hover:scale-105">
+                    <i class="fas fa-phone-alt mr-3"></i> Call for Immediate Service
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Area Section -->
+    <section id="service-area" class="relative py-20 md:py-32 bg-gray-800 text-white overflow-hidden">
+        <img src="https://images.pexels.com/photos/29226620/pexels-photo-29226620.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Cityscape background for service area" class="absolute inset-0 w-full h-full object-cover opacity-30 z-0">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-blue/70 to-secondary-blue/70 z-10"></div>
+        <div class="container mx-auto px-6 text-center relative z-20">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Proudly Serving Your Local Community</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                AquaFix Pro is your local plumber in [Your City/Region]. We offer fast, reliable service with quick arrival times to solve your plumbing emergencies.
+            </p>
+            <div class="mb-10">
+                <a href="#contact" class="bg-white text-primary-blue py-3 px-7 rounded-full text-lg font-bold hover:bg-gray-200 transition duration-300 ease-in-out shadow-lg transform hover:scale-105">
+                    <i class="fas fa-map-marker-alt mr-3"></i> See Our Service Map
+                </a>
+            </div>
+            <!-- Additional Video Integration (optional) -->
+            <div class="max-w-xl mx-auto rounded-lg overflow-hidden shadow-xl border-4 border-white">
+                <video controls preload="none" poster="https://images.pexels.com/photos/8486927/pexels-photo-8486927.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="w-full">
+                    <source src="https://videos.pexels.com/video-files/8293017/8293017-sd_640_360_30fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p class="text-sm mt-4 italic">Meet our friendly team and learn more about our commitment to your community.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-primary-blue">What Our Customers Say</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="bg-light-gray p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"AquaFix Pro saved us! Our water heater burst late at night, and they were here within the hour. Professional, quick, and very transparent pricing. Highly recommend!"</p>
+                    <p class="font-semibold text-primary-blue">- Sarah J., Homeowner</p>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-light-gray p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                        <i class="fas fa-star-half-alt text-yellow-400 text-xl"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"Great service from start to finish. Had a clogged main drain, and they cleared it efficiently without any mess. The technician was friendly and explained everything."</p>
+                    <p class="font-semibold text-primary-blue">- Mark D., Property Manager</p>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-light-gray p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"AquaFix Pro installed our new sink and garbage disposal. The work was flawless, and they were very respectful of our home. Will definitely use them again for future needs!"</p>
+                    <p class="font-semibold text-primary-blue">- Emily R., Renter</p>
+                </div>
+            </div>
+            <div class="mt-12">
+                <a href="https://g.page/AquaFixPro?share" target="_blank" class="bg-primary-blue text-white py-3 px-7 rounded-full text-lg font-bold hover:bg-secondary-blue transition duration-300 ease-in-out shadow-lg transform hover:scale-105">
+                    <i class="fas fa-star mr-3"></i> Read More Reviews on Google
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offer Banner -->
+    <section id="special-offer" class="py-16 md:py-20 bg-primary-blue text-white text-center">
         <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-serif text-center text-gold-500 mb-16 animate-fadeInUp">Our Exquisite Villa Suites</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                <!-- Villa Card 1 -->
-                <div class="bg-darkblue border border-gold-700 shadow-xl rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 animate-fadeInUp" style="animation-delay: 0.2s;">
-                    <img src="https://images.pexels.com/photos/6102181/pexels-photo-6102181.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Oceanfront Grand Villa with private pool" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="p-8">
-                        <h3 class="text-3xl font-serif text-gold-500 mb-4">Oceanfront Grand Villa</h3>
-                        <p class="text-white text-lg font-sans mb-4">Experience panoramic ocean views from your expansive private terrace. Featuring multiple bedrooms, a private infinity pool, and dedicated butler service.</p>
-                        <ul class="list-disc list-inside text-white text-md mb-6 opacity-80">
-                            <li>3 Bedrooms, 4 Baths</li>
-                            <li>Private Infinity Pool</li>
-                            <li>Personal Butler Service</li>
-                            <li>Direct Beach Access</li>
-                        </ul>
-                        <a href="#contact" class="inline-block bg-gold-500 text-darkblue text-md font-bold px-6 py-3 rounded-full hover:bg-gold-600 transition duration-300">Inquire Now</a>
-                    </div>
-                </div>
-
-                <!-- Villa Card 2 -->
-                <div class="bg-darkblue border border-gold-700 shadow-xl rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 animate-fadeInUp" style="animation-delay: 0.4s;">
-                    <img src="https://images.pexels.com/photos/6263100/pexels-photo-6263100.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Lagoon Water Villa over turquoise waters" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="p-8">
-                        <h3 class="text-3xl font-serif text-gold-500 mb-4">Lagoon Water Villa</h3>
-                        <p class="text-white text-lg font-sans mb-4">Perched over the serene turquoise lagoon, offering direct access to the crystal-clear waters and unmatched privacy.</p>
-                        <ul class="list-disc list-inside text-white text-md mb-6 opacity-80">
-                            <li>2 Bedrooms, 3 Baths</li>
-                            <li>Glass Floor Panels</li>
-                            <li>Outdoor Shower</li>
-                            <li>Overwater Deck</li>
-                        </ul>
-                        <a href="#contact" class="inline-block bg-gold-500 text-darkblue text-md font-bold px-6 py-3 rounded-full hover:bg-gold-600 transition duration-300">Inquire Now</a>
-                    </div>
-                </div>
-
-                <!-- Villa Card 3 -->
-                <div class="bg-darkblue border border-gold-700 shadow-xl rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 animate-fadeInUp" style="animation-delay: 0.6s;">
-                    <img src="https://images.pexels.com/photos/3856051/pexels-photo-3856051.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Secluded Island Retreat Villa in lush gardens" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="p-8">
-                        <h3 class="text-3xl font-serif text-gold-500 mb-4">Island Retreat Villa</h3>
-                        <p class="text-white text-lg font-sans mb-4">A secluded haven amidst lush tropical gardens, providing ultimate tranquility and an intimate connection with nature.</p>
-                        <ul class="list-disc list-inside text-white text-md mb-6 opacity-80">
-                            <li>1 Bedroom, 2 Baths</li>
-                            <li>Private Garden & Plunge Pool</li>
-                            <li>Outdoor Living Area</li>
-                            <li>Ultimate Seclusion</li>
-                        </ul>
-                        <a href="#contact" class="inline-block bg-gold-500 text-darkblue text-md font-bold px-6 py-3 rounded-full hover:bg-gold-600 transition duration-300">Inquire Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Immersive Video Section with Text Overlay -->
-    <section class="full-width-content-video animate-on-scroll">
-        <video autoplay loop muted playsinline aria-label="Slow motion video of ocean waves">
-            <source src="https://videos.pexels.com/video-files/6262804/6262804-uhd_2160_3840_25fps.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="absolute inset-0 bg-black opacity-40"></div>
-        <div class="absolute inset-0 flex items-center justify-center p-6 text-center z-10">
-            <div class="max-w-3xl animate-[fadeIn_1.5s_ease-out_forwards_0.5s]">
-                <h2 class="text-5xl md:text-6xl font-serif text-gold-500 mb-6 drop-shadow-lg">Moments Beyond Imagination</h2>
-                <p class="text-xl md:text-2xl font-sans text-white leading-relaxed drop-shadow-lg">
-                    Every sunrise at Isola d’Oro paints a new masterpiece, inviting you to discover experiences crafted with passion and precision.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Private Dining Section -->
-    <section id="dining" class="py-24 md:py-32 bg-darkblue animate-on-scroll">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-serif text-center text-gold-500 mb-16 animate-fadeInUp">Exquisite Private Dining</h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="lg:order-2 animate-fadeInUp" style="animation-delay: 0.2s;">
-                    <img src="https://images.pexels.com/photos/3747396/pexels-photo-3747396.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Romantic private beach dinner setup" class="rounded-lg shadow-xl w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500 border border-gold-700">
-                </div>
-                <div class="lg:order-1 text-center lg:text-left animate-fadeInUp" style="animation-delay: 0.4s;">
-                    <h3 class="text-4xl font-serif text-gold-500 mb-6">Culinary Journeys Await</h3>
-                    <p class="text-white text-lg font-sans leading-relaxed mb-6">
-                        At Isola d’Oro, dining is an art form. Our world-class chefs curate personalized menus, transforming the freshest local ingredients into gastronomic delights. Choose from intimate beachside dinners, gourmet experiences in your private villa, or elegant feasts under the stars.
-                    </p>
-                    <p class="text-white text-lg font-sans leading-relaxed mb-6">
-                        Each meal is a celebration, meticulously prepared to your preferences, ensuring every bite is as memorable as the setting.
-                    </p>
-                    <a href="#contact" class="inline-block bg-gold-500 text-darkblue text-lg font-bold px-8 py-4 rounded-full hover:bg-gold-600 transition duration-300">Reserve Your Table</a>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-24">
-                <div class="animate-fadeInUp" style="animation-delay: 0.6s;">
-                    <img src="https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Elegantly set dining table with fine cutlery and flowers" class="rounded-lg shadow-xl w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500 border border-gold-700">
-                </div>
-                <div class="text-center lg:text-left animate-fadeInUp" style="animation-delay: 0.8s;">
-                    <h3 class="text-4xl font-serif text-gold-500 mb-6">Personalized Gastronomy</h3>
-                    <p class="text-white text-lg font-sans leading-relaxed mb-6">
-                        From sunrise breakfasts served on your private balcony to bespoke tasting menus featuring rare vintages, our culinary team caters to your every whim. Dietary preferences and special requests are not just accommodated, but celebrated, creating truly unique dining moments.
-                    </p>
-                    <a href="#contact" class="inline-block bg-gold-500 text-darkblue text-lg font-bold px-8 py-4 rounded-full hover:bg-gold-600 transition duration-300">Tailor Your Experience</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Yacht Experiences Section -->
-    <section id="yachts" class="relative py-24 md:py-32 bg-cover bg-center parallax-bg animate-on-scroll" style="background-image: url('https://images.pexels.com/photos/6262839/pexels-photo-6262839.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');">
-        <div class="absolute inset-0 bg-darkblue opacity-70"></div>
-        <div class="container mx-auto px-6 relative z-10 text-center max-w-4xl">
-            <h2 class="text-5xl font-serif text-gold-500 mb-8 animate-fadeInUp">Seamless Yacht Experiences</h2>
-            <p class="text-lg md:text-xl font-sans text-white leading-relaxed mb-6 animate-fadeInUp" style="animation-delay: 0.2s;">
-                Discover the untouched beauty of the surrounding archipelago aboard our fleet of luxury yachts. From sunset cruises and snorkeling expeditions to private island hopping and deep-sea fishing, every journey is tailored to your desires.
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-4 animate-pulse">Exclusive Offer!</h2>
+            <p class="text-2xl md:text-4xl font-semibold mb-8">
+                <span class="block mb-2">$49 Service Call Fee</span>
+                <span class="block">– Waived With Any Repair!</span>
             </p>
-            <p class="text-lg md:text-xl font-sans text-white leading-relaxed mb-6 animate-fadeInUp" style="animation-delay: 0.4s;">
-                Our experienced crew ensures your comfort and safety, providing an unparalleled maritime adventure. Indulge in gourmet meals on deck and sip champagne as the sun dips below the horizon.
-            </p>
-            <a href="#contact" class="inline-block bg-gold-500 text-darkblue text-lg md:text-xl font-bold px-8 py-4 rounded-full hover:bg-gold-600 transition duration-300 animate-fadeInUp" style="animation-delay: 0.6s;">Book Your Voyage</a>
+            <a href="tel:+1800AQUAFX" class="bg-white text-primary-blue py-5 px-10 rounded-full text-2xl font-bold hover:bg-gray-200 transition duration-300 ease-in-out shadow-xl transform hover:scale-105 animate-bounce">
+                <i class="fas fa-tag mr-3"></i> Claim Your Offer Now!
+            </a>
+            <p class="text-md mt-6 italic">Limited time offer. Terms and conditions apply.</p>
         </div>
     </section>
 
-    <!-- Call to Action / Gallery Section -->
-    <section class="py-24 md:py-32 bg-darkblue animate-on-scroll">
+    <!-- Booking & Contact Form -->
+    <section id="contact" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-serif text-center text-gold-500 mb-16 animate-fadeInUp">Unforgettable Moments</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="overflow-hidden rounded-lg shadow-xl group animate-fadeInUp" style="animation-delay: 0.2s;">
-                    <img src="https://images.pexels.com/photos/1121123/pexels-photo-1121123.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Luxurious hotel interior with artistic decor" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500 border border-gold-700">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-xl group animate-fadeInUp" style="animation-delay: 0.4s;">
-                    <img src="https://images.pexels.com/photos/19599230/pexels-photo-19599230.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Resort pool area with comfortable loungers" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500 border border-gold-700">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-xl group animate-fadeInUp" style="animation-delay: 0.6s;">
-                    <img src="https://images.pexels.com/photos/6263108/pexels-photo-6263108.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Stunning tropical sunset over the ocean" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500 border border-gold-700">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-xl group animate-fadeInUp" style="animation-delay: 0.8s;">
-                    <img src="https://images.pexels.com/photos/6263153/pexels-photo-6263153.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Serene view from a luxurious spa or lounge" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500 border border-gold-700">
-                </div>
-            </div>
-            <div class="text-center mt-16 animate-fadeInUp" style="animation-delay: 1s;">
-                <a href="#contact" class="inline-block bg-gold-500 text-darkblue text-lg md:text-xl font-bold px-8 py-4 rounded-full hover:bg-gold-600 transition duration-300 transform hover:scale-105">Plan Your Escape</a>
-            </div>
-        </div>
-    </section>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary-blue text-center">Schedule Your Service</h2>
+            <p class="text-lg text-gray-700 mb-10 text-center max-w-2xl mx-auto">
+                Need a plumber fast? Fill out the form below, and we'll get back to you within minutes. For immediate emergencies, please call us directly!
+            </p>
 
-    <!-- Contact / Reservation Section -->
-    <section id="contact" class="py-24 md:py-32 bg-darkblue animate-on-scroll">
-        <div class="container mx-auto px-6 max-w-2xl">
-            <h2 class="text-5xl font-serif text-center text-gold-500 mb-16 animate-fadeInUp">Inquire & Reserve Your Stay</h2>
-            
-            <form class="space-y-8 p-8 md:p-12 bg-darkblue border border-gold-500 rounded-lg shadow-2xl animate-fadeInUp" style="animation-delay: 0.2s;">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="max-w-3xl mx-auto bg-light-gray p-8 rounded-lg shadow-xl border-t-4 border-primary-blue">
+                <form class="space-y-6">
                     <div>
-                        <label for="name" class="block text-gold-500 text-lg font-sans mb-2">Full Name</label>
-                        <input type="text" id="name" name="name" class="w-full p-4 bg-darkblue border border-gold-400 rounded-md focus:ring-2 focus:ring-gold-500 outline-none text-white text-lg placeholder-gray-500" placeholder="John Doe" required>
+                        <label for="name" class="block text-lg font-medium text-dark-gray mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded-md focus:ring-primary-blue focus:border-primary-blue" placeholder="John Doe" required>
                     </div>
                     <div>
-                        <label for="email" class="block text-gold-500 text-lg font-sans mb-2">Email Address</label>
-                        <input type="email" id="email" name="email" class="w-full p-4 bg-darkblue border border-gold-400 rounded-md focus:ring-2 focus:ring-gold-500 outline-none text-white text-lg placeholder-gray-500" placeholder="john.doe@example.com" required>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <label for="checkin" class="block text-gold-500 text-lg font-sans mb-2">Check-in Date</label>
-                        <input type="date" id="checkin" name="checkin" class="w-full p-4 bg-darkblue border border-gold-400 rounded-md focus:ring-2 focus:ring-gold-500 outline-none text-white text-lg" required>
+                        <label for="phone" class="block text-lg font-medium text-dark-gray mb-2">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="w-full p-3 border border-gray-300 rounded-md focus:ring-primary-blue focus:border-primary-blue" placeholder="(123) 456-7890" required>
                     </div>
                     <div>
-                        <label for="checkout" class="block text-gold-500 text-lg font-sans mb-2">Check-out Date</label>
-                        <input type="date" id="checkout" name="checkout" class="w-full p-4 bg-darkblue border border-gold-400 rounded-md focus:ring-2 focus:ring-gold-500 outline-none text-white text-lg" required>
+                        <label for="address" class="block text-lg font-medium text-dark-gray mb-2">Service Address</label>
+                        <input type="text" id="address" name="address" class="w-full p-3 border border-gray-300 rounded-md focus:ring-primary-blue focus:border-primary-blue" placeholder="123 Main St, Anytown, CA" required>
                     </div>
-                </div>
-
-                <div>
-                    <label for="guests" class="block text-gold-500 text-lg font-sans mb-2">Number of Guests</label>
-                    <input type="number" id="guests" name="guests" min="1" max="10" class="w-full p-4 bg-darkblue border border-gold-400 rounded-md focus:ring-2 focus:ring-gold-500 outline-none text-white text-lg placeholder-gray-500" placeholder="2" required>
-                </div>
-                
-                <div>
-                    <label for="message" class="block text-gold-500 text-lg font-sans mb-2">Special Requests / Message</label>
-                    <textarea id="message" name="message" rows="5" class="w-full p-4 bg-darkblue border border-gold-400 rounded-md focus:ring-2 focus:ring-gold-500 outline-none text-white text-lg placeholder-gray-500" placeholder="Tell us about your preferences..."></textarea>
-                </div>
-                
-                <div class="text-center">
-                    <button type="submit" class="inline-block bg-gold-500 text-darkblue text-xl font-bold px-10 py-4 rounded-full hover:bg-gold-600 transition duration-300 transform hover:scale-105">Submit Inquiry</button>
-                </div>
-            </form>
+                    <div>
+                        <label for="problem" class="block text-lg font-medium text-dark-gray mb-2">Describe Your Plumbing Problem</label>
+                        <textarea id="problem" name="problem" rows="5" class="w-full p-3 border border-gray-300 rounded-md focus:ring-primary-blue focus:border-primary-blue" placeholder="e.g., Leaky faucet, clogged drain, no hot water..." required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary-blue text-white py-4 px-6 rounded-full text-xl font-bold hover:bg-secondary-blue transition duration-300 ease-in-out shadow-lg transform hover:scale-105">
+                        <i class="fas fa-paper-plane mr-3"></i> Send Request
+                    </button>
+                </form>
+                <p class="text-center text-gray-600 mt-6 text-md">We respond to online requests within minutes during business hours. For urgent needs, call us directly.</p>
+            </div>
+            <div class="mt-10 text-center">
+                <a href="tel:+1800AQUAFX" class="bg-primary-blue text-white py-3 px-7 rounded-full text-lg font-bold hover:bg-secondary-blue transition duration-300 ease-in-out shadow-lg transform hover:scale-105">
+                    <i class="fas fa-phone-alt mr-3"></i> Call Now: 1-800-AQUAFX
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-darkblue border-t border-gold-700 py-12 text-center">
-        <div class="container mx-auto px-6">
-            <p class="text-gold-500 text-3xl font-serif mb-4">Isola d’Oro</p>
-            <p class="text-white text-lg mb-6">&copy; 2023 Isola d’Oro. All rights reserved.</p>
-            <div class="flex justify-center space-x-6">
-                <a href="#" class="text-white hover:text-gold-500 transition duration-300" aria-label="Facebook">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-1.65.6-1.65h2.4V3h-3.61c-3.15 0-4.39 1.48-4.39 4.25v2.25H7v4h3v8h4v-8z"></path></svg>
+    <footer class="bg-dark-gray text-white py-12 md:py-16">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <!-- Company Info -->
+            <div>
+                <h3 class="text-2xl font-bold mb-4 text-primary-blue">AquaFix Pro</h3>
+                <p class="mb-2">Your Reliable Local Plumbers</p>
+                <p class="mb-2">123 Main Street, Anytown, CA 90210</p>
+                <a href="tel:+1800AQUAFX" class="text-lg font-semibold hover:text-primary-blue transition-colors duration-300 flex items-center justify-center md:justify-start mb-2">
+                    <i class="fas fa-phone-alt mr-2"></i> 1-800-AQUAFX
                 </a>
-                <a href="#" class="text-white hover:text-gold-500 transition duration-300" aria-label="Instagram">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm-.2 2A4.8 4.8 0 0 0 4 7.8v8.4c0 2.2 1.8 4 4 4h8.4c2.2 0 4-1.8 4-4V7.8c0-2.2-1.8-4-4-4H7.6zm9.6 0a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 2c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"></path></svg>
-                </a>
-                <a href="#" class="text-white hover:text-gold-500 transition duration-300" aria-label="Twitter">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.46 6c-.8.36-1.66.6-2.58.7.94-.56 1.66-1.44 2-2.5a4.34 4.34 0 0 1-2.73 1.04 4.3 4.3 0 0 0-7.38 3.93c-3.6-.18-6.8-1.9-8.94-4.57-.4.68-.64 1.48-.64 2.34 0 1.6.82 3 2.06 3.84a4.26 4.26 0 0 1-1.96-.54v.05c0 2.14 1.52 3.9 3.53 4.3-.37.1-.76.16-1.16.16-.28 0-.54-.02-.8-.08.56 1.76 2.18 3.04 4.1 3.07a8.7 8.7 0 0 1-5.4 1.86c-.36 0-.7-.02-1.04-.06 1.96 1.26 4.3 2 6.8 2 8.16 0 12.6-6.75 12.6-12.6 0-.2-.0-.4-.0-.6a9.07 9.07 0 0 0 2.22-2.3z"></path></svg>
+                <a href="mailto:info@aquafixpro.com" class="text-lg font-semibold hover:text-primary-blue transition-colors duration-300 flex items-center justify-center md:justify-start">
+                    <i class="fas fa-envelope mr-2"></i> info@aquafixpro.com
                 </a>
             </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 text-primary-blue">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#services" class="hover:text-primary-blue transition-colors duration-300">Our Services</a></li>
+                    <li><a href="#why-choose-us" class="hover:text-primary-blue transition-colors duration-300">Why Choose Us</a></li>
+                    <li><a href="#testimonials" class="hover:text-primary-blue transition-colors duration-300">Testimonials</a></li>
+                    <li><a href="#contact" class="hover:text-primary-blue transition-colors duration-300">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Operating Hours & Legal -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 text-primary-blue">Hours & Legal</h3>
+                <p class="mb-2"><strong>Operating Hours:</strong> 24/7 Emergency Service</p>
+                <ul class="space-y-2 mt-4">
+                    <li><a href="#" class="hover:text-primary-blue transition-colors duration-300">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-primary-blue transition-colors duration-300">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 text-center mt-12 pt-8 border-t border-gray-700">
+            <p>&copy; 2023 AquaFix Pro. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu and Scroll Animations -->
-    <script>
-        // Mobile Menu Toggle functionality
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when a navigation link is clicked (for smooth scroll)
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden'); // Hide menu
-            });
-        });
-
-        // Intersection Observer for elegant fade-in-up scroll animations
-        const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
-
-        const observerOptions = {
-            root: null, // Use the viewport as the container
-            rootMargin: '0px',
-            threshold: 0.1 // Trigger when 10% of the element is visible
-        };
-
-        const observerCallback = (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    // Stop observing once the element is visible to prevent re-triggering
-                    observer.unobserve(entry.target);
-                }
-            });
-        };
-
-        // Create and apply the Intersection Observer
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-        animateOnScrollElements.forEach(element => {
-            observer.observe(element);
-        });
-    </script>
 </body>
 </html>
 ```
