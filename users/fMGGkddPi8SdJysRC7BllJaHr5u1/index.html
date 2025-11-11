@@ -4,31 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avrahami Construction - Building Strength, Quality, and Trust</title>
-    <meta name="description" content="Avrahami Construction: Specializing in residential, commercial, renovations, and infrastructure projects. We build with integrity and deliver projects that stand the test of time.">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50%25' y='50%25' font-size='80' text-anchor='middle' dominant-baseline='central'%3E🏗️%3C/text%3E%3C/svg%3E">
-
+    <title>Valente Motors - Where Automotive Excellence Meets Prestige</title>
+    <meta name="description" content="Valente Motors: A private, invitation-only automotive dealership specializing in premium & exotic vehicles. Experience rarity, exclusivity, and luxury.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter for a modern, bold look -->
+    
+    <!-- Google Fonts: Playfair Display & Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Custom Tailwind Configuration -->
-    <script>
+    <!-- AOS (Animate On Scroll) CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom Tailwind Configuration */
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        'av-dark': '#1a1a1a',
-                        'av-gray': '#333333',
-                        'av-light-gray': '#cccccc',
-                        'av-accent': '#FFD700', // Gold-ish yellow
-                        'av-accent-dark': '#CCA700',
-                    },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        'graphite': '#1a1a1a', /* Darker graphite */
+                        'deep-gold': '#A07A00', /* A rich, deep gold */
+                        'accent-gold': '#D4AF37', /* A brighter gold for highlights */
                     },
                     keyframes: {
                         fadeInUp: {
@@ -41,348 +44,428 @@
                         }
                     },
                     animation: {
-                        fadeInUp: 'fadeInUp 0.7s ease-out forwards',
-                        fadeIn: 'fadeIn 1s ease-out forwards',
+                        fadeInUp: 'fadeInUp 0.8s ease-out',
+                        fadeIn: 'fadeIn 0.6s ease-out',
                     }
                 }
             }
         }
-    </script>
-    <style>
-        /* Custom scrollbar for a cleaner look */
+
+        /* General Body Styling & Scroll Behavior */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0d0d0d; /* Very dark background */
+            color: #e0e0e0;
+        }
+
+        /* Custom Scrollbar (optional, for aesthetics) */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 10px;
         }
         ::-webkit-scrollbar-track {
-            background: #333;
+            background: #1a1a1a;
         }
         ::-webkit-scrollbar-thumb {
-            background: #555;
-            border-radius: 4px;
+            background: #4a4a4a;
+            border-radius: 5px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #777;
+            background: #6a6a6a;
         }
-        /* Styling for the hero video overlay */
-        .hero-overlay {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%);
+
+        /* Parallax-like effect for background images/videos */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
-        /* Specific animations for elements as they enter viewport (JS-driven, but pre-styled here) */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        
+        /* Ensure video background fills container correctly */
+        .hero-video {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Ensure video is behind overlay */
         }
-        .animate-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+
+        /* Navbar dynamic background on scroll (using JS) */
+        .navbar-scrolled {
+            background-color: rgba(0, 0, 0, 0.9); /* Slightly transparent black */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .service-icon {
-            font-size: 3rem; /* Larger icons for services */
-            line-height: 1;
-            color: var(--av-accent); /* Use CSS variable for accent color */
-        }
+
     </style>
 </head>
-<body class="font-sans text-white bg-av-dark">
+<body class="font-montserrat">
 
-    <!-- Header / Navigation -->
-    <header class="bg-av-dark bg-opacity-90 fixed w-full z-50 shadow-lg">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-3xl font-extrabold text-av-accent uppercase tracking-wider">Avrahami</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-white hover:text-av-accent transition-colors duration-300 font-medium">Home</a>
-                <a href="#about" class="text-white hover:text-av-accent transition-colors duration-300 font-medium">About Us</a>
-                <a href="#services" class="text-white hover:text-av-accent transition-colors duration-300 font-medium">Services</a>
-                <a href="#projects" class="text-white hover:text-av-accent transition-colors duration-300 font-medium">Projects</a>
-                <a href="#testimonials" class="text-white hover:text-av-accent transition-colors duration-300 font-medium">Testimonials</a>
-                <a href="#contact" class="text-white hover:text-av-accent transition-colors duration-300 font-medium">Contact</a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4" id="navbar">
+        <nav class="container mx-auto flex justify-between items-center px-6">
+            <a href="#" class="text-3xl font-playfair font-bold text-accent-gold hover:text-deep-gold transition duration-300" aria-label="Valente Motors Home">Valente Motors</a>
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#about" class="text-gray-200 hover:text-accent-gold transition duration-300 text-lg font-semibold">About Us</a></li>
+                <li><a href="#vehicles" class="text-gray-200 hover:text-accent-gold transition duration-300 text-lg font-semibold">Vehicles</a></li>
+                <li><a href="#services" class="text-gray-200 hover:text-accent-gold transition duration-300 text-lg font-semibold">Services</a></li>
+                <li><a href="#contact" class="text-gray-200 hover:text-accent-gold transition duration-300 text-lg font-semibold">Contact</a></li>
+            </ul>
+            <button id="mobile-menu-button" class="md:hidden text-gray-200 focus:outline-none" aria-label="Toggle mobile menu">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
         </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-av-gray absolute w-full py-4 space-y-2 text-center shadow-lg">
-            <a href="#home" class="block py-2 text-white hover:bg-av-dark hover:text-av-accent transition-colors duration-300 font-medium">Home</a>
-            <a href="#about" class="block py-2 text-white hover:bg-av-dark hover:text-av-accent transition-colors duration-300 font-medium">About Us</a>
-            <a href="#services" class="block py-2 text-white hover:bg-av-dark hover:text-av-accent transition-colors duration-300 font-medium">Services</a>
-            <a href="#projects" class="block py-2 text-white hover:bg-av-dark hover:text-av-accent transition-colors duration-300 font-medium">Projects</a>
-            <a href="#testimonials" class="block py-2 text-white hover:bg-av-dark hover:text-av-accent transition-colors duration-300 font-medium">Testimonials</a>
-            <a href="#contact" class="block py-2 text-white hover:bg-av-dark hover:text-av-accent transition-colors duration-300 font-medium">Contact</a>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-black bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8 transform -translate-y-full transition-transform duration-300 ease-in-out">
+            <button id="close-mobile-menu" class="absolute top-6 right-6 text-gray-200 text-4xl focus:outline-none" aria-label="Close mobile menu">&times;</button>
+            <ul class="text-center">
+                <li><a href="#about" class="block text-gray-200 hover:text-accent-gold text-4xl font-playfair py-4 transition duration-300">About Us</a></li>
+                <li><a href="#vehicles" class="block text-gray-200 hover:text-accent-gold text-4xl font-playfair py-4 transition duration-300">Vehicles</a></li>
+                <li><a href="#services" class="block text-gray-200 hover:text-accent-gold text-4xl font-playfair py-4 transition duration-300">Services</a></li>
+                <li><a href="#contact" class="block text-gray-200 hover:text-accent-gold text-4xl font-playfair py-4 transition duration-300">Contact</a></li>
+            </ul>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
-            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
-                <source src="https://videos.pexels.com/video-files/34601048/14663908_640_360_60fps.mp4" type="video/mp4">
+        <section id="hero" class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+            <video autoplay loop muted playsinline class="hero-video">
+                <source src="https://videos.pexels.com/video-files/30418727/13035251_640_360_24fps.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="hero-overlay absolute inset-0 bg-black opacity-70"></div>
-            <div class="relative z-10 p-4 max-w-4xl animate-fadeInUp">
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-white mb-4 drop-shadow-lg uppercase tracking-wide">
-                    Avrahami Construction
-                </h1>
-                <p class="text-xl md:text-3xl font-medium text-av-light-gray mb-8 drop-shadow-md">
-                    Building Strength, Quality, and Trust.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a href="#projects" class="bg-av-accent hover:bg-av-accent-dark text-av-dark font-bold py-3 px-8 rounded-full text-lg shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
-                        Our Projects
-                    </a>
-                    <a href="#contact" class="bg-transparent border-2 border-white hover:border-av-accent text-white hover:text-av-accent font-bold py-3 px-8 rounded-full text-lg shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
-                        Get a Quote
-                    </a>
-                </div>
+            <div class="absolute inset-0 bg-black opacity-70 z-10"></div>
+            <div class="relative z-20 px-4" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-6xl md:text-8xl font-playfair font-bold text-accent-gold leading-tight mb-4 drop-shadow-lg">Valente Motors</h1>
+                <p class="text-xl md:text-3xl font-montserrat font-light text-gray-200 mb-10 tracking-wide">Where Automotive Excellence Meets Prestige</p>
+                <a href="#contact" class="inline-block bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-4 px-10 rounded-full text-lg uppercase tracking-wider shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">Schedule a Private Viewing</a>
             </div>
         </section>
 
         <!-- About Us Section -->
-        <section id="about" class="py-20 bg-av-gray text-center relative overflow-hidden">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-av-accent mb-12 animate-on-scroll">About Avrahami Construction</h2>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-12">
-                    <div class="md:w-1/2 text-left animate-on-scroll delay-100">
-                        <p class="text-lg md:text-xl leading-relaxed mb-8">
-                            Avrahami is a construction company committed to precision engineering, high-quality materials, and reliable execution. We build with integrity and deliver projects that stand the test of time, shaping skylines and communities with every structure we create. Our legacy is built on the strength of our work and the trust of our clients.
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-                            <div class="p-6 bg-av-dark rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll delay-200">
-                                <p class="text-5xl mb-4 text-av-accent">⭐</p>
-                                <h3 class="text-xl font-bold mb-2">Quality Workmanship</h3>
-                                <p class="text-av-light-gray">Uncompromising standards in every detail, ensuring lasting excellence.</p>
-                            </div>
-                            <div class="p-6 bg-av-dark rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll delay-300">
-                                <p class="text-5xl mb-4 text-av-accent">⏰</p>
-                                <h3 class="text-xl font-bold mb-2">On-Time Delivery</h3>
-                                <p class="text-av-light-gray">Efficient project management to meet deadlines without sacrificing quality.</p>
-                            </div>
-                            <div class="p-6 bg-av-dark rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll delay-400">
-                                <p class="text-5xl mb-4 text-av-accent">🛡️</p>
-                                <h3 class="text-xl font-bold mb-2">Certified & Insured Crew</h3>
-                                <p class="text-av-light-gray">Expert professionals ensuring safety, reliability, and peace of mind.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 mt-10 md:mt-0 animate-on-scroll delay-500">
-                        <img src="https://images.pexels.com/photos/34629416/pexels-photo-34629416.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Construction planning and safety gear" class="rounded-lg shadow-2xl w-full h-auto object-cover max-h-[500px]">
-                    </div>
-                </div>
+        <section id="about" class="relative py-20 md:py-32 bg-graphite text-gray-200 text-center parallax-bg" style="background-image: url('https://images.pexels.com/photos/16883139/pexels-photo-16883139.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'); background-position: center top;" >
+            <div class="absolute inset-0 bg-black opacity-80 z-0"></div>
+            <div class="relative container mx-auto px-6 max-w-5xl" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <h2 class="text-5xl font-playfair font-bold text-accent-gold mb-10 leading-tight">Our Legacy of Luxury</h2>
+                <p class="text-lg md:text-xl font-montserrat leading-relaxed mb-6">
+                    Valente Motors stands as a beacon of automotive excellence, an exclusive, invitation-only dealership dedicated to the connoisseurs of distinction. We meticulously curate a collection of the world's most desired premium and exotic vehicles, each a testament to unparalleled engineering and design.
+                </p>
+                <p class="text-lg md:text-xl font-montserrat leading-relaxed">
+                    Our discerning clientele understands that true luxury is defined by rarity, exceptional service, and an experience tailored to their exacting standards. At Valente Motors, we don't just sell cars; we facilitate the acquisition of automotive masterpieces.
+                </p>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services" class="py-20 bg-av-dark text-center">
+        <!-- Featured Vehicles Gallery -->
+        <section id="vehicles" class="py-20 md:py-32 bg-black text-gray-200">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-av-accent mb-16 animate-on-scroll">Our Expertise</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                    <div class="service-card p-8 bg-av-gray rounded-lg shadow-xl flex flex-col items-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll delay-100">
-                        <p class="service-icon text-av-accent mb-6">🏠</p>
-                        <h3 class="text-2xl font-bold mb-4 text-white">Residential Construction</h3>
-                        <p class="text-av-light-gray leading-relaxed">Crafting homes that inspire and endure, from custom builds to multi-family dwellings, designed for modern living.</p>
-                    </div>
-                    <div class="service-card p-8 bg-av-gray rounded-lg shadow-xl flex flex-col items-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll delay-200">
-                        <p class="service-icon text-av-accent mb-6">🏢</p>
-                        <h3 class="text-2xl font-bold mb-4 text-white">Commercial Buildings</h3>
-                        <p class="text-av-light-gray leading-relaxed">Developing robust and functional spaces for businesses, retail, industrial needs, and corporate headquarters.</p>
-                    </div>
-                    <div class="service-card p-8 bg-av-gray rounded-lg shadow-xl flex flex-col items-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll delay-300">
-                        <p class="service-icon text-av-accent mb-6">🛠️</p>
-                        <h3 class="text-2xl font-bold mb-4 text-white">Renovations & Additions</h3>
-                        <p class="text-av-light-gray leading-relaxed">Transforming existing structures with modern designs, enhanced functionality, and aesthetic upgrades.</p>
-                    </div>
-                    <div class="service-card p-8 bg-av-gray rounded-lg shadow-xl flex flex-col items-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll delay-400">
-                        <p class="service-icon text-av-accent mb-6">🏗️</p>
-                        <h3 class="text-2xl font-bold mb-4 text-white">Infrastructure & Heavy Work</h3>
-                        <p class="text-av-light-gray leading-relaxed">Executing large-scale projects, including public works, roads, bridges, and foundational structures with precision.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects / Portfolio Section -->
-        <section id="projects" class="py-20 bg-av-gray text-center">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-av-accent mb-16 animate-on-scroll">Our Landmark Projects</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="project-card relative group rounded-lg overflow-hidden shadow-xl animate-on-scroll delay-100">
-                        <img src="https://images.pexels.com/photos/6473973/pexels-photo-6473973.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Modern commercial building facade" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-av-dark bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <h3 class="text-2xl font-bold text-white p-4">City Tower Complex</h3>
+                <h2 class="text-5xl font-playfair font-bold text-accent-gold text-center mb-16" data-aos="fade-down" data-aos-duration="1000">Featured Vehicles</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <!-- Car Card 1 -->
+                    <div class="bg-graphite rounded-xl shadow-2xl overflow-hidden group hover:shadow-accent-gold/40 transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Red Ferrari 488 GTB" class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="p-6">
+                            <h3 class="text-3xl font-playfair text-accent-gold mb-2">Ferrari 488 GTB</h3>
+                            <p class="text-gray-400 text-md mb-3">2019</p>
+                            <p class="text-2xl font-montserrat font-semibold text-gray-50 mb-4">€ 285,000</p>
+                            <a href="#contact" class="block w-full text-center bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-3 rounded-full text-md uppercase transition duration-300">Request Availability</a>
                         </div>
                     </div>
-                    <div class="project-card relative group rounded-lg overflow-hidden shadow-xl animate-on-scroll delay-200">
-                        <img src="https://images.pexels.com/photos/6568691/pexels-photo-6568691.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Luxurious modern apartment interior" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-av-dark bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <h3 class="text-2xl font-bold text-white p-4">Luxury Residential Lofts</h3>
+                    <!-- Car Card 2 -->
+                    <div class="bg-graphite rounded-xl shadow-2xl overflow-hidden group hover:shadow-accent-gold/40 transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Yellow Porsche 911 Turbo S" class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="p-6">
+                            <h3 class="text-3xl font-playfair text-accent-gold mb-2">Porsche 911 Turbo S</h3>
+                            <p class="text-gray-400 text-md mb-3">2021</p>
+                            <p class="text-2xl font-montserrat font-semibold text-gray-50 mb-4">€ 250,000</p>
+                            <a href="#contact" class="block w-full text-center bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-3 rounded-full text-md uppercase transition duration-300">Request Availability</a>
                         </div>
                     </div>
-                    <div class="project-card relative group rounded-lg overflow-hidden shadow-xl animate-on-scroll delay-300">
-                        <img src="https://images.pexels.com/photos/8961066/pexels-photo-8961066.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Large-scale city construction site with cranes" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-av-dark bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <h3 class="text-2xl font-bold text-white p-4">Urban Redevelopment</h3>
+                    <!-- Car Card 3 -->
+                    <div class="bg-graphite rounded-xl shadow-2xl overflow-hidden group hover:shadow-accent-gold/40 transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.pexels.com/photos/16883139/pexels-photo-16883139.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Black Mercedes-Maybach S-Class" class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="p-6">
+                            <h3 class="text-3xl font-playfair text-accent-gold mb-2">Mercedes-Maybach S-Class</h3>
+                            <p class="text-gray-400 text-md mb-3">2022</p>
+                            <p class="text-2xl font-montserrat font-semibold text-gray-50 mb-4">€ 210,000</p>
+                            <a href="#contact" class="block w-full text-center bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-3 rounded-full text-md uppercase transition duration-300">Request Availability</a>
                         </div>
                     </div>
-                    <div class="project-card relative group rounded-lg overflow-hidden shadow-xl animate-on-scroll delay-400">
-                        <img src="https://images.pexels.com/photos/2036686/pexels-photo-2036686.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Construction crane against a blue sky" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-av-dark bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <h3 class="text-2xl font-bold text-white p-4">High-Rise Foundations</h3>
+                    <!-- Car Card 4 -->
+                    <div class="bg-graphite rounded-xl shadow-2xl overflow-hidden group hover:shadow-accent-gold/40 transition-shadow duration-300" data-aos="fade-up" data-aos-delay="400">
+                        <img src="https://images.pexels.com/photos/7144181/pexels-photo-7144181.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Orange Lamborghini Huracán" class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="p-6">
+                            <h3 class="text-3xl font-playfair text-accent-gold mb-2">Lamborghini Huracán</h3>
+                            <p class="text-gray-400 text-md mb-3">2020</p>
+                            <p class="text-2xl font-montserrat font-semibold text-gray-50 mb-4">€ 260,000</p>
+                            <a href="#contact" class="block w-full text-center bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-3 rounded-full text-md uppercase transition duration-300">Request Availability</a>
                         </div>
                     </div>
-                    <div class="project-card relative group rounded-lg overflow-hidden shadow-xl animate-on-scroll delay-500">
-                        <img src="https://images.pexels.com/photos/219542/pexels-photo-219542.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Home interior renovation in progress" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-av-dark bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <h3 class="text-2xl font-bold text-white p-4">Modern Home Renovation</h3>
+                    <!-- Car Card 5 -->
+                    <div class="bg-graphite rounded-xl shadow-2xl overflow-hidden group hover:shadow-accent-gold/40 transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.pexels.com/photos/2127012/pexels-photo-2127012.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Silver Rolls-Royce Phantom" class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="p-6">
+                            <h3 class="text-3xl font-playfair text-accent-gold mb-2">Rolls-Royce Phantom</h3>
+                            <p class="text-gray-400 text-md mb-3">2022</p>
+                            <p class="text-2xl font-montserrat font-semibold text-gray-50 mb-4">€ 520,000</p>
+                            <a href="#contact" class="block w-full text-center bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-3 rounded-full text-md uppercase transition duration-300">Request Availability</a>
                         </div>
                     </div>
-                    <div class="project-card relative group rounded-lg overflow-hidden shadow-xl animate-on-scroll delay-600">
-                        <img src="https://images.pexels.com/photos/7937963/pexels-photo-7937963.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Industrial construction site with heavy machinery" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-av-dark bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <h3 class="text-2xl font-bold text-white p-4">Industrial Park Expansion</h3>
+                    <!-- Car Card 6 -->
+                    <div class="bg-graphite rounded-xl shadow-2xl overflow-hidden group hover:shadow-accent-gold/40 transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.pexels.com/photos/2127039/pexels-photo-2127039.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="White Bentley Continental GT" class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="p-6">
+                            <h3 class="text-3xl font-playfair text-accent-gold mb-2">Bentley Continental GT</h3>
+                            <p class="text-gray-400 text-md mb-3">2021</p>
+                            <p class="text-2xl font-montserrat font-semibold text-gray-50 mb-4">€ 235,000</p>
+                            <a href="#contact" class="block w-full text-center bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-3 rounded-full text-md uppercase transition duration-300">Request Availability</a>
+                        </div>
+                    </div>
+                    <!-- Car Card 7 -->
+                    <div class="bg-graphite rounded-xl shadow-2xl overflow-hidden group hover:shadow-accent-gold/40 transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.pexels.com/photos/7144185/pexels-photo-7144185.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Blue McLaren 720S" class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="p-6">
+                            <h3 class="text-3xl font-playfair text-accent-gold mb-2">McLaren 720S</h3>
+                            <p class="text-gray-400 text-md mb-3">2020</p>
+                            <p class="text-2xl font-montserrat font-semibold text-gray-50 mb-4">€ 310,000</p>
+                            <a href="#contact" class="block w-full text-center bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-3 rounded-full text-md uppercase transition duration-300">Request Availability</a>
+                        </div>
+                    </div>
+                    <!-- Car Card 8 -->
+                    <div class="bg-graphite rounded-xl shadow-2xl overflow-hidden group hover:shadow-accent-gold/40 transition-shadow duration-300" data-aos="fade-up" data-aos-delay="400">
+                        <img src="https://images.pexels.com/photos/5058350/pexels-photo-5058350.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Dark Grey Aston Martin DBS Superleggera" class="w-full h-64 object-cover object-center transform group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="p-6">
+                            <h3 class="text-3xl font-playfair text-accent-gold mb-2">Aston Martin DBS Superleggera</h3>
+                            <p class="text-gray-400 text-md mb-3">2019</p>
+                            <p class="text-2xl font-montserrat font-semibold text-gray-50 mb-4">€ 295,000</p>
+                            <a href="#contact" class="block w-full text-center bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-3 rounded-full text-md uppercase transition duration-300">Request Availability</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Client Testimonials Section -->
-        <section id="testimonials" class="py-20 bg-av-dark text-center relative overflow-hidden">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-av-accent mb-16 animate-on-scroll">What Our Clients Say</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <div class="testimonial-card bg-av-gray p-8 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll delay-100">
-                        <p class="text-5xl text-av-accent mb-4">“</p>
-                        <p class="text-lg italic text-av-light-gray mb-6">"Avrahami Construction transformed our vision into reality with impeccable precision and professionalism. Their team delivered our commercial complex ahead of schedule and under budget. Truly outstanding!"</p>
-                        <p class="font-bold text-white text-xl">- David Chen, CEO of Innovate Corp.</p>
-                    </div>
-                    <div class="testimonial-card bg-av-gray p-8 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll delay-200">
-                        <p class="text-5xl text-av-accent mb-4">“</p>
-                        <p class="text-lg italic text-av-light-gray mb-6">"We entrusted Avrahami with our dream home, and they exceeded all expectations. The craftsmanship is superb, and communication was excellent throughout the entire process. Highly recommend!"</p>
-                        <p class="font-bold text-white text-xl">- Sarah & Mark Johnson, Homeowners</p>
-                    </div>
-                    <div class="testimonial-card bg-av-gray p-8 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll delay-300">
-                        <p class="text-5xl text-av-accent mb-4">“</p>
-                        <p class="text-lg italic text-av-light-gray mb-6">"Their expertise in large-scale infrastructure is unmatched. Avrahami handled our critical bridge project with diligence, ensuring safety and durability. A reliable partner for any major development."</p>
-                        <p class="font-bold text-white text-xl">- Emily Rodriguez, City Planning Director</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Background video for mood -->
-            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-10">
-                <source src="https://videos.pexels.com/video-files/34631080/14677711_640_360_60fps.mp4" type="video/mp4">
+        <!-- Private Client Services -->
+        <section id="services" class="relative py-20 md:py-32 bg-graphite text-gray-200 overflow-hidden">
+            <video autoplay loop muted playsinline class="hero-video opacity-20">
+                <source src="https://videos.pexels.com/video-files/3066451/3066451-sd_640_338_24fps.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+            <div class="absolute inset-0 bg-graphite opacity-90 z-0"></div>
+            <div class="relative container mx-auto px-6 max-w-4xl text-center" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-5xl font-playfair font-bold text-accent-gold mb-12">Private Client Services</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="p-6 bg-black bg-opacity-70 rounded-xl shadow-xl border border-gray-700 hover:border-accent-gold transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-3xl font-playfair text-accent-gold mb-4">Vehicle Sourcing Concierge</h3>
+                        <p class="text-lg font-montserrat leading-relaxed">Leverage our global network to find your dream vehicle, no matter how rare or exclusive.</p>
+                    </div>
+                    <div class="p-6 bg-black bg-opacity-70 rounded-xl shadow-xl border border-gray-700 hover:border-accent-gold transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-3xl font-playfair text-accent-gold mb-4">Secure Global Delivery</h3>
+                        <p class="text-lg font-montserrat leading-relaxed">Experience peace of mind with our white-glove, insured international delivery service.</p>
+                    </div>
+                    <div class="p-6 bg-black bg-opacity-70 rounded-xl shadow-xl border border-gray-700 hover:border-accent-gold transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-3xl font-playfair text-accent-gold mb-4">Showroom Appointments</h3>
+                        <p class="text-lg font-montserrat leading-relaxed">Arrange a private, one-on-one viewing at our exclusive showroom, by appointment only.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-av-gray text-center relative overflow-hidden">
-            <div class="container mx-auto px-6 relative z-10">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-av-accent mb-16 animate-on-scroll">Partner with Avrahami</h2>
-                <div class="flex flex-col lg:flex-row gap-12 items-start">
-                    <div class="lg:w-1/2 w-full bg-av-dark p-8 rounded-lg shadow-2xl animate-on-scroll delay-100">
-                        <h3 class="text-3xl font-bold mb-8 text-white">Get Your Project Started</h3>
-                        <form class="space-y-6 text-left">
-                            <div>
-                                <label for="name" class="block text-av-light-gray text-sm font-bold mb-2">Name</label>
-                                <input type="text" id="name" name="name" class="shadow appearance-none border border-av-gray rounded w-full py-3 px-4 text-white leading-tight focus:outline-none focus:ring-2 focus:ring-av-accent bg-av-dark transition-all duration-300" placeholder="Your Name" required>
+        <!-- Financing & Trade-In -->
+        <section id="financing" class="py-20 md:py-32 bg-black text-gray-200">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <h2 class="text-5xl font-playfair font-bold text-accent-gold text-center mb-12" data-aos="fade-down" data-aos-duration="1000">Financing & Trade-In</h2>
+                <p class="text-lg md:text-xl font-montserrat leading-relaxed text-center mb-10" data-aos="fade-up" data-aos-delay="100">
+                    Valente Motors offers bespoke financing solutions tailored for qualified buyers. Furthermore, we provide professional, discreet evaluations for trade-in vehicles, ensuring a seamless upgrade to your next automotive masterpiece.
+                </p>
+                <form class="bg-graphite p-10 rounded-xl shadow-2xl border border-gray-700" data-aos="fade-up" data-aos-delay="200">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="john.doe@example.com" required>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="phone" class="block text-gray-300 text-sm font-bold mb-2">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="+1 (555) 123-4567">
+                    </div>
+                    <div class="mb-6">
+                        <label for="tradein" class="block text-gray-300 text-sm font-bold mb-2">Vehicle for Trade-In (Optional)</label>
+                        <input type="text" id="tradein" name="tradein" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="e.g., 2018 BMW M5">
+                    </div>
+                    <div class="mb-8">
+                        <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Message / Specific Request</label>
+                        <textarea id="message" name="message" rows="5" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="I am interested in financing options or a trade-in evaluation..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-4 rounded-md text-lg uppercase tracking-wider transition duration-300">Submit Request</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="relative py-20 md:py-32 bg-graphite text-gray-200 parallax-bg" style="background-image: url('https://images.pexels.com/photos/34612360/pexels-photo-34612360.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');">
+            <div class="absolute inset-0 bg-black opacity-80 z-0"></div>
+            <div class="relative container mx-auto px-6 max-w-5xl text-center" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-5xl font-playfair font-bold text-accent-gold mb-12">Client Appreciations</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-black bg-opacity-70 p-8 rounded-xl shadow-xl border border-gray-700 hover:border-accent-gold transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <p class="italic text-xl font-playfair leading-relaxed mb-6">"The acquisition experience at Valente Motors transcends mere transactions. It is a refined journey, handled with utmost discretion and expertise. A truly unparalleled service for discerning individuals."</p>
+                        <p class="font-montserrat font-semibold text-accent-gold text-lg">- Mr. Alexander V., London</p>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-black bg-opacity-70 p-8 rounded-xl shadow-xl border border-gray-700 hover:border-accent-gold transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <p class="italic text-xl font-playfair leading-relaxed mb-6">"From the initial consultation to the bespoke delivery of my vehicle, Valente Motors demonstrated an exceptional commitment to perfection. Their curated selection is simply peerless."</p>
+                        <p class="font-montserrat font-semibold text-accent-gold text-lg">- Madame Isabelle C., Monaco</p>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-black bg-opacity-70 p-8 rounded-xl shadow-xl border border-gray-700 hover:border-accent-gold transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <p class="italic text-xl font-playfair leading-relaxed mb-6">"Valente Motors redefines automotive luxury. Their professionalism and attentiveness ensured that my specific requirements were not just met, but exceeded with impressive efficiency."</p>
+                        <p class="font-montserrat font-semibold text-accent-gold text-lg">- Sheikh Hamad F., Dubai</p>
+                    </div>
+                    <!-- Testimonial 4 -->
+                    <div class="bg-black bg-opacity-70 p-8 rounded-xl shadow-xl border border-gray-700 hover:border-accent-gold transition duration-300" data-aos="fade-up" data-aos-delay="400">
+                        <p class="italic text-xl font-playfair leading-relaxed mb-6">"Having sought vehicles from various high-end dealerships, I can unequivocally state that Valente Motors offers an echelon of service few can rival. Truly a benchmark for exclusivity."</p>
+                        <p class="font-montserrat font-semibold text-accent-gold text-lg">- Dr. Evelyn R., Geneva</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Visit -->
+        <section id="contact" class="py-20 md:py-32 bg-black text-gray-200">
+            <div class="container mx-auto px-6 max-w-5xl">
+                <h2 class="text-5xl font-playfair font-bold text-accent-gold text-center mb-12" data-aos="fade-down" data-aos-duration="1000">Contact Valente Motors</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="lg:col-span-1" data-aos="fade-right" data-aos-delay="200">
+                        <p class="text-lg md:text-xl font-montserrat leading-relaxed mb-8">
+                            We invite you to experience the distinction of Valente Motors. Please use the form below to initiate your private consultation or book a showroom appointment. Our dedicated team awaits the opportunity to serve you.
+                        </p>
+                        <form class="bg-graphite p-10 rounded-xl shadow-2xl border border-gray-700">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="contact-name" class="block text-gray-300 text-sm font-bold mb-2">Full Name</label>
+                                    <input type="text" id="contact-name" name="contact-name" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="Your Name" required>
+                                </div>
+                                <div>
+                                    <label for="contact-email" class="block text-gray-300 text-sm font-bold mb-2">Email Address</label>
+                                    <input type="email" id="contact-email" name="contact-email" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="your.email@example.com" required>
+                                </div>
                             </div>
-                            <div>
-                                <label for="email" class="block text-av-light-gray text-sm font-bold mb-2">Email</label>
-                                <input type="email" id="email" name="email" class="shadow appearance-none border border-av-gray rounded w-full py-3 px-4 text-white leading-tight focus:outline-none focus:ring-2 focus:ring-av-accent bg-av-dark transition-all duration-300" placeholder="your@email.com" required>
+                            <div class="mb-6">
+                                <label for="contact-phone" class="block text-gray-300 text-sm font-bold mb-2">Phone Number (Optional)</label>
+                                <input type="tel" id="contact-phone" name="contact-phone" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="+1 (555) 123-4567">
                             </div>
-                            <div>
-                                <label for="phone" class="block text-av-light-gray text-sm font-bold mb-2">Phone</label>
-                                <input type="tel" id="phone" name="phone" class="shadow appearance-none border border-av-gray rounded w-full py-3 px-4 text-white leading-tight focus:outline-none focus:ring-2 focus:ring-av-accent bg-av-dark transition-all duration-300" placeholder="(555) 123-4567">
+                            <div class="mb-8">
+                                <label for="contact-message" class="block text-gray-300 text-sm font-bold mb-2">Your Message</label>
+                                <textarea id="contact-message" name="contact-message" rows="6" class="w-full p-4 bg-gray-800 border border-gray-600 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent-gold transition duration-300" placeholder="I would like to inquire about..."></textarea>
                             </div>
-                            <div>
-                                <label for="message" class="block text-av-light-gray text-sm font-bold mb-2">Message</label>
-                                <textarea id="message" name="message" rows="6" class="shadow appearance-none border border-av-gray rounded w-full py-3 px-4 text-white leading-tight focus:outline-none focus:ring-2 focus:ring-av-accent bg-av-dark transition-all duration-300" placeholder="Tell us about your project..." required></textarea>
-                            </div>
-                            <button type="submit" class="bg-av-accent hover:bg-av-accent-dark text-av-dark font-bold py-3 px-8 rounded-full text-lg shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 w-full">
-                                Send Message
-                            </button>
+                            <button type="submit" class="w-full bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-4 rounded-md text-lg uppercase tracking-wider transition duration-300">Submit Inquiry</button>
                         </form>
                     </div>
 
-                    <div class="lg:w-1/2 w-full space-y-8 animate-on-scroll delay-200">
-                        <div class="bg-av-dark p-8 rounded-lg shadow-2xl text-left">
-                            <h3 class="text-3xl font-bold mb-6 text-white">Contact Information</h3>
-                            <p class="text-lg mb-4 flex items-center">
-                                <span class="text-av-accent mr-3 text-2xl">📧</span> <a href="mailto:info@avrahamiconstruction.com" class="hover:text-av-accent transition-colors duration-300">info@avrahamiconstruction.com</a>
-                            </p>
-                            <p class="text-lg mb-4 flex items-center">
-                                <span class="text-av-accent mr-3 text-2xl">📞</span> <a href="tel:+15551234567" class="hover:text-av-accent transition-colors duration-300">+1 (555) 123-4567</a>
-                            </p>
-                            <p class="text-lg flex items-start">
-                                <span class="text-av-accent mr-3 text-2xl">📍</span> 123 Industrial Way, Constructville, CA 90210
-                            </p>
+                    <div class="lg:col-span-1" data-aos="fade-left" data-aos-delay="300">
+                        <h3 class="text-4xl font-playfair font-bold text-accent-gold mb-6">Our Showroom</h3>
+                        <p class="text-lg font-montserrat leading-relaxed text-gray-300 mb-6">
+                            Visit our exclusive showroom, where elegance meets automotive artistry. View our curated collection in an environment of unparalleled sophistication.
+                        </p>
+                        <address class="not-italic text-lg font-montserrat text-gray-300 mb-8">
+                            <p class="font-bold">Valente Motors Headquarters</p>
+                            <p>123 Prestige Drive,</p>
+                            <p>Luxury Estate, CA 90210,</p>
+                            <p>United States</p>
+                            <p>Email: <a href="mailto:info@valentemotors.com" class="text-accent-gold hover:underline">info@valentemotors.com</a></p>
+                            <p>Phone: <a href="tel:+15551234567" class="text-accent-gold hover:underline">+1 (555) 123-4567</a></p>
+                        </address>
+                        
+                        <!-- Map Placeholder -->
+                        <div class="h-80 w-full bg-gray-800 rounded-xl overflow-hidden shadow-xl border border-gray-700 mb-8">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.8143160404097!2d-118.39999999999999!3d34.073620999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b94e80f2d577%3A0x6d0e8e0d6a2e4e1!2sRodeo%20Drive!5e0!3m2!1sen!2sus!4v1701768652418!5m2!1sen!2sus" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                aria-label="Google Map showing Valente Motors location near Rodeo Drive">
+                            </iframe>
                         </div>
-                        <div class="bg-av-dark p-8 rounded-lg shadow-2xl">
-                            <h3 class="text-3xl font-bold mb-6 text-white text-left">Our Location</h3>
-                            <div class="aspect-w-16 aspect-h-9 w-full rounded-lg overflow-hidden">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.280970929729!2d-122.41941558468114!3d37.77492947975936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064d7c50a0f%3A0x6d9e11a68c07e0b!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1678901234567!5m2!1sen!2sus"
-                                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg">
-                                </iframe>
-                            </div>
-                        </div>
+
+                        <a href="#contact" class="inline-block bg-accent-gold hover:bg-deep-gold text-black font-montserrat font-semibold py-4 px-10 rounded-md text-lg uppercase tracking-wider shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">Book a Private Appointment</a>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- Footer -->
-    <footer class="bg-av-dark py-12 text-center text-av-light-gray border-t border-av-gray">
+    <footer class="bg-black py-10 text-gray-500 text-center text-sm border-t border-gray-800">
         <div class="container mx-auto px-6">
-            <p class="text-lg mb-4">&copy; 2023 Avrahami Construction. All rights reserved.</p>
-            <div class="flex justify-center space-x-6">
-                <a href="#" class="text-white hover:text-av-accent transition-colors duration-300 text-3xl">𝕏</a> <!-- Twitter -->
-                <a href="#" class="text-white hover:text-av-accent transition-colors duration-300 text-3xl">🔗</a> <!-- LinkedIn -->
-                <a href="#" class="text-white hover:text-av-accent transition-colors duration-300 text-3xl">📸</a> <!-- Instagram -->
-            </div>
+            <p>&copy; 2024 Valente Motors. All rights reserved.</p>
+            <p class="mt-2">Crafted with Precision. Driven by Passion.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu Toggle and Scroll Animations -->
+    <!-- AOS Initialization -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        AOS.init({
+            once: true, // Whether animation should happen only once - while scrolling down
+            mirror: false, // Whether elements should animate out while scrolling past them
+            duration: 1200, // Values from 0 to 3000, with step 50ms
+            easing: 'ease-out-cubic', // default easing for AOS animations
+            offset: 100, // offset (in px) from the top of the screen
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled', 'py-3');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.remove('navbar-scrolled', 'py-3');
+                navbar.classList.add('py-4');
+            }
+        });
+
         // Mobile Menu Toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('-translate-y-full');
+            mobileMenu.classList.toggle('translate-y-0');
+            document.body.style.overflow = mobileMenu.classList.contains('hidden') ? '' : 'hidden'; // Disable scroll when menu open
         });
-        document.querySelectorAll('#mobile-menu a').forEach(item => {
-            item.addEventListener('click', () => {
-                document.getElementById('mobile-menu').classList.add('hidden');
+
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.add('-translate-y-full');
+            mobileMenu.classList.remove('translate-y-0');
+            document.body.style.overflow = ''; // Enable scroll
+        });
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.add('-translate-y-full');
+                mobileMenu.classList.remove('translate-y-0');
+                document.body.style.overflow = '';
             });
         });
 
-        // Scroll Animations (using Intersection Observer API)
-        const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    // Optional: Stop observing once visible to prevent re-triggering
-                    // observer.unobserve(entry.target);
-                } else {
-                    // Optional: Remove class if element scrolls out of view
-                    // entry.target.classList.remove('is-visible');
-                }
-            });
-        }, {
-            threshold: 0.2, // Trigger when 20% of the item is visible
-            rootMargin: "0px 0px -100px 0px" // Adjusts when the observer triggers. Negative bottom margin means it triggers earlier.
-        });
-
-        animateOnScrollElements.forEach(element => {
-            observer.observe(element);
-        });
     </script>
 </body>
 </html>
