@@ -1,418 +1,450 @@
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Gentlemen's Cut - Precision. Style. Confidence.</title>
+    <title>Isola d’Oro - Elite Private Island Resort</title>
+    <meta name="description" content="Experience unparalleled luxury at Isola d’Oro, an elite private island resort with exquisite villas, private dining, and yacht experiences. Your private sanctuary in paradise.">
+    <meta name="keywords" content="Isola d’Oro, luxury resort, private island, elite travel, high-end vacation, bespoke, exclusive getaway, villas, yacht charter, fine dining, tropical, paradise, serene, sophisticated">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Montserrat (for headings) and Poppins (for body) -->
+
+    <!-- Google Fonts: Playfair Display for headings, Lato for body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Custom Configuration -->
     <script>
-        // Tailwind CSS configuration for custom colors and fonts
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'gold': {
-                            50: '#FFFDE7',
-                            100: '#FFFACC',
-                            200: '#FFF099',
-                            300: '#FFE666',
-                            400: '#FFDB33',
-                            500: '#FFD700', // Primary gold
-                            600: '#E6C200',
-                            700: '#CCAE00',
-                            800: '#B39900',
-                            900: '#998500',
-                            950: '#4D4300',
+                        gold: {
+                            50: '#fffdf6',
+                            100: '#fff9e6',
+                            200: '#fff0be',
+                            300: '#ffe396',
+                            400: '#ffd15c',
+                            500: '#e5b932', // Main gold
+                            600: '#cc9e28',
+                            700: '#99761e',
+                            800: '#664e14',
+                            900: '#33270a',
                         },
-                        'charcoal': '#333333',
+                        darkblue: '#0A1128', // A deep, rich blue for a luxurious base
                     },
                     fontFamily: {
-                        montserrat: ['Montserrat', 'sans-serif'],
-                        poppins: ['Poppins', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Lato', 'sans-serif'],
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    },
+                    animation: {
+                        fadeInUp: 'fadeInUp 1s ease-out forwards',
+                        fadeIn: 'fadeIn 1s ease-out forwards',
                     }
                 }
             }
         }
     </script>
-    <!-- Custom CSS for animations (defined as utility classes within the HTML) -->
+
+    <!-- Custom CSS for cinematic effects, parallax, and scrollbar -->
     <style>
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Ensures the hero video covers the entire viewport */
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Place video behind content */
         }
-        .animate-fadeInUp {
-            animation: fadeInUp 1s ease-out forwards;
+        
+        /* For a subtle parallax effect on background images */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
-        .animate-delay-500 {
-            animation-delay: 0.5s;
+
+        /* Custom scrollbar for a sleeker, high-end look */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        .animate-delay-1000 {
-            animation-delay: 1s;
+
+        ::-webkit-scrollbar-track {
+            background: #0A1128; /* darkblue */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #e5b932; /* gold-500 */
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #cc9e28; /* gold-600 */
+        }
+
+        /* Styles for elegant fade-in-up animations on scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Specific style for a full-width video in content sections */
+        .full-width-content-video {
+            position: relative;
+            width: 100%;
+            height: 0; /* Control height via padding-bottom for aspect ratio */
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (height / width * 100) */
+            overflow: hidden;
+            background: #000; /* Fallback for slow loading video */
+        }
+        .full-width-content-video video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Adjust input date picker color for dark theme */
+        input[type="date"] {
+            color-scheme: dark; /* Improves appearance of date picker in dark mode */
         }
     </style>
 </head>
-<body class="bg-black text-white font-poppins antialiased">
+<body class="font-sans text-white bg-darkblue">
 
-    <!-- Navigation Bar -->
-    <header class="fixed top-0 left-0 w-full bg-black bg-opacity-90 z-50 shadow-lg">
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-darkblue bg-opacity-80 backdrop-blur-sm shadow-lg">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#hero" class="text-3xl font-montserrat font-bold text-gold-500 hover:text-gold-400 transition-colors duration-300">
-                The Gentlemen's Cut
-            </a>
+            <a href="#" class="text-3xl font-serif font-bold text-gold-500 tracking-wider">Isola d’Oro</a>
             <div class="hidden md:flex space-x-8">
-                <a href="#hero" class="text-lg text-white hover:text-gold-500 transition-colors duration-300 font-montserrat">Home</a>
-                <a href="#services" class="text-lg text-white hover:text-gold-500 transition-colors duration-300 font-montserrat">Services</a>
-                <a href="#gallery" class="text-lg text-white hover:text-gold-500 transition-colors duration-300 font-montserrat">Gallery</a>
-                <a href="#barbers" class="text-lg text-white hover:text-gold-500 transition-colors duration-300 font-montserrat">Barbers</a>
-                <a href="#book" class="text-lg text-white hover:text-gold-500 transition-colors duration-300 font-montserrat">Book Now</a>
-                <a href="#contact" class="text-lg text-white hover:text-gold-500 transition-colors duration-300 font-montserrat">Contact</a>
+                <a href="#about" class="text-lg text-white hover:text-gold-500 transition duration-300">About</a>
+                <a href="#villas" class="text-lg text-white hover:text-gold-500 transition duration-300">Villas</a>
+                <a href="#dining" class="text-lg text-white hover:text-gold-500 transition duration-300">Dining</a>
+                <a href="#yachts" class="text-lg text-white hover:text-gold-500 transition duration-300">Yachts</a>
+                <a href="#contact" class="text-lg text-white hover:text-gold-500 transition duration-300">Contact</a>
             </div>
-            <!-- Mobile Menu Button (Hamburger) - CSS-only toggle -->
-            <div class="md:hidden">
-                <input type="checkbox" id="menu-toggle" class="hidden peer">
-                <label for="menu-toggle" class="text-white text-3xl cursor-pointer peer-checked:text-gold-500 transition-colors duration-300">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </label>
-                <div class="absolute top-full right-0 w-48 bg-black bg-opacity-95 shadow-lg flex flex-col items-end py-4 transition-transform transform translate-x-full peer-checked:translate-x-0 md:hidden duration-300 ease-in-out">
-                    <a href="#hero" class="block px-6 py-2 text-white hover:text-gold-500 font-montserrat w-full text-right">Home</a>
-                    <a href="#services" class="block px-6 py-2 text-white hover:text-gold-500 font-montserrat w-full text-right">Services</a>
-                    <a href="#gallery" class="block px-6 py-2 text-white hover:text-gold-500 font-montserrat w-full text-right">Gallery</a>
-                    <a href="#barbers" class="block px-6 py-2 text-white hover:text-gold-500 font-montserrat w-full text-right">Barbers</a>
-                    <a href="#book" class="block px-6 py-2 text-white hover:text-gold-500 font-montserrat w-full text-right">Book Now</a>
-                    <a href="#contact" class="block px-6 py-2 text-white hover:text-gold-500 font-montserrat w-full text-right">Contact</a>
-                </div>
-            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-label="Open mobile menu">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
         </nav>
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-darkblue bg-opacity-95 py-4 transition-all duration-300 ease-in-out">
+            <a href="#about" class="block px-6 py-3 text-lg text-white hover:text-gold-500 transition duration-300">About</a>
+            <a href="#villas" class="block px-6 py-3 text-lg text-white hover:text-gold-500 transition duration-300">Villas</a>
+            <a href="#dining" class="block px-6 py-3 text-lg text-white hover:text-gold-500 transition duration-300">Dining</a>
+            <a href="#yachts" class="block px-6 py-3 text-lg text-white hover:text-gold-500 transition duration-300">Yachts</a>
+            <a href="#contact" class="block px-6 py-3 text-lg text-white hover:text-gold-500 transition duration-300">Contact</a>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
-        <!-- Background Video -->
-        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-30">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-barber-cutting-the-hair-of-a-client-4467-large.mp4" type="video/mp4">
+    <!-- Hero Section with Background Video -->
+    <section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        <video class="hero-video" autoplay loop muted playsinline aria-label="Ocean waves gently crashing on a pristine beach">
+            <source src="https://videos.pexels.com/video-files/6263486/6263486-hd_1280_720_25fps.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <!-- Overlay for better text contrast -->
         <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="relative z-10 p-4 animate-[fadeInUp_1.5s_ease-out_forwards_0.5s]">
+            <h1 class="text-6xl md:text-8xl font-serif text-gold-500 mb-4 drop-shadow-lg" style="animation-delay: 0.5s;">Isola d’Oro</h1>
+            <p class="text-xl md:text-3xl font-sans text-white mb-8 drop-shadow-md" style="animation-delay: 1s;">Your Private Sanctuary in Paradise</p>
+            <a href="#villas" class="inline-block bg-gold-500 text-darkblue text-lg md:text-xl font-bold px-8 py-4 rounded-full hover:bg-gold-600 transition duration-300 transform hover:scale-105" style="animation-delay: 1.5s;">Explore Villas</a>
+        </div>
+    </section>
 
-        <div class="relative z-10 p-6 md:p-12">
-            <h1 class="text-5xl md:text-7xl font-montserrat font-bold text-gold-500 tracking-wide mb-4 animate-fadeInUp">
-                The Gentlemen's Cut
-            </h1>
-            <p class="text-xl md:text-3xl text-white font-poppins opacity-0 animate-fadeInUp animate-delay-500">
-                Precision. Style. Confidence.
+    <!-- About Isola d’Oro Section -->
+    <section id="about" class="relative py-24 md:py-32 bg-cover bg-center parallax-bg animate-on-scroll" style="background-image: url('https://images.pexels.com/photos/6263153/pexels-photo-6263153.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');">
+        <div class="absolute inset-0 bg-darkblue opacity-70"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center max-w-4xl">
+            <h2 class="text-5xl font-serif text-gold-500 mb-8 animate-fadeInUp">Welcome to Isola d’Oro</h2>
+            <p class="text-lg md:text-xl font-sans text-white leading-relaxed mb-6 animate-fadeInUp" style="animation-delay: 0.2s;">
+                Nestled amidst the azure embrace of the Indian Ocean, Isola d’Oro is more than a resort—it is a private masterpiece. Crafted for the discerning few, our island offers an sanctuary where time slows, luxury is boundless, and every desire is anticipated. Experience bespoke service, breathtaking natural beauty, and the unparalleled elegance that defines true escape.
             </p>
-            <a href="#book" class="mt-8 inline-block bg-gold-500 text-black px-8 py-4 rounded-full text-lg font-montserrat font-semibold hover:bg-gold-600 transition-all duration-300 transform hover:scale-105 shadow-lg opacity-0 animate-fadeInUp animate-delay-1000">
-                Book Your Experience
-            </a>
+            <p class="text-lg md:text-xl font-sans text-white leading-relaxed animate-fadeInUp" style="animation-delay: 0.4s;">
+                From the whisper of the waves against your private villa to the curated culinary journeys and thrilling yacht expeditions, Isola d’Oro promises an unforgettable symphony of exclusivity and serenity.
+            </p>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 md:py-32 bg-charcoal text-white">
+    <!-- Villa Suites Section -->
+    <section id="villas" class="py-24 md:py-32 bg-darkblue animate-on-scroll">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-montserrat font-bold text-center mb-16 text-gold-500">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Service Card 1 -->
-                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 ease-in-out group">
-                    <img src="https://images.unsplash.com/photo-1594921614742-1e582869ee3c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Fade Haircut" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+            <h2 class="text-5xl font-serif text-center text-gold-500 mb-16 animate-fadeInUp">Our Exquisite Villa Suites</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Villa Card 1 -->
+                <div class="bg-darkblue border border-gold-700 shadow-xl rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <img src="https://images.pexels.com/photos/6102181/pexels-photo-6102181.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Oceanfront Grand Villa with private pool" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="p-8">
-                        <h3 class="text-2xl font-montserrat font-semibold mb-3 text-gold-500">The Gentlemen's Fade</h3>
-                        <p class="text-gray-300 leading-relaxed mb-4">
-                            A classic, clean fade haircut tailored to perfection. Includes a precision line-up and finish.
-                        </p>
-                        <div class="flex justify-between items-center border-t border-gray-700 pt-4">
-                            <span class="text-2xl font-montserrat font-bold text-white">$45</span>
-                            <a href="#book" class="text-gold-500 hover:text-white transition-colors duration-300">Book Now &rarr;</a>
-                        </div>
+                        <h3 class="text-3xl font-serif text-gold-500 mb-4">Oceanfront Grand Villa</h3>
+                        <p class="text-white text-lg font-sans mb-4">Experience panoramic ocean views from your expansive private terrace. Featuring multiple bedrooms, a private infinity pool, and dedicated butler service.</p>
+                        <ul class="list-disc list-inside text-white text-md mb-6 opacity-80">
+                            <li>3 Bedrooms, 4 Baths</li>
+                            <li>Private Infinity Pool</li>
+                            <li>Personal Butler Service</li>
+                            <li>Direct Beach Access</li>
+                        </ul>
+                        <a href="#contact" class="inline-block bg-gold-500 text-darkblue text-md font-bold px-6 py-3 rounded-full hover:bg-gold-600 transition duration-300">Inquire Now</a>
                     </div>
                 </div>
 
-                <!-- Service Card 2 -->
-                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 ease-in-out group">
-                    <img src="https://images.unsplash.com/photo-1596489347526-92f7c0410ffc?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Beard Trim" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                <!-- Villa Card 2 -->
+                <div class="bg-darkblue border border-gold-700 shadow-xl rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <img src="https://images.pexels.com/photos/6263100/pexels-photo-6263100.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Lagoon Water Villa over turquoise waters" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="p-8">
-                        <h3 class="text-2xl font-montserrat font-semibold mb-3 text-gold-500">Sculpted Beard Trim</h3>
-                        <p class="text-gray-300 leading-relaxed mb-4">
-                            Expert beard shaping, trimming, and conditioning. Finished with a hot towel and balm.
-                        </p>
-                        <div class="flex justify-between items-center border-t border-gray-700 pt-4">
-                            <span class="text-2xl font-montserrat font-bold text-white">$30</span>
-                            <a href="#book" class="text-gold-500 hover:text-white transition-colors duration-300">Book Now &rarr;</a>
-                        </div>
+                        <h3 class="text-3xl font-serif text-gold-500 mb-4">Lagoon Water Villa</h3>
+                        <p class="text-white text-lg font-sans mb-4">Perched over the serene turquoise lagoon, offering direct access to the crystal-clear waters and unmatched privacy.</p>
+                        <ul class="list-disc list-inside text-white text-md mb-6 opacity-80">
+                            <li>2 Bedrooms, 3 Baths</li>
+                            <li>Glass Floor Panels</li>
+                            <li>Outdoor Shower</li>
+                            <li>Overwater Deck</li>
+                        </ul>
+                        <a href="#contact" class="inline-block bg-gold-500 text-darkblue text-md font-bold px-6 py-3 rounded-full hover:bg-gold-600 transition duration-300">Inquire Now</a>
                     </div>
                 </div>
 
-                <!-- Service Card 3 -->
-                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 ease-in-out group">
-                    <img src="https://images.unsplash.com/photo-1521590832167-733ad7ceb867?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hot Towel Shave" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                <!-- Villa Card 3 -->
+                <div class="bg-darkblue border border-gold-700 shadow-xl rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 animate-fadeInUp" style="animation-delay: 0.6s;">
+                    <img src="https://images.pexels.com/photos/3856051/pexels-photo-3856051.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Secluded Island Retreat Villa in lush gardens" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="p-8">
-                        <h3 class="text-2xl font-montserrat font-semibold mb-3 text-gold-500">Luxurious Hot Towel Shave</h3>
-                        <p class="text-gray-300 leading-relaxed mb-4">
-                            The ultimate indulgence. Traditional straight razor shave with multiple hot towels and essential oils.
-                        </p>
-                        <div class="flex justify-between items-center border-t border-gray-700 pt-4">
-                            <span class="text-2xl font-montserrat font-bold text-white">$60</span>
-                            <a href="#book" class="text-gold-500 hover:text-white transition-colors duration-300">Book Now &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Card 4 -->
-                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 ease-in-out group">
-                    <img src="https://images.unsplash.com/photo-1620138541819-0129759d57a5?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Line-Up" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
-                    <div class="p-8">
-                        <h3 class="text-2xl font-montserrat font-semibold mb-3 text-gold-500">Precision Line-Up</h3>
-                        <p class="text-gray-300 leading-relaxed mb-4">
-                            Sharpen your look with a crisp, clean line-up around the hairline and beard edges.
-                        </p>
-                        <div class="flex justify-between items-center border-t border-gray-700 pt-4">
-                            <span class="text-2xl font-montserrat font-bold text-white">$20</span>
-                            <a href="#book" class="text-gold-500 hover:text-white transition-colors duration-300">Book Now &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Card 5 -->
-                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 ease-in-out group">
-                    <img src="https://images.unsplash.com/photo-1629855523030-c300f2ae3e2c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hair Color" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
-                    <div class="p-8">
-                        <h3 class="text-2xl font-montserrat font-semibold mb-3 text-gold-500">Hair Coloring & Blending</h3>
-                        <p class="text-gray-300 leading-relaxed mb-4">
-                            Subtle gray blending or full color, enhancing your natural look with premium products.
-                        </p>
-                        <div class="flex justify-between items-center border-t border-gray-700 pt-4">
-                            <span class="text-2xl font-montserrat font-bold text-white">From $80</span>
-                            <a href="#book" class="text-gold-500 hover:text-white transition-colors duration-300">Book Now &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service Card 6 -->
-                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 ease-in-out group">
-                    <img src="https://images.unsplash.com/photo-1605282294109-b63e1859c7f6?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kids Cut" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
-                    <div class="p-8">
-                        <h3 class="text-2xl font-montserrat font-semibold mb-3 text-gold-500">Young Gentlemen's Cut</h3>
-                        <p class="text-gray-300 leading-relaxed mb-4">
-                            A stylish and comfortable haircut experience for children under 12.
-                        </p>
-                        <div class="flex justify-between items-center border-t border-gray-700 pt-4">
-                            <span class="text-2xl font-montserrat font-bold text-white">$35</span>
-                            <a href="#book" class="text-gold-500 hover:text-white transition-colors duration-300">Book Now &rarr;</a>
-                        </div>
+                        <h3 class="text-3xl font-serif text-gold-500 mb-4">Island Retreat Villa</h3>
+                        <p class="text-white text-lg font-sans mb-4">A secluded haven amidst lush tropical gardens, providing ultimate tranquility and an intimate connection with nature.</p>
+                        <ul class="list-disc list-inside text-white text-md mb-6 opacity-80">
+                            <li>1 Bedroom, 2 Baths</li>
+                            <li>Private Garden & Plunge Pool</li>
+                            <li>Outdoor Living Area</li>
+                            <li>Ultimate Seclusion</li>
+                        </ul>
+                        <a href="#contact" class="inline-block bg-gold-500 text-darkblue text-md font-bold px-6 py-3 rounded-full hover:bg-gold-600 transition duration-300">Inquire Now</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-20 md:py-32 bg-black text-white">
+    <!-- Immersive Video Section with Text Overlay -->
+    <section class="full-width-content-video animate-on-scroll">
+        <video autoplay loop muted playsinline aria-label="Slow motion video of ocean waves">
+            <source src="https://videos.pexels.com/video-files/6262804/6262804-uhd_2160_3840_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-6 text-center z-10">
+            <div class="max-w-3xl animate-[fadeIn_1.5s_ease-out_forwards_0.5s]">
+                <h2 class="text-5xl md:text-6xl font-serif text-gold-500 mb-6 drop-shadow-lg">Moments Beyond Imagination</h2>
+                <p class="text-xl md:text-2xl font-sans text-white leading-relaxed drop-shadow-lg">
+                    Every sunrise at Isola d’Oro paints a new masterpiece, inviting you to discover experiences crafted with passion and precision.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Private Dining Section -->
+    <section id="dining" class="py-24 md:py-32 bg-darkblue animate-on-scroll">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-montserrat font-bold text-center mb-16 text-gold-500">Our Gallery</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <div class="overflow-hidden rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
-                    <img src="https://images.unsplash.com/photo-1629855523030-c300f2ae3e2c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image of Fade Haircut" class="w-full h-64 object-cover">
+            <h2 class="text-5xl font-serif text-center text-gold-500 mb-16 animate-fadeInUp">Exquisite Private Dining</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="lg:order-2 animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <img src="https://images.pexels.com/photos/3747396/pexels-photo-3747396.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Romantic private beach dinner setup" class="rounded-lg shadow-xl w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500 border border-gold-700">
                 </div>
-                <div class="overflow-hidden rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
-                    <img src="https://images.unsplash.com/photo-1596489347526-92f7c0410ffc?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image of Beard Trim" class="w-full h-64 object-cover">
+                <div class="lg:order-1 text-center lg:text-left animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <h3 class="text-4xl font-serif text-gold-500 mb-6">Culinary Journeys Await</h3>
+                    <p class="text-white text-lg font-sans leading-relaxed mb-6">
+                        At Isola d’Oro, dining is an art form. Our world-class chefs curate personalized menus, transforming the freshest local ingredients into gastronomic delights. Choose from intimate beachside dinners, gourmet experiences in your private villa, or elegant feasts under the stars.
+                    </p>
+                    <p class="text-white text-lg font-sans leading-relaxed mb-6">
+                        Each meal is a celebration, meticulously prepared to your preferences, ensuring every bite is as memorable as the setting.
+                    </p>
+                    <a href="#contact" class="inline-block bg-gold-500 text-darkblue text-lg font-bold px-8 py-4 rounded-full hover:bg-gold-600 transition duration-300">Reserve Your Table</a>
                 </div>
-                <div class="overflow-hidden rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
-                    <img src="https://images.unsplash.com/photo-1594921614742-1e582869ee3c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image of Barber at Work" class="w-full h-64 object-cover">
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-24">
+                <div class="animate-fadeInUp" style="animation-delay: 0.6s;">
+                    <img src="https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Elegantly set dining table with fine cutlery and flowers" class="rounded-lg shadow-xl w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500 border border-gold-700">
                 </div>
-                <div class="overflow-hidden rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
-                    <img src="https://images.unsplash.com/photo-1521590832167-733ad7ceb867?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image of Hot Towel Shave" class="w-full h-64 object-cover">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
-                    <img src="https://images.unsplash.com/photo-1563234979-9acb72221b76?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image of Barber Shop Interior" class="w-full h-64 object-cover">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
-                    <img src="https://images.unsplash.com/photo-1563234979-9acb72221b76?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image of Barbershop Chair" class="w-full h-64 object-cover">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
-                    <img src="https://images.unsplash.com/photo-1620138541819-0129759d57a5?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image of Precision Tools" class="w-full h-64 object-cover">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
-                    <img src="https://images.unsplash.com/photo-1605282294109-b63e1859c7f6?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image of Client getting Haircut" class="w-full h-64 object-cover">
+                <div class="text-center lg:text-left animate-fadeInUp" style="animation-delay: 0.8s;">
+                    <h3 class="text-4xl font-serif text-gold-500 mb-6">Personalized Gastronomy</h3>
+                    <p class="text-white text-lg font-sans leading-relaxed mb-6">
+                        From sunrise breakfasts served on your private balcony to bespoke tasting menus featuring rare vintages, our culinary team caters to your every whim. Dietary preferences and special requests are not just accommodated, but celebrated, creating truly unique dining moments.
+                    </p>
+                    <a href="#contact" class="inline-block bg-gold-500 text-darkblue text-lg font-bold px-8 py-4 rounded-full hover:bg-gold-600 transition duration-300">Tailor Your Experience</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Meet the Barbers Section -->
-    <section id="barbers" class="py-20 md:py-32 bg-charcoal text-white">
+    <!-- Yacht Experiences Section -->
+    <section id="yachts" class="relative py-24 md:py-32 bg-cover bg-center parallax-bg animate-on-scroll" style="background-image: url('https://images.pexels.com/photos/6262839/pexels-photo-6262839.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');">
+        <div class="absolute inset-0 bg-darkblue opacity-70"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center max-w-4xl">
+            <h2 class="text-5xl font-serif text-gold-500 mb-8 animate-fadeInUp">Seamless Yacht Experiences</h2>
+            <p class="text-lg md:text-xl font-sans text-white leading-relaxed mb-6 animate-fadeInUp" style="animation-delay: 0.2s;">
+                Discover the untouched beauty of the surrounding archipelago aboard our fleet of luxury yachts. From sunset cruises and snorkeling expeditions to private island hopping and deep-sea fishing, every journey is tailored to your desires.
+            </p>
+            <p class="text-lg md:text-xl font-sans text-white leading-relaxed mb-6 animate-fadeInUp" style="animation-delay: 0.4s;">
+                Our experienced crew ensures your comfort and safety, providing an unparalleled maritime adventure. Indulge in gourmet meals on deck and sip champagne as the sun dips below the horizon.
+            </p>
+            <a href="#contact" class="inline-block bg-gold-500 text-darkblue text-lg md:text-xl font-bold px-8 py-4 rounded-full hover:bg-gold-600 transition duration-300 animate-fadeInUp" style="animation-delay: 0.6s;">Book Your Voyage</a>
+        </div>
+    </section>
+
+    <!-- Call to Action / Gallery Section -->
+    <section class="py-24 md:py-32 bg-darkblue animate-on-scroll">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-montserrat font-bold text-center mb-16 text-gold-500">Meet Our Barbers</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Barber Card 1 -->
-                <div class="bg-gray-800 rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-all duration-300 ease-in-out">
-                    <img src="https://images.unsplash.com/photo-1587002013883-9b48b64e0a96?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Barber Alex" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-4 border-gold-500 shadow-lg">
-                    <h3 class="text-3xl font-montserrat font-semibold text-gold-500 mb-2">Alex "The Blade"</h3>
-                    <p class="text-xl text-gray-300 mb-4">Master Barber</p>
-                    <p class="text-gray-400 leading-relaxed">
-                        With over 15 years of experience, Alex is renowned for his precision fades and classic shaves. He truly embodies the art of barbering.
-                    </p>
+            <h2 class="text-5xl font-serif text-center text-gold-500 mb-16 animate-fadeInUp">Unforgettable Moments</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="overflow-hidden rounded-lg shadow-xl group animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <img src="https://images.pexels.com/photos/1121123/pexels-photo-1121123.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Luxurious hotel interior with artistic decor" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500 border border-gold-700">
                 </div>
-
-                <!-- Barber Card 2 -->
-                <div class="bg-gray-800 rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-all duration-300 ease-in-out">
-                    <img src="https://images.unsplash.com/photo-1616016186989-13e513221980?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Barber Marcus" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-4 border-gold-500 shadow-lg">
-                    <h3 class="text-3xl font-montserrat font-semibold text-gold-500 mb-2">Marcus "The Sculptor"</h3>
-                    <p class="text-xl text-gray-300 mb-4">Beard Specialist</p>
-                    <p class="text-gray-400 leading-relaxed">
-                        Marcus is our beard guru, known for his meticulous trims and expert advice on beard care. He'll craft your perfect look.
-                    </p>
+                <div class="overflow-hidden rounded-lg shadow-xl group animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <img src="https://images.pexels.com/photos/19599230/pexels-photo-19599230.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Resort pool area with comfortable loungers" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500 border border-gold-700">
                 </div>
-
-                <!-- Barber Card 3 -->
-                <div class="bg-gray-800 rounded-lg shadow-xl p-8 text-center transform hover:scale-105 transition-all duration-300 ease-in-out">
-                    <img src="https://images.unsplash.com/photo-1563234979-9acb72221b76?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Barber Chris" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-4 border-gold-500 shadow-lg">
-                    <h3 class="text-3xl font-montserrat font-semibold text-gold-500 mb-2">Chris "The Stylist"</h3>
-                    <p class="text-xl text-gray-300 mb-4">Modern Cuts Expert</p>
-                    <p class="text-gray-400 leading-relaxed">
-                        Chris stays ahead of trends, specializing in modern cuts and unique styles. He ensures every client leaves feeling confident and fresh.
-                    </p>
+                <div class="overflow-hidden rounded-lg shadow-xl group animate-fadeInUp" style="animation-delay: 0.6s;">
+                    <img src="https://images.pexels.com/photos/6263108/pexels-photo-6263108.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Stunning tropical sunset over the ocean" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500 border border-gold-700">
                 </div>
+                <div class="overflow-hidden rounded-lg shadow-xl group animate-fadeInUp" style="animation-delay: 0.8s;">
+                    <img src="https://images.pexels.com/photos/6263153/pexels-photo-6263153.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Serene view from a luxurious spa or lounge" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500 border border-gold-700">
+                </div>
+            </div>
+            <div class="text-center mt-16 animate-fadeInUp" style="animation-delay: 1s;">
+                <a href="#contact" class="inline-block bg-gold-500 text-darkblue text-lg md:text-xl font-bold px-8 py-4 rounded-full hover:bg-gold-600 transition duration-300 transform hover:scale-105">Plan Your Escape</a>
             </div>
         </div>
     </section>
 
-    <!-- Book Now Section -->
-    <section id="book" class="py-20 md:py-32 bg-black text-white">
+    <!-- Contact / Reservation Section -->
+    <section id="contact" class="py-24 md:py-32 bg-darkblue animate-on-scroll">
         <div class="container mx-auto px-6 max-w-2xl">
-            <h2 class="text-4xl md:text-5xl font-montserrat font-bold text-center mb-16 text-gold-500">Book Your Appointment</h2>
-            <form action="#" method="POST" class="bg-gray-800 p-8 rounded-lg shadow-xl">
-                <div class="mb-6">
-                    <label for="name" class="block text-gray-300 text-lg font-poppins mb-2">Full Name</label>
-                    <input type="text" id="name" name="name" class="w-full p-4 bg-gray-700 border border-gray-600 rounded-md text-white focus:ring-gold-500 focus:border-gold-500 transition-colors duration-200" placeholder="John Doe" required>
-                </div>
-                <div class="mb-6">
-                    <label for="email" class="block text-gray-300 text-lg font-poppins mb-2">Email Address</label>
-                    <input type="email" id="email" name="email" class="w-full p-4 bg-gray-700 border border-gray-600 rounded-md text-white focus:ring-gold-500 focus:border-gold-500 transition-colors duration-200" placeholder="john.doe@example.com" required>
-                </div>
-                <div class="mb-6">
-                    <label for="phone" class="block text-gray-300 text-lg font-poppins mb-2">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" class="w-full p-4 bg-gray-700 border border-gray-600 rounded-md text-white focus:ring-gold-500 focus:border-gold-500 transition-colors duration-200" placeholder="+1 (555) 123-4567">
-                </div>
-                <div class="mb-6">
-                    <label for="service" class="block text-gray-300 text-lg font-poppins mb-2">Select Service</label>
-                    <select id="service" name="service" class="w-full p-4 bg-gray-700 border border-gray-600 rounded-md text-white focus:ring-gold-500 focus:border-gold-500 transition-colors duration-200" required>
-                        <option value="">Choose a service</option>
-                        <option value="fade">The Gentlemen's Fade ($45)</option>
-                        <option value="beard-trim">Sculpted Beard Trim ($30)</option>
-                        <option value="hot-shave">Luxurious Hot Towel Shave ($60)</option>
-                        <option value="line-up">Precision Line-Up ($20)</option>
-                        <option value="color">Hair Coloring & Blending (From $80)</option>
-                        <option value="kids-cut">Young Gentlemen's Cut ($35)</option>
-                    </select>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <h2 class="text-5xl font-serif text-center text-gold-500 mb-16 animate-fadeInUp">Inquire & Reserve Your Stay</h2>
+            
+            <form class="space-y-8 p-8 md:p-12 bg-darkblue border border-gold-500 rounded-lg shadow-2xl animate-fadeInUp" style="animation-delay: 0.2s;">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
-                        <label for="date" class="block text-gray-300 text-lg font-poppins mb-2">Date</label>
-                        <input type="date" id="date" name="date" class="w-full p-4 bg-gray-700 border border-gray-600 rounded-md text-white focus:ring-gold-500 focus:border-gold-500 transition-colors duration-200" required>
+                        <label for="name" class="block text-gold-500 text-lg font-sans mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" class="w-full p-4 bg-darkblue border border-gold-400 rounded-md focus:ring-2 focus:ring-gold-500 outline-none text-white text-lg placeholder-gray-500" placeholder="John Doe" required>
                     </div>
                     <div>
-                        <label for="time" class="block text-gray-300 text-lg font-poppins mb-2">Time</label>
-                        <input type="time" id="time" name="time" class="w-full p-4 bg-gray-700 border border-gray-600 rounded-md text-white focus:ring-gold-500 focus:border-gold-500 transition-colors duration-200" required>
+                        <label for="email" class="block text-gold-500 text-lg font-sans mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" class="w-full p-4 bg-darkblue border border-gold-400 rounded-md focus:ring-2 focus:ring-gold-500 outline-none text-white text-lg placeholder-gray-500" placeholder="john.doe@example.com" required>
                     </div>
                 </div>
-                <div class="mb-6">
-                    <label for="barber" class="block text-gray-300 text-lg font-poppins mb-2">Preferred Barber (Optional)</label>
-                    <select id="barber" name="barber" class="w-full p-4 bg-gray-700 border border-gray-600 rounded-md text-white focus:ring-gold-500 focus:border-gold-500 transition-colors duration-200">
-                        <option value="">Any available barber</option>
-                        <option value="alex">Alex "The Blade"</option>
-                        <option value="marcus">Marcus "The Sculptor"</option>
-                        <option value="chris">Chris "The Stylist"</option>
-                    </select>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <label for="checkin" class="block text-gold-500 text-lg font-sans mb-2">Check-in Date</label>
+                        <input type="date" id="checkin" name="checkin" class="w-full p-4 bg-darkblue border border-gold-400 rounded-md focus:ring-2 focus:ring-gold-500 outline-none text-white text-lg" required>
+                    </div>
+                    <div>
+                        <label for="checkout" class="block text-gold-500 text-lg font-sans mb-2">Check-out Date</label>
+                        <input type="date" id="checkout" name="checkout" class="w-full p-4 bg-darkblue border border-gold-400 rounded-md focus:ring-2 focus:ring-gold-500 outline-none text-white text-lg" required>
+                    </div>
                 </div>
+
+                <div>
+                    <label for="guests" class="block text-gold-500 text-lg font-sans mb-2">Number of Guests</label>
+                    <input type="number" id="guests" name="guests" min="1" max="10" class="w-full p-4 bg-darkblue border border-gold-400 rounded-md focus:ring-2 focus:ring-gold-500 outline-none text-white text-lg placeholder-gray-500" placeholder="2" required>
+                </div>
+                
+                <div>
+                    <label for="message" class="block text-gold-500 text-lg font-sans mb-2">Special Requests / Message</label>
+                    <textarea id="message" name="message" rows="5" class="w-full p-4 bg-darkblue border border-gold-400 rounded-md focus:ring-2 focus:ring-gold-500 outline-none text-white text-lg placeholder-gray-500" placeholder="Tell us about your preferences..."></textarea>
+                </div>
+                
                 <div class="text-center">
-                    <button type="submit" class="inline-block bg-gold-500 text-black px-10 py-4 rounded-full text-lg font-montserrat font-semibold hover:bg-gold-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                        Confirm Booking
-                    </button>
+                    <button type="submit" class="inline-block bg-gold-500 text-darkblue text-xl font-bold px-10 py-4 rounded-full hover:bg-gold-600 transition duration-300 transform hover:scale-105">Submit Inquiry</button>
                 </div>
             </form>
         </div>
     </section>
 
-    <!-- Contact & Location Section -->
-    <section id="contact" class="py-20 md:py-32 bg-charcoal text-white">
-        <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-                <h2 class="text-4xl md:text-5xl font-montserrat font-bold text-gold-500 mb-8">Contact Us</h2>
-                <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-                    We'd love to hear from you. Reach out to us for appointments, inquiries, or just to say hello!
-                </p>
-                <div class="space-y-4 mb-8">
-                    <p class="flex items-center text-lg text-gray-200">
-                        <svg class="w-6 h-6 mr-3 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        123 Style Ave, Urban City, ST 98765
-                    </p>
-                    <p class="flex items-center text-lg text-gray-200">
-                        <svg class="w-6 h-6 mr-3 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                        (555) 123-4567
-                    </p>
-                    <p class="flex items-center text-lg text-gray-200">
-                        <svg class="w-6 h-6 mr-3 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                        info@thegentlemenscut.com
-                    </p>
-                </div>
-                <h3 class="text-3xl font-montserrat font-semibold text-gold-500 mb-4">Hours of Operation</h3>
-                <ul class="text-gray-300 text-lg space-y-2">
-                    <li>Tuesday - Friday: 9:00 AM - 7:00 PM</li>
-                    <li>Saturday: 10:00 AM - 6:00 PM</li>
-                    <li>Sunday - Monday: Closed</li>
-                </ul>
-            </div>
-            <!-- Google Maps Embed (Placeholder for a generic location) -->
-            <div class="rounded-lg overflow-hidden shadow-xl mt-12 lg:mt-0">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.251478546123!2d-122.4194156846824!3d37.77492977975924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858085d5f0e1fb%3A0x7d0a92f02b1f8c1c!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1678234567890!5m2!1sen!2sus"
-                    width="100%"
-                    height="450"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    class="rounded-lg"
-                    title="Location of The Gentlemen's Cut"
-                ></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Floating "Book an Appointment" Button -->
-    <a href="#book" class="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-gold-500 text-black px-6 py-3 md:px-8 md:py-4 rounded-full text-lg font-montserrat font-semibold shadow-2xl hover:bg-gold-600 transition-all duration-300 transform hover:scale-105 z-50">
-        Book Now
-    </a>
-
     <!-- Footer -->
-    <footer class="bg-black py-12 text-gray-400 text-center font-poppins">
+    <footer class="bg-darkblue border-t border-gold-700 py-12 text-center">
         <div class="container mx-auto px-6">
-            <p class="mb-6 text-xl font-montserrat text-gold-500">The Gentlemen's Cut</p>
-            <p class="mb-6">&copy; 2023 The Gentlemen's Cut. All rights reserved.</p>
+            <p class="text-gold-500 text-3xl font-serif mb-4">Isola d’Oro</p>
+            <p class="text-white text-lg mb-6">&copy; 2023 Isola d’Oro. All rights reserved.</p>
             <div class="flex justify-center space-x-6">
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" class="text-gray-400 hover:text-gold-500 transition-colors duration-300">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 0C8.74 0 8.333.012 7.053.058 5.772.106 5.118.252 4.515.457c-.6.205-1.164.475-1.666.977-.5.502-.772 1.066-.977 1.667-.205.602-.352 1.257-.398 2.533-.046 1.284-.058 1.691-.058 4.916 0 3.226.012 3.634.058 4.916.046 1.275.192 1.93.398 2.533.205.602.475 1.166.977 1.667.503.5.772 1.066.977 1.667.205.602.352 1.257.398 2.533.046 1.284.058 1.69.058 4.916 0-3.226-.012-3.634-.058-4.916-.046-1.275-.192-1.93-.398-2.533-.205-.602-.475-1.166-.977-1.667-.5-.503-1.066-.772-1.667-.977-.602-.205-1.257-.352-2.533-.398C15.634.012 15.226 0 12 0zm0 2.16c3.204 0 3.584.012 4.85.058 1.17.042 1.745.234 2.125.372.4.148.729.349.923.543.194.194.395.523.543.923.138.38.33 1.16.372 2.125.046 1.265.058 1.644.058 4.85 0 3.204-.012 3.584-.058 4.85-.042 1.17-.234 1.745-.372 2.125-.148.4-.349.729-.543.923-.194.194-.523.395-.923.543-.38.138-1.16.33-2.125.372-1.265.046-1.644.058-4.85.058-3.204 0-3.584-.012-4.85-.058-1.17-.042-1.745-.234-2.125-.372-.4-.148-.729-.349-.923-.543-.194-.194-.395-.523-.543-.923-.138-.38-.33-1.16-.372-2.125-.046-1.265-.058-1.644-.058-4.85 0-3.204.012-3.584.058-4.85.042-1.17.234-1.745.372-2.125.148-.4.349-.729.543-.923.194-.194.395-.523.543-.923.38-.138 1.16-.33 2.125-.372C8.416 2.172 8.796 2.16 12 2.16z"></path><path d="M12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 8.468a3.333 3.333 0 100-6.666 3.333 3.333 0 000 6.666zm5.338-9.872a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"></path></svg>
+                <a href="#" class="text-white hover:text-gold-500 transition duration-300" aria-label="Facebook">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-1.65.6-1.65h2.4V3h-3.61c-3.15 0-4.39 1.48-4.39 4.25v2.25H7v4h3v8h4v-8z"></path></svg>
                 </a>
-                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="Follow us on TikTok" class="text-gray-400 hover:text-gold-500 transition-colors duration-300">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525 15.632v-3.48H12.5V9.43c0-1.812.92-2.316 1.876-2.502.264-.057.528-.095.792-.122v2.106c-.366.076-.732.166-1.098.271-.482.144-.768.42-.768.966v1.92h2.525v3.48h-2.525zm-2.001 0V9.43c-.015-.078-.03-.156-.046-.234-1.25-1.942-2.004-3.04-2.268-3.32-.4-.46-1.074-.752-1.92-.79V4.62c.768.106 1.5.312 2.19.648.7.348 1.25.864 1.65 1.568.166.3.312.63.438.988.168.46.28.984.336 1.572v5.808h-2.524z"></path></svg>
+                <a href="#" class="text-white hover:text-gold-500 transition duration-300" aria-label="Instagram">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm-.2 2A4.8 4.8 0 0 0 4 7.8v8.4c0 2.2 1.8 4 4 4h8.4c2.2 0 4-1.8 4-4V7.8c0-2.2-1.8-4-4-4H7.6zm9.6 0a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 2c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"></path></svg>
+                </a>
+                <a href="#" class="text-white hover:text-gold-500 transition duration-300" aria-label="Twitter">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.46 6c-.8.36-1.66.6-2.58.7.94-.56 1.66-1.44 2-2.5a4.34 4.34 0 0 1-2.73 1.04 4.3 4.3 0 0 0-7.38 3.93c-3.6-.18-6.8-1.9-8.94-4.57-.4.68-.64 1.48-.64 2.34 0 1.6.82 3 2.06 3.84a4.26 4.26 0 0 1-1.96-.54v.05c0 2.14 1.52 3.9 3.53 4.3-.37.1-.76.16-1.16.16-.28 0-.54-.02-.8-.08.56 1.76 2.18 3.04 4.1 3.07a8.7 8.7 0 0 1-5.4 1.86c-.36 0-.7-.02-1.04-.06 1.96 1.26 4.3 2 6.8 2 8.16 0 12.6-6.75 12.6-12.6 0-.2-.0-.4-.0-.6a9.07 9.07 0 0 0 2.22-2.3z"></path></svg>
                 </a>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript for Mobile Menu and Scroll Animations -->
+    <script>
+        // Mobile Menu Toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a navigation link is clicked (for smooth scroll)
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden'); // Hide menu
+            });
+        });
+
+        // Intersection Observer for elegant fade-in-up scroll animations
+        const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
+
+        const observerOptions = {
+            root: null, // Use the viewport as the container
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Stop observing once the element is visible to prevent re-triggering
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        // Create and apply the Intersection Observer
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        animateOnScrollElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
 </body>
 </html>
 ```
