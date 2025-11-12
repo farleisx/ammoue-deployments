@@ -1,325 +1,595 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ammoue | Login & Sign Up</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            /* 5. Smooth Redirect Animation */
-            transition: opacity 0.4s ease-out; 
-        }
-        .text-ammoue { color: #0d9488; } /* Teal-700 */
-        .bg-ammoue { background-color: #0d9488; } /* Teal-700 */
-        /* Dark mode support for the main card */
-        .dark .bg-white { background-color: #1f2937; } /* gray-800 for card */
-        .dark .text-gray-800 { color: #f9fafb; } /* light text */
-        .dark .text-gray-700 { color: #d1d5db; }
-        .dark .text-gray-500 { color: #9ca3af; }
-        .dark .border-gray-300 { border-color: #374151; }
-        .dark .bg-gray-100 { background-color: #374151; }
-        .dark .bg-white .px-2 { background-color: #1f2937; } /* Divider text background */
-        
-        /* Message box styling */
-        #message-box {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out, background-color 0.3s;
-            max-width: 90%;
-            text-align: center;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 Project Dashboard Mockup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom Fade-in for Content */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Card Hover Effect */
+        .project-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        /* Modal Transition */
+        .modal-enter { opacity: 0; transform: scale(0.95); }
+        .modal-enter-active { opacity: 1; transform: scale(1); transition: opacity 0.3s ease, transform 0.3s ease; }
+        .modal-exit { opacity: 1; transform: scale(1); }
+        .modal-exit-active { opacity: 0; transform: scale(0.95); transition: opacity 0.3s ease, transform 0.3s ease; }
+    </style>
+    <script>
+        // --- Tailwind Configuration for Dark Mode ---
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#4f46e5',
+                        'primary-dark': '#6366f1',
+                        'secondary-bg': 'rgb(243 244 246)', /* gray-100 */
+                        'secondary-bg-dark': 'rgb(31 41 55)', /* gray-800 */
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="antialiased min-h-screen flex items-center justify-center p-4 
-    /* 6. Soft Gradient Background */
-    bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-950">
+<body class="bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-300">
 
-    <div id="message-box" class="p-4 rounded-xl shadow-2xl text-white font-semibold"></div>
+    <div id="loading-overlay" class="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-gray-900 transition-opacity duration-500">
+        <div class="text-center">
+            <svg class="animate-spin h-10 w-10 text-primary mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <p class="text-xl font-semibold text-gray-700 dark:text-gray-300">Loading your projects...</p>
+        </div>
+    </div>
 
-        <div class="w-full max-w-md bg-white rounded-3xl shadow-2xl p-8 sm:p-10 border border-gray-100 
-        animate__animated animate__fadeInUp animate__faster">
+    <nav class="bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-primary dark:text-primary-dark">Project Dashboard</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="dark-mode-toggle" class="p-2 rounded-full text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition duration-150" title="Toggle Dark Mode">
+                        <i data-lucide="sun" class="w-6 h-6 dark:hidden"></i>
+                        <i data-lucide="moon" class="w-6 h-6 hidden dark:inline-block"></i>
+                    </button>
+                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300 hidden sm:block">user@example.com</span>
+                    <button class="bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg text-sm transition duration-150">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-        <a href="index.html" class="flex flex-col items-center mb-8">
-            <span class="text-4xl font-extrabold text-ammoue">Ammoue</span>
-            <p class="text-sm text-gray-500 mt-1">AI Website Builder</p>
-        </a>
+    <main id="dashboard-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 fade-in">
+        <header class="mb-8">
+            <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white">Your Projects</h1>
+        </header>
 
-        <div class="flex mb-6 p-1 bg-gray-100 rounded-xl shadow-inner dark:bg-gray-800">
-            <button id="login-tab" onclick="toggleForm('login')" type="button" class="flex-1 py-2 text-sm font-semibold rounded-lg transition-colors duration-200">Log In</button>
-            <button id="signup-tab" onclick="toggleForm('signup')" type="button" class="flex-1 py-2 text-sm font-semibold rounded-lg transition-colors duration-200">Sign Up</button>
-        </div>
+        <div class="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0 sm:space-x-4">
+            <div class="relative w-full sm:w-80">
+                <i data-lucide="search" class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                <input type="text" id="search-input" placeholder="Search projects by title or prompt..." 
+                       class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 transition" />
+            </div>
 
-        <form id="login-form" class="space-y-6" onsubmit="handleLogin(event)">
-            <h2 class="text-2xl font-bold text-gray-800 text-center mb-4">Welcome Back</h2>
+            <div class="flex space-x-4">
+                <div class="relative">
+                    <select id="sort-dropdown" class="block appearance-none w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-white py-2 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-primary dark:focus:border-primary-dark transition">
+                        <option value="newest">Sort by: Newest</option>
+                        <option value="oldest">Sort by: Oldest</option>
+                        <option value="a-z">Sort by: Title (A→Z)</option>
+                        <option value="z-a">Sort by: Title (Z→A)</option>
+                    </select>
+                    <i data-lucide="chevron-down" class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300"></i>
+                </div>
+                
+                <button id="add-project-btn" class="bg-primary hover:bg-primary-dark text-white font-semibold py-2 px-4 rounded-lg transition duration-150 flex items-center space-x-1">
+                    <i data-lucide="plus" class="w-5 h-5"></i>
+                    <span>New Project</span>
+                </button>
+            </div>
+        </div>
 
-            <div>
-                <label for="login-email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                                <input type="email" id="login-email" autofocus required class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-ammoue focus:border-ammoue transition duration-150 dark:bg-gray-700 dark:text-white" placeholder="you@example.com">
-            </div>
+        <div id="projects-grid" class="grid gap-6">
+            </div>
 
-                        <div class="relative">
-                <label for="login-password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                <input type="password" id="login-password" required class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-ammoue focus:border-ammoue transition duration-150 dark:bg-gray-700 dark:text-white" placeholder="••••••••">
-                <button type="button" id="password-toggle" onclick="togglePasswordVisibility('login-password', this)" class="absolute inset-y-0 right-0 top-6 pr-3 flex items-center text-gray-500 hover:text-gray-700 dark:hover:text-gray-400">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                </button>
-            </div>
+        <div id="empty-state" class="hidden text-center py-20 border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-xl mt-10">
+            <i data-lucide="folder-x" class="w-16 h-16 mx-auto text-gray-400 dark:text-gray-600 mb-4"></i>
+            <h2 class="text-xl font-semibold text-gray-700 dark:text-gray-300">No Projects Yet</h2>
+            <p class="text-gray-500 dark:text-gray-400 mt-2">Create your first project to see it here!</p>
+            <button onclick="simulateAddProject()" class="mt-4 bg-primary hover:bg-primary-dark text-white font-semibold py-2 px-4 rounded-lg transition duration-150">
+                Start Building Now
+            </button>
+        </div>
+    </main>
 
-            <div class="flex items-center justify-between text-sm">
-                                <a href="#" onclick="handleForgotPassword(event)" class="font-medium text-ammoue hover:text-teal-600 dark:hover:text-teal-500">Forgot Password?</a>
-            </div>
+    <div id="edit-modal" class="modal fixed inset-0 z-50 overflow-y-auto bg-gray-900 bg-opacity-50 dark:bg-opacity-75 hidden transition-all duration-300" role="dialog" aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="modal-content bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-2xl transform transition-all duration-300">
+                <div class="p-6 border-b dark:border-gray-700 flex justify-between items-center">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Edit Project: <span id="edit-project-title-display"></span></h3>
+                    <button onclick="closeModal('edit-modal')" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <form id="edit-form">
+                        <input type="hidden" id="edit-project-id">
+                        <div class="mb-4">
+                            <label for="edit-title" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Title</label>
+                            <input type="text" id="edit-title" class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm p-2 dark:bg-gray-700 dark:text-white focus:ring-primary focus:border-primary" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="edit-prompt" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Prompt Content</label>
+                            <textarea id="edit-prompt" rows="3" class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm p-2 dark:bg-gray-700 dark:text-white focus:ring-primary focus:border-primary" required></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="edit-html" class="block text-sm font-medium text-gray-700 dark:text-gray-300">HTML Code</label>
+                            <textarea id="edit-html" rows="10" class="font-mono text-sm mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm p-2 dark:bg-gray-700 dark:text-white focus:ring-primary focus:border-primary" required></textarea>
+                        </div>
+                        <div class="flex justify-end space-x-3">
+                            <span id="auto-save-status" class="text-sm self-center text-gray-500 dark:text-gray-400"></span>
+                            <button type="button" onclick="closeModal('edit-modal')" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition">Cancel</button>
+                            <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                        <p id="login-error-display" class="text-sm text-red-600 font-medium"></p>
+    <div id="delete-modal" class="modal fixed inset-0 z-50 overflow-y-auto bg-gray-900 bg-opacity-50 dark:bg-opacity-75 hidden transition-all duration-300" role="dialog" aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="modal-content bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-md transform transition-all duration-300">
+                <div class="p-6">
+                    <div class="text-center">
+                        <i data-lucide="alert-triangle" class="w-12 h-12 mx-auto text-red-500 mb-4"></i>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Delete Project?</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Are you sure you want to delete the project titled **<span id="delete-project-title-display" class="font-semibold text-gray-900 dark:text-white"></span>**? This action cannot be undone.</p>
+                        <input type="hidden" id="delete-project-id-confirm">
+                    </div>
+                    <div class="mt-5 sm:mt-6 sm:flex sm:flex-row-reverse">
+                        <button type="button" id="confirm-delete-btn" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 transition sm:ml-3 sm:w-auto sm:text-sm">
+                            Delete
+                        </button>
+                        <button type="button" onclick="closeModal('delete-modal')" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 dark:border-gray-600 shadow-sm px-4 py-2 bg-white dark:bg-gray-700 text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600 transition sm:mt-0 sm:w-auto sm:text-sm">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                        <button type="submit" id="login-btn" class="w-full py-3 text-lg font-bold rounded-xl text-white bg-ammoue hover:bg-teal-800 active:scale-95 transition duration-300 shadow-lg shadow-teal-500/30">
-                Log In
-            </button>
-            
-                        <div class="relative pt-2">
-                <div class="absolute inset-0 flex items-center">
-                    <div class="w-full border-t border-gray-300 dark:border-gray-700"></div>
-                </div>
-                <div class="relative flex justify-center text-sm">
-                    <span class="px-2 bg-white text-gray-500 dark:bg-gray-800">or continue with</span>
-                </div>
-            </div>
+    <div id="preview-modal" class="modal fixed inset-0 z-50 overflow-y-auto bg-gray-900 bg-opacity-50 dark:bg-opacity-75 hidden transition-all duration-300" role="dialog" aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="modal-content bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-4xl transform transition-all duration-300">
+                <div class="p-6 border-b dark:border-gray-700 flex justify-between items-center">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Preview: <span id="preview-project-title-display"></span></h3>
+                    <button onclick="closeModal('preview-modal')" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">Code Snippet (HTML Escaped)</h4>
+                        <pre id="preview-code-block" class="whitespace-pre-wrap p-4 bg-gray-100 dark:bg-gray-700 rounded-md text-sm text-gray-800 dark:text-gray-200 font-mono overflow-x-auto"></pre>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">Live Rendering (Simulated)</h4>
+                        <iframe id="preview-iframe" class="w-full h-96 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-900"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            <button type="button" disabled 
-                        id="google-login-btn" 
-                        class="w-full flex items-center justify-center py-2.5 border border-gray-300 rounded-xl text-gray-400 cursor-not-allowed dark:border-gray-700 dark:text-gray-500">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_and_wordmark_of_Google.svg" class="w-5 h-5 mr-2 opacity-50" alt="Google logo">
-                Google (Not Active)
-            </button>
-        </form>
-        
-                <form id="signup-form" class="space-y-6 hidden" onsubmit="handleSignup(event)">
-            <h2 class="text-2xl font-bold text-gray-800 text-center mb-4">Create Account</h2>
-                        <div><label for="signup-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label><input type="email" id="signup-email" required class="w-full px-4 py-2 border border-gray-300 rounded-xl dark:bg-gray-700 dark:text-white" placeholder="you@example.com"></div>
-            <div class="relative"><label for="signup-password" class="block text-sm font-medium text-gray-700 mb-1">Password</label><input type="password" id="signup-password" required class="w-full px-4 py-2 border border-gray-300 rounded-xl dark:bg-gray-700 dark:text-white" placeholder="Min. 8 characters">
-                <button type="button" onclick="togglePasswordVisibility('signup-password', this)" class="absolute inset-y-0 right-0 top-6 pr-3 flex items-center text-gray-500 hover:text-gray-700 dark:hover:text-gray-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                </button>
-            </div>
-            <p id="signup-error-display" class="text-sm text-red-600 font-medium"></p>
-            <button type="submit" id="signup-btn" class="w-full py-3 text-lg font-bold rounded-xl text-white bg-ammoue hover:bg-teal-800 active:scale-95 transition duration-300 shadow-lg shadow-teal-500/30">Sign Up</button>
-        </form>
+    <script>
+        // --- Core Data Structure ---
+        const projects = [
+            { id: 1, title: 'Animated Navbar', prompt: 'Create a responsive navbar with a hamburger menu using pure CSS and a simple fade effect.', html: '\n<nav class="bg-blue-500 p-4">\n  <div class="flex justify-between items-center">\n    <h1 class="text-white font-bold">Brand</h1>\n    <button class="text-white">☰</button>\n  </div>\n</nav>', createdAt: new Date('2025-10-01'), liveUrl: 'https://example.com/navbar', hasThumbnail: true },
+            { id: 2, title: 'Pricing Table UI', prompt: 'Design a clean 3-tier pricing table using a modern flat design.', html: '\n<div class="flex justify-center space-x-4">\n  \n</div>', createdAt: new Date('2025-11-05'), liveUrl: null, hasThumbnail: true },
+            { id: 3, title: 'Simple To-Do List', prompt: 'Implement a functional to-do list using vanilla JS and local storage.', html: '\n<ul id="todo-list"></ul>', createdAt: new Date('2025-09-15'), liveUrl: null, hasThumbnail: false },
+            { id: 4, title: 'E-commerce Card Grid', prompt: 'A 4-column responsive grid for product cards with hover effects.', html: '\n<div class="grid grid-cols-4 gap-4">\n  <div>Product Card 1</div>\n  <div>Product Card 2</div>\n</div>', createdAt: new Date('2025-11-10'), liveUrl: 'https://example.com/shop', hasThumbnail: true },
+            { id: 5, title: 'Landing Page Hero Section', prompt: 'A full-width hero section with a compelling CTA button.', html: '\n<section class="bg-gray-100 h-96 flex items-center justify-center">\n  <h2 class="text-4xl">Welcome!</h2>\n</section>', createdAt: new Date('2025-10-25'), liveUrl: null, hasThumbnail: false },
+        ];
+        
+        let currentSort = 'newest';
+        let currentSearchTerm = '';
+        let autoSaveInterval;
 
-    </div> 
-    
-    <script type="module">
-        import { 
-            initializeApp 
-        } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
-        import { 
-            getAuth, 
-            signInWithEmailAndPassword, 
-            createUserWithEmailAndPassword, 
-            onAuthStateChanged,
-            sendPasswordResetEmail, 
-            // Dummy imports for structural completeness (social auth omitted for brevity)
-            signInWithPopup, GoogleAuthProvider, GithubAuthProvider, linkWithCredential
-        } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
-        import { getFirestore } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+        // --- Utility Functions ---
 
-        // --- FIREBASE CONFIGURATION (PRESERVED) ---
-        const firebaseConfig = {
-            apiKey: "AIzaSyAmnZ69YDcEFcmuXIhmGxDUSPULxpI-Bmg",
-            authDomain: "ammoueai.firebaseapp.com",
-            projectId: "ammoueai",
-            storageBucket: "ammoueai.firebasestorage.app",
-            messagingSenderId: "135818868149",
-            appId: "1:135818868149:web:db9280baf9540a3339d5fc",
-        };
-        
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app); 
-        const db = getFirestore(app);
+        /** Escapes HTML content for safe display in a <pre> block. */
+        function escapeHtml(unsafe) {
+            if (!unsafe) return '';
+            return unsafe
+                 .replace(/&/g, "&amp;")
+                 .replace(/</g, "&lt;")
+                 .replace(/>/g, "&gt;")
+                 .replace(/"/g, "&quot;")
+                 .replace(/'/g, "&#039;");
+        }
 
-        // --- DOM ELEMENTS ---
-        const loginEmail = document.getElementById('login-email');
-        const loginPassword = document.getElementById('login-password');
-        const loginBtn = document.getElementById('login-btn');
-        // 1. & 2. Error Display Elements
-        const loginErrorDisplay = document.getElementById('login-error-display');
-        const signupErrorDisplay = document.getElementById('signup-error-display');
+        /** Debounce function for search input */
+        function debounce(func, delay) {
+            let timeout;
+            return function(...args) {
+                const context = this;
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(context, args), delay);
+            };
+        }
+        
+        // --- Rendering Logic ---
 
-        // --- UTILITY FUNCTIONS ---
-        
-        /**
-         * 2. Displays an inline error message within the form.
-         */
-        function showInlineError(message, isLogin = true) {
-            const display = isLogin ? loginErrorDisplay : signupErrorDisplay;
-            display.textContent = message;
-            display.style.display = 'block';
-            display.classList.add('animate__animated', 'animate__fadeIn');
-        }
+        /** Sorts the projects array based on the current criteria. */
+        function sortProjects(list) {
+            switch (currentSort) {
+                case 'newest': return list.sort((a, b) => b.createdAt - a.createdAt);
+                case 'oldest': return list.sort((a, b) => a.createdAt - b.createdAt);
+                case 'a-z': return list.sort((a, b) => a.title.localeCompare(b.title));
+                case 'z-a': return list.sort((a, b) => b.title.localeCompare(a.title));
+                default: return list;
+            }
+        }
 
-        function clearInlineError() {
-            loginErrorDisplay.textContent = '';
-            signupErrorDisplay.textContent = '';
-            loginErrorDisplay.style.display = 'none';
-            signupErrorDisplay.style.display = 'none';
-        }
+        /** Filters and renders the project cards. */
+        function renderProjects() {
+            const grid = document.getElementById('projects-grid');
+            const emptyState = document.getElementById('empty-state');
+            
+            // 1. Filter
+            const lowerCaseSearch = currentSearchTerm.toLowerCase();
+            const filteredProjects = projects.filter(p => 
+                p.title.toLowerCase().includes(lowerCaseSearch) || 
+                p.prompt.toLowerCase().includes(lowerCaseSearch)
+            );
+            
+            // 2. Sort
+            const sortedProjects = sortProjects(filteredProjects);
+            
+            // 3. Render
+            grid.innerHTML = ''; // Clear existing cards
+            
+            if (sortedProjects.length === 0) {
+                emptyState.classList.remove('hidden');
+                grid.style.display = 'none';
+            } else {
+                emptyState.classList.add('hidden');
+                grid.style.display = 'grid';
+                // Responsive Grid Class
+                grid.className = 'grid gap-6 transition-all duration-300 ' + 
+                                 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
 
-        /**
-         * 5. Smoothly fades out the body and redirects.
-         */
-        function redirectToNextPage() {
-            document.body.classList.add('opacity-0');
-            const redirectPath = 'dashboard.html'; // Simplified redirection
+                sortedProjects.forEach(p => {
+                    const card = document.createElement('div');
+                    card.className = 'project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl p-5 flex flex-col transition-all duration-300 ease-in-out border border-gray-100 dark:border-gray-700';
+                    card.innerHTML = `
+                        ${p.hasThumbnail ? `<div class="w-full h-32 mb-4 rounded-lg bg-secondary-bg dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm font-medium overflow-hidden"><i data-lucide="image" class="w-8 h-8 mr-2"></i> Thumbnail Sim</div>` : `<div class="mb-4 text-gray-400 dark:text-gray-500 text-sm italic">No Thumbnail</div>`}
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">${p.title}</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 flex-grow line-clamp-2">${p.prompt}</p>
+                        <div class="text-xs text-gray-400 dark:text-gray-500 mb-4">Created: ${p.createdAt.toLocaleDateString()}</div>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <button onclick="event.stopPropagation(); openEditModal(${p.id})" class="text-primary hover:text-primary-dark transition text-sm p-1" title="Edit"><i data-lucide="pencil" class="w-4 h-4"></i></button>
+                            <button onclick="event.stopPropagation(); copyCode(${p.id})" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition text-sm p-1" title="Copy Code"><i data-lucide="copy" class="w-4 h-4"></i></button>
+                            <button onclick="event.stopPropagation(); handlePreview(${p.id}, '${p.liveUrl}')" class="text-green-500 hover:text-green-700 transition text-sm p-1" title="${p.liveUrl ? 'Open Live URL' : 'Preview HTML'}"><i data-lucide="${p.liveUrl ? 'external-link' : 'eye'}" class="w-4 h-4"></i></button>
+                            <button onclick="event.stopPropagation(); simulateDownload(${p.id})" class="text-blue-500 hover:text-blue-700 transition text-sm p-1" title="Download HTML"><i data-lucide="download" class="w-4 h-4"></i></button>
+                            <button onclick="event.stopPropagation(); duplicateProject(${p.id})" class="text-yellow-500 hover:text-yellow-700 transition text-sm p-1" title="Duplicate"><i data-lucide="layers-2" class="w-4 h-4"></i></button>
+                            <button onclick="event.stopPropagation(); openDeleteModal(${p.id})" class="text-red-500 hover:text-red-700 transition text-sm p-1" title="Delete"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            }
+            // Re-initialize Lucide icons for the new elements
+            lucide.createIcons();
+        }
 
-            setTimeout(() => {
-                window.location.href = redirectPath;
-            }, 400); // Wait 400ms for the 500ms transition to be mostly complete
-        }
+        // --- Modal Functions ---
 
-        // --- EVENT HANDLERS ---
-        
-        // 3. Password Visibility Toggle
-        window.togglePasswordVisibility = function(inputId, button) {
-            const input = document.getElementById(inputId);
-            const isPassword = input.type === 'password';
-            input.type = isPassword ? 'text' : 'password';
+        /** Shows a modal with transition. */
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    modal.querySelector('.modal-content').classList.remove('modal-enter');
+                    modal.querySelector('.modal-content').classList.add('modal-enter-active');
+                }, 10); // Small delay for transition
+                document.body.style.overflow = 'hidden'; // Prevent scrolling background
+            }
+        }
 
-            // Update Lucide icon (Eye / Eye-Off)
-            const iconHtml = isPassword 
-                ? '<path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c4.18 0 8.23 1.39 11.3 3.65-2.81 2.82-5.9 4.35-8.49 4.97"/><path d="M12 17c-4.18 0-8.23-1.39-11.3-3.65C.66 11.23 2.1 7.26 4.41 5.39"/><path d="M12 17a3 3 0 1 0-4.24-4.24"/>' // Eye-Off
-                : '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>'; // Eye (Visible)
-            
-            button.querySelector('svg').innerHTML = iconHtml;
-        };
+        /** Hides a modal with transition. */
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                const content = modal.querySelector('.modal-content');
+                content.classList.add('modal-exit-active');
+                content.classList.remove('modal-enter-active');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    content.classList.remove('modal-exit-active');
+                    content.classList.add('modal-enter');
+                    document.body.style.overflow = '';
+                }, 300); // Wait for transition duration
+            }
+        }
 
-        /**
-         * 4. Handles the Forgot Password workflow.
-         */
-        window.handleForgotPassword = async function(event) {
-            event.preventDefault();
-            clearInlineError();
+        /** Opens the Edit Modal and populates data. */
+        function openEditModal(id) {
+            const project = projects.find(p => p.id === id);
+            if (!project) return;
+            
+            document.getElementById('edit-project-id').value = project.id;
+            document.getElementById('edit-project-title-display').textContent = project.title;
+            document.getElementById('edit-title').value = project.title;
+            document.getElementById('edit-prompt').value = project.prompt;
+            document.getElementById('edit-html').value = project.html;
 
-            const email = loginEmail.value.trim();
+            document.getElementById('edit-form').onsubmit = function(e) {
+                e.preventDefault();
+                saveProject(project.id);
+                closeModal('edit-modal');
+            };
 
-            if (!email) {
-                showInlineError("Please enter your email address to reset your password.");
-                loginEmail.focus();
-                return;
-            }
+            // Auto-Save Simulation
+            clearInterval(autoSaveInterval);
+            autoSaveInterval = setInterval(() => {
+                simulateAutoSave(id);
+            }, 3000);
 
-            try {
-                await sendPasswordResetEmail(auth, email);
-                alert(`Password reset email sent to ${email}!`); // Success alert
-            } catch (error) {
-                let errorMessage = 'Failed to send reset email. Please check the email address.';
-                if (error.code === 'auth/user-not-found') {
-                    errorMessage = `No account found for ${email}. Please check your spelling.`;
-                }
-                showInlineError(errorMessage);
-            }
-        };
-        
-        // 1. Form Validation and Login Handling
-        window.handleLogin = async function(event) {
-            event.preventDefault();
-            clearInlineError();
+            openModal('edit-modal');
+        }
 
-            const email = loginEmail.value.trim();
-            const password = loginPassword.value.trim();
+        /** Simulates the Auto-Save feature. */
+        function simulateAutoSave(id) {
+            const project = projects.find(p => p.id === id);
+            const statusEl = document.getElementById('auto-save-status');
+            
+            // Check if any field has changed (simple check)
+            const newTitle = document.getElementById('edit-title').value;
+            const newPrompt = document.getElementById('edit-prompt').value;
+            const newHtml = document.getElementById('edit-html').value;
 
-            // 1. Form Validation
-            if (!email || !password) {
-                showInlineError("Please fill in both fields.");
-                return;
-            }
+            if (project.title !== newTitle || project.prompt !== newPrompt || project.html !== newHtml) {
+                 // Update the project data in the array
+                project.title = newTitle;
+                project.prompt = newPrompt;
+                project.html = newHtml;
 
-            const originalBtnText = loginBtn.innerHTML;
-            loginBtn.innerHTML = '<svg class="animate-spin h-5 w-5 mr-3 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Logging In...';
-            loginBtn.disabled = true;
+                statusEl.textContent = 'Auto-saving...';
+                statusEl.classList.add('text-primary');
+                setTimeout(() => {
+                    statusEl.textContent = `Saved at ${new Date().toLocaleTimeString()}`;
+                    statusEl.classList.remove('text-primary');
+                    renderProjects(); // Re-render to update card title/prompt
+                }, 500);
+            } else {
+                statusEl.textContent = 'No changes to save.';
+            }
+        }
 
-            try {
-                await signInWithEmailAndPassword(auth, email, password);
-                // Success: Initiate smooth redirect
-                redirectToNextPage(); 
+        /** Saves the project manually (on button click). */
+        function saveProject(id) {
+             clearInterval(autoSaveInterval);
+             // The project data should already be updated by auto-save, but this ensures a final update
+             const project = projects.find(p => p.id === id);
+             if (project) {
+                project.title = document.getElementById('edit-title').value;
+                project.prompt = document.getElementById('edit-prompt').value;
+                project.html = document.getElementById('edit-html').value;
+                renderProjects();
+             }
+        }
 
-            } catch (error) {
-                console.error("Login failed:", error);
-                let friendlyMessage = 'Login failed. Please check your credentials.';
-                
-                // 2. Display Firebase Error Messages
-                if (error.code === 'auth/invalid-credential' || error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
-                    friendlyMessage = 'Invalid email or password.';
-                } else if (error.code === 'auth/too-many-requests') {
-                    friendlyMessage = 'Access temporarily blocked due to too many failed attempts.';
-                } else if (error.code === 'auth/invalid-email') {
-                    friendlyMessage = 'The email address format is incorrect.';
-                }
-                
-                showInlineError(friendlyMessage);
-                loginBtn.innerHTML = originalBtnText;
-                loginBtn.disabled = false;
-            }
-        };
 
-        window.handleSignup = async function(event) {
-            event.preventDefault();
-            clearInlineError();
-            // Simplified signup logic (no validation check required per prompt 1)
-            const email = document.getElementById('signup-email').value;
-            const password = document.getElementById('signup-password').value;
+        /** Opens the Delete Confirmation Modal. */
+        function openDeleteModal(id) {
+            const project = projects.find(p => p.id === id);
+            if (!project) return;
 
-            const signupBtn = document.getElementById('signup-btn');
-            const originalBtnText = signupBtn.innerHTML;
-            signupBtn.innerHTML = '<svg class="animate-spin h-5 w-5 mr-3 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Creating Account...';
-            signupBtn.disabled = true;
+            document.getElementById('delete-project-title-display').textContent = project.title;
+            document.getElementById('delete-project-id-confirm').value = id;
 
-            try {
-                await createUserWithEmailAndPassword(auth, email, password);
-                redirectToNextPage(); 
-            } catch (error) {
-                let friendlyMessage = 'Sign-up failed.';
-                if (error.code === 'auth/email-already-in-use') {
-                    friendlyMessage = 'This email is already registered. Please log in.';
-                } else if (error.code === 'auth/weak-password') {
-                    friendlyMessage = 'Password should be at least 6 characters.';
-                }
-                showInlineError(friendlyMessage, false);
-                signupBtn.innerHTML = originalBtnText;
-                signupBtn.disabled = false;
-            }
-        };
-        
-        // --- QOL: 7. Allow Enter Key to Login ---
-        document.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                // Check if the login form is visible and an input is focused
-                if (document.getElementById('login-form').classList.contains('hidden') === false) {
-                    // Only submit if the email or password input is the active element
-                    if (document.activeElement === loginEmail || document.activeElement === loginPassword) {
-                        document.getElementById('login-form').dispatchEvent(new Event('submit', { cancelable: true }));
-                    }
-                }
-            }
-        });
+            document.getElementById('confirm-delete-btn').onclick = function() {
+                deleteProject(project.id);
+            };
 
-        // --- UI Toggling Logic (PRESERVED) ---
-        window.toggleForm = function(formType) { /* ... logic preserved ... */ };
-        function initializeForms() { /* ... logic preserved ... */ };
-        initializeForms();
-        // Initial Auth State Check (Preserved)
-        onAuthStateChanged(auth, (user) => { if (user) { redirectToNextPage(); } });
+            openModal('delete-modal');
+        }
 
-        // Dummy social auth handlers to prevent errors on the buttons
-        window.handleGoogleAuth = function() { showInlineError("Google login not yet implemented.", true); };
-        window.handleGitHubAuth = function() { showInlineError("GitHub login not yet implemented.", true); };
+        /** Deletes the project from the array. */
+        function deleteProject(id) {
+            const index = projects.findIndex(p => p.id === id);
+            if (index !== -1) {
+                projects.splice(index, 1);
+                renderProjects();
+                closeModal('delete-modal');
+            }
+        }
+        
+        /** Handles Preview logic: open new tab for live URL or show modal for HTML. */
+        function handlePreview(id, liveUrl) {
+            if (liveUrl && liveUrl !== 'null') {
+                window.open(liveUrl, '_blank'); // Open in new tab
+            } else {
+                openPreviewModal(id); // Show local preview modal
+            }
+        }
 
-    </script>
+        /** Opens the Preview Modal and loads content. */
+        function openPreviewModal(id) {
+            const project = projects.find(p => p.id === id);
+            if (!project) return;
+
+            document.getElementById('preview-project-title-display').textContent = project.title;
+            
+            // 1. Escaped HTML for Code Preview
+            const escapedHtml = escapeHtml(project.html);
+            document.getElementById('preview-code-block').textContent = escapedHtml;
+
+            // 2. Live Rendering Simulation in an iframe
+            const iframe = document.getElementById('preview-iframe');
+            const iframeContent = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Live Preview</title>
+                    <script src="https://cdn.tailwindcss.com"></script>
+                    <style>body { padding: 1rem; }</style>
+                </head>
+                <body>
+                    ${project.html}
+                </body>
+                </html>
+            `;
+            iframe.srcdoc = iframeContent; // Load the HTML content
+
+            openModal('preview-modal');
+        }
+
+        // --- Action Functions (Simulation) ---
+
+        /** Simulates downloading the project HTML. */
+        function simulateDownload(id) {
+            const project = projects.find(p => p.id === id);
+            if (project) {
+                // In a real app, this would trigger a file download
+                alert(`Simulating download of "${project.title}.html"`);
+                console.log(`Download content for ${project.title}: \n${project.html}`);
+            }
+        }
+
+        /** Copies the project HTML code to the clipboard. */
+        function copyCode(id) {
+            const project = projects.find(p => p.id === id);
+            if (project) {
+                navigator.clipboard.writeText(project.html).then(() => {
+                    alert(`Code for "${project.title}" copied to clipboard!`);
+                }).catch(err => {
+                    console.error('Could not copy text: ', err);
+                    alert('Error: Could not copy code. See console for details.');
+                });
+            }
+        }
+
+        /** Simulates project duplication. */
+        function duplicateProject(id) {
+            const original = projects.find(p => p.id === id);
+            if (original) {
+                const newId = projects.reduce((max, p) => Math.max(max, p.id), 0) + 1;
+                const duplicated = {
+                    ...original,
+                    id: newId,
+                    title: `${original.title} (Copy)`,
+                    createdAt: new Date()
+                };
+                projects.push(duplicated);
+                renderProjects();
+                alert(`Project "${original.title}" duplicated as "${duplicated.title}".`);
+            }
+        }
+
+        /** Simulates adding a new empty project. */
+        function simulateAddProject() {
+            const newId = projects.reduce((max, p) => Math.max(max, p.id), 0) + 1;
+            const newProject = {
+                id: newId, 
+                title: `New Project ${newId}`, 
+                prompt: 'Describe your idea here...', 
+                html: '\n\n<h1>Hello World</h1>', 
+                createdAt: new Date(), 
+                liveUrl: null, 
+                hasThumbnail: false
+            };
+            projects.push(newProject);
+            renderProjects();
+            openEditModal(newId); // Open the new project directly for editing
+        }
+
+
+        // --- Event Listeners and Initialization ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Initial render
+            renderProjects();
+
+            // 1. Initial Fade-in of Dashboard Content
+            setTimeout(() => {
+                document.getElementById('loading-overlay').style.opacity = '0';
+                document.getElementById('loading-overlay').classList.add('pointer-events-none');
+                document.getElementById('dashboard-content').style.opacity = '1';
+                document.getElementById('dashboard-content').style.transform = 'translateY(0)';
+            }, 800); // Simulate network latency
+
+            // 2. Dark Mode Setup
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+            if (isDarkMode) {
+                document.documentElement.classList.add('dark');
+            }
+
+            darkModeToggle.addEventListener('click', () => {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('darkMode', 'false');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('darkMode', 'true');
+                }
+            });
+
+            // 3. Debounced Search Input
+            const searchInput = document.getElementById('search-input');
+            const debouncedSearch = debounce((value) => {
+                currentSearchTerm = value;
+                renderProjects();
+            }, 300); // 300ms debounce
+
+            searchInput.addEventListener('input', (e) => {
+                debouncedSearch(e.target.value);
+            });
+
+            // 4. Sort Dropdown
+            document.getElementById('sort-dropdown').addEventListener('change', (e) => {
+                currentSort = e.target.value;
+                renderProjects();
+            });
+
+            // 5. Add Project Button
+            document.getElementById('add-project-btn').addEventListener('click', simulateAddProject);
+            
+            // 6. Prevent click propagation from buttons/modals to parent card (Done inline on buttons)
+
+            // Re-initialize Lucide icons one last time (if any were missed)
+            lucide.createIcons();
+        });
+    </script>
 </body>
 </html>
