@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veloraine – The Art of Refined Living</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+    <title>Voltrix Dynamics - The Future of Electric Technology</title>
+    <meta name="description" content="Voltrix Dynamics designs next-generation electric products: hyper-efficient EV chargers, smart batteries, and sleek home energy systems. Experience innovation, performance, and elegance.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2360A5FA' d='M11 2h2v10h4l-5 9-5-9h4V2z'/%3E%3C/svg%3E" type="image/svg+xml">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -13,398 +15,292 @@
             theme: {
                 extend: {
                     colors: {
-                        'veloraine-gold': '#d4af37', // A rich, elegant gold
-                        'veloraine-dark': '#0a0a0a', // A deep, soft black
+                        'vd-dark': '#0A0A0C', // Very dark almost black
+                        'vd-blue': '#00F0FF', // Neon electric blue
+                        'vd-blue-light': '#00A0FF', // Lighter electric blue
+                        'vd-accent': '#60A5FA', // Tailwind blue-400 for accents
+                        'vd-white': '#F0F0F0', // Off-white for readability
                     },
                     fontFamily: {
-                        playfair: ['"Playfair Display"', 'serif'],
-                        cormorant: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
                     },
-                }
-            }
+                    boxShadow: {
+                        'vd-glow-sm': '0 0 5px rgba(0, 240, 255, 0.5)',
+                        'vd-glow-md': '0 0 15px rgba(0, 240, 255, 0.7)',
+                        'vd-glow-lg': '0 0 30px rgba(0, 240, 255, 0.9)',
+                        'vd-glow-xl': '0 0 50px rgba(0, 240, 255, 1)',
+                    },
+                    keyframes: {
+                        'pulse-glow': {
+                            '0%, 100%': { boxShadow: '0 0 10px rgba(0, 240, 255, 0.4)' },
+                            '50%': { boxShadow: '0 0 25px rgba(0, 240, 255, 0.8)' },
+                        },
+                        'fade-in-up': {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'slide-in-left': {
+                            '0%': { opacity: '0', transform: 'translateX(-50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        'slide-in-right': {
+                            '0%': { opacity: '0', transform: 'translateX(50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        'power-up': {
+                            '0%': { transform: 'scaleY(0)', opacity: '0', filter: 'blur(10px)' },
+                            '70%': { transform: 'scaleY(1.1)', opacity: '1', filter: 'blur(0px)' },
+                            '100%': { transform: 'scaleY(1)', opacity: '1', filter: 'blur(0px)' },
+                        },
+                        'gradient-shift': {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '100%': { backgroundPosition: '100% 50%' },
+                        },
+                        'lightning-path': {
+                            '0%': { strokeDashoffset: '200' },
+                            '100%': { strokeDashoffset: '0' },
+                        },
+                        'pulse-heartbeat': {
+                            '0%, 100%': { transform: 'scale(1)', opacity: '0.7' },
+                            '50%': { transform: 'scale(1.1)', opacity: '1' },
+                        }
+                    },
+                    animation: {
+                        'pulse-glow': 'pulse-glow 2s infinite ease-in-out',
+                        'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
+                        'slide-in-left': 'slide-in-left 0.8s ease-out forwards',
+                        'slide-in-right': 'slide-in-right 0.8s ease-out forwards',
+                        'power-up': 'power-up 1s ease-out forwards',
+                        'gradient-shift': 'gradient-shift 4s ease-in-out infinite alternate',
+                        'lightning-path': 'lightning-path 2s linear infinite',
+                        'pulse-heartbeat': 'pulse-heartbeat 1.2s infinite ease-in-out',
+                    },
+                },
+            },
+            plugins: [],
         }
     </script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <style>
-        /* Custom CSS for reveal animations */
-        .reveal-item {
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap');
+
+        body {
+            @apply bg-vd-dark text-vd-white font-sans;
+        }
+
+        .section-fade-in {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            transition-delay: 0.2s; /* Subtle delay for staggered effect */
         }
-        .reveal-item.is-visible {
+        .section-fade-in.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Subtle parallax for fixed background images */
-        .parallax-bg {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        .nav-link-glow:hover {
+            text-shadow: 0 0 8px theme('colors.vd-blue'), 0 0 15px theme('colors.vd-blue-light');
+            transform: scale(1.05);
+        }
+        
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.3s ease-out;
+        }
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle at center, rgba(0, 240, 255, 0.4) 0%, rgba(0, 240, 255, 0) 70%);
+            transition: all 0.5s ease-out;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            z-index: -1;
+        }
+        .btn-glow:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 15px theme('colors.vd-blue');
+            transform: translateY(-2px);
         }
 
-        /* Custom scrollbar for a more refined look */
+        .input-glow:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px theme('colors.vd-blue'), 0 0 10px theme('colors.vd-blue');
+            border-color: theme('colors.vd-blue');
+        }
+
+        .holographic-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease-out;
+        }
+        .holographic-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                60deg,
+                rgba(0, 240, 255, 0) 0%,
+                rgba(0, 240, 255, 0.1) 30%,
+                rgba(0, 240, 255, 0.05) 50%,
+                rgba(0, 240, 255, 0) 70%
+            );
+            transform: rotate(45deg);
+            animation: holographic-shine 5s infinite linear;
+            animation-play-state: paused;
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+        }
+        .holographic-card:hover::before {
+            animation-play-state: running;
+            opacity: 1;
+        }
+        .holographic-card:hover {
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+            transform: translateY(-5px);
+        }
+        @keyframes holographic-shine {
+            0% { transform: rotate(45deg) translateX(-100%); }
+            100% { transform: rotate(45deg) translateX(100%); }
+        }
+
+        /* Custom scrollbar for dark theme */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 10px;
         }
-
         ::-webkit-scrollbar-track {
-            background: #1a1a1a;
+            background: #111;
         }
-
         ::-webkit-scrollbar-thumb {
-            background: #4a4a4a;
-            border-radius: 10px;
+            background: #00F0FF;
+            border-radius: 5px;
+            border: 2px solid #111;
         }
-
         ::-webkit-scrollbar-thumb:hover {
-            background: #d4af37;
+            background: #00A0FF;
         }
     </style>
 </head>
-<body class="bg-veloraine-dark text-white font-cormorant leading-relaxed overflow-x-hidden">
+<body class="relative">
 
-    <!-- Header / Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-veloraine-dark bg-opacity-90 backdrop-blur-sm shadow-lg reveal-item">
-        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#home" class="text-3xl font-playfair text-veloraine-gold tracking-wider hover:text-white transition-colors duration-300">Veloraine</a>
-
-            <!-- Desktop Nav -->
-            <ul class="hidden md:flex space-x-8 text-lg">
-                <li><a href="#home" class="hover:text-veloraine-gold transition-colors duration-300">Home</a></li>
-                <li><a href="#couture" class="hover:text-veloraine-gold transition-colors duration-300">Couture</a></li>
-                <li><a href="#jewelry" class="hover:text-veloraine-gold transition-colors duration-300">Jewelry</a></li>
-                <li><a href="#fragrance" class="hover:text-veloraine-gold transition-colors duration-300">Fragrance</a></li>
-                <li><a href="#accessories" class="hover:text-veloraine-gold transition-colors duration-300">Accessories</a></li>
-                <li><a href="#heritage" class="hover:text-veloraine-gold transition-colors duration-300">Heritage</a></li>
-                <li><a href="#circle" class="hover:text-veloraine-gold transition-colors duration-300">Veloraine Circle</a></li>
-            </ul>
-
-            <!-- Language & Currency -->
-            <div class="hidden md:flex items-center space-x-4">
-                <div class="relative group">
-                    <button class="flex items-center text-white hover:text-veloraine-gold transition-colors duration-300">
-                        <span>EN</span>
-                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="absolute right-0 mt-2 w-24 bg-veloraine-dark border border-veloraine-gold rounded-md shadow-lg py-1 hidden group-hover:block">
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-veloraine-gold hover:text-veloraine-dark transition-colors duration-300">FR</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-veloraine-gold hover:text-veloraine-dark transition-colors duration-300">DE</a>
-                    </div>
-                </div>
-                <div class="relative group">
-                    <button class="flex items-center text-white hover:text-veloraine-gold transition-colors duration-300">
-                        <span>USD</span>
-                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="absolute right-0 mt-2 w-28 bg-veloraine-dark border border-veloraine-gold rounded-md shadow-lg py-1 hidden group-hover:block">
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-veloraine-gold hover:text-veloraine-dark transition-colors duration-300">EUR</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-veloraine-gold hover:text-veloraine-dark transition-colors duration-300">GBP</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
-        </nav>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-veloraine-dark py-4 transition-all duration-300 ease-in-out transform -translate-y-full opacity-0 absolute w-full left-0">
-            <ul class="flex flex-col items-center space-y-4 text-xl">
-                <li><a href="#home" class="block py-2 hover:text-veloraine-gold transition-colors duration-300">Home</a></li>
-                <li><a href="#couture" class="block py-2 hover:text-veloraine-gold transition-colors duration-300">Couture</a></li>
-                <li><a href="#jewelry" class="block py-2 hover:text-veloraine-gold transition-colors duration-300">Jewelry</a></li>
-                <li><a href="#fragrance" class="block py-2 hover:text-veloraine-gold transition-colors duration-300">Fragrance</a></li>
-                <li><a href="#accessories" class="block py-2 hover:text-veloraine-gold transition-colors duration-300">Accessories</a></li>
-                <li><a href="#heritage" class="block py-2 hover:text-veloraine-gold transition-colors duration-300">Heritage</a></li>
-                <li><a href="#circle" class="block py-2 hover:text-veloraine-gold transition-colors duration-300">Veloraine Circle</a></li>
-            </ul>
-            <div class="flex justify-center space-x-6 mt-6">
-                <div class="relative group">
-                    <button class="flex items-center text-white hover:text-veloraine-gold transition-colors duration-300">
-                        <span>EN</span>
-                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="absolute right-0 mt-2 w-24 bg-veloraine-dark border border-veloraine-gold rounded-md shadow-lg py-1 hidden group-hover:block">
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-veloraine-gold hover:text-veloraine-dark transition-colors duration-300">FR</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-veloraine-gold hover:text-veloraine-dark transition-colors duration-300">DE</a>
-                    </div>
-                </div>
-                <div class="relative group">
-                    <button class="flex items-center text-white hover:text-veloraine-gold transition-colors duration-300">
-                        <span>USD</span>
-                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="absolute right-0 mt-2 w-28 bg-veloraine-dark border border-veloraine-gold rounded-md shadow-lg py-1 hidden group-hover:block">
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-veloraine-gold hover:text-veloraine-dark transition-colors duration-300">EUR</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-veloraine-gold hover:text-veloraine-dark transition-colors duration-300">GBP</a>
-                    </div>
-                </div>
-            </div>
+    <!-- Energy Pulse Loading Animation -->
+    <div id="loading-overlay" class="fixed inset-0 bg-vd-dark z-[100] flex items-center justify-center transition-opacity duration-500 ease-out">
+        <div class="relative w-24 h-24 rounded-full border-4 border-vd-blue flex items-center justify-center animate-pulse-heartbeat">
+            <svg class="absolute w-16 h-16 text-vd-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 2h2v10h4l-5 9-5-9h4V2z"></path>
+            </svg>
         </div>
-    </header>
+    </div>
+
+    <!-- Background Ambient Sound -->
+    <audio id="ambient-hum" loop autoplay volume="0.1">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-drone-background-1563.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <!-- Click Sound -->
+    <audio id="click-sound">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-click-655.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-vd-dark bg-opacity-70 backdrop-blur-md p-4 shadow-vd-glow-sm transition-all duration-300 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#home" class="flex items-center space-x-2 text-2xl font-bold text-vd-blue-light animate-power-up group nav-link-glow" onclick="playSound('click')">
+                <svg class="w-8 h-8 text-vd-blue transition-transform duration-300 group-hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M11 2h2v10h4l-5 9-5-9h4V2z"></path>
+                </svg>
+                <span>Voltrix Dynamics</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-vd-white hover:text-vd-blue transition duration-300 nav-link-glow" onclick="playSound('click')">Home</a>
+                <a href="#products" class="text-vd-white hover:text-vd-blue transition duration-300 nav-link-glow" onclick="playSound('click')">Products</a>
+                <a href="#innovation" class="text-vd-white hover:text-vd-blue transition duration-300 nav-link-glow" onclick="playSound('click')">Innovation Lab</a>
+                <a href="#sustainability" class="text-vd-white hover:text-vd-blue transition duration-300 nav-link-glow" onclick="playSound('click')">Sustainability</a>
+                <a href="#contact" class="text-vd-white hover:text-vd-blue transition duration-300 nav-link-glow" onclick="playSound('click')">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-vd-white focus:outline-none" onclick="playSound('click')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 text-center">
+            <a href="#home" class="block py-2 text-vd-white hover:text-vd-blue transition duration-300" onclick="toggleMobileMenu(); playSound('click')">Home</a>
+            <a href="#products" class="block py-2 text-vd-white hover:text-vd-blue transition duration-300" onclick="toggleMobileMenu(); playSound('click')">Products</a>
+            <a href="#innovation" class="block py-2 text-vd-white hover:text-vd-blue transition duration-300" onclick="toggleMobileMenu(); playSound('click')">Innovation Lab</a>
+            <a href="#sustainability" class="block py-2 text-vd-white hover:text-vd-blue transition duration-300" onclick="toggleMobileMenu(); playSound('click')">Sustainability</a>
+            <a href="#contact" class="block py-2 text-vd-white hover:text-vd-blue transition duration-300" onclick="toggleMobileMenu(); playSound('click')">Contact</a>
+        </div>
+    </nav>
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden text-center text-vd-white">
             <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
-                <source src="https://videos.pexels.com/video-files/6262753/6262753-sd_426_240_25fps.mp4" type="video/mp4">
+                <source src="https://videos.pexels.com/video-files/3129902/3129902-sd_426_240_25fps.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-veloraine-dark/80 to-transparent"></div>
-            <div class="relative z-10 p-6 reveal-item">
-                <h1 class="font-playfair text-6xl md:text-8xl text-veloraine-gold mb-4 tracking-wider drop-shadow-lg">Veloraine</h1>
-                <p class="font-cormorant text-xl md:text-3xl text-white italic drop-shadow-md">The Art of Refined Living</p>
-                <a href="#couture" class="mt-8 inline-block px-10 py-4 border-2 border-veloraine-gold text-veloraine-gold text-lg uppercase tracking-widest font-semibold hover:bg-veloraine-gold hover:text-veloraine-dark transition-all duration-300">Discover Our Collections</a>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="py-24 container mx-auto px-6 text-center reveal-item">
-            <h2 class="text-5xl font-playfair text-veloraine-gold mb-8">Embrace Exclusivity</h2>
-            <p class="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-gray-300">
-                Veloraine is more than a brand; it is a philosophy. We curate experiences through meticulously crafted objects d'art – from the whisper of silk in our couture to the timeless glint of our jewels, each creation is a testament to unparalleled craftsmanship and an unwavering dedication to luxury. Welcome to a world where elegance is eternal.
-            </p>
-        </section>
-
-        <!-- Product Showcase: Couture -->
-        <section id="couture" class="py-24 bg-veloraine-dark relative overflow-hidden reveal-item">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-                <div class="order-2 md:order-1 reveal-item">
-                    <img src="https://images.pexels.com/photos/6102181/pexels-photo-6102181.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Veloraine Couture Fashion" class="w-full h-auto object-cover shadow-2xl border border-veloraine-gold/30">
-                </div>
-                <div class="order-1 md:order-2 text-center md:text-left reveal-item">
-                    <h3 class="text-5xl font-playfair text-veloraine-gold mb-6">Couture: Woven Dreams</h3>
-                    <p class="text-lg md:text-xl leading-relaxed text-gray-300 mb-8">
-                        Each Veloraine couture piece is a symphony of fabric and form, a meticulously handcrafted garment that whispers tales of elegance. Designed for those who command attention, our collections fuse avant-garde vision with timeless grace, embodying the pinnacle of sartorial artistry.
-                    </p>
-                    <a href="#" class="inline-block px-8 py-3 border border-veloraine-gold text-veloraine-gold uppercase tracking-wider text-sm hover:bg-veloraine-gold hover:text-veloraine-dark transition-all duration-300">Explore Couture</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Product Showcase: Fine Jewelry -->
-        <section id="jewelry" class="py-24 bg-veloraine-dark relative overflow-hidden reveal-item">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-                <div class="text-center md:text-right reveal-item">
-                    <h3 class="text-5xl font-playfair text-veloraine-gold mb-6">Jewelry: Echoes of Brilliance</h3>
-                    <p class="text-lg md:text-xl leading-relaxed text-gray-300 mb-8">
-                        Adorn yourself with Veloraine's fine jewelry, where rare gems meet master craftsmanship. Each creation, from dazzling necklaces to intricate rings, captures the ephemeral beauty of light, designed to become a cherished heirloom, an eternal spark of your personal legacy.
-                    </p>
-                    <a href="#" class="inline-block px-8 py-3 border border-veloraine-gold text-veloraine-gold uppercase tracking-wider text-sm hover:bg-veloraine-gold hover:text-veloraine-dark transition-all duration-300">View Jewelry</a>
-                </div>
-                <div class="reveal-item">
-                    <img src="https://images.pexels.com/photos/6262839/pexels-photo-6262839.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Veloraine Fine Jewelry" class="w-full h-auto object-cover shadow-2xl border border-veloraine-gold/30">
-                </div>
-            </div>
-        </section>
-
-        <!-- Product Showcase: Bespoke Perfumes -->
-        <section id="fragrance" class="py-24 bg-veloraine-dark relative overflow-hidden reveal-item">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-                <div class="order-2 md:order-1 reveal-item">
-                    <img src="https://images.pexels.com/photos/19599226/pexels-photo-19599226.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Veloraine Bespoke Perfumes" class="w-full h-auto object-cover shadow-2xl border border-veloraine-gold/30">
-                </div>
-                <div class="order-1 md:order-2 text-center md:text-left reveal-item">
-                    <h3 class="text-5xl font-playfair text-veloraine-gold mb-6">Fragrance: Scented Narratives</h3>
-                    <p class="text-lg md:text-xl leading-relaxed text-gray-300 mb-8">
-                        Veloraine's bespoke perfumes are an olfactive journey, capturing essence and memory in a bottle. Each fragrance is an intricate blend of rare notes, an invisible garment that leaves a lasting impression, a personal signature for the discerning connoisseur.
-                    </p>
-                    <a href="#" class="inline-block px-8 py-3 border border-veloraine-gold text-veloraine-gold uppercase tracking-wider text-sm hover:bg-veloraine-gold hover:text-veloraine-dark transition-all duration-300">Discover Fragrances</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Product Showcase: Signature Accessories -->
-        <section id="accessories" class="py-24 bg-veloraine-dark relative overflow-hidden reveal-item">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-                <div class="text-center md:text-right reveal-item">
-                    <h3 class="text-5xl font-playfair text-veloraine-gold mb-6">Accessories: Definitive Touches</h3>
-                    <p class="text-lg md:text-xl leading-relaxed text-gray-300 mb-8">
-                        Elevate your ensemble with Veloraine's signature accessories. From handcrafted leather goods to exquisitely detailed scarves, each piece is a statement of understated luxury, a perfect complement to your refined aesthetic and an emblem of unparalleled quality.
-                    </p>
-                    <a href="#" class="inline-block px-8 py-3 border border-veloraine-gold text-veloraine-gold uppercase tracking-wider text-sm hover:bg-veloraine-gold hover:text-veloraine-dark transition-all duration-300">Shop Accessories</a>
-                </div>
-                <div class="reveal-item">
-                    <img src="https://images.pexels.com/photos/3856051/pexels-photo-3856051.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Veloraine Signature Accessories" class="w-full h-auto object-cover shadow-2xl border border-veloraine-gold/30">
-                </div>
-            </div>
-        </section>
-
-        <!-- Heritage Section -->
-        <section id="heritage" class="relative py-32 reveal-item parallax-bg" style="background-image: url('https://images.pexels.com/photos/19343181/pexels-photo-19343181.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');">
-            <div class="absolute inset-0 bg-veloraine-dark/70"></div>
-            <div class="relative z-10 container mx-auto px-6 text-center">
-                <h2 class="text-5xl font-playfair text-veloraine-gold mb-8 drop-shadow-lg">Our Enduring Legacy</h2>
-                <p class="text-xl md:text-2xl max-w-5xl mx-auto leading-relaxed text-gray-200 mb-12 drop-shadow-md">
-                    For generations, Veloraine has upheld a tradition of unparalleled luxury and artisanal mastery. Our heritage is woven into every stitch, faceted into every gem, and distilled into every essence. It is a story of passion, precision, and an unyielding pursuit of perfection, passed down through skilled hands and discerning minds. We honor our past by continually innovating, ensuring that Veloraine remains a beacon of excellence for centuries to come.
+            <div class="absolute inset-0 bg-gradient-to-t from-vd-dark via-vd-dark/70 to-transparent"></div>
+            <div class="absolute inset-0 bg-vd-dark opacity-50"></div>
+            <div class="relative z-10 p-4 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-4 animate-fade-in-up text-vd-blue-light drop-shadow-vd-glow-lg tracking-tight leading-tight">
+                    VOLTRIX DYNAMICS
+                </h1>
+                <p class="text-xl md:text-2xl font-light mb-8 animate-fade-in-up delay-200 text-vd-white drop-shadow-vd-glow-sm">
+                    Powering Tomorrow, Today.
+                    <br class="hidden md:inline"> Next-generation electric innovation, engineered for excellence.
                 </p>
-                <div class="max-w-3xl mx-auto mb-12 shadow-2xl border border-veloraine-gold/50 reveal-item">
-                    <video controls muted playsinline class="w-full h-auto">
-                        <source src="https://videos.pexels.com/video-files/6263491/6263491-sd_960_540_25fps.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                 <a href="#" class="inline-block px-10 py-4 border-2 border-veloraine-gold text-veloraine-gold text-lg uppercase tracking-widest font-semibold hover:bg-veloraine-gold hover:text-veloraine-dark transition-all duration-300">Discover Our Story</a>
+                <a href="#products" class="inline-block px-8 py-3 bg-vd-blue text-vd-dark font-semibold rounded-full text-lg shadow-vd-glow-md btn-glow animate-fade-in-up delay-400" onclick="playSound('click')">
+                    Explore Our Innovation
+                </a>
             </div>
         </section>
 
-        <!-- Veloraine Circle (VIP) Section -->
-        <section id="circle" class="py-24 bg-veloraine-dark relative overflow-hidden reveal-item">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-                <div class="reveal-item">
-                    <img src="https://images.pexels.com/photos/16155549/pexels-photo-16155549.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Veloraine Circle exclusive event" class="w-full h-auto object-cover shadow-2xl border border-veloraine-gold/30">
-                </div>
-                <div class="text-center md:text-left reveal-item">
-                    <h3 class="text-5xl font-playfair text-veloraine-gold mb-6">The Veloraine Circle: An Invitation to Exclusivity</h3>
-                    <p class="text-lg md:text-xl leading-relaxed text-gray-300 mb-8">
-                        For our most esteemed clients, the Veloraine Circle offers a gateway to an unparalleled world of luxury. Enjoy private viewings of upcoming collections, bespoke design consultations with our master artisans, priority access to limited editions, and exclusive invitations to global Veloraine events. This is an experience crafted for the truly discerning.
-                    </p>
-                    <form action="#" method="POST" class="max-w-md mx-auto md:mx-0">
-                        <input type="email" placeholder="Your Email Address" class="w-full p-4 bg-veloraine-dark border border-veloraine-gold text-white focus:outline-none focus:ring-2 focus:ring-veloraine-gold focus:border-transparent mb-4" required>
-                        <textarea placeholder="Your Request (e.g., private viewing, custom design)" rows="4" class="w-full p-4 bg-veloraine-dark border border-veloraine-gold text-white focus:outline-none focus:ring-2 focus:ring-veloraine-gold focus:border-transparent mb-4"></textarea>
-                        <button type="submit" class="w-full px-8 py-4 border-2 border-veloraine-gold text-veloraine-gold uppercase tracking-widest font-semibold hover:bg-veloraine-gold hover:text-veloraine-dark transition-all duration-300">Request Invitation</button>
-                    </form>
-                </div>
-            </div>
-        </section>
+        <!-- Products Section -->
+        <section id="products" class="py-20 bg-vd-dark section-fade-in">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 text-vd-blue drop-shadow-vd-glow-sm animate-fade-in-up">Our Cutting-Edge Products</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Product Card 1: Hyper-Efficient EV Charger -->
+                    <div class="holographic-card p-6 rounded-xl flex flex-col items-center text-center animate-fade-in-up">
+                        <img src="https://images.pexels.com/photos/1935370/pexels-photo-1935370.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="EV Charger" class="w-full h-48 object-cover rounded-lg mb-4 transform hover:scale-105 transition-transform duration-300 shadow-vd-glow-sm">
+                        <h3 class="text-2xl font-semibold text-vd-blue-light mb-2">AuraCharge Pro</h3>
+                        <p class="text-vd-white/80 mb-4 flex-grow">Hyper-efficient EV charging station, designed for rapid and sustainable power delivery. Future-proof and sleek.</p>
+                        <button class="px-6 py-2 bg-vd-blue text-vd-dark rounded-full font-medium shadow-vd-glow-sm btn-glow" onclick="alert('Simulating 3D view for AuraCharge Pro!'); playSound('click')">View 3D Model</button>
+                    </div>
 
-        <!-- Newsletter Section -->
-        <section class="py-24 bg-veloraine-dark relative overflow-hidden reveal-item">
-             <div class="absolute inset-0 opacity-10 bg-center bg-cover parallax-bg" style="background-image: url('https://images.pexels.com/photos/6358795/pexels-photo-6358795.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');"></div>
-            <div class="relative z-10 container mx-auto px-6 text-center">
-                <h2 class="text-5xl font-playfair text-veloraine-gold mb-8 drop-shadow-lg">Join the Circle of Elegance</h2>
-                <p class="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed text-gray-300 mb-10 drop-shadow-md">
-                    Be among the first to discover new collections, exclusive events, and the latest news from Veloraine. Subscribe to our newsletter and immerse yourself in a world of unparalleled luxury.
-                </p>
-                <form action="#" method="POST" class="max-w-lg mx-auto flex flex-col md:flex-row gap-4">
-                    <input type="email" placeholder="Enter your email address" class="flex-grow p-4 bg-veloraine-dark border border-veloraine-gold text-white focus:outline-none focus:ring-2 focus:ring-veloraine-gold focus:border-transparent" required>
-                    <button type="submit" class="px-8 py-4 border-2 border-veloraine-gold text-veloraine-gold uppercase tracking-widest font-semibold hover:bg-veloraine-gold hover:text-veloraine-dark transition-all duration-300">Subscribe Now</button>
-                </form>
-            </div>
-        </section>
-    </main>
+                    <!-- Product Card 2: Smart Battery System -->
+                    <div class="holographic-card p-6 rounded-xl flex flex-col items-center text-center animate-fade-in-up delay-100">
+                        <img src="https://images.pexels.com/photos/1910236/pexels-photo-1910236.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Smart Battery" class="w-full h-48 object-cover rounded-lg mb-4 transform hover:scale-105 transition-transform duration-300 shadow-vd-glow-sm">
+                        <h3 class="text-2xl font-semibold text-vd-blue-light mb-2">PowerCore X</h3>
+                        <p class="text-vd-white/80 mb-4 flex-grow">Intelligent home battery storage that optimizes energy usage, integrates with renewables, and provides seamless backup power.</p>
+                        <button class="px-6 py-2 bg-vd-blue text-vd-dark rounded-full font-medium shadow-vd-glow-sm btn-glow" onclick="alert('Simulating 3D view for PowerCore X!'); playSound('click')">View 3D Model</button>
+                    </div>
 
-    <!-- Footer -->
-    <footer class="bg-veloraine-dark py-16 border-t border-veloraine-gold/30 reveal-item">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 text-center md:text-left">
-            <div>
-                <a href="#home" class="text-3xl font-playfair text-veloraine-gold tracking-wider mb-4 block">Veloraine</a>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    Embodying sophistication, exclusivity, and timeless design since 19XX.
-                </p>
-            </div>
-            <div>
-                <h4 class="text-xl font-playfair text-veloraine-gold mb-6">Explore</h4>
-                <ul class="space-y-3 text-gray-300">
-                    <li><a href="#couture" class="hover:text-veloraine-gold transition-colors duration-300">Couture</a></li>
-                    <li><a href="#jewelry" class="hover:text-veloraine-gold transition-colors duration-300">Jewelry</a></li>
-                    <li><a href="#fragrance" class="hover:text-veloraine-gold transition-colors duration-300">Fragrance</a></li>
-                    <li><a href="#accessories" class="hover:text-veloraine-gold transition-colors duration-300">Accessories</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-xl font-playfair text-veloraine-gold mb-6">Veloraine World</h4>
-                <ul class="space-y-3 text-gray-300">
-                    <li><a href="#heritage" class="hover:text-veloraine-gold transition-colors duration-300">Our Heritage</a></li>
-                    <li><a href="#circle" class="hover:text-veloraine-gold transition-colors duration-300">Veloraine Circle</a></li>
-                    <li><a href="#" class="hover:text-veloraine-gold transition-colors duration-300">Careers</a></li>
-                    <li><a href="#" class="hover:text-veloraine-gold transition-colors duration-300">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-xl font-playfair text-veloraine-gold mb-6">Connect</h4>
-                <div class="flex justify-center md:justify-start space-x-4 mb-6">
-                    <a href="#" class="text-gray-400 hover:text-veloraine-gold transition-colors duration-300" aria-label="Facebook">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.776-3.89 1.094 0 2.24.195 2.24.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-veloraine-gold transition-colors duration-300" aria-label="Instagram">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.002 3.714.051 1.104.067 1.791.245 2.224.469.659.332 1.115.757 1.545 1.185.433.428.858.885 1.184 1.545.224.433.402 1.12.468 2.224.049.93.051 1.286.051 3.714s-.002 2.784-.051 3.714c-.067 1.104-.245 1.791-.469 2.224-.332.659-.757 1.115-1.185 1.545-.428.433-.885.858-1.545 1.184-.433.224-1.12.402-2.224.468-.93.049-1.286.051-3.714.051s-2.784-.002-3.714-.051c-1.104-.067-1.791-.245-2.224-.469-.659-.332-1.115-.757-1.545-1.185-.433-.428-.858-.885-1.184-1.545-.224-.433-.402-1.12-.468-2.224-.049-.93-.051-1.286-.051-3.714s.002-2.784.051-3.714c.067-1.104.245-1.791.469-2.224.332-.659.757-1.115 1.185-1.545.428-.433.885-.858 1.545-1.184.433-.224 1.12-.402 2.224-.468.93-.049 1.286-.051 3.714-.051zM12 7.199c-2.624 0-4.75 2.126-4.75 4.75s2.126 4.75 4.75 4.75 4.75-2.126 4.75-4.75S14.624 7.199 12 7.199zM12 15.651c-1.933 0-3.5-1.567-3.5-3.5s1.567-3.5 3.5-3.5 3.5 1.567 3.5 3.5-1.567 3.5-3.5 3.5zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.44-.645 1.44-1.44s-.645-1.44-1.44-1.44z" clip-rule="evenodd" /></svg>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-veloraine-gold transition-colors duration-300" aria-label="YouTube">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.052 16.516C0 15.82 0 12 0 12S0 8.18 0.052 7.484l.01-.064C.084 6.89 0.2 6.31 0.446 5.862c.24-.447.604-.811 1.05-.992.446-.182 1.054-.256 1.77-.282.72-.027 1.834-.047 3.332-.058L12 4c.66 0 1.4.004 2.22.013.82.009 1.636.027 2.45.058.716.026 1.324.1 1.77.282.446.181.81.545 1.05.992.246.452.362 1.032.394 1.606l.01.064C24 8.18 24 12 24 12s0 3.82 0.052 4.516l.01.064c.032.574-.084 1.154-.33 1.606-.24.447-.604.811-1.05.992-.446.182-1.054.256-1.77.282-.72.027-1.834.047-3.332.058L12 20c-.66 0-1.4-.004-2.22-.013-.82-.009-1.636-.027-2.45-.058-.716-.026-1.324-.1-1.77-.282-.446-.181-.81-.545-1.05-.992-.246-.452-.362-1.032-.394-1.606l-.01-.064C0 15.82 0 12 0 12S0 8.18 0.052 7.484zm8.39-1.077l6.883 3.992-6.883 3.992V6.407z" /></svg>
-                    </a>
-                </div>
-                <p class="text-gray-500 text-sm">&copy; 2024 Veloraine. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+                    <!-- Product Card 3: Home Energy System -->
+                    <div class="holographic-card p-6 rounded-xl flex flex-col items-center text-center animate-fade-in-up delay-200">
+                        <img src="https://images.pexels.com/photos/3398105/pexels-photo-3398105.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Home Energy System" class="w-full h-48 object-cover rounded-lg mb-4 transform hover:scale-105 transition-transform duration-300 shadow-vd-glow-sm">
+                        <h3 class="text-2xl font-semibold text-vd-blue-light mb-2">NexusGrid Hub</h3>
+                        <p class="text-vd-white/80 mb-4 flex-grow">The central nervous system for your home's energy. Manage, monitor, and master your power consumption with AI precision.</p>
+                        <button class="px-6 py-2 bg-vd-blue text-vd-dark rounded-full font-medium shadow-vd-glow-sm btn-glow" onclick="alert('Simulating 3D view for NexusGrid Hub!'); playSound('click')">View 3D Model</button>
+                    </div>
 
-    <!-- JavaScript for Mobile Menu and Scroll Reveal -->
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            const isHidden = mobileMenu.classList.contains('hidden');
-            if (isHidden) {
-                mobileMenu.classList.remove('hidden');
-                setTimeout(() => {
-                    mobileMenu.classList.remove('-translate-y-full', 'opacity-0');
-                    mobileMenu.classList.add('translate-y-0', 'opacity-100');
-                }, 10); // Small delay to allow 'hidden' to be removed
-            } else {
-                mobileMenu.classList.remove('translate-y-0', 'opacity-100');
-                mobileMenu.classList.add('-translate-y-full', 'opacity-0');
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                }, 300); // Wait for transition to finish before hiding
-            }
-        });
-
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('#mobile-menu a').forEach(item => {
-            item.addEventListener('click', () => {
-                mobileMenu.classList.remove('translate-y-0', 'opacity-100');
-                mobileMenu.classList.add('-translate-y-full', 'opacity-0');
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                }, 300);
-            });
-        });
-
-
-        // Scroll Reveal Animation
-        const revealItems = document.querySelectorAll('.reveal-item');
-
-        const observerOptions = {
-            root: null, // viewport
-            rootMargin: '0px',
-            threshold: 0.1 // 10% of the item visible
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // Stop observing once revealed
-                }
-            });
-        }, observerOptions);
-
-        revealItems.forEach(item => {
-            observer.observe(item);
-        });
-
-        // Initial check for elements already in viewport on load
-        window.addEventListener('load', () => {
-            revealItems.forEach(item => {
-                // Check if element is at least partially in the viewport
-                if (item.getBoundingClientRect().top < window.innerHeight && item.getBoundingClientRect().bottom > 0) {
-                    item.classList.add('is-visible');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
-```
+                    <!-- Additional Product Card 4: Portable Power Bank -->
+                    <div class="holographic-card p-6 rounded-xl flex flex-col items-center text-center animate-fade-in-up delay-300">
+                        <img src="https://images.pexels.com/photos/9762615/pexels-photo-9762615.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Portable Power Bank" class="w-full h-48 object-cover rounded-lg mb-4 transform hover:scale-105 transition-transform duration-300 shadow-vd-glow-sm">
+                        <h3 class="text-2xl
