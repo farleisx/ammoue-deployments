@@ -1,794 +1,476 @@
+Here is the complete, single-file HTML website for "Lunvéra," embodying a modern, artistic, and emotionally captivating experience with a blend of fashion, art, and elegance. It uses Tailwind CSS via CDN for all styling and integrates all provided media resources.
+
 ```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voltrix Dynamics - Next-Gen Electric Technology</title>
-    <meta name="description" content="Voltrix Dynamics designs next-generation electric products – from hyper-efficient EV chargers and smart batteries to sleek home energy systems – blending innovation, performance, and elegance.">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2300FFFF' d='M13 22h-2v-3h2v3zm0-4h-2V2h2v16z'/%3E%3C/svg%3E">
+    <title>Lunvéra - Where Art Becomes You</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌙</text></svg>">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind configuration for custom colors and fonts
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'lunvera-blush': '#fde2e8', // Soft blush tone
+                        'lunvera-gold': '#d4af37', // Gold highlight
+                        'lunvera-softwhite': '#fefefe', // Near white
+                        'lunvera-lightgrey': '#f9f9f9', // Very light grey
+                        'lunvera-darkindigo': '#3e4a64', // Dark indigo for night theme
+                        'lunvera-peach': '#ffe0b2', // Soft peach for morning
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts for Playfair Display and Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap');
-
-        :root {
-            --neon-blue: #00FFFF;
-            --electric-blue-dark: #00BFFF;
-            --electric-blue-light: #87CEFA;
-            --dark-bg: #0A0A0F;
-            --dark-gray: #1a1a2e;
-            --text-white: #E0E0E0;
-        }
-
+        /* Custom CSS for base styles, animations, and dynamic themes */
         body {
-            font-family: 'Rajdhani', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-white);
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            color: #333; /* Default text color */
+            transition: background 1s ease-in-out, color 1s ease-in-out;
+            /* Custom cursor: Small grey ring by default */
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23aaaaaa" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-circle"><circle cx="12" cy="12" r="6"></circle></svg>') 12 12, auto;
         }
 
-        h1, h2, h3, .font-orbitron {
-            font-family: 'Orbitron', sans-serif;
+        /* Custom cursor for clickable elements: Golden ring on hover */
+        a, button, [role="button"], .custom-pointer {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-circle"><circle cx="12" cy="12" r="8"></circle></svg>') 12 12, pointer;
         }
 
-        /* Custom Glow Utility Classes */
-        .text-neon-glow {
-            text-shadow: 0 0 5px var(--electric-blue-light), 0 0 10px var(--electric-blue-dark), 0 0 15px var(--neon-blue), 0 0 20px var(--neon-blue);
-        }
-        .text-neon-glow-hover:hover {
-            text-shadow: 0 0 8px var(--electric-blue-light), 0 0 16px var(--electric-blue-dark), 0 0 24px var(--neon-blue), 0 0 32px var(--neon-blue);
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
         }
 
-        .shadow-neon-glow {
-            box-shadow: 0 0 8px var(--electric-blue-dark), 0 0 16px var(--neon-blue);
-        }
-        .shadow-neon-glow-md {
-            box-shadow: 0 0 12px var(--electric-blue-dark), 0 0 24px var(--neon-blue);
-        }
-        .shadow-neon-glow-lg {
-            box-shadow: 0 0 16px var(--electric-blue-dark), 0 0 32px var(--neon-blue);
-        }
-
-        .border-neon-glow {
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 5px var(--neon-blue);
-        }
-
-        /* Navbar Holographic Hover Effect */
-        .nav-link {
-            position: relative;
-            color: var(--text-white);
-            transition: all 0.3s ease-in-out;
-            padding: 0.5rem 0.75rem; /* Add padding for better hover area */
-            border-radius: 0.25rem;
-        }
-        .nav-link::before {
-            content: '';
+        /* Hero video background styling */
+        .hero-video {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
-            transform: scaleX(0);
-            transition: transform 0.3s ease-in-out;
-            transform-origin: center;
-        }
-        .nav-link:hover {
-            color: var(--neon-blue);
-            text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--electric-blue-dark);
-            background-color: rgba(0, 255, 255, 0.1); /* Subtle background */
-        }
-        .nav-link:hover::before {
-            transform: scaleX(1);
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translateX(-50%) translateY(-50%);
+            background-size: cover;
         }
 
-        /* Scroll-triggered reveal animation */
-        .reveal-item {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .reveal-item.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .reveal-item.is-visible.flow-border {
-            border-image: linear-gradient(to right, transparent, var(--neon-blue), transparent) 1;
-            animation: flowBorder 1.5s forwards ease-out;
-        }
-
-        @keyframes flowBorder {
-            0% { border-image-slice: 0 1 0 0; }
-            50% { border-image-slice: 0 1 0 1; }
-            100% { border-image-slice: 1 1 1 1; }
-        }
-
-        /* Energy Pulse Loading Animation */
-        #loading-overlay {
+        /* Preloader styling */
+        #preloader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--dark-bg);
+            background-color: #fff; /* Default to white */
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.5s ease-out;
+            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+            flex-direction: column;
         }
-        .pulse-loader {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: radial-gradient(circle at center, rgba(0, 255, 255, 0.8) 0%, rgba(0, 191, 255, 0.5) 30%, transparent 70%);
-            animation: pulse 1.5s infinite ease-in-out;
-        }
-        @keyframes pulse {
-            0% { transform: scale(0.8); opacity: 0.7; }
-            50% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(0.8); opacity: 0.7; }
-        }
-
-        /* Magnetic button effect (simplified) */
-        .magnetic-button {
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-        .magnetic-button::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, transparent 70%);
-            transform: translate(-50%, -50%) scale(0);
-            transition: transform 0.5s ease;
-            pointer-events: none;
-        }
-        .magnetic-button:hover::before {
-            transform: translate(var(--mouse-x), var(--mouse-y)) scale(1);
-        }
-        .magnetic-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px var(--neon-blue);
-        }
-
-        /* Product "power on" effect */
-        .product-card-inner {
-            position: relative;
-            overflow: hidden;
-        }
-        .product-card-inner::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(45deg, rgba(0,255,255,0.05) 0%, transparent 20%, rgba(0,255,255,0.05) 40%, transparent 60%, rgba(0,255,255,0.05) 80%, transparent 100%);
-            mix-blend-mode: overlay;
+        #preloader.fade-out {
             opacity: 0;
-            transition: opacity 0.4s ease-in-out;
-            animation: none;
+            visibility: hidden;
         }
-        .product-card-inner.powered-on::after {
-            opacity: 1;
-            animation: scanline 2s infinite linear;
+        .preloader-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #d4af37; /* Lunvéra gold */
+            animation: fadeInScale 2s ease-out forwards;
         }
-        @keyframes scanline {
-            0% { background-position: 0 0; }
-            100% { background-position: 200% 200%; }
-        }
-
-        /* Chatbot bubble pulse */
-        .chatbot-bubble {
-            animation: bubblePulse 2s infinite ease-in-out;
-        }
-        @keyframes bubblePulse {
-            0% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 255, 255, 0.4); }
-            50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); }
-            100% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 255, 255, 0.4); }
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
-        /* Scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--dark-gray);
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: var(--electric-blue-dark);
-            border-radius: 4px;
-            border: 2px solid var(--dark-gray);
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: var(--neon-blue);
-        }
-
-        /* General styles for sections */
-        section {
-            padding: 8rem 0; /* Consistent padding */
-        }
-        .container {
-            max-width: 1280px; /* Max width for content */
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-        }
-
-        /* Hero text reveal */
-        .hero-text-container span {
-            display: inline-block;
+        /* Section reveal animation for a luxury art book feel */
+        .section-hidden {
             opacity: 0;
             transform: translateY(20px);
-            animation: textReveal 1s forwards ease-out;
+            transition: opacity 1s ease-out, transform 1s ease-out;
         }
-        .hero-text-container span:nth-child(1) { animation-delay: 0.5s; }
-        .hero-text-container span:nth-child(2) { animation-delay: 0.7s; }
-        .hero-text-container span:nth-child(3) { animation-delay: 0.9s; }
-        .hero-text-container span:nth-child(4) { animation-delay: 1.1s; }
-        .hero-text-container span:nth-child(5) { animation-delay: 1.3s; }
-        .hero-text-container span:nth-child(6) { animation-delay: 1.5s; }
-        .hero-text-container span:nth-child(7) { animation-delay: 1.7s; }
-        .hero-text-container span:nth-child(8) { animation-delay: 1.9s; }
-        .hero-text-container span:nth-child(9) { animation-delay: 2.1s; }
-        .hero-text-container span:nth-child(10) { animation-delay: 2.3s; }
-        .hero-text-container span:nth-child(11) { animation-delay: 2.5s; }
-        .hero-text-container span:nth-child(12) { animation-delay: 2.7s; }
-        .hero-text-container span:nth-child(13) { animation-delay: 2.9s; }
-        .hero-text-container span:nth-child(14) { animation-delay: 3.1s; }
-        .hero-text-container span:nth-child(15) { animation-delay: 3.3s; }
-
-        @keyframes textReveal {
-            to { opacity: 1; transform: translateY(0); }
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
+        /* Subtle floating particle effect using pseudo-elements for simplicity */
+        .particle-container {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.4); /* Soft white particles */
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .particle:nth-child(1) { width: 8px; height: 8px; left: 10%; top: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 12px; height: 12px; left: 80%; top: 40%; animation-delay: 3s; animation-duration: 18s; }
+        .particle:nth-child(3) { width: 6px; height: 6px; left: 30%; top: 70%; animation-delay: 6s; animation-duration: 12s; }
+        .particle:nth-child(4) { width: 10px; height: 10px; left: 50%; top: 10%; animation-delay: 9s; animation-duration: 20s; }
+        .particle:nth-child(5) { width: 7px; height: 7px; left: 90%; top: 80%; animation-delay: 2s; animation-duration: 16s; }
+        @keyframes float {
+            0% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.5; }
+            50% { transform: translateY(-20px) translateX(10px) scale(1.05); opacity: 0.7; }
+            100% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.5; }
+        }
+
+        /* Dynamic Theme Styles (colors shift depending on time of day) */
+        /* Morning (Sunrise: soft peach tones, blush) */
+        .theme-morning {
+            background: linear-gradient(to bottom, #fff7ed, #fee2e2); /* light orange-50, red-100 */
+        }
+        /* Day (Mid-day: soft whites, light gradients) */
+        .theme-day {
+            background: linear-gradient(to bottom, #ffffff, #f3f4f6); /* white, gray-100 */
+        }
+        /* Evening (Sunset: warm gold, light indigo) */
+        .theme-evening {
+            background: linear-gradient(to bottom, #fffbe6, #e0e7ff); /* yellow-50, indigo-100 */
+        }
+        /* Night (Night: indigo and gold) */
+        .theme-night {
+            background: linear-gradient(to bottom, #1f2937, #111827); /* gray-900, gray-950 */
+        }
+        .theme-night .text-current-theme,
+        .theme-night h1, .theme-night h2, .theme-night h3, .theme-night h4, .theme-night h5, .theme-night h6 {
+            color: #d4af37 !important; /* Lunvéra gold for headings */
+        }
+        .theme-night .bg-lunvera-softwhite {
+            background-color: #374151 !important; /* Darker background for cards/sections */
+        }
+        .theme-night .border-gray-200 {
+            border-color: #4b5563 !important; /* Darker borders */
+        }
+        .theme-night .text-gray-700 {
+            color: #d1d5db !important; /* Lighter text for body content */
+        }
+        .theme-night .hover\:text-lunvera-gold:hover {
+            color: #d4af37 !important; /* Maintain gold hover effect */
+        }
     </style>
 </head>
-<body class="bg-[var(--dark-bg)] text-[var(--text-white)] min-h-screen">
+<body class="font-sans text-gray-800 antialiased relative overflow-x-hidden">
 
-    <!-- Loading Overlay -->
-    <div id="loading-overlay">
-        <div class="pulse-loader"></div>
+    <!-- Preloader / Animated Intro -->
+    <div id="preloader">
+        <div class="preloader-logo">Lunvéra</div>
+        <p class="text-gray-500 mt-4 text-lg animate-pulse font-light tracking-wide">Where Art Becomes You</p>
     </div>
 
-    <!-- Floating Navigation Bar -->
-    <nav class="fixed w-full z-50 py-4 top-0 backdrop-blur-md bg-gradient-to-r from-black/80 to-blue-950/70 shadow-lg border-b border-blue-900/50">
-        <div class="container flex justify-between items-center">
-            <a href="#" class="flex items-center text-3xl font-orbitron text-[var(--neon-blue)] text-neon-glow hover:scale-105 transition-transform">
-                <svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M13 22h-2v-3h2v3zm0-4h-2V2h2v16z"/>
-                </svg>
-                Voltrix Dynamics
-            </a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#products" class="nav-link">Products</a>
-                <a href="#innovation-lab" class="nav-link">Innovation Lab</a>
-                <a href="#sustainability" class="nav-link">Sustainability</a>
-                <a href="#contact" class="nav-link">Contact</a>
+    <!-- Floating Particles Container -->
+    <div class="particle-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 w-full z-50 p-6 flex justify-between items-center bg-white bg-opacity-80 backdrop-blur-sm shadow-sm">
+        <a href="#home" class="text-3xl font-serif font-semibold text-lunvera-gold hover:opacity-80 transition custom-pointer">Lunvéra</a>
+        <nav>
+            <ul class="flex space-x-8 text-lg">
+                <li><a href="#home" class="hover:text-lunvera-gold transition custom-pointer">Home</a></li>
+                <li><a href="#collections" class="hover:text-lunvera-gold transition custom-pointer">Collections</a></li>
+                <li><a href="#atelier" class="hover:text-lunvera-gold transition custom-pointer">The Atelier</a></li>
+                <li><a href="#journal" class="hover:text-lunvera-gold transition custom-pointer">Journal</a></li>
+                <li><a href="#contact" class="hover:text-lunvera-gold transition custom-pointer">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
+            <video autoplay loop muted playsinline class="hero-video object-cover">
+                <source src="https://videos.pexels.com/video-files/17043971/17043971-sd_360_640_30fps.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="absolute inset-0 bg-black opacity-40 z-0"></div>
+            <div class="relative z-10 text-center p-8 bg-black bg-opacity-30 rounded-lg backdrop-blur-sm">
+                <h1 class="text-7xl md:text-8xl font-serif font-bold mb-4 animate-fade-in-up">Lunvéra</h1>
+                <p class="text-3xl md:text-4xl font-light tracking-wide animate-fade-in-up animation-delay-500">Where Art Becomes You.</p>
+                <a href="#collections" class="mt-8 inline-block px-8 py-3 bg-lunvera-gold text-white text-lg font-semibold rounded-full hover:bg-opacity-90 transition transform hover:scale-105 custom-pointer animate-fade-in-up animation-delay-1000">Discover Collections</a>
             </div>
-            <!-- Mobile Menu Button (Hamburger) -->
-            <button id="mobile-menu-button" class="md:hidden text-[var(--neon-blue)] focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </div>
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black/90 pt-2 pb-4 text-center border-t border-blue-900/50">
-            <a href="#home" class="block py-2 text-lg hover:bg-blue-950/30 nav-link">Home</a>
-            <a href="#products" class="block py-2 text-lg hover:bg-blue-950/30 nav-link">Products</a>
-            <a href="#innovation-lab" class="block py-2 text-lg hover:bg-blue-950/30 nav-link">Innovation Lab</a>
-            <a href="#sustainability" class="block py-2 text-lg hover:bg-blue-950/30 nav-link">Sustainability</a>
-            <a href="#contact" class="block py-2 text-lg hover:bg-blue-950/30 nav-link">Contact</a>
-        </div>
-    </nav>
+        </section>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <video class="absolute inset-0 w-full h-full object-cover z-0" autoplay loop muted playsinline>
-            <source src="https://videos.pexels.com/video-files/7101965/7101965-sd_240_366_25fps.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10"></div>
-        <div class="relative z-20 text-center px-4">
-            <h1 class="font-orbitron text-5xl md:text-7xl font-bold mb-6 leading-tight text-neon-glow-hover hero-text-container">
-                <span>P</span><span>o</span><span>w</span><span>e</span><span>r</span><span>i</span><span>n</span><span>g</span> <span>t</span><span>h</span><span>e</span> <span>F</span><span>u</span><span>t</span><span>u</span><span>r</span><span>e</span><span>.</span>
-            </h1>
-            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10 text-gray-300 reveal-item">
-                Next-generation electric technology for a sustainable tomorrow. Innovation, Performance, Elegance.
-            </p>
-            <a href="#products" class="magnetic-button inline-block px-8 py-4 bg-[var(--neon-blue)] text-black font-semibold rounded-full text-lg shadow-neon-glow transition-all duration-300 ease-out hover:scale-105 hover:bg-white reveal-item">
-                Explore Our Innovations
-            </a>
-        </div>
-    </section>
+        <!-- Collections Section -->
+        <section id="collections" class="py-20 section-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-5xl font-serif font-bold mb-16 text-current-theme">Our Artistry in Collections</h2>
 
-    <!-- About Section (Intro to Brand) -->
-    <section id="about" class="py-20 bg-[var(--dark-bg)] reveal-item">
-        <div class="container text-center">
-            <h2 class="font-orbitron text-4xl md:text-5xl font-bold mb-12 text-[var(--electric-blue-dark)] text-neon-glow reveal-item">
-                Redefining Electric Excellence
-            </h2>
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-                <div class="text-left reveal-item">
-                    <p class="text-lg mb-6 leading-relaxed">
-                        Voltrix Dynamics is at the forefront of electric innovation, crafting hyper-efficient solutions that transform how we power our lives. From advanced EV charging networks to intelligent home energy management, our products are designed for seamless integration and superior performance.
-                    </p>
-                    <p class="text-lg leading-relaxed">
-                        We believe in a future where energy is abundant, clean, and effortlessly accessible. Our commitment to cutting-edge research and elegant design ensures that every Voltrix product is not just a device, but a statement of progress.
-                    </p>
-                </div>
-                <div class="relative overflow-hidden rounded-lg shadow-neon-glow-md reveal-item">
-                    <img src="https://images.pexels.com/photos/19311591/pexels-photo-19311591.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Futuristic electric car charging" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <p class="absolute bottom-4 left-4 text-white text-sm opacity-80">Hyper-Efficient EV Charging Stations</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" class="bg-[var(--dark-gray)] py-20 reveal-item">
-        <div class="container">
-            <h2 class="font-orbitron text-4xl md:text-5xl font-bold mb-16 text-center text-[var(--neon-blue)] text-neon-glow reveal-item">
-                Our Electric Ecosystem
-            </h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Product Card 1: EV Charger -->
-                <div class="bg-black rounded-xl p-6 shadow-lg shadow-blue-900/40 border border-blue-900 transform hover:scale-[1.02] transition-all duration-300 ease-in-out reveal-item flow-border">
-                    <div class="product-card-inner">
-                        <img src="https://images.pexels.com/photos/29832998/pexels-photo-29832998.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="EV Charger" class="w-full h-64 object-cover rounded-md mb-6 shadow-md">
-                        <h3 class="font-orbitron text-2xl font-semibold mb-3 text-[var(--electric-blue-light)]">VoltCharge Pro</h3>
-                        <p class="text-gray-400 mb-4">Ultra-fast EV charging station, intelligent load balancing, sleek design for home or public.</p>
-                        <button class="magnetic-button mt-4 px-6 py-2 bg-[var(--neon-blue)] text-black font-semibold rounded-full hover:bg-white transition-all duration-300 product-power-button">
-                            Power On
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product Card 2: Smart Battery -->
-                <div class="bg-black rounded-xl p-6 shadow-lg shadow-blue-900/40 border border-blue-900 transform hover:scale-[1.02] transition-all duration-300 ease-in-out reveal-item flow-border">
-                    <div class="product-card-inner">
-                        <img src="https://images.pexels.com/photos/28901840/pexels-photo-28901840.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Smart Battery" class="w-full h-64 object-cover rounded-md mb-6 shadow-md">
-                        <h3 class="font-orbitron text-2xl font-semibold mb-3 text-[var(--electric-blue-light)]">CoreCell Battery</h3>
-                        <p class="text-gray-400 mb-4">Modular smart battery systems for residential and commercial energy storage, AI-optimized.</p>
-                        <button class="magnetic-button mt-4 px-6 py-2 bg-[var(--neon-blue)] text-black font-semibold rounded-full hover:bg-white transition-all duration-300 product-power-button">
-                            Power On
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product Card 3: Home Energy System -->
-                <div class="bg-black rounded-xl p-6 shadow-lg shadow-blue-900/40 border border-blue-900 transform hover:scale-[1.02] transition-all duration-300 ease-in-out reveal-item flow-border">
-                    <div class="product-card-inner">
-                        <img src="https://images.pexels.com/photos/31687155/pexels-photo-31687155.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Home Energy System" class="w-full h-64 object-cover rounded-md mb-6 shadow-md">
-                        <h3 class="font-orbitron text-2xl font-semibold mb-3 text-[var(--electric-blue-light)]">AuraGrid Hub</h3>
-                        <p class="text-gray-400 mb-4">Integrated home energy management, solar optimization, and smart appliance control.</p>
-                        <button class="magnetic-button mt-4 px-6 py-2 bg-[var(--neon-blue)] text-black font-semibold rounded-full hover:bg-white transition-all duration-300 product-power-button">
-                            Power On
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product Card 4: Industrial Power Unit -->
-                <div class="bg-black rounded-xl p-6 shadow-lg shadow-blue-900/40 border border-blue-900 transform hover:scale-[1.02] transition-all duration-300 ease-in-out reveal-item flow-border">
-                    <div class="product-card-inner">
-                        <img src="https://images.pexels.com/photos/18069238/pexels-photo-18069238.png?auto=compress&cs=tinysrgb&h=650&w=940" alt="Industrial Power Unit" class="w-full h-64 object-cover rounded-md mb-6 shadow-md">
-                        <h3 class="font-orbitron text-2xl font-semibold mb-3 text-[var(--electric-blue-light)]">MegaVolt Station</h3>
-                        <p class="text-gray-400 mb-4">High-capacity power solutions for industrial applications, grid stabilization, and microgrids.</p>
-                        <button class="magnetic-button mt-4 px-6 py-2 bg-[var(--neon-blue)] text-black font-semibold rounded-full hover:bg-white transition-all duration-300 product-power-button">
-                            Power On
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product Card 5: Smart Lighting -->
-                <div class="bg-black rounded-xl p-6 shadow-lg shadow-blue-900/40 border border-blue-900 transform hover:scale-[1.02] transition-all duration-300 ease-in-out reveal-item flow-border">
-                    <div class="product-card-inner">
-                        <img src="https://images.pexels.com/photos/28870735/pexels-photo-28870735.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Smart Lighting" class="w-full h-64 object-cover rounded-md mb-6 shadow-md">
-                        <h3 class="font-orbitron text-2xl font-semibold mb-3 text-[var(--electric-blue-light)]">LumenFlow System</h3>
-                        <p class="text-gray-400 mb-4">Energy-efficient smart lighting with adaptive control, mood settings, and seamless integration.</p>
-                        <button class="magnetic-button mt-4 px-6 py-2 bg-[var(--neon-blue)] text-black font-semibold rounded-full hover:bg-white transition-all duration-300 product-power-button">
-                            Power On
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product Card 6: Portable Power -->
-                <div class="bg-black rounded-xl p-6 shadow-lg shadow-blue-900/40 border border-blue-900 transform hover:scale-[1.02] transition-all duration-300 ease-in-out reveal-item flow-border">
-                    <div class="product-card-inner">
-                        <img src="https://images.pexels.com/photos/17483909/pexels-photo-17483909.png?auto=compress&cs=tinysrgb&h=650&w=940" alt="Portable Power" class="w-full h-64 object-cover rounded-md mb-6 shadow-md">
-                        <h3 class="font-orbitron text-2xl font-semibold mb-3 text-[var(--electric-blue-light)]">Pocket Spark</h3>
-                        <p class="text-gray-400 mb-4">Compact and powerful portable power banks, perfect for on-the-go charging of all your devices.</p>
-                        <button class="magnetic-button mt-4 px-6 py-2 bg-[var(--neon-blue)] text-black font-semibold rounded-full hover:bg-white transition-all duration-300 product-power-button">
-                            Power On
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Innovation Lab Section -->
-    <section id="innovation-lab" class="py-20 bg-[var(--dark-bg)] reveal-item">
-        <div class="container">
-            <h2 class="font-orbitron text-4xl md:text-5xl font-bold mb-16 text-center text-[var(--electric-blue-dark)] text-neon-glow reveal-item">
-                The Core of Tomorrow's Energy
-            </h2>
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="relative overflow-hidden rounded-lg shadow-neon-glow-md reveal-item">
-                    <video class="w-full h-auto object-cover rounded-lg" autoplay loop muted playsinline>
-                        <source src="https://videos.pexels.com/video-files/9363892/9363892-hd_1080_1920_24fps.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <p class="absolute bottom-4 left-4 text-white text-sm opacity-80">Advanced material synthesis in the lab</p>
-                </div>
-                <div class="text-left reveal-item">
-                    <h3 class="font-orbitron text-3xl font-semibold mb-6 text-[var(--neon-blue)]">Pioneering Electric Frontiers</h3>
-                    <p class="text-lg mb-6 leading-relaxed text-gray-300">
-                        At Voltrix Dynamics, our Innovation Lab is where the future is forged. Our team of world-class engineers and scientists are constantly pushing the boundaries of what's possible in energy storage, transfer, and management. We delve into quantum materials, AI-driven energy optimization, and sustainable manufacturing processes.
-                    </p>
-                    <p class="text-lg leading-relaxed text-gray-300">
-                        Every concept, every prototype, and every breakthrough is meticulously crafted to ensure not just efficiency, but unparalleled reliability and a minimal environmental footprint. This is where ideas spark, and the next generation of electric technology takes shape.
-                    </p>
-                    <a href="#contact" class="magnetic-button inline-block mt-8 px-8 py-3 bg-transparent border border-[var(--neon-blue)] text-[var(--neon-blue)] font-semibold rounded-full text-lg shadow-neon-glow transition-all duration-300 ease-out hover:bg-[var(--neon-blue)] hover:text-black">
-                        Join Our Research
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sustainability Section -->
-    <section id="sustainability" class="py-20 bg-[var(--dark-gray)] reveal-item">
-        <div class="container">
-            <h2 class="font-orbitron text-4xl md:text-5xl font-bold mb-16 text-center text-[var(--neon-blue)] text-neon-glow reveal-item">
-                Our Commitment to a Green Future
-            </h2>
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="text-left order-2 md:order-1 reveal-item">
-                    <h3 class="font-orbitron text-3xl font-semibold mb-6 text-[var(--electric-blue-light)]">Eco-Conscious Innovation</h3>
-                    <p class="text-lg mb-6 leading-relaxed text-gray-300">
-                        Sustainability isn't just a buzzword at Voltrix Dynamics; it's the bedrock of our mission. We are dedicated to creating a world powered by clean, renewable energy. Our products are designed for maximum energy efficiency, minimizing waste and maximizing resource utilization.
-                    </p>
-                    <p class="text-lg mb-6 leading-relaxed text-gray-300">
-                        From responsible sourcing of materials to end-of-life product recycling programs, we ensure our entire lifecycle is as eco-friendly as possible. Join us in building a vibrant, sustainable future, one electric innovation at a time.
-                    </p>
-                    <div class="flex items-center space-x-4 mt-8">
-                        <div class="relative w-24 h-24 flex items-center justify-center rounded-full bg-blue-900/50 shadow-lg shadow-blue-800/60 border border-blue-700 reveal-item">
-                            <span class="font-orbitron text-3xl text-[var(--neon-blue)] text-neon-glow">98%</span>
-                            <p class="absolute bottom-2 text-xs text-gray-400">Efficiency</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+                    <!-- Collection Item 1 -->
+                    <div class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-lunvera-softwhite border border-gray-200">
+                        <img src="https://images.pexels.com/photos/6770759/pexels-photo-6770759.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Sculpted Dress" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 group-hover:opacity-75 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-0 left-0 p-6 text-white text-left">
+                            <h3 class="text-3xl font-serif font-semibold mb-2">The Sculpture Series</h3>
+                            <p class="text-lg opacity-90">Wearable art, inspired by classical forms.</p>
+                            <a href="#" class="mt-4 inline-block text-lunvera-gold hover:underline custom-pointer">View Collection &rarr;</a>
                         </div>
-                        <div class="relative w-24 h-24 flex items-center justify-center rounded-full bg-blue-900/50 shadow-lg shadow-blue-800/60 border border-blue-700 reveal-item" style="animation-delay: 0.2s;">
-                            <span class="font-orbitron text-3xl text-[var(--neon-blue)] text-neon-glow">0%</span>
-                            <p class="absolute bottom-2 text-xs text-gray-400">Emissions</p>
+                    </div>
+                    <!-- Collection Item 2 -->
+                    <div class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-lunvera-softwhite border border-gray-200">
+                        <img src="https://images.pexels.com/photos/14264358/pexels-photo-14264358.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Abstract Accessories" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 group-hover:opacity-75 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-0 left-0 p-6 text-white text-left">
+                            <h3 class="text-3xl font-serif font-semibold mb-2">Abstract Echoes</h3>
+                            <p class="text-lg opacity-90">Bold accessories for the modern muse.</p>
+                            <a href="#" class="mt-4 inline-block text-lunvera-gold hover:underline custom-pointer">View Collection &rarr;</a>
                         </div>
-                        <div class="relative w-24 h-24 flex items-center justify-center rounded-full bg-blue-900/50 shadow-lg shadow-blue-800/60 border border-blue-700 reveal-item" style="animation-delay: 0.4s;">
-                            <span class="font-orbitron text-3xl text-[var(--neon-blue)] text-neon-glow">100%</span>
-                            <p class="absolute bottom-2 text-xs text-gray-400">Recyclable</p>
+                    </div>
+                    <!-- Collection Item 3 -->
+                    <div class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-lunvera-softwhite border border-gray-200">
+                        <img src="https://images.pexels.com/photos/8539544/pexels-photo-8539544.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Minimalist Home Decor" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 group-hover:opacity-75 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-0 left-0 p-6 text-white text-left">
+                            <h3 class="text-3xl font-serif font-semibold mb-2">Ethereal Spaces</h3>
+                            <p class="text-lg opacity-90">Curated pieces for a serene home.</p>
+                            <a href="#" class="mt-4 inline-block text-lunvera-gold hover:underline custom-pointer">View Collection &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Collection Item 4 (Split-view simulation for "product page" feel) -->
+                    <div class="md:col-span-2 lg:col-span-3 flex flex-col md:flex-row items-center gap-8 p-8 bg-lunvera-blush bg-opacity-30 rounded-xl mt-12 shadow-inner">
+                        <div class="md:w-1/2 rounded-lg overflow-hidden shadow-xl">
+                            <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                                <source src="https://videos.pexels.com/video-files/7170903/7170903-sd_960_506_25fps.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="md:w-1/2 text-left p-4">
+                            <h3 class="text-4xl font-serif font-bold mb-4 text-current-theme">The Craft of Creation</h3>
+                            <p class="text-xl leading-relaxed text-gray-700 mb-6">Experience the intricate process behind our latest "Luminescent Silk" collection. Each stitch, each brushstroke, is a testament to dedication and artistic passion. Slow-motion artistry unfolds, revealing the soul woven into every Lunvéra design.</p>
+                            <a href="#" class="inline-block px-6 py-3 bg-lunvera-gold text-white font-semibold rounded-full hover:bg-opacity-90 transition custom-pointer">Explore Our Craft</a>
                         </div>
                     </div>
                 </div>
-                <div class="relative overflow-hidden rounded-lg shadow-neon-glow-md order-1 md:order-2 reveal-item">
-                    <img src="https://images.pexels.com/photos/7147664/pexels-photo-7147664.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Green energy conceptual image" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <p class="absolute bottom-4 left-4 text-white text-sm opacity-80">Solar panels and sustainable cities</p>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact / Order Section -->
-    <section id="contact" class="py-20 bg-[var(--dark-bg)] reveal-item">
-        <div class="container text-center max-w-2xl mx-auto">
-            <h2 class="font-orbitron text-4xl md:text-5xl font-bold mb-16 text-[var(--electric-blue-dark)] text-neon-glow reveal-item">
-                Connect with Voltrix
-            </h2>
-            <p class="text-lg mb-8 text-gray-300 reveal-item">
-                Interested in our products, partnership opportunities, or just want to learn more? Fill out the form below and our team will get back to you.
-            </p>
-            <form action="#" method="POST" class="space-y-6 text-left reveal-item">
-                <div>
-                    <label for="name" class="block text-gray-400 text-sm font-bold mb-2">Name</label>
-                    <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-transparent border border-blue-700 rounded-md focus:border-[var(--neon-blue)] focus:ring-1 focus:ring-[var(--neon-blue)] text-white placeholder-gray-500 shadow-neon-glow-sm transition-all duration-300" placeholder="Your Name" required>
-                </div>
-                <div>
-                    <label for="email" class="block text-gray-400 text-sm font-bold mb-2">Email</label>
-                    <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-transparent border border-blue-700 rounded-md focus:border-[var(--neon-blue)] focus:ring-1 focus:ring-[var(--neon-blue)] text-white placeholder-gray-500 shadow-neon-glow-sm transition-all duration-300" placeholder="your.email@example.com" required>
-                </div>
-                <div>
-                    <label for="subject" class="block text-gray-400 text-sm font-bold mb-2">Subject</label>
-                    <input type="text" id="subject" name="subject" class="w-full px-4 py-3 bg-transparent border border-blue-700 rounded-md focus:border-[var(--neon-blue)] focus:ring-1 focus:ring-[var(--neon-blue)] text-white placeholder-gray-500 shadow-neon-glow-sm transition-all duration-300" placeholder="Inquiry about..." required>
-                </div>
-                <div>
-                    <label for="message" class="block text-gray-400 text-sm font-bold mb-2">Message</label>
-                    <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 bg-transparent border border-blue-700 rounded-md focus:border-[var(--neon-blue)] focus:ring-1 focus:ring-[var(--neon-blue)] text-white placeholder-gray-500 shadow-neon-glow-sm transition-all duration-300" placeholder="Your message here..." required></textarea>
-                </div>
-                <button type="submit" class="magnetic-button w-full px-6 py-3 bg-[var(--neon-blue)] text-black font-bold rounded-md text-lg shadow-neon-glow hover:bg-white transition-all duration-300 ease-out">
-                    Send Message
-                </button>
-            </form>
-            <div id="form-response" class="mt-8 text-center text-lg text-[var(--neon-blue)] font-bold hidden">
-                Thank you for your message! We will get back to you shortly.
-            </div>
-        </div>
-    </section>
+        <!-- The Atelier Section -->
+        <section id="atelier" class="py-20 bg-lunvera-lightgrey section-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-5xl font-serif font-bold mb-16 text-current-theme">The Atelier: Where Dreams are Woven</h2>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-16 leading-relaxed text-gray-700">Step behind the curtains and witness the magic. Our atelier is a sanctuary of creativity, where skilled artisans and visionary designers bring Lunvéra's art-inspired pieces to life. Every cut, every detail, infused with passion and purpose.</p>
 
-    <!-- Footer -->
-    <footer class="bg-black py-10 text-center border-t border-blue-900/50 reveal-item">
-        <div class="container">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
-                <a href="#" class="flex items-center text-2xl font-orbitron text-[var(--neon-blue)] text-neon-glow mb-4 md:mb-0">
-                    <svg class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M13 22h-2v-3h2v3zm0-4h-2V2h2v16z"/>
-                    </svg>
-                    Voltrix Dynamics
-                </a>
-                <div class="flex space-x-6 text-gray-400 text-xl">
-                    <a href="#" class="hover:text-[var(--neon-blue)] transition-colors duration-300" aria-label="Facebook">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.271 0-4.192 1.583-4.192 4.615v3.385z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="hover:text-[var(--neon-blue)] transition-colors duration-300" aria-label="Twitter">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.791-1.574 2.163-2.723-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.447 0-6.227 2.78-6.227 6.228 0 .486.052.958.148 1.408-5.187-.26-9.763-2.747-12.834-6.512-.542.937-.852 2.034-.852 3.228 0 2.15.908 4.067 2.364 5.182-.843-.024-1.635-.26-2.321-.641v.08c0 3.016 2.14 5.565 4.996 6.14-.413.111-.849.172-1.296.172-.317 0-.626-.03-.929-.086.796 2.476 3.116 4.298 5.867 4.349-2.094 1.64-4.223 2.597-6.529 2.597-.424 0-.84-.024-1.256-.074 2.71 1.745 5.922 2.793 9.395 2.793 11.335 0 17.526-9.397 17.526-17.526 0-.267-.006-.534-.019-.8a12.607 12.607 0 003.09-3.21z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="hover:text-[var(--neon-blue)] transition-colors duration-300" aria-label="LinkedIn">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72c0-.95-.79-1.72-1.77-1.72zM7.18 20.45H3.59V9H7.18v11.45zM5.39 7.42c-1.2 0-2.18-.95-2.18-2.12s.98-2.12 2.18-2.12c1.2 0 2.18.95 2.18 2.12s-.98 2.12-2.18 2.12zM20.45 20.45h-3.59v-5.61c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.71H9.22V9h3.45v1.65h.05c.47-.89 1.62-1.82 3.36-1.82 3.6 0 4.26 2.37 4.26 5.44v6.18z"/>
-                        </svg>
-                    </a>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="rounded-xl overflow-hidden shadow-xl">
+                        <img src="https://images.pexels.com/photos/8539543/pexels-photo-8539543.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Designer at work" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-4xl font-serif font-bold mb-4 text-current-theme">The Visionaries</h3>
+                        <p class="text-xl leading-relaxed text-gray-700 mb-6">Our designers are more than creators; they are storytellers. They delve deep into art history, modern aesthetics, and emotional landscapes to conceive pieces that resonate with your inner self. Each design begins as a muse, transforms into a sketch, and ultimately becomes a cherished part of your world.</p>
+                        <a href="#" class="inline-block text-lunvera-gold hover:underline custom-pointer">Meet Our Team &rarr;</a>
+                    </div>
+
+                    <div class="text-left md:order-2">
+                        <h3 class="text-4xl font-serif font-bold mb-4 text-current-theme">The Artisans</h3>
+                        <p class="text-xl leading-relaxed text-gray-700 mb-6">With nimble hands and meticulous care, our artisans translate visions into tangible beauty. From delicate embroidery to precise tailoring, their mastery ensures that every Lunvéra product is not just an item, but a testament to enduring craftsmanship and artistic integrity. </p>
+                        <a href="#" class="inline-block text-lunvera-gold hover:underline custom-pointer">Our Craftsmanship &rarr;</a>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-xl md:order-1">
+                        <img src="https://images.pexels.com/photos/11167639/pexels-photo-11167639.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Artisan working" class="w-full h-auto object-cover">
+                    </div>
                 </div>
             </div>
-            <p class="text-gray-500 text-sm mt-8">
-                &copy; 2023 Voltrix Dynamics. All rights reserved.
-            </p>
+        </section>
+
+        <!-- Journal Section -->
+        <section id="journal" class="py-20 section-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-5xl font-serif font-bold mb-16 text-current-theme">Lunvéra Journal: Inspiration & Stories</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Journal Article 1 -->
+                    <div class="bg-lunvera-softwhite rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                        <img src="https://images.pexels.com/photos/32207294/pexels-photo-32207294.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Abstract painting" class="w-full h-64 object-cover">
+                        <div class="p-6 text-left">
+                            <h3 class="text-2xl font-serif font-semibold mb-3 text-current-theme">Decoding Modern Art Trends</h3>
+                            <p class="text-gray-700 mb-4">Explore the vibrant world of contemporary art and how it influences current fashion and design aesthetics.</p>
+                            <a href="#" class="text-lunvera-gold hover:underline custom-pointer">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Journal Article 2 -->
+                    <div class="bg-lunvera-softwhite rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                        <img src="https://images.pexels.com/photos/1486849/pexels-photo-1486849.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Fashion runway" class="w-full h-64 object-cover">
+                        <div class="p-6 text-left">
+                            <h3 class="text-2xl font-serif font-semibold mb-3 text-current-theme">Fashion as a Form of Self-Expression</h3>
+                            <p class="text-gray-700 mb-4">Discover how Lunvéra empowers individuality through unique, art-infused fashion statements.</p>
+                            <a href="#" class="text-lunvera-gold hover:underline custom-pointer">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Journal Article 3 -->
+                    <div class="bg-lunvera-softwhite rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                        <img src="https://images.pexels.com/photos/1677275/pexels-photo-1677275.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Sculpture art" class="w-full h-64 object-cover">
+                        <div class="p-6 text-left">
+                            <h3 class="text-2xl font-serif font-semibold mb-3 text-current-theme">The Timeless Beauty of Minimalism</h3>
+                            <p class="text-gray-700 mb-4">A look into how minimalist principles create elegance and serenity in design and lifestyle.</p>
+                            <a href="#" class="text-lunvera-gold hover:underline custom-pointer">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Journal Video 1 -->
+                    <div class="bg-lunvera-softwhite rounded-xl shadow-lg overflow-hidden border border-gray-200 lg:col-span-2">
+                        <video controls class="w-full h-96 object-cover">
+                            <source src="https://videos.pexels.com/video-files/7170903/7170903-sd_960_506_25fps.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="p-6 text-left">
+                            <h3 class="text-2xl font-serif font-semibold mb-3 text-current-theme">A Day in the Life: Artisan's Journey</h3>
+                            <p class="text-gray-700 mb-4">Follow one of our master artisans through a day of creation, inspiration, and dedication.</p>
+                            <a href="#" class="text-lunvera-gold hover:underline custom-pointer">Watch Now &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Journal Article 4 -->
+                    <div class="bg-lunvera-softwhite rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                        <img src="https://images.pexels.com/photos/5655150/pexels-photo-5655150.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Coffee and notebook" class="w-full h-64 object-cover">
+                        <div class="p-6 text-left">
+                            <h3 class="text-2xl font-serif font-semibold mb-3 text-current-theme">Cultivating a Creative Mindset</h3>
+                            <p class="text-gray-700 mb-4">Tips and practices to foster creativity and integrate art into your everyday life.</p>
+                            <a href="#" class="text-lunvera-gold hover:underline custom-pointer">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-lunvera-blush bg-opacity-20 section-hidden">
+            <div class="container mx-auto px-6 text-center max-w-2xl">
+                <h2 class="text-5xl font-serif font-bold mb-10 text-current-theme">Connect with Lunvéra</h2>
+                <p class="text-xl md:text-2xl text-gray-700 mb-12 leading-relaxed">We'd love to hear from you. Whether it's a query about our collections, a collaboration idea, or just to share your thoughts, reach out and let's connect.</p>
+
+                <form class="bg-lunvera-softwhite p-10 rounded-xl shadow-xl border border-gray-200">
+                    <div class="mb-6 text-left">
+                        <label for="name" class="block text-gray-700 text-lg font-semibold mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lunvera-gold focus:border-transparent transition-all duration-300 bg-gray-50" placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-6 text-left">
+                        <label for="email" class="block text-gray-700 text-lg font-semibold mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lunvera-gold focus:border-transparent transition-all duration-300 bg-gray-50" placeholder="Your Email" required>
+                    </div>
+                    <div class="mb-8 text-left">
+                        <label for="message" class="block text-gray-700 text-lg font-semibold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="6" class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lunvera-gold focus:border-transparent transition-all duration-300 bg-gray-50" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 bg-lunvera-gold text-white text-xl font-bold rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-md focus:outline-none focus:ring-4 focus:ring-lunvera-gold focus:ring-opacity-50 custom-pointer">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-6 md:mb-0">
+                <h3 class="text-3xl font-serif font-semibold text-lunvera-gold mb-2">Lunvéra</h3>
+                <p class="text-sm">&copy; 2023 Lunvéra. All rights reserved.</p>
+            </div>
+            <div class="mb-6 md:mb-0">
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="hover:text-lunvera-gold transition custom-pointer">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-lunvera-gold transition custom-pointer">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-lunvera-gold transition custom-pointer">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="flex space-x-6 text-lg">
+                    <li><a href="#" class="hover:text-lunvera-gold transition custom-pointer">Facebook</a></li>
+                    <li><a href="#" class="hover:text-lunvera-gold transition custom-pointer">Instagram</a></li>
+                    <li><a href="#" class="hover:text-lunvera-gold transition custom-pointer">Pinterest</a></li>
+                </ul>
+            </div>
         </div>
     </footer>
 
-    <!-- Chatbot Button -->
-    <button id="chatbot-toggle" class="fixed bottom-8 right-8 w-16 h-16 bg-[var(--neon-blue)] rounded-full flex items-center justify-center shadow-lg shadow-blue-800/60 transition-all duration-300 z-50 chatbot-bubble hover:scale-110">
-        <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-5 11c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-4 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-4 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
-        </svg>
-    </button>
-
-    <!-- Chatbot UI -->
-    <div id="chatbot-ui" class="fixed bottom-28 right-8 w-80 md:w-96 bg-gradient-to-br from-black/95 to-blue-950/90 rounded-xl shadow-lg shadow-blue-800/80 border border-blue-700 z-50 hidden transition-all duration-300 transform scale-95 opacity-0 origin-bottom-right">
-        <div class="p-4 border-b border-blue-700 flex items-center justify-between">
-            <h3 class="font-orbitron text-xl text-[var(--neon-blue)] flex items-center">
-                <svg class="w-6 h-6 mr-2 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                Volt.AI
-            </h3>
-            <button id="chatbot-close" class="text-gray-400 hover:text-white transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-        </div>
-        <div id="chatbot-messages" class="h-64 overflow-y-auto p-4 text-sm scrollbar-thin scrollbar-thumb-blue-600 scrollbar-track-transparent">
-            <!-- Chat messages will appear here -->
-            <div class="flex items-start mb-4">
-                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--neon-blue)] text-black flex items-center justify-center font-bold mr-3">AI</div>
-                <div class="bg-blue-900/50 p-3 rounded-xl max-w-[80%] shadow-md">
-                    <p>Hello! I am Volt.AI, your personal assistant from Voltrix Dynamics. How can I power up your knowledge today?</p>
-                </div>
-            </div>
-        </div>
-        <div class="p-4 border-t border-blue-700 flex">
-            <input type="text" id="chatbot-input" class="flex-grow px-3 py-2 bg-transparent border border-blue-700 rounded-lg focus:border-[var(--neon-blue)] focus:ring-1 focus:ring-[var(--neon-blue)] text-white placeholder-gray-500 text-sm mr-2 shadow-inner" placeholder="Ask me about products..." aria-label="Chatbot input">
-            <button id="chatbot-send" class="px-4 py-2 bg-[var(--neon-blue)] text-black rounded-lg font-semibold text-sm hover:bg-white transition-colors shadow-lg">Send</button>
-        </div>
-    </div>
-
     <script>
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        // JavaScript for preloader, dynamic theme, and section animations
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Preloader fade out
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+                // Optional: remove preloader from DOM after transition
+                preloader.addEventListener('transitionend', () => preloader.remove());
+            }, 2000); // 2 seconds delay before fade out
+
+            // Dynamic Theme based on time of day
+            const updateTheme = () => {
+                const hour = new Date().getHours();
+                const body = document.body;
+                body.classList.remove('theme-morning', 'theme-day', 'theme-evening', 'theme-night');
+
+                if (hour >= 5 && hour < 10) { // 5 AM to 9:59 AM (Sunrise: soft peach, blush)
+                    body.classList.add('theme-morning');
+                    body.style.color = '#4a4a4a'; // Adjust text color for light theme
+                } else if (hour >= 10 && hour < 17) { // 10 AM to 4:59 PM (Mid-day: soft whites, light gradients)
+                    body.classList.add('theme-day');
+                    body.style.color = '#333';
+                } else if (hour >= 17 && hour < 20) { // 5 PM to 7:59 PM (Sunset: warm gold, light indigo)
+                    body.classList.add('theme-evening');
+                    body.style.color = '#3e4a64';
+                } else { // 8 PM to 4:59 AM (Night: indigo and gold)
+                    body.classList.add('theme-night');
+                    body.style.color = '#fefefe'; // Light text for dark theme
+                }
+            };
+
+            updateTheme(); // Set initial theme on load
+            setInterval(updateTheme, 60 * 60 * 1000); // Update theme every hour
+
+            // Intersection Observer for section fade-in animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the section is visible
+            };
+
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('section-visible');
+                        entry.target.classList.remove('section-hidden');
+                        // Optional: uncomment next line if you want animation to play only once
+                        // observer.unobserve(entry.target);
+                    } else {
+                        // Optional: Reset animation when section scrolls out of view
+                        // entry.target.classList.remove('section-visible');
+                        // entry.target.classList.add('section-hidden');
+                    }
                 });
-                // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
+            }, observerOptions);
+
+            // Observe all sections except the home section initially
+            document.querySelectorAll('section').forEach(section => {
+                if (section.id !== 'home') {
+                    section.classList.add('section-hidden');
                 }
+                sectionObserver.observe(section);
             });
         });
-
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Loading Overlay
-        window.addEventListener('load', () => {
-            const loadingOverlay = document.getElementById('loading-overlay');
-            loadingOverlay.style.opacity = '0';
-            setTimeout(() => {
-                loadingOverlay.style.display = 'none';
-            }, 500); // Wait for fade-out transition
-        });
-
-        // Scroll-triggered effects (IntersectionObserver)
-        const revealElements = document.querySelectorAll('.reveal-item');
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 }); // Trigger when 10% of the item is visible
-
-        revealElements.forEach(element => {
-            observer.observe(element);
-        });
-
-        // Magnetic Button Effect (simplified)
-        document.querySelectorAll('.magnetic-button').forEach(button => {
-            button.addEventListener('mousemove', (e) => {
-                const rect = button.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                button.style.setProperty('--mouse-x', `${x}px`);
-                button.style.setProperty('--mouse-y', `${y}px`);
-            });
-        });
-
-        // Product "Power On" Effect
-        document.querySelectorAll('.product-power-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const productCardInner = button.closest('.product-card-inner');
-                productCardInner.classList.toggle('powered-on');
-                if (productCardInner.classList.contains('powered-on')) {
-                    button.textContent = 'Power Off';
-                } else {
-                    button.textContent = 'Power On';
-                }
-            });
-        });
-
-        // Simulated AI Chatbot (Volt.AI)
-        const chatbotToggle = document.getElementById('chatbot-toggle');
-        const chatbotUI = document.getElementById('chatbot-ui');
-        const chatbotClose = document.getElementById('chatbot-close');
-        const chatbotMessages = document.getElementById('chatbot-messages');
-        const chatbotInput = document.getElementById('chatbot-input');
-        const chatbotSend = document.getElementById('chatbot-send');
-
-        let isChatbotOpen = false;
-
-        function toggleChatbot() {
-            isChatbotOpen = !isChatbotOpen;
-            if (isChatbotOpen) {
-                chatbotUI.classList.remove('hidden', 'opacity-0', 'scale-95');
-                chatbotUI.classList.add('opacity-100', 'scale-100');
-            } else {
-                chatbotUI.classList.remove('opacity-100', 'scale-100');
-                chatbotUI.classList.add('opacity-0', 'scale-95');
-                setTimeout(() => {
-                    chatbotUI.classList.add('hidden');
-                }, 300); // Match transition duration
-            }
-        }
-
-        chatbotToggle.addEventListener('click', toggleChatbot);
-        chatbotClose.addEventListener('click', toggleChatbot);
-
-        const chatbotResponses = {
-            "hello": "Hello there! How can I assist you with Voltrix Dynamics' products?",
-            "hi": "Greetings! Ask me anything about our innovations.",
-            "products": "Voltrix Dynamics offers hyper-efficient EV chargers (VoltCharge Pro), smart home batteries (CoreCell Battery), and integrated home energy systems (AuraGrid Hub), among others. Which product interests you?",
-            "ev charger": "The VoltCharge Pro is our ultra-fast EV charging station, designed with intelligent load balancing and a sleek aesthetic for both residential and public use.",
-            "battery": "Our CoreCell Battery systems are modular, AI-optimized smart batteries for residential and commercial energy storage, ensuring reliable power.",
-            "home energy": "The AuraGrid Hub is our integrated solution for home energy management, providing solar optimization and smart appliance control for peak efficiency.",
-            "sustainability": "Voltrix Dynamics is deeply committed to sustainability. Our products are designed for maximum energy efficiency, responsible material sourcing, and end-of-life recycling. We aim for 0% emissions.",
-            "innovation": "Our Innovation Lab pioneers new electric frontiers, focusing on quantum materials, AI-driven optimization, and sustainable manufacturing to create the next generation of electric tech.",
-            "contact": "You can reach out to us through the 'Contact' section on our website. We're always eager to connect!",
-            "thank you": "You're most welcome! Is there anything else I can help you with?",
-            "bye": "Goodbye! Stay energized, and visit us again soon.",
-            "default": "I'm still learning! Could you please rephrase your question, or ask about our products, innovation, or sustainability?",
-        };
-
-        function addMessage(sender, message, isBot = false) {
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('flex', 'items-start', 'mb-4', isBot ? '' : 'justify-end');
-
-            if (isBot) {
-                messageElement.innerHTML = `
-                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--neon-blue)] text-black flex items-center justify-center font-bold mr-3">AI</div>
-                    <div class="bg-blue-900/50 p-3 rounded-xl max-w-[80%] shadow-md">
-                        <p>${message}</p>
-                    </div>
-                `;
-            } else {
-                messageElement.innerHTML = `
-                    <div class="bg-gray-700/50 p-3 rounded-xl max-w-[80%] shadow-md">
-                        <p>${message}</p>
-                    </div>
-                `;
-            }
-            chatbotMessages.appendChild(messageElement);
-            chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Scroll to bottom
-        }
-
-        function getChatbotResponse(userMessage) {
-            const lowerCaseMessage = userMessage.toLowerCase();
-            for (const keyword in chatbotResponses) {
-                if (lowerCaseMessage.includes(keyword)) {
-                    return chatbotResponses[keyword];
-                }
-            }
-            return chatbotResponses["default"];
-        }
-
-        chatbotSend.addEventListener('click', () => {
-            const userMessage = chatbotInput.value.trim();
-            if (userMessage) {
-                addMessage('user', userMessage);
-                chatbotInput.value = '';
-
-                // Simulate AI typing delay
-                setTimeout(() => {
-                    const botResponse = getChatbotResponse(userMessage);
-                    addMessage('bot', botResponse, true);
-                    speakText(botResponse); // Make Volt.AI speak
-                }, 1000);
-            }
-        });
-
-        chatbotInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                chatbotSend.click();
-            }
-        });
-
-        // SpeechSynthesis for Volt.AI voice
-        function speakText(text) {
-            if ('speechSynthesis' in window) {
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'en-US';
-                utterance.pitch = 1.2; // Slightly higher pitch for a futuristic feel
-                utterance.rate = 1.0;  // Normal speaking rate
-                utterance.volume = 0.8; // A bit softer volume
-
-                // Optional: choose a specific voice if available
-                // const voices = window.speechSynthesis.getVoices();
-                // const futuristicVoice = voices.find(voice => voice.name.includes('Google US English')); // Example voice
-                // if (futuristicVoice) {
-                //     utterance.voice = futuristicVoice;
-                // }
-
-                window.speechSynthesis.speak(utterance);
-            } else {
-                console.warn('Speech Synthesis API not supported in this browser.');
-            }
-        }
-
-        // Form Submission (simulated)
-        document.querySelector('#contact form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formResponse = document.getElementById('form-response');
-            formResponse.classList.remove('hidden');
-            formResponse.textContent = 'Thank you for your message! We will get back to you shortly.';
-            this.reset(); // Clear the form
-            setTimeout(() => {
-                formResponse.classList.add('hidden');
-            }, 5000); // Hide message after 5 seconds
-        });
-
     </script>
 </body>
 </html>
