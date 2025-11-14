@@ -3,592 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎨 Project Dashboard Mockup</title>
+    <link rel="icon" type="image/png" href="http://googleusercontent.com/image_generation_content/0">
+    <title>Ammoue | AI-Powered Website Builder</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Custom Fade-in for Content */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(10px);
-            animation: fadeIn 0.8s ease-out forwards;
+        /* Custom Font Setup */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
         }
-        @keyframes fadeIn {
+        .text-ammoue {
+            color: #0d9488; /* Teal-700 for Ammoue branding */
+        }
+        .bg-ammoue {
+            background-color: #0d9488; /* Teal-700 for Ammoue branding */
+        }
+        /* Active section link styling */
+        .nav-link.active {
+            color: #10b981; /* Emerald-500 */
+            border-color: #10b981;
+        }
+
+        /* --- New CSS for Animation --- */
+        @keyframes scroll-left {
+            from {
+                transform: translateX(0);
+            }
             to {
-                opacity: 1;
-                transform: translateY(0);
+                transform: translateX(-100%); 
             }
         }
-        /* Card Hover Effect */
-        .project-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .animate-scrolling-features {
+            display: flex;
+            width: fit-content;
+            animation: scroll-left 40s linear infinite;
         }
-        .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .pause-on-hover:hover {
+            animation-play-state: paused;
         }
-        /* Modal Transition */
-        .modal-enter { opacity: 0; transform: scale(0.95); }
-        .modal-enter-active { opacity: 1; transform: scale(1); transition: opacity 0.3s ease, transform 0.3s ease; }
-        .modal-exit { opacity: 1; transform: scale(1); }
-        .modal-exit-active { opacity: 0; transform: scale(0.95); transition: opacity 0.3s ease, transform 0.3s ease; }
+        .feature-card {
+            min-width: 300px;
+            margin-right: 2.5rem;
+        }
+        /* --- End New CSS for Animation --- */
     </style>
-    <script>
-        // --- Tailwind Configuration for Dark Mode ---
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'primary': '#4f46e5',
-                        'primary-dark': '#6366f1',
-                        'secondary-bg': 'rgb(243 244 246)', /* gray-100 */
-                        'secondary-bg-dark': 'rgb(31 41 55)', /* gray-800 */
-                    }
-                }
-            }
-        }
-    </script>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-300">
+<body class="antialiased min-h-screen">
 
-    <div id="loading-overlay" class="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-gray-900 transition-opacity duration-500">
-        <div class="text-center">
-            <svg class="animate-spin h-10 w-10 text-primary mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-            <p class="text-xl font-semibold text-gray-700 dark:text-gray-300">Loading your projects...</p>
-        </div>
-    </div>
-
-    <nav class="bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-40">
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <span class="text-2xl font-bold text-primary dark:text-primary-dark">Project Dashboard</span>
-                </div>
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="flex items-center space-x-2">
+                    <img src="http://googleusercontent.com/image_generation_content/0" alt="AmmoueAI Logo" class="h-8 w-auto">
+                    <span class="text-3xl font-extrabold text-ammoue">Ammoue</span>
+                    <span class="hidden sm:inline text-xs font-medium text-gray-500 bg-teal-100 px-2 py-0.5 rounded-full border border-teal-200">AI Powered</span>
+                </a>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#features" class="nav-link text-gray-600 font-medium transition duration-200 border-b-2 border-transparent hover:border-emerald-500 hover:text-emerald-500 py-1">Features</a>
+                    <a href="#video-showcase" class="nav-link text-gray-600 font-medium transition duration-200 border-b-2 border-transparent hover:border-emerald-500 hover:text-emerald-500 py-1">Showcase</a> 
+                    <a href="#how-it-works" class="nav-link text-gray-600 font-medium transition duration-200 border-b-2 border-transparent hover:border-emerald-500 hover:text-emerald-500 py-1">How It Works</a>
+                    <a href="#pricing" class="nav-link text-gray-600 font-medium transition duration-200 border-b-2 border-transparent hover:border-emerald-500 hover:text-emerald-500 py-1">Pricing</a>
+                </nav>
+
                 <div class="flex items-center space-x-4">
-                    <button id="dark-mode-toggle" class="p-2 rounded-full text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition duration-150" title="Toggle Dark Mode">
-                        <i data-lucide="sun" class="w-6 h-6 dark:hidden"></i>
-                        <i data-lucide="moon" class="w-6 h-6 hidden dark:inline-block"></i>
-                    </button>
-                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300 hidden sm:block">user@example.com</span>
-                    <button class="bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg text-sm transition duration-150">
-                        Logout
+                    <a href="login.html" class="hidden md:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-xl shadow-lg text-white bg-ammoue hover:bg-teal-700 transition duration-300 transform hover:scale-105">
+                        Start for Free
+                    </a>
+
+                    <button id="mobile-menu-button" class="md:hidden text-gray-700 p-2 rounded-lg hover:bg-gray-100 transition duration-150">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
             </div>
         </div>
-    </nav>
+        
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 border-t border-gray-100">
+            <a href="#features" class="block py-2 px-3 text-base font-medium text-gray-700 rounded-lg hover:bg-gray-50 nav-link">Features</a>
+            <a href="#video-showcase" class="block py-2 px-3 text-base font-medium text-gray-700 rounded-lg hover:bg-gray-50 nav-link">Showcase</a>
+            <a href="#how-it-works" class="block py-2 px-3 text-base font-medium text-gray-700 rounded-lg hover:bg-gray-50 nav-link">How It Works</a>
+            <a href="#pricing" class="block py-2 px-3 text-base font-medium text-gray-700 rounded-lg hover:bg-gray-50 nav-link">Pricing</a>
+            <a href="login.html" class="w-full mt-4 inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-xl shadow-lg text-white bg-ammoue hover:bg-teal-700 transition duration-300">Start for Free</a>
+        </div>
+    </header>
 
-    <main id="dashboard-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 fade-in">
-        <header class="mb-8">
-            <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white">Your Projects</h1>
-        </header>
+    <main>
+        <section class="py-20 md:py-28 lg:py-36 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-sm font-semibold text-ammoue uppercase tracking-widest mb-3">The Future of Web Design</p>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-tight mb-6">
+                    Build Your Website in <span class="text-ammoue">60 Seconds</span>. Seriously.
+                </h1>
+                <p class="mt-4 max-w-3xl mx-auto text-xl text-gray-500 mb-10">
+                    Ammoue uses cutting-edge AI to design, write, and launch stunning, professional websites. Just describe your business and watch the magic happen.
+                </p>
+                
+                <div class="flex justify-center space-x-4">
+                    <a href="login.html" class="px-8 py-3 text-lg font-bold rounded-xl shadow-xl text-white bg-ammoue hover:bg-teal-700 transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-teal-500 focus:ring-opacity-50">
+                        <span class="flex items-center">
+                            Generate My Site Now
+                            <i data-lucide="sparkles" class="w-5 h-5 ml-2"></i>
+                        </span>
+                    </a>
+                </div>
 
-        <div class="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0 sm:space-x-4">
-            <div class="relative w-full sm:w-80">
-                <i data-lucide="search" class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                <input type="text" id="search-input" placeholder="Search projects by title or prompt..." 
-                       class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 transition" />
+                <div class="mt-12">
+                    <p class="text-sm font-medium text-gray-500 mb-4">Trusted by over 10,000 creators and small businesses</p>
+                    <div class="flex justify-center space-x-6 text-gray-400">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                        <i data-lucide="code" class="w-6 h-6"></i>
+                        <i data-lucide="tablet" class="w-6 h-6"></i>
+                    </div>
+                </div>
             </div>
+        </section>
+        <section id="features" class="py-16 md:py-24 bg-white overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Stop Coding, Start Launching.</h2>
+                    <p class="mt-4 text-xl text-gray-500">The core advantages of building with Ammoue AI.</p>
+                </div>
 
-            <div class="flex space-x-4">
-                <div class="relative">
-                    <select id="sort-dropdown" class="block appearance-none w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-white py-2 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-primary dark:focus:border-primary-dark transition">
-                        <option value="newest">Sort by: Newest</option>
-                        <option value="oldest">Sort by: Oldest</option>
-                        <option value="a-z">Sort by: Title (A→Z)</option>
-                        <option value="z-a">Sort by: Title (Z→A)</option>
-                    </select>
-                    <i data-lucide="chevron-down" class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300"></i>
+                <div class="relative w-full overflow-hidden mask-image-x-fade">
+                    <div class="animate-scrolling-features pause-on-hover" id="feature-carousel">
+                        <div class="feature-card bg-white p-8 rounded-2xl shadow-xl transition duration-300 border border-gray-100 transform hover:-translate-y-1">
+                            <div class="w-12 h-12 bg-ammoue/10 rounded-xl flex items-center justify-center mb-4">
+                                <i data-lucide="clock-4" class="w-6 h-6 text-ammoue"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Instant Deployment</h3>
+                            <p class="text-gray-600">From a simple text prompt to a fully functional, deployed website in less than a minute. Skip the setup and jump straight to success.</p>
+                        </div>
+
+                        <div class="feature-card bg-white p-8 rounded-2xl shadow-xl transition duration-300 border border-gray-100 transform hover:-translate-y-1">
+                            <div class="w-12 h-12 bg-ammoue/10 rounded-xl flex items-center justify-center mb-4">
+                                <i data-lucide="trending-up" class="w-6 h-6 text-ammoue"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">SEO Optimization</h3>
+                            <p class="text-gray-600">AI automatically generates meta tags, image alt text, and clean semantic code to ensure your site is search engine ready from day one.</p>
+                        </div>
+
+                        <div class="feature-card bg-white p-8 rounded-2xl shadow-xl transition duration-300 border border-gray-100 transform hover:-translate-y-1">
+                            <div class="w-12 h-12 bg-ammoue/10 rounded-xl flex items-center justify-center mb-4">
+                                <i data-lucide="edit-3" class="w-6 h-6 text-ammoue"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">AI-Powered Copywriting</h3>
+                            <p class="text-gray-600">Struggling with words? Ammoue's integrated LLM writes compelling, niche-specific copy and creates relevant imagery for you, instantly.</p>
+                        </div>
+
+                        <div class="feature-card bg-white p-8 rounded-2xl shadow-xl transition duration-300 border border-gray-100 transform hover:-translate-y-1">
+                            <div class="w-12 h-12 bg-ammoue/10 rounded-xl flex items-center justify-center mb-4">
+                                <i data-lucide="globe" class="w-6 h-6 text-ammoue"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Custom Domain Support</h3>
+                            <p class="text-gray-600">Connect your own custom domain in minutes. Enjoy a professional, branded web address without any complex setup or DNS hassle.</p>
+                        </div>
+
+                        <div class="feature-card bg-white p-8 rounded-2xl shadow-xl transition duration-300 border border-gray-100 transform hover:-translate-y-1">
+                            <div class="w-12 h-12 bg-ammoue/10 rounded-xl flex items-center justify-center mb-4">
+                                <i data-lucide="smartphone" class="w-6 h-6 text-ammoue"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Perfectly Responsive Code</h3>
+                            <p class="text-gray-600">Every site generated is built with clean, modern code and is guaranteed to look pixel-perfect on mobile, tablet, and desktop devices.</p>
+                        </div>
+
+                        </div>
+                </div>
+                </div>
+        </section>
+        
+        <section id="video-showcase" class="py-16 md:py-24 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Live Demo: Watch Sites Get Built</h2>
+                    <p class="mt-4 text-xl text-gray-500">See all three demos showcasing different site types built by Ammoue AI.</p>
                 </div>
                 
-                <button id="add-project-btn" class="bg-primary hover:bg-primary-dark text-white font-semibold py-2 px-4 rounded-lg transition duration-150 flex items-center space-x-1">
-                    <i data-lucide="plus" class="w-5 h-5"></i>
-                    <span>New Project</span>
-                </button>
-            </div>
-        </div>
+                <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                    
+                    <div class="rounded-3xl shadow-xl overflow-hidden ring-4 ring-white/70">
+                         <div class="relative pt-[56.25%]">
+                            <iframe
+                                class="absolute top-0 left-0 w-full h-full"
+                                src="https://www.youtube.com/embed/188TwHtdRMY?autoplay=0&mute=1&loop=1&playlist=188TwHtdRMY&controls=1&modestbranding=1&rel=0"
+                                title="Ammoue General Demo"
+                                frameborder="0"
+                                allow="encrypted-media"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="text-center p-4 bg-white font-bold text-ammoue">General AI Site Generation Demo</p>
+                    </div>
 
-        <div id="projects-grid" class="grid gap-6">
-            </div>
+                    <div class="rounded-3xl shadow-xl overflow-hidden ring-4 ring-white/70">
+                         <div class="relative pt-[56.25%]">
+                            <iframe
+                                class="absolute top-0 left-0 w-full h-full"
+                                src="https://www.youtube.com/embed/by0hrP_rFwo?autoplay=0&mute=1&loop=1&playlist=by0hrP_rFwo&controls=1&modestbranding=1&rel=0"
+                                title="Ammoue Site Example 1"
+                                frameborder="0"
+                                allow="encrypted-media"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="text-center p-4 bg-white font-bold text-gray-700">Minimalist Portfolio Site</p>
+                    </div>
 
-        <div id="empty-state" class="hidden text-center py-20 border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-xl mt-10">
-            <i data-lucide="folder-x" class="w-16 h-16 mx-auto text-gray-400 dark:text-gray-600 mb-4"></i>
-            <h2 class="text-xl font-semibold text-gray-700 dark:text-gray-300">No Projects Yet</h2>
-            <p class="text-gray-500 dark:text-gray-400 mt-2">Create your first project to see it here!</p>
-            <button onclick="simulateAddProject()" class="mt-4 bg-primary hover:bg-primary-dark text-white font-semibold py-2 px-4 rounded-lg transition duration-150">
-                Start Building Now
-            </button>
-        </div>
+                    <div class="rounded-3xl shadow-xl overflow-hidden ring-4 ring-white/70">
+                        <div class="relative pt-[56.25%]">
+                            <iframe
+                                class="absolute top-0 left-0 w-full h-full"
+                                src="https://www.youtube.com/embed/ytcmnZYUXao?autoplay=0&mute=1&loop=1&playlist=ytcmnZYUXao&controls=1&modestbranding=1&rel=0"
+                                title="Ammoue Site Example 2"
+                                frameborder="0"
+                                allow="encrypted-media"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="text-center p-4 bg-white font-bold text-gray-700">Small Business Landing Page</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="how-it-works" class="py-16 md:py-24 bg-slate-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">How Ammoue Works</h2>
+                    <p class="mt-4 text-xl text-gray-500">Three simple steps to your new online presence.</p>
+                </div>
+
+                <div class="relative space-y-12">
+                    <div class="absolute inset-0 flex justify-center">
+                        <div class="h-full border-l-4 border-dashed border-teal-200" style="margin-left: 24px;"></div>
+                    </div>
+                    
+                    <div class="flex items-start relative z-10">
+                        <div class="flex-shrink-0 w-12 h-12 bg-ammoue text-white rounded-full flex items-center justify-center text-xl font-bold shadow-lg">1</div>
+                        <div class="ml-6 flex-grow pt-1">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Describe Your Vision</h3>
+                            <p class="text-gray-600">Type a few sentences describing your business, project, or desired website style. E.g., "A modern, minimalist portfolio site for a freelance photographer."</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start relative z-10">
+                        <div class="flex-shrink-0 w-12 h-12 bg-ammoue text-white rounded-full flex items-center justify-center text-xl font-bold shadow-lg">2</div>
+                        <div class="ml-6 flex-grow pt-1">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">AI Creates the Draft</h3>
+                            <p class="text-gray-600">Our AI instantly generates a complete draft: layout, professional images, engaging headlines, and relevant body text based on your prompt.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start relative z-10">
+                        <div class="flex-shrink-0 w-12 h-12 bg-ammoue text-white rounded-full flex items-center justify-center text-xl font-bold shadow-lg">3</div>
+                        <div class="ml-6 flex-grow pt-1">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Edit, Tweak, and Publish</h3>
+                            <p class="text-gray-600">Use our simple drag-and-drop editor to make final adjustments. Once perfect, hit 'Publish' and your site is live instantly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="py-20 md:py-28 bg-ammoue">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-6">Ready to Build Something Amazing?</h2>
+                <p class="text-xl text-teal-200 mb-10 max-w-2xl mx-auto">
+                    Stop wasting time on templates and code. Join thousands of users who launch faster with Ammoue. Free plan available, no credit card required.
+                </p>
+                
+                <a href="login.html" class="inline-flex items-center justify-center px-10 py-4 text-xl font-bold rounded-xl shadow-2xl text-ammoue bg-white hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                    <span class="flex items-center">
+                        Claim Your Free Site Today
+                        <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+                    </span>
+                </a>
+            </div>
+        </section>
     </main>
 
-    <div id="edit-modal" class="modal fixed inset-0 z-50 overflow-y-auto bg-gray-900 bg-opacity-50 dark:bg-opacity-75 hidden transition-all duration-300" role="dialog" aria-modal="true">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="modal-content bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-2xl transform transition-all duration-300">
-                <div class="p-6 border-b dark:border-gray-700 flex justify-between items-center">
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Edit Project: <span id="edit-project-title-display"></span></h3>
-                    <button onclick="closeModal('edit-modal')" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
-                        <i data-lucide="x" class="w-6 h-6"></i>
-                    </button>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-3 text-ammoue">Ammoue</h4>
+                    <p class="text-sm text-gray-400">The fastest way to launch your online presence, powered by AI.</p>
                 </div>
-                <div class="p-6">
-                    <form id="edit-form">
-                        <input type="hidden" id="edit-project-id">
-                        <div class="mb-4">
-                            <label for="edit-title" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Title</label>
-                            <input type="text" id="edit-title" class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm p-2 dark:bg-gray-700 dark:text-white focus:ring-primary focus:border-primary" required>
-                        </div>
-                        <div class="mb-4">
-                            <label for="edit-prompt" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Prompt Content</label>
-                            <textarea id="edit-prompt" rows="3" class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm p-2 dark:bg-gray-700 dark:text-white focus:ring-primary focus:border-primary" required></textarea>
-                        </div>
-                        <div class="mb-4">
-                            <label for="edit-html" class="block text-sm font-medium text-gray-700 dark:text-gray-300">HTML Code</label>
-                            <textarea id="edit-html" rows="10" class="font-mono text-sm mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm p-2 dark:bg-gray-700 dark:text-white focus:ring-primary focus:border-primary" required></textarea>
-                        </div>
-                        <div class="flex justify-end space-x-3">
-                            <span id="auto-save-status" class="text-sm self-center text-gray-500 dark:text-gray-400"></span>
-                            <button type="button" onclick="closeModal('edit-modal')" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition">Cancel</button>
-                            <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition">Save Changes</button>
-                        </div>
-                    </form>
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Product</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#features" class="hover:text-ammoue transition">Features</a></li>
+                        <li><a href="#video-showcase" class="hover:text-ammoue transition">Showcase</a></li>
+                        <li><a href="#how-it-works" class="hover:text-ammoue transition">Demo</a></li>
+                        <li><a href="#pricing" class="hover:text-ammoue transition">Pricing</a></li>
+                        <li><a href="#" class="hover:text-ammoue transition">Roadmap</a></li>
+                    </ul>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="delete-modal" class="modal fixed inset-0 z-50 overflow-y-auto bg-gray-900 bg-opacity-50 dark:bg-opacity-75 hidden transition-all duration-300" role="dialog" aria-modal="true">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="modal-content bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-md transform transition-all duration-300">
-                <div class="p-6">
-                    <div class="text-center">
-                        <i data-lucide="alert-triangle" class="w-12 h-12 mx-auto text-red-500 mb-4"></i>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Delete Project?</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Are you sure you want to delete the project titled **<span id="delete-project-title-display" class="font-semibold text-gray-900 dark:text-white"></span>**? This action cannot be undone.</p>
-                        <input type="hidden" id="delete-project-id-confirm">
-                    </div>
-                    <div class="mt-5 sm:mt-6 sm:flex sm:flex-row-reverse">
-                        <button type="button" id="confirm-delete-btn" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 transition sm:ml-3 sm:w-auto sm:text-sm">
-                            Delete
-                        </button>
-                        <button type="button" onclick="closeModal('delete-modal')" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 dark:border-gray-600 shadow-sm px-4 py-2 bg-white dark:bg-gray-700 text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600 transition sm:mt-0 sm:w-auto sm:text-sm">
-                            Cancel
-                        </button>
-                    </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Company</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-ammoue transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-ammoue transition">Contact</a></li>
+                        <li><a href="#" class="hover:text-ammoue transition">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Legal</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-ammoue transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-ammoue transition">Privacy Policy</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div id="preview-modal" class="modal fixed inset-0 z-50 overflow-y-auto bg-gray-900 bg-opacity-50 dark:bg-opacity-75 hidden transition-all duration-300" role="dialog" aria-modal="true">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="modal-content bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-4xl transform transition-all duration-300">
-                <div class="p-6 border-b dark:border-gray-700 flex justify-between items-center">
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Preview: <span id="preview-project-title-display"></span></h3>
-                    <button onclick="closeModal('preview-modal')" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
-                        <i data-lucide="x" class="w-6 h-6"></i>
-                    </button>
-                </div>
-                <div class="p-6">
-                    <div class="mb-4">
-                        <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">Code Snippet (HTML Escaped)</h4>
-                        <pre id="preview-code-block" class="whitespace-pre-wrap p-4 bg-gray-100 dark:bg-gray-700 rounded-md text-sm text-gray-800 dark:text-gray-200 font-mono overflow-x-auto"></pre>
-                    </div>
-                    <div class="mt-6">
-                        <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">Live Rendering (Simulated)</h4>
-                        <iframe id="preview-iframe" class="w-full h-96 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-900"></iframe>
-                    </div>
-                </div>
+            
+            <div class="mt-10 pt-8 border-t border-gray-700 text-center">
+                <p class="text-sm text-gray-500">© 2025 Ammoue. All rights reserved. Built with AI ⚡</p>
             </div>
         </div>
-    </div>
+    </footer>
 
     <script>
-        // --- Core Data Structure ---
-        const projects = [
-            { id: 1, title: 'Animated Navbar', prompt: 'Create a responsive navbar with a hamburger menu using pure CSS and a simple fade effect.', html: '\n<nav class="bg-blue-500 p-4">\n  <div class="flex justify-between items-center">\n    <h1 class="text-white font-bold">Brand</h1>\n    <button class="text-white">☰</button>\n  </div>\n</nav>', createdAt: new Date('2025-10-01'), liveUrl: 'https://example.com/navbar', hasThumbnail: true },
-            { id: 2, title: 'Pricing Table UI', prompt: 'Design a clean 3-tier pricing table using a modern flat design.', html: '\n<div class="flex justify-center space-x-4">\n  \n</div>', createdAt: new Date('2025-11-05'), liveUrl: null, hasThumbnail: true },
-            { id: 3, title: 'Simple To-Do List', prompt: 'Implement a functional to-do list using vanilla JS and local storage.', html: '\n<ul id="todo-list"></ul>', createdAt: new Date('2025-09-15'), liveUrl: null, hasThumbnail: false },
-            { id: 4, title: 'E-commerce Card Grid', prompt: 'A 4-column responsive grid for product cards with hover effects.', html: '\n<div class="grid grid-cols-4 gap-4">\n  <div>Product Card 1</div>\n  <div>Product Card 2</div>\n</div>', createdAt: new Date('2025-11-10'), liveUrl: 'https://example.com/shop', hasThumbnail: true },
-            { id: 5, title: 'Landing Page Hero Section', prompt: 'A full-width hero section with a compelling CTA button.', html: '\n<section class="bg-gray-100 h-96 flex items-center justify-center">\n  <h2 class="text-4xl">Welcome!</h2>\n</section>', createdAt: new Date('2025-10-25'), liveUrl: null, hasThumbnail: false },
-        ];
-        
-        let currentSort = 'newest';
-        let currentSearchTerm = '';
-        let autoSaveInterval;
+        lucide.createIcons();
 
-        // --- Utility Functions ---
+        // 1. Navbar Active Link Script (Original)
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-link");
 
-        /** Escapes HTML content for safe display in a <pre> block. */
-        function escapeHtml(unsafe) {
-            if (!unsafe) return '';
-            return unsafe
-                 .replace(/&/g, "&amp;")
-                 .replace(/</g, "&lt;")
-                 .replace(/>/g, "&gt;")
-                 .replace(/"/g, "&quot;")
-                 .replace(/'/g, "&#039;");
-        }
-
-        /** Debounce function for search input */
-        function debounce(func, delay) {
-            let timeout;
-            return function(...args) {
-                const context = this;
-                clearTimeout(timeout);
-                timeout = setTimeout(() => func.apply(context, args), delay);
-            };
-        }
-        
-        // --- Rendering Logic ---
-
-        /** Sorts the projects array based on the current criteria. */
-        function sortProjects(list) {
-            switch (currentSort) {
-                case 'newest': return list.sort((a, b) => b.createdAt - a.createdAt);
-                case 'oldest': return list.sort((a, b) => a.createdAt - b.createdAt);
-                case 'a-z': return list.sort((a, b) => a.title.localeCompare(b.title));
-                case 'z-a': return list.sort((a, b) => b.title.localeCompare(a.title));
-                default: return list;
-            }
-        }
-
-        /** Filters and renders the project cards. */
-        function renderProjects() {
-            const grid = document.getElementById('projects-grid');
-            const emptyState = document.getElementById('empty-state');
-            
-            // 1. Filter
-            const lowerCaseSearch = currentSearchTerm.toLowerCase();
-            const filteredProjects = projects.filter(p => 
-                p.title.toLowerCase().includes(lowerCaseSearch) || 
-                p.prompt.toLowerCase().includes(lowerCaseSearch)
-            );
-            
-            // 2. Sort
-            const sortedProjects = sortProjects(filteredProjects);
-            
-            // 3. Render
-            grid.innerHTML = ''; // Clear existing cards
-            
-            if (sortedProjects.length === 0) {
-                emptyState.classList.remove('hidden');
-                grid.style.display = 'none';
-            } else {
-                emptyState.classList.add('hidden');
-                grid.style.display = 'grid';
-                // Responsive Grid Class
-                grid.className = 'grid gap-6 transition-all duration-300 ' + 
-                                 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
-
-                sortedProjects.forEach(p => {
-                    const card = document.createElement('div');
-                    card.className = 'project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl p-5 flex flex-col transition-all duration-300 ease-in-out border border-gray-100 dark:border-gray-700';
-                    card.innerHTML = `
-                        ${p.hasThumbnail ? `<div class="w-full h-32 mb-4 rounded-lg bg-secondary-bg dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm font-medium overflow-hidden"><i data-lucide="image" class="w-8 h-8 mr-2"></i> Thumbnail Sim</div>` : `<div class="mb-4 text-gray-400 dark:text-gray-500 text-sm italic">No Thumbnail</div>`}
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">${p.title}</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 flex-grow line-clamp-2">${p.prompt}</p>
-                        <div class="text-xs text-gray-400 dark:text-gray-500 mb-4">Created: ${p.createdAt.toLocaleDateString()}</div>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <button onclick="event.stopPropagation(); openEditModal(${p.id})" class="text-primary hover:text-primary-dark transition text-sm p-1" title="Edit"><i data-lucide="pencil" class="w-4 h-4"></i></button>
-                            <button onclick="event.stopPropagation(); copyCode(${p.id})" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition text-sm p-1" title="Copy Code"><i data-lucide="copy" class="w-4 h-4"></i></button>
-                            <button onclick="event.stopPropagation(); handlePreview(${p.id}, '${p.liveUrl}')" class="text-green-500 hover:text-green-700 transition text-sm p-1" title="${p.liveUrl ? 'Open Live URL' : 'Preview HTML'}"><i data-lucide="${p.liveUrl ? 'external-link' : 'eye'}" class="w-4 h-4"></i></button>
-                            <button onclick="event.stopPropagation(); simulateDownload(${p.id})" class="text-blue-500 hover:text-blue-700 transition text-sm p-1" title="Download HTML"><i data-lucide="download" class="w-4 h-4"></i></button>
-                            <button onclick="event.stopPropagation(); duplicateProject(${p.id})" class="text-yellow-500 hover:text-yellow-700 transition text-sm p-1" title="Duplicate"><i data-lucide="layers-2" class="w-4 h-4"></i></button>
-                            <button onclick="event.stopPropagation(); openDeleteModal(${p.id})" class="text-red-500 hover:text-red-700 transition text-sm p-1" title="Delete"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
-                        </div>
-                    `;
-                    grid.appendChild(card);
-                });
-            }
-            // Re-initialize Lucide icons for the new elements
-            lucide.createIcons();
-        }
-
-        // --- Modal Functions ---
-
-        /** Shows a modal with transition. */
-        function openModal(id) {
-            const modal = document.getElementById(id);
-            if (modal) {
-                modal.classList.remove('hidden');
-                setTimeout(() => {
-                    modal.querySelector('.modal-content').classList.remove('modal-enter');
-                    modal.querySelector('.modal-content').classList.add('modal-enter-active');
-                }, 10); // Small delay for transition
-                document.body.style.overflow = 'hidden'; // Prevent scrolling background
-            }
-        }
-
-        /** Hides a modal with transition. */
-        function closeModal(id) {
-            const modal = document.getElementById(id);
-            if (modal) {
-                const content = modal.querySelector('.modal-content');
-                content.classList.add('modal-exit-active');
-                content.classList.remove('modal-enter-active');
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                    content.classList.remove('modal-exit-active');
-                    content.classList.add('modal-enter');
-                    document.body.style.overflow = '';
-                }, 300); // Wait for transition duration
-            }
-        }
-
-        /** Opens the Edit Modal and populates data. */
-        function openEditModal(id) {
-            const project = projects.find(p => p.id === id);
-            if (!project) return;
-            
-            document.getElementById('edit-project-id').value = project.id;
-            document.getElementById('edit-project-title-display').textContent = project.title;
-            document.getElementById('edit-title').value = project.title;
-            document.getElementById('edit-prompt').value = project.prompt;
-            document.getElementById('edit-html').value = project.html;
-
-            document.getElementById('edit-form').onsubmit = function(e) {
-                e.preventDefault();
-                saveProject(project.id);
-                closeModal('edit-modal');
-            };
-
-            // Auto-Save Simulation
-            clearInterval(autoSaveInterval);
-            autoSaveInterval = setInterval(() => {
-                simulateAutoSave(id);
-            }, 3000);
-
-            openModal('edit-modal');
-        }
-
-        /** Simulates the Auto-Save feature. */
-        function simulateAutoSave(id) {
-            const project = projects.find(p => p.id === id);
-            const statusEl = document.getElementById('auto-save-status');
-            
-            // Check if any field has changed (simple check)
-            const newTitle = document.getElementById('edit-title').value;
-            const newPrompt = document.getElementById('edit-prompt').value;
-            const newHtml = document.getElementById('edit-html').value;
-
-            if (project.title !== newTitle || project.prompt !== newPrompt || project.html !== newHtml) {
-                 // Update the project data in the array
-                project.title = newTitle;
-                project.prompt = newPrompt;
-                project.html = newHtml;
-
-                statusEl.textContent = 'Auto-saving...';
-                statusEl.classList.add('text-primary');
-                setTimeout(() => {
-                    statusEl.textContent = `Saved at ${new Date().toLocaleTimeString()}`;
-                    statusEl.classList.remove('text-primary');
-                    renderProjects(); // Re-render to update card title/prompt
-                }, 500);
-            } else {
-                statusEl.textContent = 'No changes to save.';
-            }
-        }
-
-        /** Saves the project manually (on button click). */
-        function saveProject(id) {
-             clearInterval(autoSaveInterval);
-             // The project data should already be updated by auto-save, but this ensures a final update
-             const project = projects.find(p => p.id === id);
-             if (project) {
-                project.title = document.getElementById('edit-title').value;
-                project.prompt = document.getElementById('edit-prompt').value;
-                project.html = document.getElementById('edit-html').value;
-                renderProjects();
-             }
-        }
-
-
-        /** Opens the Delete Confirmation Modal. */
-        function openDeleteModal(id) {
-            const project = projects.find(p => p.id === id);
-            if (!project) return;
-
-            document.getElementById('delete-project-title-display').textContent = project.title;
-            document.getElementById('delete-project-id-confirm').value = id;
-
-            document.getElementById('confirm-delete-btn').onclick = function() {
-                deleteProject(project.id);
-            };
-
-            openModal('delete-modal');
-        }
-
-        /** Deletes the project from the array. */
-        function deleteProject(id) {
-            const index = projects.findIndex(p => p.id === id);
-            if (index !== -1) {
-                projects.splice(index, 1);
-                renderProjects();
-                closeModal('delete-modal');
-            }
-        }
-        
-        /** Handles Preview logic: open new tab for live URL or show modal for HTML. */
-        function handlePreview(id, liveUrl) {
-            if (liveUrl && liveUrl !== 'null') {
-                window.open(liveUrl, '_blank'); // Open in new tab
-            } else {
-                openPreviewModal(id); // Show local preview modal
-            }
-        }
-
-        /** Opens the Preview Modal and loads content. */
-        function openPreviewModal(id) {
-            const project = projects.find(p => p.id === id);
-            if (!project) return;
-
-            document.getElementById('preview-project-title-display').textContent = project.title;
-            
-            // 1. Escaped HTML for Code Preview
-            const escapedHtml = escapeHtml(project.html);
-            document.getElementById('preview-code-block').textContent = escapedHtml;
-
-            // 2. Live Rendering Simulation in an iframe
-            const iframe = document.getElementById('preview-iframe');
-            const iframeContent = `
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>Live Preview</title>
-                    <script src="https://cdn.tailwindcss.com"></script>
-                    <style>body { padding: 1rem; }</style>
-                </head>
-                <body>
-                    ${project.html}
-                </body>
-                </html>
-            `;
-            iframe.srcdoc = iframeContent; // Load the HTML content
-
-            openModal('preview-modal');
-        }
-
-        // --- Action Functions (Simulation) ---
-
-        /** Simulates downloading the project HTML. */
-        function simulateDownload(id) {
-            const project = projects.find(p => p.id === id);
-            if (project) {
-                // In a real app, this would trigger a file download
-                alert(`Simulating download of "${project.title}.html"`);
-                console.log(`Download content for ${project.title}: \n${project.html}`);
-            }
-        }
-
-        /** Copies the project HTML code to the clipboard. */
-        function copyCode(id) {
-            const project = projects.find(p => p.id === id);
-            if (project) {
-                navigator.clipboard.writeText(project.html).then(() => {
-                    alert(`Code for "${project.title}" copied to clipboard!`);
-                }).catch(err => {
-                    console.error('Could not copy text: ', err);
-                    alert('Error: Could not copy code. See console for details.');
-                });
-            }
-        }
-
-        /** Simulates project duplication. */
-        function duplicateProject(id) {
-            const original = projects.find(p => p.id === id);
-            if (original) {
-                const newId = projects.reduce((max, p) => Math.max(max, p.id), 0) + 1;
-                const duplicated = {
-                    ...original,
-                    id: newId,
-                    title: `${original.title} (Copy)`,
-                    createdAt: new Date()
-                };
-                projects.push(duplicated);
-                renderProjects();
-                alert(`Project "${original.title}" duplicated as "${duplicated.title}".`);
-            }
-        }
-
-        /** Simulates adding a new empty project. */
-        function simulateAddProject() {
-            const newId = projects.reduce((max, p) => Math.max(max, p.id), 0) + 1;
-            const newProject = {
-                id: newId, 
-                title: `New Project ${newId}`, 
-                prompt: 'Describe your idea here...', 
-                html: '\n\n<h1>Hello World</h1>', 
-                createdAt: new Date(), 
-                liveUrl: null, 
-                hasThumbnail: false
-            };
-            projects.push(newProject);
-            renderProjects();
-            openEditModal(newId); // Open the new project directly for editing
-        }
-
-
-        // --- Event Listeners and Initialization ---
-
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // Initial render
-            renderProjects();
-
-            // 1. Initial Fade-in of Dashboard Content
-            setTimeout(() => {
-                document.getElementById('loading-overlay').style.opacity = '0';
-                document.getElementById('loading-overlay').classList.add('pointer-events-none');
-                document.getElementById('dashboard-content').style.opacity = '1';
-                document.getElementById('dashboard-content').style.transform = 'translateY(0)';
-            }, 800); // Simulate network latency
-
-            // 2. Dark Mode Setup
-            const darkModeToggle = document.getElementById('dark-mode-toggle');
-            const isDarkMode = localStorage.getItem('darkMode') === 'true';
-
-            if (isDarkMode) {
-                document.documentElement.classList.add('dark');
-            }
-
-            darkModeToggle.addEventListener('click', () => {
-                if (document.documentElement.classList.contains('dark')) {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('darkMode', 'false');
-                } else {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('darkMode', 'true');
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute("id");
                 }
             });
-
-            // 3. Debounced Search Input
-            const searchInput = document.getElementById('search-input');
-            const debouncedSearch = debounce((value) => {
-                currentSearchTerm = value;
-                renderProjects();
-            }, 300); // 300ms debounce
-
-            searchInput.addEventListener('input', (e) => {
-                debouncedSearch(e.target.value);
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                // Check against the full href attribute
+                if (link.getAttribute("href") === "#" + current) {
+                    link.classList.add("active");
+                }
             });
+        });
 
-            // 4. Sort Dropdown
-            document.getElementById('sort-dropdown').addEventListener('change', (e) => {
-                currentSort = e.target.value;
-                renderProjects();
-            });
+        // 2. Continuous Scrolling and Hover Pause Script (Original)
+        const featureCarousel = document.getElementById('feature-carousel');
+        if (featureCarousel) {
+            // Duplicate the content to ensure a seamless loop
+            const content = featureCarousel.innerHTML;
+            featureCarousel.innerHTML += content;
+        }
 
-            // 5. Add Project Button
-            document.getElementById('add-project-btn').addEventListener('click', simulateAddProject);
+        // 3. Mobile Menu Toggle Script (Restored)
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIconContainer = mobileMenuButton.querySelector('i');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const isMenuOpen = !mobileMenu.classList.contains('hidden');
             
-            // 6. Prevent click propagation from buttons/modals to parent card (Done inline on buttons)
-
-            // Re-initialize Lucide icons one last time (if any were missed)
+            mobileMenuIconContainer.setAttribute('data-lucide', isMenuOpen ? 'x' : 'menu');
             lucide.createIcons();
+        });
+
+        // Close mobile menu when a nav link is clicked (Restored)
+        const mobileNavLinks = mobileMenu.querySelectorAll('a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuIconContainer.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
         });
     </script>
 </body>
