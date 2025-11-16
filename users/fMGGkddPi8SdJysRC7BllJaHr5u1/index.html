@@ -4,66 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drift & Co. — Limited Drops & Urban Goods</title>
-    <meta name="description" content="Limited-run street goods, community drops, and handcrafted essentials from Drift & Co. Join the list for early access.">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.driftandco.com/"> <!-- Placeholder URL -->
-    <meta property="og:title" content="Drift & Co. — Limited Drops & Urban Goods">
-    <meta property="og:description" content="Limited-run street goods, community drops, and handcrafted essentials from Drift & Co. Join the list for early access.">
-    <meta property="og:image" content="https://images.pexels.com/photos/34680255/pexels-photo-34680255.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"> 
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.driftandco.com/"> <!-- Placeholder URL -->
-    <meta property="twitter:title" content="Drift & Co. — Limited Drops & Urban Goods">
-    <meta property="twitter:description" content="Limited-run street goods, community drops, and handcrafted essentials from Drift & Co. Join the list for early access.">
-    <meta property="twitter:image" content="https://images.pexels.com/photos/34680255/pexels-photo-34680255.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
-
-    <!-- Favicon - Simple emoji placeholder -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💨</text></svg>">
-
+    <title>Aroma Brews - Your Daily Dose of Delight</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts for H1 (Bebas Neue for condensed, expressive) and body (Inter) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <style>
-        /* Custom CSS Variables for color palette */
-        :root {
-            --color-charcoal: #111;
-            --color-off-white: #F6F6F6;
-            --color-neon-amber: #FFB55A;
+        /* Custom styles for video overlay and smooth scrolling offset */
+        .video-overlay {
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
+        }
+        /* For smooth scroll to anchor links, offset fixed header */
+        html {
+            scroll-padding-top: 80px; /* Adjust this value based on your header's height */
         }
 
-        /* Base body styles using Inter font and defined colors */
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--color-charcoal);
-            background-color: var(--color-off-white);
-        }
-
-        /* H1 and elements with .font-bebas class use Bebas Neue */
-        h1, .font-bebas {
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 0.05em; /* A bit of letter spacing for display fonts */
-        }
-
-        /* Tailwind custom colors via CSS variables for consistency */
-        .bg-charcoal { background-color: var(--color-charcoal); }
-        .text-charcoal { color: var(--color-charcoal); }
-        .bg-off-white { background-color: var(--color-off-white); }
-        .text-off-white { color: var(--color-off-white); }
-        .bg-neon-amber { background-color: var(--color-neon-amber); }
-        .text-neon-amber { color: var(--color-neon-amber); }
-        .border-neon-amber { border-color: var(--color-neon-amber); }
-
-        /* Keyframes for subtle fade-in-up animation */
-        @keyframes fadeInUp {
+        /* Custom Animations for cinematic feel */
+        @keyframes fadeInMoveUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
@@ -74,223 +29,248 @@
             }
         }
 
-        /* Apply animation to elements with this class */
         .animate-fade-in-up {
-            animation: fadeInUp 0.6s ease-out forwards;
-            opacity: 0; /* Ensures element is invisible before animation starts */
+            animation: fadeInMoveUp 0.8s ease-out forwards;
+            opacity: 0; /* Hidden by default */
         }
-
-        /* Animation delays for staggered effect */
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-        .delay-500 { animation-delay: 0.5s; }
-        .delay-600 { animation-delay: 0.6s; }
+        .animate-fade-in-up.delay-200 {
+            animation-delay: 0.2s;
+        }
+        .animate-fade-in-up.delay-400 {
+            animation-delay: 0.4s;
+        }
     </style>
+    <!-- Favicon - Simple coffee cup icon from a public source -->
+    <link rel="icon" href="https://www.svgrepo.com/show/472851/coffee-cup-hot.svg" type="image/svg+xml">
 </head>
-<body class="bg-off-white text-charcoal antialiased">
+<body class="font-sans antialiased text-gray-100 bg-gray-900">
 
-    <!-- Micro-UI: Free shipping badge (Fixed position for visibility) -->
-    <div class="fixed top-4 left-4 z-50 bg-charcoal text-off-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">
-        Free worldwide shipping over $60
-    </div>
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 z-50 shadow-lg">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-3xl font-bold text-amber-400 hover:text-amber-300 transition duration-300">Aroma Brews</a>
+            
+            <!-- Desktop Nav Links -->
+            <ul class="hidden md:flex space-x-8 text-lg">
+                <li><a href="#hero" class="hover:text-amber-400 transition duration-300">Home</a></li>
+                <li><a href="#about" class="hover:text-amber-400 transition duration-300">About</a></li>
+                <li><a href="#menu" class="hover:text-amber-400 transition duration-300">Menu</a></li>
+                <li><a href="#gallery" class="hover:text-amber-400 transition duration-300">Gallery</a></li>
+                <li><a href="#contact" class="hover:text-amber-400 transition duration-300">Contact</a></li>
+            </ul>
 
-    <!-- Hero Section: Full-screen video background with content overlay -->
-    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Hero Video Background (looping, muted, playing inline) -->
-        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
-            <source src="https://videos.pexels.com/video-files/34671853/14695623_640_360_30fps.mp4" type="video/mp4">
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-100 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800 bg-opacity-95 py-4">
+            <ul class="flex flex-col items-center space-y-4 text-xl">
+                <li><a href="#hero" class="block py-2 hover:text-amber-400 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden');">Home</a></li>
+                <li><a href="#about" class="block py-2 hover:text-amber-400 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden');">About</a></li>
+                <li><a href="#menu" class="block py-2 hover:text-amber-400 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden');">Menu</a></li>
+                <li><a href="#gallery" class="block py-2 hover:text-amber-400 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden');">Gallery</a></li>
+                <li><a href="#contact" class="block py-2 hover:text-amber-400 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden');">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        <video autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 z-0">
+            <source src="https://videos.pexels.com/video-files/6343636/6343636-sd_506_960_30fps.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-
-        <!-- Dark Gradient Overlay for text readability -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
-
-        <!-- Hero Content: Headline, Subheadline, CTAs -->
-        <div class="relative z-10 text-center text-off-white px-4">
-            <h1 class="font-bebas text-5xl md:text-7xl lg:text-8xl tracking-wide mb-4 animate-fade-in-up">
-                Move Faster. Live Louder.
-            </h1>
-            <p class="text-lg md:text-xl lg:text-2xl font-light mb-8 max-w-2xl mx-auto animate-fade-in-up delay-200">
-                Limited-run goods & experiences for people who refuse average.
+        <div class="video-overlay absolute inset-0 z-10 flex flex-col justify-center items-center p-4">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4 animate-fade-in-up">Aroma Brews</h1>
+            <p class="text-xl md:text-3xl font-light text-gray-200 mb-8 max-w-2xl animate-fade-in-up delay-200">
+                Crafting moments, one exquisite cup at a time.
             </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-400">
-                <a href="#shop" class="bg-neon-amber text-charcoal font-semibold px-8 py-3 rounded-full hover:scale-105 transition-transform duration-300 shadow-lg text-lg">
-                    Shop the Drop
+            <a href="#menu" class="px-8 py-4 bg-amber-500 text-gray-900 text-xl font-semibold rounded-full hover:bg-amber-400 transition duration-300 transform hover:scale-105 animate-fade-in-up delay-400">
+                Explore Our Menu
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800 text-gray-100">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 relative min-h-[300px] md:min-h-[400px] rounded-lg shadow-xl overflow-hidden group">
+                <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                    <source src="https://videos.pexels.com/video-files/28514874/12405199_360_640_30fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4">
+                    <p class="text-white text-3xl font-bold text-center">Passion in Every Bean</p>
+                </div>
+            </div>
+            <div class="md:w-1/2 text-center md:text-left">
+                <h2 class="text-4xl font-bold text-amber-400 mb-6">Our Story</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    At Aroma Brews, we believe coffee is more than just a drink – it's an experience. Founded with a passion for exceptional beans and meticulous brewing, our mission is to create a comforting haven where every sip tells a story.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    From ethically sourced single-origin beans to our handcrafted lattes, we're dedicated to quality, community, and the simple joy of a perfect cup. Come discover your new favorite brew.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-gray-900 text-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-amber-400 mb-12">Our Signature Menu</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Menu Item 1: Classic Latte -->
+                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://images.pexels.com/photos/1787156/pexels-photo-1787156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Latte Art" class="w-full h-60 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-amber-300 mb-2">Classic Latte</h3>
+                        <p class="text-gray-300 mb-4">Espresso with steamed milk and a delicate layer of foam, perfected with beautiful latte art.</p>
+                        <span class="text-3xl font-bold text-amber-400">$4.50</span>
+                    </div>
+                </div>
+                <!-- Menu Item 2: Single Origin Espresso -->
+                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://images.pexels.com/photos/13000631/pexels-photo-13000631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Specialty Espresso" class="w-full h-60 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-amber-300 mb-2">Single Origin Espresso</h3>
+                        <p class="text-gray-300 mb-4">A rich, bold shot of our finest single-origin espresso, highlighting unique flavor notes.</p>
+                        <span class="text-3xl font-bold text-amber-400">$3.75</span>
+                    </div>
+                </div>
+                <!-- Menu Item 3: Signature Iced Coffee -->
+                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://images.pexels.com/photos/29230312/pexels-photo-29230312.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Iced Coffee" class="w-full h-60 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-amber-300 mb-2">Signature Iced Coffee</h3>
+                        <p class="text-gray-300 mb-4">Our refreshing cold brew, perfectly chilled and served over ice for a smooth, invigorating taste.</p>
+                        <span class="text-3xl font-bold text-amber-400">$5.00</span>
+                    </div>
+                </div>
+                <!-- Menu Item 4: Artisan Croissant -->
+                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://images.pexels.com/photos/34687945/pexels-photo-34687945.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Pastry" class="w-full h-60 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-amber-300 mb-2">Artisan Croissant</h3>
+                        <p class="text-gray-300 mb-4">Flaky, buttery croissant baked fresh daily, perfect with any coffee.</p>
+                        <span class="text-3xl font-bold text-amber-400">$3.25</span>
+                    </div>
+                </div>
+                <!-- Menu Item 5: Velvet Cappuccino -->
+                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://images.pexels.com/photos/33975851/pexels-photo-33975851.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Cappuccino" class="w-full h-60 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-amber-300 mb-2">Velvet Cappuccino</h3>
+                        <p class="text-gray-300 mb-4">Espresso with foamed milk, a classic Italian favorite with a rich, velvety texture.</p>
+                        <span class="text-3xl font-bold text-amber-400">$4.75</span>
+                    </div>
+                </div>
+                <!-- Menu Item 6: Hand-Drip Pour Over -->
+                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="https://images.pexels.com/photos/30886151/pexels-photo-30886151.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Pour Over" class="w-full h-60 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-amber-300 mb-2">Hand-Drip Pour Over</h3>
+                        <p class="text-gray-300 mb-4">Experience the nuanced flavors of our specialty beans with a meticulously brewed pour-over.</p>
+                        <span class="text-3xl font-bold text-amber-400">$5.50</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#contact" class="px-8 py-4 bg-amber-500 text-gray-900 text-xl font-semibold rounded-full hover:bg-amber-400 transition duration-300 transform hover:scale-105">
+                    View Full Menu (Coming Soon!)
                 </a>
-                <a href="#about" class="text-off-white border-b-2 border-off-white/50 hover:border-neon-amber transition-colors duration-300 text-lg">
-                    Learn the story &rarr;
-                </a>
             </div>
         </div>
     </section>
 
-    <!-- Featured Drop / Shop preview Section -->
-    <section id="shop" class="py-16 md:py-24 px-4 bg-off-white">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bebas text-charcoal text-center mb-8">Featured Drops</h2>
-
-            <!-- Simple filter navigation (visual, not functional) -->
-            <div class="flex justify-center gap-6 mb-12 text-lg font-medium">
-                <span class="text-neon-amber border-b-2 border-neon-amber pb-1">New</span>
-                <span class="text-gray-500 hover:text-neon-amber cursor-pointer transition-colors pb-1">Popular</span>
-                <span class="text-gray-500 hover:text-neon-amber cursor-pointer transition-colors pb-1">Limited</span>
-            </div>
-
-            <!-- Product Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Product Card 1 -->
-                <div class="bg-charcoal text-off-white rounded-xl shadow-xl overflow-hidden hover:scale-105 transition-transform duration-300 group">
-                    <img src="https://images.pexels.com/photos/34680255/pexels-photo-34680255.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Hand-stitched canvas tote bag in urban setting" class="w-full h-72 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bebas mb-2">Urban Canvas Tote</h3>
-                        <p class="text-sm text-gray-400 mb-3">Hand-stitched canvas tote — washes like a champ.</p>
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-xl font-semibold text-neon-amber">$49.99</span>
-                            <a href="#" class="text-sm bg-neon-amber text-charcoal px-4 py-2 rounded-full hover:bg-neon-amber/80 transition-colors">View</a>
-                        </div>
-                    </div>
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-gray-800 text-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-amber-400 mb-12">Our Cozy Atmosphere</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div class="overflow-hidden rounded-lg shadow-xl group cursor-pointer">
+                    <img src="https://images.pexels.com/photos/30690200/pexels-photo-30690200.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Coffee Shop Interior" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
                 </div>
-
-                <!-- Product Card 2 -->
-                <div class="bg-charcoal text-off-white rounded-xl shadow-xl overflow-hidden hover:scale-105 transition-transform duration-300 group">
-                    <img src="https://images.pexels.com/photos/34653539/pexels-photo-34653539.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Premium leather wallet on concrete surface" class="w-full h-72 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bebas mb-2">Apex Leather Wallet</h3>
-                        <p class="text-sm text-gray-400 mb-3">Minimalist design, maximum utility, ethically sourced.</p>
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-xl font-semibold text-neon-amber">$79.00</span>
-                            <a href="#" class="text-sm bg-neon-amber text-charcoal px-4 py-2 rounded-full hover:bg-neon-amber/80 transition-colors">View</a>
-                        </div>
-                    </div>
+                <div class="overflow-hidden rounded-lg shadow-xl group cursor-pointer">
+                    <img src="https://images.pexels.com/photos/26492562/pexels-photo-26492562.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Coffee on table" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
                 </div>
-
-                <!-- Product Card 3 -->
-                <div class="bg-charcoal text-off-white rounded-xl shadow-xl overflow-hidden hover:scale-105 transition-transform duration-300 group">
-                    <img src="https://images.pexels.com/photos/34659907/pexels-photo-34659907.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Limited edition graphic t-shirt in city street" class="w-full h-72 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bebas mb-2">Vortex Graphic Tee</h3>
-                        <p class="text-sm text-gray-400 mb-3">Soft-touch cotton, unique artwork, limited run.</p>
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-xl font-semibold text-neon-amber">$34.50</span>
-                            <a href="#" class="text-sm bg-neon-amber text-charcoal px-4 py-2 rounded-full hover:bg-neon-amber/80 transition-colors">View</a>
-                        </div>
-                    </div>
+                <div class="overflow-hidden rounded-lg shadow-xl group cursor-pointer">
+                    <img src="https://images.pexels.com/photos/9371714/pexels-photo-9371714.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Hands with coffee" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-xl group cursor-pointer">
+                    <img src="https://images.pexels.com/photos/28320963/pexels-photo-28320963.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Coffee machine" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-xl group cursor-pointer">
+                    <img src="https://images.pexels.com/photos/34687945/pexels-photo-34687945.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Another interior view" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-xl group cursor-pointer">
+                    <img src="https://images.pexels.com/photos/30886151/pexels-photo-30886151.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Person working" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-xl group cursor-pointer">
+                    <img src="https://images.pexels.com/photos/1787156/pexels-photo-1787156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Latte art close up" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-xl group cursor-pointer">
+                    <img src="https://images.pexels.com/photos/33975851/pexels-photo-33975851.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Person drinking coffee" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section: Our Story with founder quote and photo grid -->
-    <section id="about" class="py-16 md:py-24 px-4 bg-charcoal text-off-white">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bebas text-off-white text-center mb-12">Our Story</h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6 text-lg leading-relaxed">
-                    <p>At Drift & Co., we believe in the power of conscious creation. Every item is part of a small, meticulously crafted batch, ensuring unparalleled quality and a distinct character that mass production simply can't replicate.</p>
-                    <p>We're deeply committed to ethical sourcing, partnering with suppliers who share our values for sustainable practices and fair labor. This isn't just about making goods; it's about making a positive impact, from our workshop to your hands.</p>
-                    <p>Beyond products, Drift & Co. is a hub for urban culture. We regularly host community events, pop-ups, and collaborations that bring together creators, artists, and enthusiasts who share our passion for authentic experiences.</p>
-                    <p class="italic text-neon-amber text-xl mt-8">&ldquo;We build things we'd buy ourselves.&rdquo;</p>
-                </div>
-                
-                <!-- Inline Photo Grid (2x2) -->
-                <div class="grid grid-cols-2 gap-4">
-                    <img src="https://images.pexels.com/photos/34649167/pexels-photo-34649167.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Behind the scenes: Crafting detail" class="w-full h-full object-cover rounded-lg shadow-lg" loading="lazy">
-                    <img src="https://images.pexels.com/photos/34664047/pexels-photo-34664047.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Behind the scenes: Design workspace" class="w-full h-full object-cover rounded-lg shadow-lg" loading="lazy">
-                    <img src="https://images.pexels.com/photos/34689341/pexels-photo-34689341.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Behind the scenes: Material sampling" class="w-full h-full object-cover rounded-lg shadow-lg" loading="lazy">
-                    <img src="https://images.pexels.com/photos/34637184/pexels-photo-34637184.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Behind the scenes: Product quality check" class="w-full h-full object-cover rounded-lg shadow-lg" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Drift? Section: Three columns with icons and benefits -->
-    <section id="why-drift" class="py-16 md:py-24 px-4 bg-off-white">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bebas text-charcoal mb-12">Why Choose Drift & Co.?</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <!-- Benefit 1: Handmade Quality -->
-                <div class="p-6 rounded-xl border border-charcoal/10 hover:shadow-xl transition-shadow duration-300">
-                    <div class="text-neon-amber mb-4">
-                        <!-- Example Icon (Tailwind Heroicons style) -->
-                        <svg class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 1.343 3 3v2a3 3 0 01-3 3 3 3 0 01-3-3v-2c0-1.657 1.343-3 3-3z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 16H6a2 2 0 01-2-2v-4a2 2 0 012-2h3m3 4h3a2 2 0 002-2v-4a2 2 0 00-2-2h-3m-3 4V4m0 16v-4"/>
-                        </svg>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900 text-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-amber-400 mb-12">Visit Us</h2>
+            <div class="flex flex-col md:flex-row gap-12 items-start">
+                <div class="md:w-1/2 flex flex-col space-y-8">
+                    <div>
+                        <h3 class="text-3xl font-semibold text-amber-300 mb-4">Our Location</h3>
+                        <p class="text-lg mb-2">123 Brew Lane, Coffeeville, CA 90210</p>
+                        <p class="text-lg mb-2">Phone: <a href="tel:+15551234567" class="text-amber-400 hover:underline">(555) 123-4567</a></p>
+                        <p class="text-lg">Email: <a href="mailto:info@aromabrews.com" class="text-amber-400 hover:underline">info@aromabrews.com</a></p>
                     </div>
-                    <h3 class="text-2xl font-bebas text-charcoal mb-2">Handmade Quality</h3>
-                    <p class="text-gray-600">Every piece is built with intention and expertise, ensuring it's made to last.</p>
-                </div>
-
-                <!-- Benefit 2: Limited Runs -->
-                <div class="p-6 rounded-xl border border-charcoal/10 hover:shadow-xl transition-shadow duration-300">
-                    <div class="text-neon-amber mb-4">
-                        <!-- Example Icon (Tailwind Heroicons style) -->
-                        <svg class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+                    <div>
+                        <h3 class="text-3xl font-semibold text-amber-300 mb-4">Hours</h3>
+                        <p class="text-lg">Monday - Friday: 7:00 AM - 7:00 PM</p>
+                        <p class="text-lg">Saturday - Sunday: 8:00 AM - 6:00 PM</p>
                     </div>
-                    <h3 class="text-2xl font-bebas text-charcoal mb-2">Limited Runs</h3>
-                    <p class="text-gray-600">Exclusive releases mean you're always getting something unique and special.</p>
-                </div>
-
-                <!-- Benefit 3: Community Focused -->
-                <div class="p-6 rounded-xl border border-charcoal/10 hover:shadow-xl transition-shadow duration-300">
-                    <div class="text-neon-amber mb-4">
-                        <!-- Example Icon (Tailwind Heroicons style) -->
-                        <svg class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h-5m-5 0h5m-5 0a2 2 0 114 0m-4 0v-2a2 2 0 012-2h2a2 2 0 012 2v2M15 11H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+                    <div class="w-full h-80 bg-gray-700 rounded-lg shadow-lg overflow-hidden">
+                        <!-- Google Maps iframe for location visual -->
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.251415053456!2d-122.41941568468165!3d37.77492977975825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808580879e663a83%3A0xc6e4f3a0a65377f0!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1678901234567!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Aroma Brews Location Map">
+                        </iframe>
                     </div>
-                    <h3 class="text-2xl font-bebas text-charcoal mb-2">Community Focused</h3>
-                    <p class="text-gray-600">Join our pop-ups, events, and collaborations connecting urban creatives.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Events & Drops Calendar Section -->
-    <section id="events" class="py-16 md:py-24 px-4 bg-charcoal text-off-white">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bebas text-off-white text-center mb-12">Upcoming Drops & Events</h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <!-- Timeline of drops -->
-                <div class="space-y-6">
-                    <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 w-16 text-right text-neon-amber font-semibold text-lg">AUG 15</div>
+                <div class="md:w-1/2">
+                    <h3 class="text-3xl font-semibold text-amber-300 mb-4">Send Us a Message</h3>
+                    <form class="space-y-6">
                         <div>
-                            <h4 class="text-xl font-bebas">Summer City Tees Drop</h4>
-                            <p class="text-gray-400">Online exclusive at driftandco.com</p>
+                            <label for="name" class="block text-lg font-medium text-gray-300 mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-100" placeholder="Your Name" required>
                         </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 w-16 text-right text-neon-amber font-semibold text-lg">SEP 01</div>
                         <div>
-                            <h4 class="text-xl font-bebas">Limited Edition Sketchbooks</h4>
-                            <p class="text-gray-400">The Urban Gallery, Downtown</p>
+                            <label for="email" class="block text-lg font-medium text-gray-300 mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-100" placeholder="your@email.com" required>
                         </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 w-16 text-right text-neon-amber font-semibold text-lg">OCT 05</div>
                         <div>
-                            <h4 class="text-xl font-bebas">Winter Gear Preview Party</h4>
-                            <p class="text-gray-400">Pop-up, location TBA</p>
+                            <label for="message" class="block text-lg font-medium text-gray-300 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-100" placeholder="How can we help you?" required></textarea>
                         </div>
-                    </div>
-                </div>
-
-                <!-- CTA: Get drop alerts with email field -->
-                <div class="bg-off-white text-charcoal p-8 rounded-xl shadow-lg text-center">
-                    <h3 class="text-3xl font-bebas mb-4">Never Miss a Drop.</h3>
-                    <p class="text-gray-700 mb-6">Sign up for exclusive early access and event notifications.</p>
-                    <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                        <input type="email" placeholder="Enter your email" class="flex-grow p-3 rounded-full border-2 border-charcoal/20 focus:outline-none focus:border-neon-amber bg-white text-charcoal" required>
-                        <button type="submit" class="bg-neon-amber text-charcoal font-semibold px-6 py-3 rounded-full hover:scale-105 transition-transform duration-300">
-                            Get Drop Alerts
+                        <button type="submit" class="w-full py-3 bg-amber-500 text-gray-900 text-xl font-semibold rounded-md hover:bg-amber-400 transition duration-300 transform hover:scale-105">
+                            Send Message
                         </button>
                     </form>
                 </div>
@@ -298,139 +278,35 @@
         </div>
     </section>
 
-    <!-- Testimonials / Social proof Section -->
-    <section id="social-proof" class="py-16 md:py-24 px-4 bg-off-white">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bebas text-charcoal text-center mb-12">What Our Community Says</h2>
-            
-            <!-- Testimonials Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <!-- Testimonial 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-md border border-charcoal/5 hover:shadow-lg transition-shadow duration-300">
-                    <p class="text-lg italic text-gray-700 mb-4">"Seriously the best quality gear out there!"</p>
-                    <div class="flex items-center">
-                        <img src="https://images.pexels.com/photos/34663323/pexels-photo-34663323.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Avatar of Alex, a person with dark hair" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy">
-                        <div>
-                            <p class="font-semibold text-charcoal">Alex M.</p>
-                            <p class="text-sm text-gray-500">@alex.urban</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-md border border-charcoal/5 hover:shadow-lg transition-shadow duration-300">
-                    <p class="text-lg italic text-gray-700 mb-4">"Love the unique designs and limited drops."</p>
-                    <div class="flex items-center">
-                        <img src="https://images.pexels.com/photos/34662600/pexels-photo-34662600.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Avatar of Maya, a person with blonde hair" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy">
-                        <div>
-                            <p class="font-semibold text-charcoal">Maya L.</p>
-                            <p class="text-sm text-gray-500">@mika.design</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-md border border-charcoal/5 hover:shadow-lg transition-shadow duration-300">
-                    <p class="text-lg italic text-gray-700 mb-4">"Drift & Co. gets urban style right, every time."</p>
-                    <div class="flex items-center">
-                        <img src="https://images.pexels.com/photos/34651541/pexels-photo-34651541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Avatar of Chris, a person with glasses" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy">
-                        <div>
-                            <p class="font-semibold text-charcoal">Chris P.</p>
-                            <p class="text-sm text-gray-500">@urban_pulse</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Logo Row: Press/Partners (simple grayscale text logos) -->
-            <div class="text-center">
-                <h3 class="text-2xl font-bebas text-gray-700 mb-8">Featured In / Partners</h3>
-                <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 grayscale opacity-60">
-                    <div class="h-8 md:h-10 flex items-center justify-center font-bold text-xl md:text-2xl text-charcoal/70">VICE</div>
-                    <div class="h-8 md:h-10 flex items-center justify-center font-bold text-xl md:text-2xl text-charcoal/70">HYPEBEAST</div>
-                    <div class="h-8 md:h-10 flex items-center justify-center font-bold text-xl md:text-2xl text-charcoal/70">ADIDAS</div>
-                    <div class="h-8 md:h-10 flex items-center justify-center font-bold text-xl md:text-2xl text-charcoal/70">URBAN MAG</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Email capture / Footer CTA Section -->
-    <section id="join-list" class="bg-charcoal text-off-white py-20 px-4 text-center">
-        <div class="max-w-xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bebas mb-6">Join the List — New drops, low key deals.</h2>
-            <p class="text-lg text-gray-300 mb-8">Get exclusive access to limited releases, community events, and insider perks.</p>
-            <form class="flex flex-col sm:flex-row gap-4">
-                <input type="email" placeholder="Your best email here" class="flex-grow p-3 rounded-full border-2 border-charcoal/20 focus:outline-none focus:border-neon-amber bg-white text-charcoal" required>
-                <button type="submit" class="bg-neon-amber text-charcoal font-semibold px-6 py-3 rounded-full hover:scale-105 transition-transform duration-300">
-                    Get Early Access
-                </button>
-            </form>
-            <p id="email-success" class="mt-4 text-neon-amber opacity-0 transition-opacity duration-300">You're in. Watch your inbox for the next drop.</p>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer class="bg-black text-gray-400 py-10 px-4 text-center">
-        <div class="max-w-7xl mx-auto">
-            <!-- Footer Navigation Links -->
-            <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-6 text-lg">
-                <a href="#shop" class="hover:text-off-white transition-colors">Shop</a>
-                <a href="#about" class="hover:text-off-white transition-colors">About</a>
-                <a href="#events" class="hover:text-off-white transition-colors">Events</a>
-                <a href="#" class="hover:text-off-white transition-colors">Contact</a>
-                <a href="#" class="hover:text-off-white transition-colors">Privacy</a>
-            </nav>
-
-            <!-- Social Icons (Placeholder SVGs from Heroicons/simple paths) -->
-            <div class="flex justify-center gap-6 mb-8">
-                <a href="#" aria-label="Drift & Co. on Instagram" class="text-gray-400 hover:text-off-white transition-colors">
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path fill-rule="evenodd" d="M12 2C9.11 2 8.76 2.01 7.61 2.07c-1.12.06-1.85.24-2.5.5C4.46 2.8 3.76 3.5 3.5 4.11c-.26.65-.44 1.38-.5 2.5-.06 1.15-.07 1.5-0.07 4.39s.01 3.24.07 4.39c.06 1.12.24 1.85.5 2.5.26.65.96 1.35 1.61 1.61.65.26 1.38.44 2.5.5 1.15.06 1.5.07 4.39.07s3.24-.01 4.39-.07c1.12-.06 1.85-.24 2.5-.5.65-.26 1.35-.96 1.61-1.61.26-.65.44-1.38.5-2.5.06-1.15.07-1.5.07-4.39s-.01-3.24-.07-4.39c-.06-1.12-.24-1.85-.5-2.5-.26-.65-.96-1.35-1.61-1.61-.65-.26-1.38-.44-2.5-.5C15.24 2.01 14.89 2 12 2zm0 2.2c2.89 0 3.23.01 4.37.07 1.05.05 1.44.22 1.7.32.26.11.45.26.66.47s.36.4.47.66c.1.26.27.65.32 1.7.06 1.14.07 1.48.07 4.37s-.01 3.23-.07 4.37c-.05 1.05-.22 1.44-.32 1.7-.11.26-.26.45-.47.66s-.4.36-.66.47c-.26.1-.65.27-1.7.32-1.14.06-1.48.07-4.37.07s-3.23-.01-4.37-.07c-1.05-.05-1.44-.22-1.7-.32-.26-.11-.45-.26-.66-.47s-.36-.4-.47-.66c-.1-.26-.27-.65-.32-1.7-.06-1.14-.07-1.48-.07-4.37s.01-3.23.07-4.37c.05-1.05.22-1.44.32-1.7.11-.26.26-.45.47-.66s.4-.36.66-.47c.26-.1.65-.27 1.7-.32C8.77 4.21 9.11 4.2 12 4.2zm0 2.75a5.05 5.05 0 100 10.1 5.05 5.05 0 000-10.1zM12 15a3 3 0 110-6 3 3 0 010 6zm5.85-8.45a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/>
-                    </svg>
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-10 text-gray-400 text-center">
+        <div class="container mx-auto px-6">
+            <p class="mb-4">&copy; 2023 Aroma Brews. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 text-2xl">
+                <!-- Social media icons (placeholders from public web sources) -->
+                <a href="#" class="hover:text-amber-400 transition duration-300" aria-label="Facebook">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.63 5.4C19.46 4.96 18.9 4.8 18.3 4.8h-3.6V2.4h3.6c.6 0 1.1-.16 1.3-.6s.4-.9.2-1.3c-.2-.4-.7-.6-1.3-.6h-3.6V.6c0-.6-.16-1.1-.6-1.3-.4-.2-.9-.4-1.3-.2C13.5.16 13.2 0 12.6 0H6v24h6.6c.6 0 1.1-.16 1.3-.6s.4-.9.2-1.3c-.2-.4-.7-.6-1.3-.6h-3.6V12.6h3.6c.6 0 1.1-.16 1.3-.6s.4-.9.2-1.3c-.2-.4-.7-.6-1.3-.6h-3.6V6.6h3.6c.6 0 1.1-.16 1.3-.6s.4-.9.2-1.3c-.2-.4-.7-.6-1.3-.6z"></path></svg>
                 </a>
-                <a href="#" aria-label="Drift & Co. on Twitter" class="text-gray-400 hover:text-off-white transition-colors">
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.75 1.04C18.42 4.67 17.2 4 15.86 4c-2.3 0-4.17 1.87-4.17 4.17 0 .33.04.65.11.96-3.47-.17-6.54-1.84-8.6-4.34-.36.62-.56 1.35-.56 2.12 0 1.45.74 2.73 1.88 3.48-.68-.02-1.32-.2-1.88-.52v.05c0 2.03 1.44 3.72 3.35 4.1-.35.1-.7.15-1.06.15-.26 0-.5-.02-.74-.07.53 1.66 2.07 2.87 3.89 2.91-1.42 1.11-3.2 1.77-5.14 1.77-.33 0-.66-.02-.98-.06C5 20.3 7 21 9.07 21c7.25 0 11.21-6 11.21-11.22 0-.17-.0-.33-.01-.5.77-.55 1.44-1.23 1.97-2.02z"/>
-                    </svg>
+                <a href="#" class="hover:text-amber-400 transition duration-300" aria-label="Instagram">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7.5 2C4.58 2 2 4.58 2 7.5v9C2 19.42 4.58 22 7.5 22h9c2.92 0 5.5-2.58 5.5-5.5v-9C22 4.58 19.42 2 16.5 2h-9zm0 2h9c1.93 0 3.5 1.57 3.5 3.5v9c0 1.93-1.57 3.5-3.5 3.5h-9c-1.93 0-3.5-1.57-3.5-3.5v-9C4 5.57 5.57 4 7.5 4zm4.5 3c-2.48 0-4.5 2.02-4.5 4.5s2.02 4.5 4.5 4.5 4.5-2.02 4.5-4.5-2.02-4.5-4.5-4.5zm0 2c1.38 0 2.5 1.12 2.5 2.5S13.38 15 12 15s-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5zM17.5 6.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"></path></svg>
                 </a>
-                <a href="#" aria-label="Drift & Co. on Facebook" class="text-gray-400 hover:text-off-white transition-colors">
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.19 6 14.24 6c1.23 0 2.4.09 2.68.13V8h-1.5c-1.87 0-2.31.95-2.31 2.22V12h3.29l-.53 3H13v6.79c4.56-.93 8-4.96 8-9.79z"/>
-                    </svg>
+                <a href="#" class="hover:text-amber-400 transition duration-300" aria-label="Twitter">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 4.01c-.72.32-1.5.53-2.31.62.82-.49 1.45-1.27 1.75-2.2-.77.46-1.63.79-2.53.97-.73-.78-1.78-1.27-2.95-1.27-2.23 0-4.05 1.82-4.05 4.05 0 .32.04.63.11.93-3.37-.17-6.36-1.78-8.36-4.24-.35.6-.55 1.29-.55 2.04 0 1.4.71 2.64 1.79 3.36-.66-.02-1.28-.2-1.82-.5V9.4c0 1.96 1.39 3.59 3.24 3.96-.34.09-.7.15-1.07.15-.26 0-.5-.03-.74-.07.51 1.6 1.99 2.76 3.73 2.79-1.38 1.08-3.13 1.72-5.04 1.72-.33 0-.66-.02-.98-.06 1.79 1.15 3.92 1.81 6.19 1.81 7.42 0 11.49-6.14 11.49-11.49 0-.17-.0-.34-.01-.51.79-.57 1.47-1.29 2.01-2.11z"></path></svg>
                 </a>
             </div>
-
-            <p class="text-sm">&copy; 2024 Drift & Co. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Simple JavaScript for email form submission feedback -->
+    <!-- JavaScript for Mobile Menu Toggle -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const emailForm = document.querySelector('#join-list form');
-            const emailSuccessMessage = document.getElementById('email-success');
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-            if (emailForm && emailSuccessMessage) {
-                emailForm.addEventListener('submit', (e) => {
-                    e.preventDefault(); // Prevent actual form submission
-
-                    // Simulate form submission delay
-                    setTimeout(() => {
-                        emailSuccessMessage.classList.remove('opacity-0');
-                        emailSuccessMessage.classList.add('opacity-100');
-                        
-                        // Clear the input field
-                        e.target.querySelector('input[type="email"]').value = '';
-
-                        // Hide message after a few seconds
-                        setTimeout(() => {
-                            emailSuccessMessage.classList.remove('opacity-100');
-                            emailSuccessMessage.classList.add('opacity-0');
-                        }, 5000); // Message disappears after 5 seconds
-                    }, 500); // Simulate network delay of 0.5 seconds
-                });
-            }
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            // Links inside mobile menu have inline onclick to close the menu for simplicity in a single file.
         });
     </script>
 </body>
