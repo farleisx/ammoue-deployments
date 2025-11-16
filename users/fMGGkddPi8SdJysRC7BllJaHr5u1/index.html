@@ -1,314 +1,768 @@
 ```html
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
+    <!-- 
+    Aroma Cafe - Experience the Perfect Brew.
+    This single-file HTML website showcases a modern coffee shop with a focus on quality, ambiance, and community.
+    It's designed to be fully responsive, accessible, and performant, using Tailwind CSS for a cinematic aesthetic.
+
+    Media URLs used (all from Pexels.com):
+    🎥 Hero video: https://videos.pexels.com/video-files/34601858/14664326_360_640_30fps.mp4
+    📸 Images for gallery and testimonials:
+        https://images.pexels.com/photos/15484160/pexels-photo-15484160.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+        https://images.pexels.com/photos/30607249/pexels-photo-30607249.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+        https://images.pexels.com/photos/32805965/pexels-photo-32805965.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+        https://images.pexels.com/photos/22873820/pexels-photo-22873820.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+        https://images.pexels.com/photos/19723754/pexels-photo-19723754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+        https://images.pexels.com/photos/7125784/pexels-photo-7125784.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+        https://images.pexels.com/photos/33300998/pexels-photo-33300998.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+        https://images.pexels.com/photos/15510917/pexels-photo-15510917.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+        https://images.pexels.com/photos/18710102/pexels-photo-18710102.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+        https://images.pexels.com/photos/19299641/pexels-photo-19299641.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+    🎥 Additional video for gallery: https://videos.pexels.com/video-files/20455950/20455950-hd_720_1280_24fps.mp4
+
+    Pexels License Attribution:
+    All photos and videos are sourced from Pexels.com and are free to use under the Pexels License.
+    Please verify specific licenses for production use if commercial distribution is intended beyond personal portfolio/testing.
+
+    How to change copy, colors, and brand:
+    - Text content: Directly edit the HTML text within appropriate tags (e.g., `<h1>`, `<p>`, `<a>`).
+    - Colors: Modify Tailwind CSS classes (e.g., `bg-amber-700`, `text-neutral-800`). The current palette is warm and earthy: `amber` (coffee/caramel tones), `stone`/`neutral` (backgrounds/text), `emerald` (accents).
+    - Brand: Change "Aroma Cafe" text in header, title, and footer. Replace the logo SVG with your brand's SVG.
+    - Media: Replace Pexels URLs with your own, ensuring identical structure. Use `poster` attributes for videos and `alt` text for all images.
+
+    Browser Support:
+    - Modern browsers (Chrome, Firefox, Safari, Edge) are fully supported.
+    - Internet Explorer is not supported.
+
+    Testing Checklist:
+    - Accessibility: Run Axe DevTools or Lighthouse A11y audit. Test keyboard navigation (Tab key, Enter/Space for buttons/links).
+    - Performance: Run Lighthouse Performance audit (aim for 90+).
+    - Responsiveness: Test on various devices/screen sizes (DevTools responsive mode).
+    - Form Functionality: Submit the contact form and observe client-side validation messages and success/error states.
+    -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aroma Brews - Your Daily Dose of Delight</title>
+    <title>Aroma Cafe | Sip, Savor, Connect.</title>
+    <meta name="description" content="Aroma Cafe offers premium coffee, cozy ambiance, and a welcoming community. Experience the perfect brew crafted with passion.">
+    <meta name="keywords" content="coffee, cafe, coffee shop, specialty coffee, brew, espresso, latte, cappuccino, pastries, local cafe, community, relaxation">
+    <meta name="author" content="Aroma Cafe">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourdomain.com/">
+    <meta property="og:title" content="Aroma Cafe | Sip, Savor, Connect.">
+    <meta property="og:description" content="Aroma Cafe offers premium coffee, cozy ambiance, and a welcoming community. Experience the perfect brew crafted with passion.">
+    <meta property="og:image" content="https://images.pexels.com/photos/32805965/pexels-photo-32805965.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"> <!-- Placeholder image for social share -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.yourdomain.com/">
+    <meta property="twitter:title" content="Aroma Cafe | Sip, Savor, Connect.">
+    <meta property="twitter:description" content="Aroma Cafe offers premium coffee, cozy ambiance, and a welcoming community. Experience the perfect brew crafted with passion.">
+    <meta property="twitter:image" content="https://images.pexels.com/photos/32805965/pexels-photo-32805965.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"> <!-- Placeholder image for social share -->
+
+    <!-- Theme Color for Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#7c2d12"> <!-- A deep amber/brown tone -->
+
+    <!-- Preconnect for improved performance of external resources -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://videos.pexels.com">
+    <link rel="preconnect" href="https://images.pexels.com">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Configuration & minimal inline CSS -->
     <style>
-        /* Custom styles for video overlay and smooth scrolling offset */
+        /* Custom colors for a coffee shop aesthetic */
+        :root {
+            --color-primary-dark: #7c2d12; /* amber-800 equivalent */
+            --color-primary-light: #fef3c7; /* amber-100 equivalent */
+            --color-secondary: #4b5563; /* gray-600 equivalent */
+            --color-accent: #10b981; /* emerald-500 equivalent */
+            --color-text-dark: #262626; /* neutral-800 equivalent */
+            --color-text-light: #fafafa; /* neutral-50 equivalent */
+        }
+        
+        /* Utility classes for consistent typography */
+        .tailwind-h1 {
+            @apply text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight;
+        }
+        .tailwind-h2 {
+            @apply text-3xl sm:text-4xl font-bold tracking-tight;
+        }
+        .tailwind-h3 {
+            @apply text-2xl sm:text-3xl font-semibold tracking-tight;
+        }
+        .tailwind-p {
+            @apply text-base sm:text-lg;
+        }
+        .container {
+            @apply mx-auto px-4 sm:px-6 lg:px-8;
+        }
+        .btn-primary {
+            @apply inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-amber-700 hover:bg-amber-800 transition duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-amber-500;
+        }
+        .btn-secondary {
+            @apply inline-flex items-center justify-center px-8 py-3 border-2 border-amber-700 text-base font-medium rounded-full text-amber-700 hover:bg-amber-50 transition duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-amber-500;
+        }
+
+        /* Hero video overlay for text readability */
         .video-overlay {
-            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
+            background-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%);
         }
-        /* For smooth scroll to anchor links, offset fixed header */
+
+        /* Accessible focus states for keyboard navigation */
+        *:focus-visible {
+            outline: 3px dashed var(--color-accent); /* Using defined accent color */
+            outline-offset: 3px;
+        }
+        
+        /* Smooth scrolling for anchor links */
         html {
-            scroll-padding-top: 80px; /* Adjust this value based on your header's height */
+            scroll-behavior: smooth;
         }
 
-        /* Custom Animations for cinematic feel */
+        /* Animations for hero content */
         @keyframes fadeInMoveUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
         .animate-fade-in-up {
             animation: fadeInMoveUp 0.8s ease-out forwards;
-            opacity: 0; /* Hidden by default */
         }
-        .animate-fade-in-up.delay-200 {
-            animation-delay: 0.2s;
+        .animation-delay-300 {
+            animation-delay: 0.3s;
         }
-        .animate-fade-in-up.delay-400 {
-            animation-delay: 0.4s;
+        .animation-delay-600 {
+            animation-delay: 0.6s;
         }
     </style>
-    <!-- Favicon - Simple coffee cup icon from a public source -->
-    <link rel="icon" href="https://www.svgrepo.com/show/472851/coffee-cup-hot.svg" type="image/svg+xml">
 </head>
-<body class="font-sans antialiased text-gray-100 bg-gray-900">
+<body class="font-sans antialiased text-neutral-800 bg-neutral-50">
+    <!-- Schema.org JSON-LD for Organization and LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Aroma Cafe",
+          "url": "https://www.yourdomain.com",
+          "logo": "https://www.yourdomain.com/logo.png",
+          "sameAs": [
+            "https://facebook.com/AromaCafe",
+            "https://instagram.com/AromaCafe"
+          ]
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "Aroma Cafe",
+          "image": "https://images.pexels.com/photos/32805965/pexels-photo-32805965.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://www.yourdomain.com",
+          "telephone": "+1-555-0100",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Coffee Bean Lane",
+            "addressLocality": "Metropolis",
+            "addressRegion": "CA",
+            "postalCode": "90210",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "34.052235",
+            "longitude": "-118.243683"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+              ],
+              "opens": "07:00",
+              "closes": "19:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "08:00",
+              "closes": "18:00"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 
-    <!-- Navbar -->
-    <header class="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 z-50 shadow-lg">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#hero" class="text-3xl font-bold text-amber-400 hover:text-amber-300 transition duration-300">Aroma Brews</a>
-            
-            <!-- Desktop Nav Links -->
-            <ul class="hidden md:flex space-x-8 text-lg">
-                <li><a href="#hero" class="hover:text-amber-400 transition duration-300">Home</a></li>
-                <li><a href="#about" class="hover:text-amber-400 transition duration-300">About</a></li>
-                <li><a href="#menu" class="hover:text-amber-400 transition duration-300">Menu</a></li>
-                <li><a href="#gallery" class="hover:text-amber-400 transition duration-300">Gallery</a></li>
-                <li><a href="#contact" class="hover:text-amber-400 transition duration-300">Contact</a></li>
-            </ul>
+    <!-- Header & Navigation -->
+    <header class="bg-stone-50 text-neutral-800 shadow-md sticky top-0 z-50" role="banner">
+        <div class="container flex items-center justify-between h-16">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center flex-shrink-0 text-2xl font-bold text-amber-700 hover:text-amber-800 transition duration-300" aria-label="Aroma Cafe home">
+                <svg class="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354c.538-.621 1.2-.958 1.9-.958 1.458 0 2.658 1.199 2.658 2.657 0 .7-.272 1.343-.728 1.834L12 13.06l-4.229-4.229C7.272 7.343 7 6.699 7 5.999c0-1.458 1.199-2.657 2.658-2.657.7 0 1.362.337 1.9.958zM12 4.354C11.462 3.733 10.8 3.396 10.1 3.396c-1.458 0-2.658 1.199-2.658 2.657 0 .7.272 1.343.728 1.834L12 13.06l4.229-4.229c.456-.491.728-1.134.728-1.834 0-1.458-1.199-2.657-2.658-2.657-.7 0-1.362.337-1.9.958zM12 14v6m-3-3h6"></path>
+                </svg>
+                Aroma Cafe
+            </a>
 
-            <!-- Mobile Menu Button -->
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-gray-100 focus:outline-none">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </nav>
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-neutral-600 hover:text-amber-700 hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-amber-500" aria-label="Open main menu" aria-controls="mobile-menu">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8" aria-label="Main navigation">
+                <a href="#features" class="text-neutral-600 hover:text-amber-700 px-3 py-2 rounded-md text-lg font-medium transition duration-300">Our Story</a>
+                <a href="#menu-highlights" class="text-neutral-600 hover:text-amber-700 px-3 py-2 rounded-md text-lg font-medium transition duration-300">Menu</a>
+                <a href="#gallery" class="text-neutral-600 hover:text-amber-700 px-3 py-2 rounded-md text-lg font-medium transition duration-300">Gallery</a>
+                <a href="#testimonials" class="text-neutral-600 hover:text-amber-700 px-3 py-2 rounded-md text-lg font-medium transition duration-300">Reviews</a>
+                <a href="#contact" class="text-neutral-600 hover:text-amber-700 px-3 py-2 rounded-md text-lg font-medium transition duration-300">Contact</a>
+            </nav>
+        </div>
 
         <!-- Mobile Menu (hidden by default) -->
-        <div id="mobile-menu" class="md:hidden hidden bg-gray-800 bg-opacity-95 py-4">
-            <ul class="flex flex-col items-center space-y-4 text-xl">
-                <li><a href="#hero" class="block py-2 hover:text-amber-400 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden');">Home</a></li>
-                <li><a href="#about" class="block py-2 hover:text-amber-400 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden');">About</a></li>
-                <li><a href="#menu" class="block py-2 hover:text-amber-400 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden');">Menu</a></li>
-                <li><a href="#gallery" class="block py-2 hover:text-amber-400 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden');">Gallery</a></li>
-                <li><a href="#contact" class="block py-2 hover:text-amber-400 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden');">Contact</a></li>
-            </ul>
-        </div>
+        <nav id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-stone-50" aria-label="Mobile main navigation">
+            <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-amber-700 transition duration-300">Our Story</a>
+            <a href="#menu-highlights" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-amber-700 transition duration-300">Menu</a>
+            <a href="#gallery" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-amber-700 transition duration-300">Gallery</a>
+            <a href="#testimonials" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-amber-700 transition duration-300">Reviews</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-amber-700 transition duration-300">Contact</a>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
-        <video autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 z-0">
-            <source src="https://videos.pexels.com/video-files/6343636/6343636-sd_506_960_30fps.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="video-overlay absolute inset-0 z-10 flex flex-col justify-center items-center p-4">
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4 animate-fade-in-up">Aroma Brews</h1>
-            <p class="text-xl md:text-3xl font-light text-gray-200 mb-8 max-w-2xl animate-fade-in-up delay-200">
-                Crafting moments, one exquisite cup at a time.
-            </p>
-            <a href="#menu" class="px-8 py-4 bg-amber-500 text-gray-900 text-xl font-semibold rounded-full hover:bg-amber-400 transition duration-300 transform hover:scale-105 animate-fade-in-up delay-400">
-                Explore Our Menu
-            </a>
-        </div>
-    </section>
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden" aria-labelledby="hero-heading">
+            <!-- Background Video -->
+            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover" poster="https://images.pexels.com/photos/34601858/pexels-photo-34601858.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" aria-describedby="hero-video-description">
+                <source src="https://videos.pexels.com/video-files/34601858/14664326_360_640_30fps.mp4" type="video/mp4">
+                Your browser does not support the video tag. Please enjoy a lovely coffee shop image instead.
+            </video>
+            <p id="hero-video-description" class="sr-only">Background video showing coffee being brewed and served, setting a cozy and inviting atmosphere.</p>
+            
+            <!-- Overlay for text readability -->
+            <div class="absolute inset-0 bg-black bg-opacity-60 video-overlay"></div>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-800 text-gray-100">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2 relative min-h-[300px] md:min-h-[400px] rounded-lg shadow-xl overflow-hidden group">
-                <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
-                    <source src="https://videos.pexels.com/video-files/28514874/12405199_360_640_30fps.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4">
-                    <p class="text-white text-3xl font-bold text-center">Passion in Every Bean</p>
-                </div>
-            </div>
-            <div class="md:w-1/2 text-center md:text-left">
-                <h2 class="text-4xl font-bold text-amber-400 mb-6">Our Story</h2>
-                <p class="text-lg leading-relaxed mb-4">
-                    At Aroma Brews, we believe coffee is more than just a drink – it's an experience. Founded with a passion for exceptional beans and meticulous brewing, our mission is to create a comforting haven where every sip tells a story.
+            <div class="relative z-10 text-white container px-6">
+                <h1 id="hero-heading" class="tailwind-h1 mb-4 opacity-0 animate-fade-in-up">
+                    Experience the Perfect Brew.
+                </h1>
+                <p class="tailwind-p max-w-2xl mx-auto mb-8 opacity-0 animate-fade-in-up animation-delay-300">
+                    Crafted with passion, served with a smile. Your daily escape awaits at Aroma Cafe.
                 </p>
-                <p class="text-lg leading-relaxed">
-                    From ethically sourced single-origin beans to our handcrafted lattes, we're dedicated to quality, community, and the simple joy of a perfect cup. Come discover your new favorite brew.
+                <div class="flex flex-col sm:flex-row justify-center gap-4 opacity-0 animate-fade-in-up animation-delay-600">
+                    <a href="#menu-highlights" class="btn-primary hover:scale-105">View Our Menu</a>
+                    <a href="#contact" class="btn-secondary text-white border-white hover:bg-white hover:text-amber-700 hover:scale-105">Visit Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features/Benefits Section -->
+        <section id="features" class="py-16 bg-neutral-50" aria-labelledby="features-heading">
+            <div class="container text-center">
+                <h2 id="features-heading" class="tailwind-h2 text-amber-700 mb-12">Why Choose Aroma Cafe?</h2>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <article class="flex flex-col items-center p-6 bg-white rounded-lg shadow-xl hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 group">
+                        <div class="mb-4 text-amber-700 group-hover:text-emerald-500 transition duration-300">
+                            <!-- SVG Icon: Coffee Bean -->
+                            <svg class="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" role="img" aria-label="Coffee Bean Icon">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 15v-1a4 4 0 014-4c.483 0 .937.106 1.348.291m-1.577-.665L12 9l-1.577.626C9.972 9.098 9 9.945 9 11s.885 1.79 1.954 2.126M10 15a2 2 0 100 4 2 2 0 000-4zM7 8a2 2 0 100 4 2 2 0 000-4zM16 8a2 2 0 100 4 2 2 0 000-4zM12 4.354c.538-.621 1.2-.958 1.9-.958 1.458 0 2.658 1.199 2.658 2.657 0 .7-.272 1.343-.728 1.834L12 13.06l-4.229-4.229C7.272 7.343 7 6.699 7 5.999c0-1.458 1.199-2.657 2.658-2.657.7 0 1.362.337 1.9.958z" />
+                            </svg>
+                        </div>
+                        <h3 class="tailwind-h3 text-neutral-800 mb-3 group-hover:text-amber-700 transition duration-300">Premium Beans</h3>
+                        <p class="tailwind-p text-neutral-600">Sourced globally, roasted locally. We select only the finest coffee beans for an unparalleled taste.</p>
+                    </article>
+                    <article class="flex flex-col items-center p-6 bg-white rounded-lg shadow-xl hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 group">
+                        <div class="mb-4 text-amber-700 group-hover:text-emerald-500 transition duration-300">
+                            <!-- SVG Icon: Barista / Skill -->
+                            <svg class="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" role="img" aria-label="Barista Icon">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 13V8a2 2 0 012-2h14a2 2 0 012 2v5m-11 0a2 2 0 11-4 0 2 2 0 014 0zm-1 0H5m4 0h6m6 0a2 2 0 11-4 0 2 2 0 014 0zm-1 0h-1m-4 0h-4M7 10h10a2 2 0 012 2v2a2 2 0 01-2 2H7a2 2 0 01-2-2v-2a2 2 0 012-2z" />
+                            </svg>
+                        </div>
+                        <h3 class="tailwind-h3 text-neutral-800 mb-3 group-hover:text-amber-700 transition duration-300">Expert Baristas</h3>
+                        <p class="tailwind-p text-neutral-600">Our skilled baristas are true artists, dedicated to crafting your perfect cup with precision and care.</p>
+                    </article>
+                    <article class="flex flex-col items-center p-6 bg-white rounded-lg shadow-xl hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 group">
+                        <div class="mb-4 text-amber-700 group-hover:text-emerald-500 transition duration-300">
+                            <!-- SVG Icon: Cozy Ambiance / Home -->
+                            <svg class="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" role="img" aria-label="Cozy Home Icon">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tailwind-h3 text-neutral-800 mb-3 group-hover:text-amber-700 transition duration-300">Cozy Ambiance</h3>
+                        <p class="tailwind-p text-neutral-600">Relax in our welcoming space. The perfect spot for work, meetings, or simply unwinding with a book.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery / Media Section -->
+        <section id="gallery" class="py-16 bg-neutral-100" aria-labelledby="gallery-heading">
+            <div class="container text-center">
+                <h2 id="gallery-heading" class="tailwind-h2 text-amber-700 mb-12">Moments at Aroma Cafe</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Image 1 -->
+                    <div class="overflow-hidden rounded-lg shadow-lg group">
+                        <img loading="lazy" src="https://images.pexels.com/photos/15484160/pexels-photo-15484160.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                            srcset="https://images.pexels.com/photos/15484160/pexels-photo-15484160.jpeg?auto=compress&cs=tinysrgb&w=480 480w,
+                                    https://images.pexels.com/photos/15484160/pexels-photo-15484160.jpeg?auto=compress&cs=tinysrgb&w=940 940w"
+                            sizes="(max-width: 600px) 480px, 940px"
+                            alt="A beautifully crafted latte with intricate latte art on a wooden table."
+                            class="w-full h-60 object-cover group-hover:scale-105 transition duration-500 ease-in-out" />
+                        <div class="p-4 bg-white">
+                            <p class="text-sm text-neutral-600">Latte art perfection.</p>
+                        </div>
+                    </div>
+                    <!-- Image 2 -->
+                    <div class="overflow-hidden rounded-lg shadow-lg group">
+                        <img loading="lazy" src="https://images.pexels.com/photos/30607249/pexels-photo-30607249.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                            srcset="https://images.pexels.com/photos/30607249/pexels-photo-30607249.jpeg?auto=compress&cs=tinysrgb&w=480 480w,
+                                    https://images.pexels.com/photos/30607249/pexels-photo-30607249.jpeg?auto=compress&cs=tinysrgb&w=940 940w"
+                            sizes="(max-width: 600px) 480px, 940px"
+                            alt="Customers enjoying coffee and conversation in a brightly lit cafe."
+                            class="w-full h-60 object-cover group-hover:scale-105 transition duration-500 ease-in-out" />
+                        <div class="p-4 bg-white">
+                            <p class="text-sm text-neutral-600">Shared moments, warm drinks.</p>
+                        </div>
+                    </div>
+                    <!-- Video 1 (Additional Pexels video) -->
+                    <div class="overflow-hidden rounded-lg shadow-lg group">
+                        <video loading="lazy" muted loop playsinline controls poster="https://images.pexels.com/photos/20455950/pexels-photo-20455950.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                            class="w-full h-60 object-cover group-hover:scale-105 transition duration-500 ease-in-out" aria-label="Video showing the process of making coffee">
+                            <source src="https://videos.pexels.com/video-files/20455950/20455950-hd_720_1280_24fps.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="p-4 bg-white">
+                            <p class="text-sm text-neutral-600">The art of brewing.</p>
+                        </div>
+                    </div>
+                    <!-- Image 3 -->
+                    <div class="overflow-hidden rounded-lg shadow-lg group">
+                        <img loading="lazy" src="https://images.pexels.com/photos/32805965/pexels-photo-32805965.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                            srcset="https://images.pexels.com/photos/32805965/pexels-photo-32805965.jpeg?auto=compress&cs=tinysrgb&w=480 480w,
+                                    https://images.pexels.com/photos/32805965/pexels-photo-32805965.jpeg?auto=compress&cs=tinysrgb&w=940 940w"
+                            sizes="(max-width: 600px) 480px, 940px"
+                            alt="A close-up of coffee beans being sorted, highlighting quality."
+                            class="w-full h-60 object-cover group-hover:scale-105 transition duration-500 ease-in-out" />
+                        <div class="p-4 bg-white">
+                            <p class="text-sm text-neutral-600">Quality in every bean.</p>
+                        </div>
+                    </div>
+                    <!-- Image 4 -->
+                    <div class="overflow-hidden rounded-lg shadow-lg group">
+                        <img loading="lazy" src="https://images.pexels.com/photos/22873820/pexels-photo-22873820.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                            srcset="https://images.pexels.com/photos/22873820/pexels-photo-22873820.jpeg?auto=compress&cs=tinysrgb&w=480 480w,
+                                    https://images.pexels.com/photos/22873820/pexels-photo-22873820.jpeg?auto=compress&cs=tinysrgb&w=940 940w"
+                            sizes="(max-width: 600px) 480px, 940px"
+                            alt="A barista preparing an espresso shot with a professional machine."
+                            class="w-full h-60 object-cover group-hover:scale-105 transition duration-500 ease-in-out" />
+                        <div class="p-4 bg-white">
+                            <p class="text-sm text-neutral-600">Precision in every pour.</p>
+                        </div>
+                    </div>
+                    <!-- Image 5 -->
+                    <div class="overflow-hidden rounded-lg shadow-lg group">
+                        <img loading="lazy" src="https://images.pexels.com/photos/19723754/pexels-photo-19723754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                            srcset="https://images.pexels.com/photos/19723754/pexels-photo-19723754.jpeg?auto=compress&cs=tinysrgb&w=480 480w,
+                                    https://images.pexels.com/photos/19723754/pexels-photo-19723754.jpeg?auto=compress&cs=tinysrgb&w=940 940w"
+                            sizes="(max-width: 600px) 480px, 940px"
+                            alt="A stack of warm, freshly baked pastries in a cafe display."
+                            class="w-full h-60 object-cover group-hover:scale-105 transition duration-500 ease-in-out" />
+                        <div class="p-4 bg-white">
+                            <p class="text-sm text-neutral-600">Freshly baked delights.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing or CTA Block (Menu Highlights) -->
+        <section id="menu-highlights" class="py-16 bg-amber-700 text-white" aria-labelledby="menu-heading">
+            <div class="container text-center">
+                <h2 id="menu-heading" class="tailwind-h2 mb-4">Discover Our Signature Blends</h2>
+                <p class="tailwind-p max-w-3xl mx-auto mb-8 text-amber-100">
+                    From rich espresso to refreshing cold brews and delightful pastries, our menu is crafted to satisfy every palate.
+                    Explore our seasonal specials and find your new favorite.
                 </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#" class="btn-secondary text-white border-white hover:bg-white hover:text-amber-700">View Full Menu</a>
+                    <a href="#contact" class="btn-primary bg-emerald-500 hover:bg-emerald-600 focus-visible:ring-emerald-400">Order Online</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Menu Section -->
-    <section id="menu" class="py-20 bg-gray-900 text-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-amber-400 mb-12">Our Signature Menu</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Menu Item 1: Classic Latte -->
-                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
-                    <img src="https://images.pexels.com/photos/1787156/pexels-photo-1787156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Latte Art" class="w-full h-60 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-amber-300 mb-2">Classic Latte</h3>
-                        <p class="text-gray-300 mb-4">Espresso with steamed milk and a delicate layer of foam, perfected with beautiful latte art.</p>
-                        <span class="text-3xl font-bold text-amber-400">$4.50</span>
-                    </div>
-                </div>
-                <!-- Menu Item 2: Single Origin Espresso -->
-                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
-                    <img src="https://images.pexels.com/photos/13000631/pexels-photo-13000631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Specialty Espresso" class="w-full h-60 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-amber-300 mb-2">Single Origin Espresso</h3>
-                        <p class="text-gray-300 mb-4">A rich, bold shot of our finest single-origin espresso, highlighting unique flavor notes.</p>
-                        <span class="text-3xl font-bold text-amber-400">$3.75</span>
-                    </div>
-                </div>
-                <!-- Menu Item 3: Signature Iced Coffee -->
-                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
-                    <img src="https://images.pexels.com/photos/29230312/pexels-photo-29230312.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Iced Coffee" class="w-full h-60 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-amber-300 mb-2">Signature Iced Coffee</h3>
-                        <p class="text-gray-300 mb-4">Our refreshing cold brew, perfectly chilled and served over ice for a smooth, invigorating taste.</p>
-                        <span class="text-3xl font-bold text-amber-400">$5.00</span>
-                    </div>
-                </div>
-                <!-- Menu Item 4: Artisan Croissant -->
-                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
-                    <img src="https://images.pexels.com/photos/34687945/pexels-photo-34687945.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Pastry" class="w-full h-60 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-amber-300 mb-2">Artisan Croissant</h3>
-                        <p class="text-gray-300 mb-4">Flaky, buttery croissant baked fresh daily, perfect with any coffee.</p>
-                        <span class="text-3xl font-bold text-amber-400">$3.25</span>
-                    </div>
-                </div>
-                <!-- Menu Item 5: Velvet Cappuccino -->
-                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
-                    <img src="https://images.pexels.com/photos/33975851/pexels-photo-33975851.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Cappuccino" class="w-full h-60 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-amber-300 mb-2">Velvet Cappuccino</h3>
-                        <p class="text-gray-300 mb-4">Espresso with foamed milk, a classic Italian favorite with a rich, velvety texture.</p>
-                        <span class="text-3xl font-bold text-amber-400">$4.75</span>
-                    </div>
-                </div>
-                <!-- Menu Item 6: Hand-Drip Pour Over -->
-                <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
-                    <img src="https://images.pexels.com/photos/30886151/pexels-photo-30886151.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Pour Over" class="w-full h-60 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-amber-300 mb-2">Hand-Drip Pour Over</h3>
-                        <p class="text-gray-300 mb-4">Experience the nuanced flavors of our specialty beans with a meticulously brewed pour-over.</p>
-                        <span class="text-3xl font-bold text-amber-400">$5.50</span>
-                    </div>
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-16 bg-neutral-50" aria-labelledby="testimonials-heading">
+            <div class="container text-center">
+                <h2 id="testimonials-heading" class="tailwind-h2 text-amber-700 mb-12">What Our Customers Say</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <figure class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                        <blockquote class="mb-4 text-neutral-700 italic">
+                            "Aroma Cafe is my daily dose of happiness! The coffee is always perfect, and the staff are incredibly friendly. A true gem."
+                        </blockquote>
+                        <figcaption class="flex items-center justify-center space-x-3">
+                            <img loading="lazy" class="w-10 h-10 rounded-full object-cover" src="https://images.pexels.com/photos/7125784/pexels-photo-7125784.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Profile picture of Sarah L.">
+                            <div class="font-medium text-neutral-800">Sarah L.</div>
+                        </figcaption>
+                    </figure>
+                    <figure class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                        <blockquote class="mb-4 text-neutral-700 italic">
+                            "The best spot for remote work. Great Wi-Fi, delicious pastries, and an atmosphere that truly inspires focus and creativity."
+                        </blockquote>
+                        <figcaption class="flex items-center justify-center space-x-3">
+                            <img loading="lazy" class="w-10 h-10 rounded-full object-cover" src="https://images.pexels.com/photos/33300998/pexels-photo-33300998.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Profile picture of David K.">
+                            <div class="font-medium text-neutral-800">David K.</div>
+                        </figcaption>
+                    </figure>
+                    <figure class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                        <blockquote class="mb-4 text-neutral-700 italic">
+                            "I'm a coffee snob, and Aroma Cafe exceeded my expectations. Their pour-overs are exceptional. Highly recommend!"
+                        </blockquote>
+                        <figcaption class="flex items-center justify-center space-x-3">
+                            <img loading="lazy" class="w-10 h-10 rounded-full object-cover" src="https://images.pexels.com/photos/15510917/pexels-photo-15510917.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Profile picture of Emily R.">
+                            <div class="font-medium text-neutral-800">Emily R.</div>
+                        </figcaption>
+                    </figure>
                 </div>
             </div>
-            <div class="text-center mt-12">
-                <a href="#contact" class="px-8 py-4 bg-amber-500 text-gray-900 text-xl font-semibold rounded-full hover:bg-amber-400 transition duration-300 transform hover:scale-105">
-                    View Full Menu (Coming Soon!)
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-gray-800 text-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-amber-400 mb-12">Our Cozy Atmosphere</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                <div class="overflow-hidden rounded-lg shadow-xl group cursor-pointer">
-                    <img src="https://images.pexels.com/photos/30690200/pexels-photo-30690200.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Coffee Shop Interior" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-xl group cursor-pointer">
-                    <img src="https://images.pexels.com/photos/26492562/pexels-photo-26492562.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Coffee on table" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-xl group cursor-pointer">
-                    <img src="https://images.pexels.com/photos/9371714/pexels-photo-9371714.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Hands with coffee" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-xl group cursor-pointer">
-                    <img src="https://images.pexels.com/photos/28320963/pexels-photo-28320963.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Coffee machine" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-xl group cursor-pointer">
-                    <img src="https://images.pexels.com/photos/34687945/pexels-photo-34687945.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Another interior view" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-xl group cursor-pointer">
-                    <img src="https://images.pexels.com/photos/30886151/pexels-photo-30886151.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Person working" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-xl group cursor-pointer">
-                    <img src="https://images.pexels.com/photos/1787156/pexels-photo-1787156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Latte art close up" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-xl group cursor-pointer">
-                    <img src="https://images.pexels.com/photos/33975851/pexels-photo-33975851.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Person drinking coffee" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
+        <!-- FAQ Section -->
+        <section id="faq" class="py-16 bg-neutral-100" aria-labelledby="faq-heading">
+            <div class="container text-center">
+                <h2 id="faq-heading" class="tailwind-h2 text-amber-700 mb-12">Frequently Asked Questions</h2>
+                <div class="max-w-3xl mx-auto divide-y divide-neutral-200">
+                    <!-- FAQ Item 1 -->
+                    <div class="py-6">
+                        <h3 class="text-left">
+                            <button id="faq-question-1" class="flex justify-between items-center w-full text-left font-semibold text-xl text-neutral-800 focus-visible:outline-none" aria-expanded="false" aria-controls="faq-content-1">
+                                <span>Do you offer dairy-free milk options?</span>
+                                <span class="ml-6 flex-shrink-0">
+                                    <svg class="w-6 h-6 transform rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </h3>
+                        <div id="faq-content-1" class="mt-4 hidden text-neutral-600 text-lg pr-12" role="region" aria-labelledby="faq-question-1">
+                            <p>Yes, we proudly offer a variety of dairy-free milk alternatives including oat milk, almond milk, and soy milk, to cater to all preferences.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="py-6">
+                        <h3 class="text-left">
+                            <button id="faq-question-2" class="flex justify-between items-center w-full text-left font-semibold text-xl text-neutral-800 focus-visible:outline-none" aria-expanded="false" aria-controls="faq-content-2">
+                                <span>Can I order online for pickup?</span>
+                                <span class="ml-6 flex-shrink-0">
+                                    <svg class="w-6 h-6 transform rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </h3>
+                        <div id="faq-content-2" class="mt-4 hidden text-neutral-600 text-lg pr-12" role="region" aria-labelledby="faq-question-2">
+                            <p>Absolutely! You can place your order through our website or a dedicated app (coming soon!) for quick and convenient in-store pickup.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="py-6">
+                        <h3 class="text-left">
+                            <button id="faq-question-3" class="flex justify-between items-center w-full text-left font-semibold text-xl text-neutral-800 focus-visible:outline-none" aria-expanded="false" aria-controls="faq-content-3">
+                                <span>Do you have Wi-Fi available for customers?</span>
+                                <span class="ml-6 flex-shrink-0">
+                                    <svg class="w-6 h-6 transform rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </h3>
+                        <div id="faq-content-3" class="mt-4 hidden text-neutral-600 text-lg pr-12" role="region" aria-labelledby="faq-question-3">
+                            <p>Yes, we provide complimentary high-speed Wi-Fi for all our customers. Feel free to stay, work, or browse while enjoying your coffee.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-900 text-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-amber-400 mb-12">Visit Us</h2>
-            <div class="flex flex-col md:flex-row gap-12 items-start">
-                <div class="md:w-1/2 flex flex-col space-y-8">
-                    <div>
-                        <h3 class="text-3xl font-semibold text-amber-300 mb-4">Our Location</h3>
-                        <p class="text-lg mb-2">123 Brew Lane, Coffeeville, CA 90210</p>
-                        <p class="text-lg mb-2">Phone: <a href="tel:+15551234567" class="text-amber-400 hover:underline">(555) 123-4567</a></p>
-                        <p class="text-lg">Email: <a href="mailto:info@aromabrews.com" class="text-amber-400 hover:underline">info@aromabrews.com</a></p>
-                    </div>
-                    <div>
-                        <h3 class="text-3xl font-semibold text-amber-300 mb-4">Hours</h3>
-                        <p class="text-lg">Monday - Friday: 7:00 AM - 7:00 PM</p>
-                        <p class="text-lg">Saturday - Sunday: 8:00 AM - 6:00 PM</p>
-                    </div>
-                    <div class="w-full h-80 bg-gray-700 rounded-lg shadow-lg overflow-hidden">
-                        <!-- Google Maps iframe for location visual -->
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.251415053456!2d-122.41941568468165!3d37.77492977975825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808580879e663a83%3A0xc6e4f3a0a65377f0!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1678901234567!5m2!1sen!2sus" 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="Aroma Brews Location Map">
-                        </iframe>
-                    </div>
-                </div>
-                <div class="md:w-1/2">
-                    <h3 class="text-3xl font-semibold text-amber-300 mb-4">Send Us a Message</h3>
-                    <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-lg font-medium text-gray-300 mb-2">Name</label>
-                            <input type="text" id="name" name="name" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-100" placeholder="Your Name" required>
+        <!-- Contact / Booking Form Section -->
+        <section id="contact" class="py-16 bg-neutral-50" aria-labelledby="contact-heading">
+            <div class="container text-center">
+                <h2 id="contact-heading" class="tailwind-h2 text-amber-700 mb-4">Get In Touch</h2>
+                <p class="tailwind-p max-w-xl mx-auto text-neutral-600 mb-12">
+                    Have a question, feedback, or want to inquire about catering? We'd love to hear from you.
+                </p>
+
+                <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-xl">
+                    <form action="YOUR_FORM_SUBMISSION_ENDPOINT" method="POST" id="contact-form" novalidate>
+                        <div class="mb-6 text-left">
+                            <label for="name" class="block text-neutral-700 text-sm font-bold mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-3 px-4 text-neutral-700 leading-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:border-transparent transition duration-200" placeholder="Your Name" required aria-required="true">
+                            <p class="text-red-500 text-xs italic mt-1 hidden" id="name-error" aria-live="polite">Please enter your name.</p>
                         </div>
-                        <div>
-                            <label for="email" class="block text-lg font-medium text-gray-300 mb-2">Email</label>
-                            <input type="email" id="email" name="email" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-100" placeholder="your@email.com" required>
+                        <div class="mb-6 text-left">
+                            <label for="email" class="block text-neutral-700 text-sm font-bold mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-neutral-700 leading-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:border-transparent transition duration-200" placeholder="your.email@example.com" required aria-required="true">
+                            <p class="text-red-500 text-xs italic mt-1 hidden" id="email-error" aria-live="polite">Please enter a valid email address.</p>
                         </div>
-                        <div>
-                            <label for="message" class="block text-lg font-medium text-gray-300 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-100" placeholder="How can we help you?" required></textarea>
+                        <div class="mb-6 text-left">
+                            <label for="message" class="block text-neutral-700 text-sm font-bold mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="shadow appearance-none border rounded w-full py-3 px-4 text-neutral-700 leading-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:border-transparent transition duration-200" placeholder="Your message here..." required aria-required="true"></textarea>
+                            <p class="text-red-500 text-xs italic mt-1 hidden" id="message-error" aria-live="polite">Please enter your message.</p>
                         </div>
-                        <button type="submit" class="w-full py-3 bg-amber-500 text-gray-900 text-xl font-semibold rounded-md hover:bg-amber-400 transition duration-300 transform hover:scale-105">
-                            Send Message
-                        </button>
+                        <div class="flex items-center justify-between">
+                            <button type="submit" class="btn-primary w-full bg-emerald-500 hover:bg-emerald-600 focus-visible:ring-emerald-400">Send Message</button>
+                        </div>
+                        <p class="text-xs text-neutral-500 mt-4">
+                            By submitting this form, you agree to our <a href="#" class="text-amber-700 hover:underline">Privacy Policy</a>.
+                            Your data will only be used to respond to your inquiry.
+                        </p>
+                        <div id="form-success-message" class="mt-4 p-3 bg-green-100 text-green-700 rounded-md hidden" role="alert" aria-live="assertive">
+                            Thank you for your message! We'll get back to you soon.
+                        </div>
+                        <div id="form-error-message" class="mt-4 p-3 bg-red-100 text-red-700 rounded-md hidden" role="alert" aria-live="assertive">
+                            There was an error submitting your form. Please try again later.
+                        </div>
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-950 py-10 text-gray-400 text-center">
-        <div class="container mx-auto px-6">
-            <p class="mb-4">&copy; 2023 Aroma Brews. All rights reserved.</p>
-            <div class="flex justify-center space-x-6 text-2xl">
-                <!-- Social media icons (placeholders from public web sources) -->
-                <a href="#" class="hover:text-amber-400 transition duration-300" aria-label="Facebook">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.63 5.4C19.46 4.96 18.9 4.8 18.3 4.8h-3.6V2.4h3.6c.6 0 1.1-.16 1.3-.6s.4-.9.2-1.3c-.2-.4-.7-.6-1.3-.6h-3.6V.6c0-.6-.16-1.1-.6-1.3-.4-.2-.9-.4-1.3-.2C13.5.16 13.2 0 12.6 0H6v24h6.6c.6 0 1.1-.16 1.3-.6s.4-.9.2-1.3c-.2-.4-.7-.6-1.3-.6h-3.6V12.6h3.6c.6 0 1.1-.16 1.3-.6s.4-.9.2-1.3c-.2-.4-.7-.6-1.3-.6h-3.6V6.6h3.6c.6 0 1.1-.16 1.3-.6s.4-.9.2-1.3c-.2-.4-.7-.6-1.3-.6z"></path></svg>
-                </a>
-                <a href="#" class="hover:text-amber-400 transition duration-300" aria-label="Instagram">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7.5 2C4.58 2 2 4.58 2 7.5v9C2 19.42 4.58 22 7.5 22h9c2.92 0 5.5-2.58 5.5-5.5v-9C22 4.58 19.42 2 16.5 2h-9zm0 2h9c1.93 0 3.5 1.57 3.5 3.5v9c0 1.93-1.57 3.5-3.5 3.5h-9c-1.93 0-3.5-1.57-3.5-3.5v-9C4 5.57 5.57 4 7.5 4zm4.5 3c-2.48 0-4.5 2.02-4.5 4.5s2.02 4.5 4.5 4.5 4.5-2.02 4.5-4.5-2.02-4.5-4.5-4.5zm0 2c1.38 0 2.5 1.12 2.5 2.5S13.38 15 12 15s-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5zM17.5 6.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"></path></svg>
-                </a>
-                <a href="#" class="hover:text-amber-400 transition duration-300" aria-label="Twitter">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 4.01c-.72.32-1.5.53-2.31.62.82-.49 1.45-1.27 1.75-2.2-.77.46-1.63.79-2.53.97-.73-.78-1.78-1.27-2.95-1.27-2.23 0-4.05 1.82-4.05 4.05 0 .32.04.63.11.93-3.37-.17-6.36-1.78-8.36-4.24-.35.6-.55 1.29-.55 2.04 0 1.4.71 2.64 1.79 3.36-.66-.02-1.28-.2-1.82-.5V9.4c0 1.96 1.39 3.59 3.24 3.96-.34.09-.7.15-1.07.15-.26 0-.5-.03-.74-.07.51 1.6 1.99 2.76 3.73 2.79-1.38 1.08-3.13 1.72-5.04 1.72-.33 0-.66-.02-.98-.06 1.79 1.15 3.92 1.81 6.19 1.81 7.42 0 11.49-6.14 11.49-11.49 0-.17-.0-.34-.01-.51.79-.57 1.47-1.29 2.01-2.11z"></path></svg>
-                </a>
+    <footer class="bg-neutral-800 text-neutral-200 py-12" role="contentinfo">
+        <div class="container grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <!-- About Aroma Cafe -->
+            <div>
+                <h3 class="tailwind-h3 text-white mb-4">Aroma Cafe</h3>
+                <p class="text-neutral-300 mb-4">
+                    Your daily escape for exceptional coffee and a welcoming atmosphere.
+                    Sip, savor, connect.
+                </p>
+                <div class="flex space-x-4 justify-center md:justify-start">
+                    <a href="#" class="text-neutral-400 hover:text-white transition duration-300" aria-label="Aroma Cafe on Facebook">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" role="img"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.776-3.89 1.094 0 2.24.195 2.24.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <a href="#" class="text-neutral-400 hover:text-white transition duration-300" aria-label="Aroma Cafe on Instagram">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" role="img"><path fill-rule="evenodd" d="M12 2C8.683 2 7.025 2.083 5.488 2.308 3.957 2.533 2.91 3.493 2.308 4.954 2.083 6.488 2 8.025 2 12s.083 5.512.308 7.046c.225 1.461 1.185 2.508 2.646 2.733C6.488 21.917 8.025 22 12 22s5.512-.083 7.046-.308c1.461-.225 2.508-1.185 2.733-2.646.225-1.534.308-3.071.308-7.046s-.083-5.512-.308-7.046C20.508 3.493 19.461 2.533 18 2.308 16.512 2.083 14.975 2 12 2zM12 4c3.67 0 4.887.05 5.57.156 1.026.15 1.597.587 1.836.825.239.239.675.81.825 1.836.106.683.156 1.9.156 5.57s-.05 4.887-.156 5.57c-.15 1.026-.587 1.597-.825 1.836-.239.239-.81.675-1.836.825-.683.106-1.9.156-5.57.156s-4.887-.05-5.57-.156c-1.026-.15-1.597-.587-1.836-.825-.239-.239-.81-.675-1.836-.825-.106-.683-.156-1.9-.156-5.57s.05-4.887.156-5.57c.15-1.026.587-1.597.825-1.836.239-.239.81-.675 1.836-.825.683-.106 1.9-.156 5.57-.156zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm6.5-.5a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd" /></svg>
+                    </a>
+                </div>
             </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="tailwind-h3 text-white mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#features" class="text-neutral-300 hover:text-white transition duration-300">Our Story</a></li>
+                    <li><a href="#menu-highlights" class="text-neutral-300 hover:text-white transition duration-300">Menu</a></li>
+                    <li><a href="#gallery" class="text-neutral-300 hover:text-white transition duration-300">Gallery</a></li>
+                    <li><a href="#contact" class="text-neutral-300 hover:text-white transition duration-300">Contact Us</a></li>
+                    <li><a href="#" class="text-neutral-300 hover:text-white transition duration-300">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h3 class="tailwind-h3 text-white mb-4">Contact Info</h3>
+                <address class="not-italic text-neutral-300 mb-4">
+                    123 Coffee Bean Lane<br>
+                    Metropolis, CA 90210
+                </address>
+                <p class="mb-2"><a href="tel:+15550100" class="text-neutral-300 hover:text-white transition duration-300">+1 (555) 0100</a></p>
+                <p><a href="mailto:info@aromacafe.com" class="text-neutral-300 hover:text-white transition duration-300">info@aromacafe.com</a></p>
+            </div>
+        </div>
+        <div class="container border-t border-neutral-700 mt-8 pt-8 text-center text-neutral-400">
+            &copy; <span id="current-year"></span> Aroma Cafe. All rights reserved.
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu Toggle -->
+    <!-- Minimal JavaScript for navigation toggle, FAQ, and form validation -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
+        // Get current year for footer copyright
+        document.getElementById('current-year').textContent = new Date().getFullYear();
 
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+            this.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('hidden');
+            // Change hamburger icon to close icon and vice versa (optional, using CSS transform for arrow)
+            // For a pure hamburger/X, you'd swap two SVG paths or toggle a class that rotates/transforms
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
             });
-            // Links inside mobile menu have inline onclick to close the menu for simplicity in a single file.
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('#faq button').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const isExpanded = button.getAttribute('aria-expanded') === 'true' || false;
+                
+                button.setAttribute('aria-expanded', !isExpanded);
+                content.classList.toggle('hidden');
+                // Rotate arrow icon
+                button.querySelector('svg').classList.toggle('rotate-180');
+            });
+        });
+
+        // Contact Form Client-side Validation
+        const contactForm = document.getElementById('contact-form');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const nameError = document.getElementById('name-error');
+        const emailError = document.getElementById('email-error');
+        const messageError = document.getElementById('message-error');
+        const formSuccess = document.getElementById('form-success-message');
+        const formError = document.getElementById('form-error-message');
+
+        function showValidationError(inputElement, errorElement, message) {
+            inputElement.classList.add('border-red-500');
+            inputElement.setAttribute('aria-invalid', 'true');
+            errorElement.textContent = message;
+            errorElement.classList.remove('hidden');
+        }
+
+        function hideValidationError(inputElement, errorElement) {
+            inputElement.classList.remove('border-red-500');
+            inputElement.setAttribute('aria-invalid', 'false');
+            errorElement.classList.add('hidden');
+        }
+
+        const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        const isNotEmpty = (value) => value.trim() !== '';
+
+        nameInput.addEventListener('input', () => {
+            if (isNotEmpty(nameInput.value)) hideValidationError(nameInput, nameError);
+            else showValidationError(nameInput, nameError, 'Please enter your name.');
+        });
+        emailInput.addEventListener('input', () => {
+            if (isValidEmail(emailInput.value)) hideValidationError(emailInput, emailError);
+            else showValidationError(emailInput, emailError, 'Please enter a valid email address.');
+        });
+        messageInput.addEventListener('input', () => {
+            if (isNotEmpty(messageInput.value)) hideValidationError(messageInput, messageError);
+            else showValidationError(messageInput, messageError, 'Please enter your message.');
+        });
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            formSuccess.classList.add('hidden');
+            formError.classList.add('hidden');
+
+            let formIsValid = true;
+
+            if (!isNotEmpty(nameInput.value)) {
+                showValidationError(nameInput, nameError, 'Please enter your name.');
+                formIsValid = false;
+            } else {
+                hideValidationError(nameInput, nameError);
+            }
+
+            if (!isValidEmail(emailInput.value)) {
+                showValidationError(emailInput, emailError, 'Please enter a valid email address.');
+                formIsValid = false;
+            } else {
+                hideValidationError(emailInput, emailError);
+            }
+
+            if (!isNotEmpty(messageInput.value)) {
+                showValidationError(messageInput, messageError, 'Please enter your message.');
+                formIsValid = false;
+            } else {
+                hideValidationError(messageInput, messageError);
+            }
+
+            if (formIsValid) {
+                // If all client-side validation passes, proceed with simulated submission
+                console.log('Form data:', {
+                    name: nameInput.value,
+                    email: emailInput.value,
+                    message: messageInput.value
+                });
+
+                // --- Replace this simulated submission with your actual backend API call ---
+                // Example using fetch (uncomment and modify for real use):
+                /*
+                fetch(this.action, {
+                    method: this.method,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: nameInput.value, email: emailInput.value, message: messageInput.value })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        formSuccess.classList.remove('hidden');
+                        contactForm.reset(); // Clear form fields on success
+                        // Optional: hide success message after a few seconds
+                        setTimeout(() => formSuccess.classList.add('hidden'), 5000);
+                    } else {
+                        formError.classList.remove('hidden');
+                        formError.textContent = 'Failed to send message. Please try again.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Submission error:', error);
+                    formError.classList.remove('hidden');
+                    formError.textContent = 'Network error or server issue. Please try again later.';
+                });
+                */
+
+                // For demonstration, always show success after a delay
+                setTimeout(() => {
+                    formSuccess.classList.remove('hidden');
+                    contactForm.reset();
+                    // Hide success message after 5 seconds
+                    setTimeout(() => formSuccess.classList.add('hidden'), 5000);
+                }, 1000); // Simulate network delay
+            } else {
+                formError.classList.remove('hidden'); // Show generic error if client-side validation fails
+                formError.textContent = 'Please correct the errors in the form.';
+                // Focus on the first invalid field for better UX
+                const firstInvalidField = contactForm.querySelector('[aria-invalid="true"]');
+                if (firstInvalidField) firstInvalidField.focus();
+            }
         });
     </script>
 </body>
 </html>
+
+<!-- Edit Notes: -->
+<!-- 1. Replace Hero Media: To change the hero video, update the `src` attribute of the `<source>` tag within the `<video>` element in the #hero section, and also update the `poster` attribute of the `<video>` tag with a suitable fallback image. Ensure the `type` attribute matches your video format (e.g., 'video/mp4'). If you only have an image, remove the `<video>` tag and replace it with an `<img>` tag, adjusting the styling. -->
+<!-- 2. Change Copy: All visible text content (headlines, paragraphs, button labels, testimonials, FAQ answers) can be directly edited within the HTML tags. Look for text inside `<h1>`, `<h2>`, `<h3>`, `<p>`, `<span>`, `<a>`, `<button>`, `<blockquote>`, `<li>` tags. -->
+<!-- 3. Adjust Colors & Brand: -->
+<!--    - **Brand Name/Logo**: Edit "Aroma Cafe" text in the header and footer. Replace the SVG coffee cup icon with your own logo SVG or text. -->
+<!--    - **Palette**: Modify Tailwind CSS classes (e.g., `bg-amber-700`, `text-neutral-800`) throughout the document to change the color scheme. The primary color (`amber-700`) is used for accents and headings, `neutral-800` for dark text, `neutral-50` for light backgrounds, and `emerald-500` for call-to-action buttons. You can search and replace these color classes with your desired Tailwind colors. For more granular control or custom brand colors, consider extending Tailwind's theme config if not using CDN or adding utility classes in the `<style>` block. -->
+<!-- 4. Configure Contact Form Endpoint: Locate the `<form>` element in the #contact section. Update the `action` attribute from `YOUR_FORM_SUBMISSION_ENDPOINT` to your actual server-side script or a service like Formspree, Netlify Forms, or Web3Forms. Remember that client-side JavaScript validation is for user experience; server-side validation is crucial for security and data integrity. -->
+<!-- 5. Update Social Media Links: In the footer, replace the '#' placeholders in the `href` attributes of the social media icons with your actual Facebook, Instagram, or other social profiles. -->
+<!-- 6. Review JSON-LD Schema: Update the `url`, `logo`, `sameAs`, `telephone`, `address`, and `geo` properties in the JSON-LD script block within the `<head>` section with your cafe's specific information. -->
+
+<!-- Developer TODO: -->
+<!-- 1. Verify all Pexels media licenses for your specific production use case to ensure compliance. -->
+<!-- 2. Replace `YOUR_FORM_SUBMISSION_ENDPOINT` in the contact form's `action` attribute with a real backend endpoint and uncomment/modify the `fetch` API call in the JavaScript. -->
+<!-- 3. Update all placeholder text (e.g., `https://www.yourdomain.com`, `+1-555-0100`, `info@aromacafe.com`, address details) with actual business information. -->
+<!-- 4. Thoroughly test responsiveness across various mobile devices and tablets, not just desktop browser resizing, to ensure optimal user experience. -->
+<!-- 5. Run a Lighthouse audit (or similar tool like WebPageTest) to check performance, accessibility, SEO, and best practices scores, aiming for green scores across the board. -->
 ```
