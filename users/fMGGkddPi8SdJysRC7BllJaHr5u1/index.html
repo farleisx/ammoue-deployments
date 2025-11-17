@@ -1,768 +1,623 @@
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <!-- 
-    Aroma Cafe - Experience the Perfect Brew.
-    This single-file HTML website showcases a modern coffee shop with a focus on quality, ambiance, and community.
-    It's designed to be fully responsive, accessible, and performant, using Tailwind CSS for a cinematic aesthetic.
+    Vellaro Elegance: Premium Lifestyle Brand Website
+    Description: A high-end, exclusive, and modern website for Vellaro Elegance, a premium lifestyle brand.
+                 Features a dark, minimal aesthetic with gold/champagne accents, cinematic video hero,
+                 glassmorphism effects, and elegant typography.
+    
+    Media Resources Used:
+    🎥 Hero Video: https://videos.pexels.com/video-files/5136490/5136490-sd_360_640_30fps.mp4
+    📸 Images (Pexels):
+        - Poster fallback for hero: https://images.pexels.com/photos/19599226/pexels-photo-19599226.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+        - Craftsmanship: https://images.pexels.com/photos/34723813/pexels-photo-34723813.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+        - Collections (grid): https://images.pexels.com/photos/19599230/pexels-photo-19599230.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+                             https://images.pexels.com/photos/34749111/pexels-photo-34749111.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+                             https://images.pexels.com/photos/34764376/pexels-photo-34764376.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+                             https://images.pexels.com/photos/34763218/pexels-photo-34763218.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+                             https://images.pexels.com/photos/19286046/pexels-photo-19286046.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+                             https://images.pexels.com/photos/34726645/pexels-photo-34726645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+                             https://images.pexels.com/photos/19599222/pexels-photo-19599222.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+                             https://images.pexels.com/photos/34760894/pexels-photo-34760894.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+        - Testimonial: (re-using first image as a placeholder for person) https://images.pexels.com/photos/19599226/pexels-photo-19599226.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
 
-    Media URLs used (all from Pexels.com):
-    🎥 Hero video: https://videos.pexels.com/video-files/34601858/14664326_360_640_30fps.mp4
-    📸 Images for gallery and testimonials:
-        https://images.pexels.com/photos/15484160/pexels-photo-15484160.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-        https://images.pexels.com/photos/30607249/pexels-photo-30607249.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-        https://images.pexels.com/photos/32805965/pexels-photo-32805965.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-        https://images.pexels.com/photos/22873820/pexels-photo-22873820.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-        https://images.pexels.com/photos/19723754/pexels-photo-19723754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-        https://images.pexels.com/photos/7125784/pexels-photo-7125784.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-        https://images.pexels.com/photos/33300998/pexels-photo-33300998.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-        https://images.pexels.com/photos/15510917/pexels-photo-15510917.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-        https://images.pexels.com/photos/18710102/pexels-photo-18710102.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-        https://images.pexels.com/photos/19299641/pexels-photo-19299641.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-    🎥 Additional video for gallery: https://videos.pexels.com/video-files/20455950/20455950-hd_720_1280_24fps.mp4
+    Pexels Media License Attribution: All media provided by Pexels is licensed under the Pexels License,
+    permitting free use for commercial and non-commercial purposes with or without attribution.
+    (Developer Note: Verify all media licenses for production use.)
 
-    Pexels License Attribution:
-    All photos and videos are sourced from Pexels.com and are free to use under the Pexels License.
-    Please verify specific licenses for production use if commercial distribution is intended beyond personal portfolio/testing.
+    Customization Notes:
+    - Text Content: Search for "Vellaro Elegance" or specific section headlines to find and edit copy.
+    - Colors: The primary palette uses Tailwind's `zinc-950` (dark bg), `zinc-200` (light text),
+             and `amber-400`/`amber-500` (gold/accent). Adjust Tailwind classes directly.
+    - Brand Identity: Logo (text in header) can be replaced with an SVG.
+    - Contact Form: Update the `action` attribute in the `<form>` tag to your desired endpoint.
 
-    How to change copy, colors, and brand:
-    - Text content: Directly edit the HTML text within appropriate tags (e.g., `<h1>`, `<p>`, `<a>`).
-    - Colors: Modify Tailwind CSS classes (e.g., `bg-amber-700`, `text-neutral-800`). The current palette is warm and earthy: `amber` (coffee/caramel tones), `stone`/`neutral` (backgrounds/text), `emerald` (accents).
-    - Brand: Change "Aroma Cafe" text in header, title, and footer. Replace the logo SVG with your brand's SVG.
-    - Media: Replace Pexels URLs with your own, ensuring identical structure. Use `poster` attributes for videos and `alt` text for all images.
-
-    Browser Support:
-    - Modern browsers (Chrome, Firefox, Safari, Edge) are fully supported.
-    - Internet Explorer is not supported.
+    Browser Support: Modern evergreen browsers (Chrome, Firefox, Safari, Edge) are fully supported.
+    Tailwind CSS CDN may not work in extremely old browsers.
 
     Testing Checklist:
-    - Accessibility: Run Axe DevTools or Lighthouse A11y audit. Test keyboard navigation (Tab key, Enter/Space for buttons/links).
-    - Performance: Run Lighthouse Performance audit (aim for 90+).
-    - Responsiveness: Test on various devices/screen sizes (DevTools responsive mode).
-    - Form Functionality: Submit the contact form and observe client-side validation messages and success/error states.
+    1.  **Responsiveness:** Check on various screen sizes (mobile, tablet, desktop).
+    2.  **Navigation:** Test hamburger menu toggle on mobile, desktop links.
+    3.  **Accessibility:** Use a screen reader (VoiceOver, NVDA) to navigate. Check keyboard navigation (Tab key).
+        Run Lighthouse (Accessibility, Performance, SEO) for automated checks.
+    4.  **Form Submission:** Verify form validation and submission behavior.
+    5.  **Media Loading:** Ensure videos play and images load correctly, including lazy loading.
+    6.  **Color Contrast:** Manually check key text elements against WCAG AA standards.
     -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aroma Cafe | Sip, Savor, Connect.</title>
-    <meta name="description" content="Aroma Cafe offers premium coffee, cozy ambiance, and a welcoming community. Experience the perfect brew crafted with passion.">
-    <meta name="keywords" content="coffee, cafe, coffee shop, specialty coffee, brew, espresso, latte, cappuccino, pastries, local cafe, community, relaxation">
-    <meta name="author" content="Aroma Cafe">
+    <title>Vellaro Elegance | Premium Lifestyle & Timeless Craftsmanship</title>
+    <meta name="description" content="Discover Vellaro Elegance: An exclusive world of premium lifestyle products, exquisite craftsmanship, and sophisticated design. Elevate your aspirations.">
+    <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.yourdomain.com/">
-    <meta property="og:title" content="Aroma Cafe | Sip, Savor, Connect.">
-    <meta property="og:description" content="Aroma Cafe offers premium coffee, cozy ambiance, and a welcoming community. Experience the perfect brew crafted with passion.">
-    <meta property="og:image" content="https://images.pexels.com/photos/32805965/pexels-photo-32805965.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"> <!-- Placeholder image for social share -->
+    <meta property="og:url" content="https://www.vellaro-elegance.com/"> <!-- Update with your actual URL -->
+    <meta property="og:title" content="Vellaro Elegance | Premium Lifestyle & Timeless Craftsmanship">
+    <meta property="og:description" content="Discover Vellaro Elegance: An exclusive world of premium lifestyle products, exquisite craftsmanship, and sophisticated design. Elevate your aspirations.">
+    <meta property="og:image" content="https://images.pexels.com/photos/19599226/pexels-photo-19599226.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"> <!-- High-res image URL for social cards -->
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.yourdomain.com/">
-    <meta property="twitter:title" content="Aroma Cafe | Sip, Savor, Connect.">
-    <meta property="twitter:description" content="Aroma Cafe offers premium coffee, cozy ambiance, and a welcoming community. Experience the perfect brew crafted with passion.">
-    <meta property="twitter:image" content="https://images.pexels.com/photos/32805965/pexels-photo-32805965.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"> <!-- Placeholder image for social share -->
+    <meta property="twitter:url" content="https://www.vellaro-elegance.com/"> <!-- Update with your actual URL -->
+    <meta property="twitter:title" content="Vellaro Elegance | Premium Lifestyle & Timeless Craftsmanship">
+    <meta property="twitter:description" content="Discover Vellaro Elegance: An exclusive world of premium lifestyle products, exquisite craftsmanship, and sophisticated design. Elevate your aspirations.">
+    <meta property="twitter:image" content="https://images.pexels.com/photos/19599226/pexels-photo-19599226.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"> <!-- High-res image URL for social cards -->
 
-    <!-- Theme Color for Chrome, Firefox OS and Opera -->
-    <meta name="theme-color" content="#7c2d12"> <!-- A deep amber/brown tone -->
-
-    <!-- Preconnect for improved performance of external resources -->
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <!-- Preconnect for faster resource loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://videos.pexels.com">
     <link rel="preconnect" href="https://images.pexels.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Custom Tailwind Configuration & minimal inline CSS -->
+    <!-- Inline styles for custom glassmorphism and animations (minimal) -->
     <style>
-        /* Custom colors for a coffee shop aesthetic */
+        /* Define custom CSS variables or base styles */
         :root {
-            --color-primary-dark: #7c2d12; /* amber-800 equivalent */
-            --color-primary-light: #fef3c7; /* amber-100 equivalent */
-            --color-secondary: #4b5563; /* gray-600 equivalent */
-            --color-accent: #10b981; /* emerald-500 equivalent */
-            --color-text-dark: #262626; /* neutral-800 equivalent */
-            --color-text-light: #fafafa; /* neutral-50 equivalent */
-        }
-        
-        /* Utility classes for consistent typography */
-        .tailwind-h1 {
-            @apply text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight;
-        }
-        .tailwind-h2 {
-            @apply text-3xl sm:text-4xl font-bold tracking-tight;
-        }
-        .tailwind-h3 {
-            @apply text-2xl sm:text-3xl font-semibold tracking-tight;
-        }
-        .tailwind-p {
-            @apply text-base sm:text-lg;
-        }
-        .container {
-            @apply mx-auto px-4 sm:px-6 lg:px-8;
-        }
-        .btn-primary {
-            @apply inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-amber-700 hover:bg-amber-800 transition duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-amber-500;
-        }
-        .btn-secondary {
-            @apply inline-flex items-center justify-center px-8 py-3 border-2 border-amber-700 text-base font-medium rounded-full text-amber-700 hover:bg-amber-50 transition duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-amber-500;
+            --color-primary-bg: #0a0a0a; /* A very dark charcoal, almost black */
+            --color-text-light: #e4e4e7; /* zinc-200 */
+            --color-accent-gold: #fbbf24; /* amber-400 */
+            --color-accent-gold-dark: #f59e0b; /* amber-500 */
         }
 
-        /* Hero video overlay for text readability */
-        .video-overlay {
-            background-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%);
+        body {
+            font-family: 'Inter', sans-serif; /* A modern, elegant sans-serif */
+            background-color: var(--color-primary-bg);
+            color: var(--color-text-light);
         }
 
-        /* Accessible focus states for keyboard navigation */
-        *:focus-visible {
-            outline: 3px dashed var(--color-accent); /* Using defined accent color */
-            outline-offset: 3px;
-        }
-        
-        /* Smooth scrolling for anchor links */
-        html {
-            scroll-behavior: smooth;
+        /* Custom utility for glassmorphism */
+        .glassmorphism {
+            background-color: rgba(255, 255, 255, 0.05); /* Subtle white tint */
+            backdrop-filter: blur(8px); /* Blur effect */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
 
-        /* Animations for hero content */
-        @keyframes fadeInMoveUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Custom utility for subtle hover transform */
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
-        .animate-fade-in-up {
-            animation: fadeInMoveUp 0.8s ease-out forwards;
+
+        /* Custom utility for active button state */
+        .btn-active:active {
+            transform: translateY(1px);
         }
-        .animation-delay-300 {
-            animation-delay: 0.3s;
+
+        /* Custom focus states for accessibility */
+        *:focus {
+            outline: 2px solid var(--color-accent-gold-dark);
+            outline-offset: 2px;
+            border-radius: 3px;
         }
-        .animation-delay-600 {
-            animation-delay: 0.6s;
+
+        /* Hide scrollbar for main body on some browsers but allow scrolling */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        body {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
         }
     </style>
-</head>
-<body class="font-sans antialiased text-neutral-800 bg-neutral-50">
-    <!-- Schema.org JSON-LD for Organization and LocalBusiness -->
+
+    <!-- Schema.org JSON-LD for Organization and Website -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "Organization",
-          "name": "Aroma Cafe",
-          "url": "https://www.yourdomain.com",
-          "logo": "https://www.yourdomain.com/logo.png",
+          "name": "Vellaro Elegance",
+          "url": "https://www.vellaro-elegance.com/", 
+          "logo": "https://www.vellaro-elegance.com/logo.svg", 
           "sameAs": [
-            "https://facebook.com/AromaCafe",
-            "https://instagram.com/AromaCafe"
-          ]
+            "https://twitter.com/vellaro_elegance", 
+            "https://instagram.com/vellaro_elegance",
+            "https://linkedin.com/company/vellaro-elegance"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-555-VEL-ELEGANCE",
+            "contactType": "Customer service",
+            "areaServed": "Worldwide",
+            "availableLanguage": "en"
+          }
         },
         {
-          "@type": "LocalBusiness",
-          "name": "Aroma Cafe",
-          "image": "https://images.pexels.com/photos/32805965/pexels-photo-32805965.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "url": "https://www.yourdomain.com",
-          "telephone": "+1-555-0100",
-          "priceRange": "$$",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "123 Coffee Bean Lane",
-            "addressLocality": "Metropolis",
-            "addressRegion": "CA",
-            "postalCode": "90210",
-            "addressCountry": "US"
+          "@type": "WebSite",
+          "url": "https://www.vellaro-elegance.com/",
+          "name": "Vellaro Elegance | Premium Lifestyle & Timeless Craftsmanship",
+          "publisher": {
+            "@id": "https://www.vellaro-elegance.com/#organization"
           },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "34.052235",
-            "longitude": "-118.243683"
-          },
-          "openingHoursSpecification": [
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday"
-              ],
-              "opens": "07:00",
-              "closes": "19:00"
-            },
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Saturday",
-                "Sunday"
-              ],
-              "opens": "08:00",
-              "closes": "18:00"
-            }
-          ]
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.vellaro-elegance.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
         }
       ]
     }
     </script>
+</head>
+<body class="bg-zinc-950 text-zinc-200 antialiased selection:bg-amber-400 selection:text-zinc-950">
 
-    <!-- Header & Navigation -->
-    <header class="bg-stone-50 text-neutral-800 shadow-md sticky top-0 z-50" role="banner">
-        <div class="container flex items-center justify-between h-16">
-            <!-- Logo -->
-            <a href="#hero" class="flex items-center flex-shrink-0 text-2xl font-bold text-amber-700 hover:text-amber-800 transition duration-300" aria-label="Aroma Cafe home">
-                <svg class="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354c.538-.621 1.2-.958 1.9-.958 1.458 0 2.658 1.199 2.658 2.657 0 .7-.272 1.343-.728 1.834L12 13.06l-4.229-4.229C7.272 7.343 7 6.699 7 5.999c0-1.458 1.199-2.657 2.658-2.657.7 0 1.362.337 1.9.958zM12 4.354C11.462 3.733 10.8 3.396 10.1 3.396c-1.458 0-2.658 1.199-2.658 2.657 0 .7.272 1.343.728 1.834L12 13.06l4.229-4.229c.456-.491.728-1.134.728-1.834 0-1.458-1.199-2.657-2.658-2.657-.7 0-1.362.337-1.9.958zM12 14v6m-3-3h6"></path>
-                </svg>
-                Aroma Cafe
-            </a>
-
-            <!-- Mobile Menu Button (Hamburger) -->
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-neutral-600 hover:text-amber-700 hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-amber-500" aria-label="Open main menu" aria-controls="mobile-menu">
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800">
+        <nav class="flex justify-between items-center max-w-7xl mx-auto" aria-label="Main navigation">
+            <!-- Brand Logo/Name -->
+            <a href="#hero" class="text-2xl md:text-3xl font-bold text-amber-400 tracking-wider hover:text-amber-300 transition-colors duration-300" aria-label="Vellaro Elegance Home">Vellaro Elegance</a>
 
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex space-x-8" aria-label="Main navigation">
-                <a href="#features" class="text-neutral-600 hover:text-amber-700 px-3 py-2 rounded-md text-lg font-medium transition duration-300">Our Story</a>
-                <a href="#menu-highlights" class="text-neutral-600 hover:text-amber-700 px-3 py-2 rounded-md text-lg font-medium transition duration-300">Menu</a>
-                <a href="#gallery" class="text-neutral-600 hover:text-amber-700 px-3 py-2 rounded-md text-lg font-medium transition duration-300">Gallery</a>
-                <a href="#testimonials" class="text-neutral-600 hover:text-amber-700 px-3 py-2 rounded-md text-lg font-medium transition duration-300">Reviews</a>
-                <a href="#contact" class="text-neutral-600 hover:text-amber-700 px-3 py-2 rounded-md text-lg font-medium transition duration-300">Contact</a>
-            </nav>
-        </div>
+            <ul class="hidden md:flex space-x-8 lg:space-x-12">
+                <li><a href="#craftsmanship" class="text-lg font-medium hover:text-amber-400 transition-colors duration-300">Craftsmanship</a></li>
+                <li><a href="#collections" class="text-lg font-medium hover:text-amber-400 transition-colors duration-300">Collections</a></li>
+                <li><a href="#membership" class="text-lg font-medium hover:text-amber-400 transition-colors duration-300">Membership</a></li>
+                <li><a href="#testimonials" class="text-lg font-medium hover:text-amber-400 transition-colors duration-300">Testimonials</a></li>
+                <li><a href="#contact" class="text-lg font-medium hover:text-amber-400 transition-colors duration-300">Concierge</a></li>
+            </ul>
 
-        <!-- Mobile Menu (hidden by default) -->
-        <nav id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-stone-50" aria-label="Mobile main navigation">
-            <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-amber-700 transition duration-300">Our Story</a>
-            <a href="#menu-highlights" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-amber-700 transition duration-300">Menu</a>
-            <a href="#gallery" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-amber-700 transition duration-300">Gallery</a>
-            <a href="#testimonials" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-amber-700 transition duration-300">Reviews</a>
-            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-amber-700 transition duration-300">Contact</a>
+            <!-- Mobile Navigation Toggle (Hamburger) -->
+            <button id="mobile-menu-button" class="md:hidden text-zinc-200 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 p-2 rounded-md" aria-label="Toggle mobile menu" aria-expanded="false">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
         </nav>
+
+        <!-- Mobile Navigation Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-4 pb-4">
+            <ul class="flex flex-col items-center">
+                <li><a href="#craftsmanship" class="block py-2 text-xl font-medium hover:text-amber-400 transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.getElementById('mobile-menu-button').setAttribute('aria-expanded', 'false');">Craftsmanship</a></li>
+                <li><a href="#collections" class="block py-2 text-xl font-medium hover:text-amber-400 transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.getElementById('mobile-menu-button').setAttribute('aria-expanded', 'false');">Collections</a></li>
+                <li><a href="#membership" class="block py-2 text-xl font-medium hover:text-amber-400 transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.getElementById('mobile-menu-button').setAttribute('aria-expanded', 'false');">Membership</a></li>
+                <li><a href="#testimonials" class="block py-2 text-xl font-medium hover:text-amber-400 transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.getElementById('mobile-menu-button').setAttribute('aria-expanded', 'false');">Testimonials</a></li>
+                <li><a href="#contact" class="block py-2 text-xl font-medium hover:text-amber-400 transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.getElementById('mobile-menu-button').setAttribute('aria-expanded', 'false');">Concierge</a></li>
+            </ul>
+        </div>
     </header>
 
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden" aria-labelledby="hero-heading">
-            <!-- Background Video -->
-            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover" poster="https://images.pexels.com/photos/34601858/pexels-photo-34601858.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" aria-describedby="hero-video-description">
-                <source src="https://videos.pexels.com/video-files/34601858/14664326_360_640_30fps.mp4" type="video/mp4">
-                Your browser does not support the video tag. Please enjoy a lovely coffee shop image instead.
+    <main>
+        <!-- HERO SECTION -->
+        <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+            <!-- Background Video (Pexels) -->
+            <video class="absolute top-0 left-0 w-full h-full object-cover z-0"
+                   autoplay loop muted playsinline preload="auto"
+                   poster="https://images.pexels.com/photos/19599226/pexels-photo-19599226.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                   aria-label="Background video showing luxurious slow-motion textures">
+                <source src="https://videos.pexels.com/video-files/5136490/5136490-sd_360_640_30fps.mp4" type="video/mp4">
+                Your browser does not support the video tag. Please enjoy a static background image instead.
             </video>
-            <p id="hero-video-description" class="sr-only">Background video showing coffee being brewed and served, setting a cozy and inviting atmosphere.</p>
-            
+
             <!-- Overlay for text readability -->
-            <div class="absolute inset-0 bg-black bg-opacity-60 video-overlay"></div>
+            <div class="absolute top-0 left-0 w-full h-full bg-black opacity-60 z-10"></div>
 
-            <div class="relative z-10 text-white container px-6">
-                <h1 id="hero-heading" class="tailwind-h1 mb-4 opacity-0 animate-fade-in-up">
-                    Experience the Perfect Brew.
+            <!-- Hero Content -->
+            <div class="relative z-20 px-4 max-w-4xl mx-auto text-zinc-50">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-4 text-shadow-lg drop-shadow-md">
+                    Vellaro Elegance: Where Artistry Meets Aspiration
                 </h1>
-                <p class="tailwind-p max-w-2xl mx-auto mb-8 opacity-0 animate-fade-in-up animation-delay-300">
-                    Crafted with passion, served with a smile. Your daily escape awaits at Aroma Cafe.
+                <p class="text-lg md:text-2xl lg:text-3xl font-light leading-relaxed mb-8 text-shadow-md drop-shadow-sm">
+                    Discover an exclusive world crafted for the discerning connoisseur. Elevate your lifestyle with unparalleled sophistication and timeless design.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4 opacity-0 animate-fade-in-up animation-delay-600">
-                    <a href="#menu-highlights" class="btn-primary hover:scale-105">View Our Menu</a>
-                    <a href="#contact" class="btn-secondary text-white border-white hover:bg-white hover:text-amber-700 hover:scale-105">Visit Us</a>
+                <a href="#collections" class="inline-block px-8 py-4 bg-amber-500 text-zinc-950 text-xl md:text-2xl font-semibold rounded-full shadow-lg hover:bg-amber-400 transform hover-lift transition-all duration-300 ease-in-out btn-active" aria-label="Explore our Signature Collections">
+                    Explore Collections
+                </a>
+            </div>
+        </section>
+
+        <!-- ABOUT THE CRAFTSMANSHIP SECTION -->
+        <section id="craftsmanship" class="py-20 md:py-32 px-6 lg:px-12 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Image/Video Block -->
+                <div class="relative w-full h-96 md:h-[500px] rounded-xl overflow-hidden shadow-2xl glassmorphism hover-lift transition-transform duration-300">
+                    <img src="https://images.pexels.com/photos/34723813/pexels-photo-34723813.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
+                         srcset="https://images.pexels.com/photos/34723813/pexels-photo-34723813.jpeg?auto=compress&cs=tinysrgb&h=650&w=940 1x, https://images.pexels.com/photos/34723813/pexels-photo-34723813.jpeg?auto=compress&cs=tinysrgb&h=1300&w=1880 2x"
+                         alt="Close-up of a meticulously crafted luxury item with intricate details" 
+                         class="w-full h-full object-cover object-center" loading="lazy">
+                </div>
+
+                <!-- Text Content -->
+                <div class="md:p-8 space-y-6">
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-amber-400 leading-tight">
+                        The Soul of Vellaro: Uncompromising Craftsmanship
+                    </h2>
+                    <p class="text-lg md:text-xl leading-relaxed text-zinc-300">
+                        At Vellaro Elegance, every creation is a testament to unparalleled artistry and dedication. Our master artisans, steeped in generations of tradition, meticulously transform the finest materials into objects of desire. We believe true luxury lies not just in aesthetic beauty, but in the unseen hours of precision, the thoughtful selection of resources, and a relentless pursuit of perfection.
+                    </p>
+                    <p class="text-lg md:text-xl leading-relaxed text-zinc-300">
+                        From initial design sketches to the final polish, each piece embodies a legacy of excellence, ensuring that what you own is not merely an item, but a narrative of passion and an heirloom for tomorrow.
+                    </p>
+                    <a href="#collections" class="inline-block px-6 py-3 border border-amber-400 text-amber-400 font-semibold rounded-full hover:bg-amber-400 hover:text-zinc-950 transform hover-lift transition-all duration-300 ease-in-out btn-active">
+                        Discover Our Process
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Features/Benefits Section -->
-        <section id="features" class="py-16 bg-neutral-50" aria-labelledby="features-heading">
-            <div class="container text-center">
-                <h2 id="features-heading" class="tailwind-h2 text-amber-700 mb-12">Why Choose Aroma Cafe?</h2>
-                <div class="grid md:grid-cols-3 gap-10">
-                    <article class="flex flex-col items-center p-6 bg-white rounded-lg shadow-xl hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 group">
-                        <div class="mb-4 text-amber-700 group-hover:text-emerald-500 transition duration-300">
-                            <!-- SVG Icon: Coffee Bean -->
-                            <svg class="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" role="img" aria-label="Coffee Bean Icon">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 15v-1a4 4 0 014-4c.483 0 .937.106 1.348.291m-1.577-.665L12 9l-1.577.626C9.972 9.098 9 9.945 9 11s.885 1.79 1.954 2.126M10 15a2 2 0 100 4 2 2 0 000-4zM7 8a2 2 0 100 4 2 2 0 000-4zM16 8a2 2 0 100 4 2 2 0 000-4zM12 4.354c.538-.621 1.2-.958 1.9-.958 1.458 0 2.658 1.199 2.658 2.657 0 .7-.272 1.343-.728 1.834L12 13.06l-4.229-4.229C7.272 7.343 7 6.699 7 5.999c0-1.458 1.199-2.657 2.658-2.657.7 0 1.362.337 1.9.958z" />
-                            </svg>
-                        </div>
-                        <h3 class="tailwind-h3 text-neutral-800 mb-3 group-hover:text-amber-700 transition duration-300">Premium Beans</h3>
-                        <p class="tailwind-p text-neutral-600">Sourced globally, roasted locally. We select only the finest coffee beans for an unparalleled taste.</p>
-                    </article>
-                    <article class="flex flex-col items-center p-6 bg-white rounded-lg shadow-xl hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 group">
-                        <div class="mb-4 text-amber-700 group-hover:text-emerald-500 transition duration-300">
-                            <!-- SVG Icon: Barista / Skill -->
-                            <svg class="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" role="img" aria-label="Barista Icon">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 13V8a2 2 0 012-2h14a2 2 0 012 2v5m-11 0a2 2 0 11-4 0 2 2 0 014 0zm-1 0H5m4 0h6m6 0a2 2 0 11-4 0 2 2 0 014 0zm-1 0h-1m-4 0h-4M7 10h10a2 2 0 012 2v2a2 2 0 01-2 2H7a2 2 0 01-2-2v-2a2 2 0 012-2z" />
-                            </svg>
-                        </div>
-                        <h3 class="tailwind-h3 text-neutral-800 mb-3 group-hover:text-amber-700 transition duration-300">Expert Baristas</h3>
-                        <p class="tailwind-p text-neutral-600">Our skilled baristas are true artists, dedicated to crafting your perfect cup with precision and care.</p>
-                    </article>
-                    <article class="flex flex-col items-center p-6 bg-white rounded-lg shadow-xl hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 group">
-                        <div class="mb-4 text-amber-700 group-hover:text-emerald-500 transition duration-300">
-                            <!-- SVG Icon: Cozy Ambiance / Home -->
-                            <svg class="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" role="img" aria-label="Cozy Home Icon">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10"></path>
-                            </svg>
-                        </div>
-                        <h3 class="tailwind-h3 text-neutral-800 mb-3 group-hover:text-amber-700 transition duration-300">Cozy Ambiance</h3>
-                        <p class="tailwind-p text-neutral-600">Relax in our welcoming space. The perfect spot for work, meetings, or simply unwinding with a book.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery / Media Section -->
-        <section id="gallery" class="py-16 bg-neutral-100" aria-labelledby="gallery-heading">
-            <div class="container text-center">
-                <h2 id="gallery-heading" class="tailwind-h2 text-amber-700 mb-12">Moments at Aroma Cafe</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <!-- Image 1 -->
-                    <div class="overflow-hidden rounded-lg shadow-lg group">
-                        <img loading="lazy" src="https://images.pexels.com/photos/15484160/pexels-photo-15484160.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                            srcset="https://images.pexels.com/photos/15484160/pexels-photo-15484160.jpeg?auto=compress&cs=tinysrgb&w=480 480w,
-                                    https://images.pexels.com/photos/15484160/pexels-photo-15484160.jpeg?auto=compress&cs=tinysrgb&w=940 940w"
-                            sizes="(max-width: 600px) 480px, 940px"
-                            alt="A beautifully crafted latte with intricate latte art on a wooden table."
-                            class="w-full h-60 object-cover group-hover:scale-105 transition duration-500 ease-in-out" />
-                        <div class="p-4 bg-white">
-                            <p class="text-sm text-neutral-600">Latte art perfection.</p>
-                        </div>
-                    </div>
-                    <!-- Image 2 -->
-                    <div class="overflow-hidden rounded-lg shadow-lg group">
-                        <img loading="lazy" src="https://images.pexels.com/photos/30607249/pexels-photo-30607249.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                            srcset="https://images.pexels.com/photos/30607249/pexels-photo-30607249.jpeg?auto=compress&cs=tinysrgb&w=480 480w,
-                                    https://images.pexels.com/photos/30607249/pexels-photo-30607249.jpeg?auto=compress&cs=tinysrgb&w=940 940w"
-                            sizes="(max-width: 600px) 480px, 940px"
-                            alt="Customers enjoying coffee and conversation in a brightly lit cafe."
-                            class="w-full h-60 object-cover group-hover:scale-105 transition duration-500 ease-in-out" />
-                        <div class="p-4 bg-white">
-                            <p class="text-sm text-neutral-600">Shared moments, warm drinks.</p>
-                        </div>
-                    </div>
-                    <!-- Video 1 (Additional Pexels video) -->
-                    <div class="overflow-hidden rounded-lg shadow-lg group">
-                        <video loading="lazy" muted loop playsinline controls poster="https://images.pexels.com/photos/20455950/pexels-photo-20455950.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                            class="w-full h-60 object-cover group-hover:scale-105 transition duration-500 ease-in-out" aria-label="Video showing the process of making coffee">
-                            <source src="https://videos.pexels.com/video-files/20455950/20455950-hd_720_1280_24fps.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="p-4 bg-white">
-                            <p class="text-sm text-neutral-600">The art of brewing.</p>
-                        </div>
-                    </div>
-                    <!-- Image 3 -->
-                    <div class="overflow-hidden rounded-lg shadow-lg group">
-                        <img loading="lazy" src="https://images.pexels.com/photos/32805965/pexels-photo-32805965.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                            srcset="https://images.pexels.com/photos/32805965/pexels-photo-32805965.jpeg?auto=compress&cs=tinysrgb&w=480 480w,
-                                    https://images.pexels.com/photos/32805965/pexels-photo-32805965.jpeg?auto=compress&cs=tinysrgb&w=940 940w"
-                            sizes="(max-width: 600px) 480px, 940px"
-                            alt="A close-up of coffee beans being sorted, highlighting quality."
-                            class="w-full h-60 object-cover group-hover:scale-105 transition duration-500 ease-in-out" />
-                        <div class="p-4 bg-white">
-                            <p class="text-sm text-neutral-600">Quality in every bean.</p>
-                        </div>
-                    </div>
-                    <!-- Image 4 -->
-                    <div class="overflow-hidden rounded-lg shadow-lg group">
-                        <img loading="lazy" src="https://images.pexels.com/photos/22873820/pexels-photo-22873820.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                            srcset="https://images.pexels.com/photos/22873820/pexels-photo-22873820.jpeg?auto=compress&cs=tinysrgb&w=480 480w,
-                                    https://images.pexels.com/photos/22873820/pexels-photo-22873820.jpeg?auto=compress&cs=tinysrgb&w=940 940w"
-                            sizes="(max-width: 600px) 480px, 940px"
-                            alt="A barista preparing an espresso shot with a professional machine."
-                            class="w-full h-60 object-cover group-hover:scale-105 transition duration-500 ease-in-out" />
-                        <div class="p-4 bg-white">
-                            <p class="text-sm text-neutral-600">Precision in every pour.</p>
-                        </div>
-                    </div>
-                    <!-- Image 5 -->
-                    <div class="overflow-hidden rounded-lg shadow-lg group">
-                        <img loading="lazy" src="https://images.pexels.com/photos/19723754/pexels-photo-19723754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                            srcset="https://images.pexels.com/photos/19723754/pexels-photo-19723754.jpeg?auto=compress&cs=tinysrgb&w=480 480w,
-                                    https://images.pexels.com/photos/19723754/pexels-photo-19723754.jpeg?auto=compress&cs=tinysrgb&w=940 940w"
-                            sizes="(max-width: 600px) 480px, 940px"
-                            alt="A stack of warm, freshly baked pastries in a cafe display."
-                            class="w-full h-60 object-cover group-hover:scale-105 transition duration-500 ease-in-out" />
-                        <div class="p-4 bg-white">
-                            <p class="text-sm text-neutral-600">Freshly baked delights.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pricing or CTA Block (Menu Highlights) -->
-        <section id="menu-highlights" class="py-16 bg-amber-700 text-white" aria-labelledby="menu-heading">
-            <div class="container text-center">
-                <h2 id="menu-heading" class="tailwind-h2 mb-4">Discover Our Signature Blends</h2>
-                <p class="tailwind-p max-w-3xl mx-auto mb-8 text-amber-100">
-                    From rich espresso to refreshing cold brews and delightful pastries, our menu is crafted to satisfy every palate.
-                    Explore our seasonal specials and find your new favorite.
+        <!-- SIGNATURE COLLECTIONS SECTION -->
+        <section id="collections" class="py-20 md:py-32 px-6 lg:px-12 bg-zinc-900">
+            <div class="max-w-7xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-amber-400 mb-4">
+                    Signature Collections
+                </h2>
+                <p class="text-lg md:text-xl leading-relaxed text-zinc-300 max-w-3xl mx-auto">
+                    Explore our curated selections, each telling a unique story of design, innovation, and timeless allure. From sophisticated accessories to avant-garde statement pieces, find your expression of elegance.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#" class="btn-secondary text-white border-white hover:bg-white hover:text-amber-700">View Full Menu</a>
-                    <a href="#contact" class="btn-primary bg-emerald-500 hover:bg-emerald-600 focus-visible:ring-emerald-400">Order Online</a>
-                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Collection Item 1 -->
+                <article class="relative group rounded-xl overflow-hidden shadow-xl glassmorphism hover-lift transition-transform duration-300">
+                    <img src="https://images.pexels.com/photos/19599230/pexels-photo-19599230.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
+                         alt="Vellaro Elegance 'Horizon' timepiece, sleek and modern" 
+                         class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-in-out" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-amber-400">The Horizon Timepiece</h3>
+                        <p class="text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">Precision engineering meets minimalist design, capturing the essence of infinite possibility.</p>
+                        <a href="#" class="mt-4 inline-block text-amber-400 hover:text-amber-300 font-semibold transition-colors duration-300" aria-label="View The Horizon Timepiece collection">View Collection &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Collection Item 2 -->
+                <article class="relative group rounded-xl overflow-hidden shadow-xl glassmorphism hover-lift transition-transform duration-300">
+                    <img src="https://images.pexels.com/photos/34749111/pexels-photo-34749111.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
+                         alt="Vellaro Elegance 'Luxe Leather' handbag, handcrafted luxury" 
+                         class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-in-out" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-amber-400">Luxe Leather Accessories</h3>
+                        <p class="text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">Handcrafted from the world's finest hides, each piece is a statement of understated opulence.</p>
+                        <a href="#" class="mt-4 inline-block text-amber-400 hover:text-amber-300 font-semibold transition-colors duration-300" aria-label="View Luxe Leather Accessories collection">View Collection &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Collection Item 3 -->
+                <article class="relative group rounded-xl overflow-hidden shadow-xl glassmorphism hover-lift transition-transform duration-300">
+                    <img src="https://images.pexels.com/photos/34764376/pexels-photo-34764376.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
+                         alt="Vellaro Elegance 'Aura' rings, exquisite jewelry" 
+                         class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-in-out" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-amber-400">The Aura Jewelry</h3>
+                        <p class="text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">Dazzling gems set in precious metals, designed to illuminate your inherent radiance.</p>
+                        <a href="#" class="mt-4 inline-block text-amber-400 hover:text-amber-300 font-semibold transition-colors duration-300" aria-label="View The Aura Jewelry collection">View Collection &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Collection Item 4 -->
+                <article class="relative group rounded-xl overflow-hidden shadow-xl glassmorphism hover-lift transition-transform duration-300">
+                    <img src="https://images.pexels.com/photos/34763218/pexels-photo-34763218.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
+                         alt="Vellaro Elegance 'Essence' fragrances, elegant perfume bottles" 
+                         class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-in-out" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-amber-400">Essence Fragrances</h3>
+                        <p class="text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">A symphony of rare notes, bottled to evoke sophistication and leave a lasting impression.</p>
+                        <a href="#" class="mt-4 inline-block text-amber-400 hover:text-amber-300 font-semibold transition-colors duration-300" aria-label="View Essence Fragrances collection">View Collection &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Collection Item 5 -->
+                <article class="relative group rounded-xl overflow-hidden shadow-xl glassmorphism hover-lift transition-transform duration-300">
+                    <img src="https://images.pexels.com/photos/19286046/pexels-photo-19286046.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
+                         alt="Vellaro Elegance 'Iconic' eyewear, stylish sunglasses" 
+                         class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-in-out" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-amber-400">Iconic Eyewear</h3>
+                        <p class="text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">Hand-polished frames with precision lenses, offering both visionary style and protection.</p>
+                        <a href="#" class="mt-4 inline-block text-amber-400 hover:text-amber-300 font-semibold transition-colors duration-300" aria-label="View Iconic Eyewear collection">View Collection &rarr;</a>
+                    </div>
+                </article>
+                
+                <!-- Collection Item 6 -->
+                <article class="relative group rounded-xl overflow-hidden shadow-xl glassmorphism hover-lift transition-transform duration-300">
+                    <img src="https://images.pexels.com/photos/34726645/pexels-photo-34726645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
+                         alt="Vellaro Elegance 'Heritage' cufflinks, luxurious men's accessories" 
+                         class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-in-out" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-amber-400">Heritage Accents</h3>
+                        <p class="text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">Subtle yet profound additions to your ensemble, crafted to perfection and infused with legacy.</p>
+                        <a href="#" class="mt-4 inline-block text-amber-400 hover:text-amber-300 font-semibold transition-colors duration-300" aria-label="View Heritage Accents collection">View Collection &rarr;</a>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="py-16 bg-neutral-50" aria-labelledby="testimonials-heading">
-            <div class="container text-center">
-                <h2 id="testimonials-heading" class="tailwind-h2 text-amber-700 mb-12">What Our Customers Say</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <figure class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                        <blockquote class="mb-4 text-neutral-700 italic">
-                            "Aroma Cafe is my daily dose of happiness! The coffee is always perfect, and the staff are incredibly friendly. A true gem."
-                        </blockquote>
-                        <figcaption class="flex items-center justify-center space-x-3">
-                            <img loading="lazy" class="w-10 h-10 rounded-full object-cover" src="https://images.pexels.com/photos/7125784/pexels-photo-7125784.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Profile picture of Sarah L.">
-                            <div class="font-medium text-neutral-800">Sarah L.</div>
-                        </figcaption>
-                    </figure>
-                    <figure class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                        <blockquote class="mb-4 text-neutral-700 italic">
-                            "The best spot for remote work. Great Wi-Fi, delicious pastries, and an atmosphere that truly inspires focus and creativity."
-                        </blockquote>
-                        <figcaption class="flex items-center justify-center space-x-3">
-                            <img loading="lazy" class="w-10 h-10 rounded-full object-cover" src="https://images.pexels.com/photos/33300998/pexels-photo-33300998.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Profile picture of David K.">
-                            <div class="font-medium text-neutral-800">David K.</div>
-                        </figcaption>
-                    </figure>
-                    <figure class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                        <blockquote class="mb-4 text-neutral-700 italic">
-                            "I'm a coffee snob, and Aroma Cafe exceeded my expectations. Their pour-overs are exceptional. Highly recommend!"
-                        </blockquote>
-                        <figcaption class="flex items-center justify-center space-x-3">
-                            <img loading="lazy" class="w-10 h-10 rounded-full object-cover" src="https://images.pexels.com/photos/15510917/pexels-photo-15510917.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Profile picture of Emily R.">
-                            <div class="font-medium text-neutral-800">Emily R.</div>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="py-16 bg-neutral-100" aria-labelledby="faq-heading">
-            <div class="container text-center">
-                <h2 id="faq-heading" class="tailwind-h2 text-amber-700 mb-12">Frequently Asked Questions</h2>
-                <div class="max-w-3xl mx-auto divide-y divide-neutral-200">
-                    <!-- FAQ Item 1 -->
-                    <div class="py-6">
-                        <h3 class="text-left">
-                            <button id="faq-question-1" class="flex justify-between items-center w-full text-left font-semibold text-xl text-neutral-800 focus-visible:outline-none" aria-expanded="false" aria-controls="faq-content-1">
-                                <span>Do you offer dairy-free milk options?</span>
-                                <span class="ml-6 flex-shrink-0">
-                                    <svg class="w-6 h-6 transform rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </h3>
-                        <div id="faq-content-1" class="mt-4 hidden text-neutral-600 text-lg pr-12" role="region" aria-labelledby="faq-question-1">
-                            <p>Yes, we proudly offer a variety of dairy-free milk alternatives including oat milk, almond milk, and soy milk, to cater to all preferences.</p>
-                        </div>
-                    </div>
-                    <!-- FAQ Item 2 -->
-                    <div class="py-6">
-                        <h3 class="text-left">
-                            <button id="faq-question-2" class="flex justify-between items-center w-full text-left font-semibold text-xl text-neutral-800 focus-visible:outline-none" aria-expanded="false" aria-controls="faq-content-2">
-                                <span>Can I order online for pickup?</span>
-                                <span class="ml-6 flex-shrink-0">
-                                    <svg class="w-6 h-6 transform rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </h3>
-                        <div id="faq-content-2" class="mt-4 hidden text-neutral-600 text-lg pr-12" role="region" aria-labelledby="faq-question-2">
-                            <p>Absolutely! You can place your order through our website or a dedicated app (coming soon!) for quick and convenient in-store pickup.</p>
-                        </div>
-                    </div>
-                    <!-- FAQ Item 3 -->
-                    <div class="py-6">
-                        <h3 class="text-left">
-                            <button id="faq-question-3" class="flex justify-between items-center w-full text-left font-semibold text-xl text-neutral-800 focus-visible:outline-none" aria-expanded="false" aria-controls="faq-content-3">
-                                <span>Do you have Wi-Fi available for customers?</span>
-                                <span class="ml-6 flex-shrink-0">
-                                    <svg class="w-6 h-6 transform rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </h3>
-                        <div id="faq-content-3" class="mt-4 hidden text-neutral-600 text-lg pr-12" role="region" aria-labelledby="faq-question-3">
-                            <p>Yes, we provide complimentary high-speed Wi-Fi for all our customers. Feel free to stay, work, or browse while enjoying your coffee.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact / Booking Form Section -->
-        <section id="contact" class="py-16 bg-neutral-50" aria-labelledby="contact-heading">
-            <div class="container text-center">
-                <h2 id="contact-heading" class="tailwind-h2 text-amber-700 mb-4">Get In Touch</h2>
-                <p class="tailwind-p max-w-xl mx-auto text-neutral-600 mb-12">
-                    Have a question, feedback, or want to inquire about catering? We'd love to hear from you.
+        <!-- EXCLUSIVE MEMBERSHIP CTA BLOCK -->
+        <section id="membership" class="py-20 md:py-32 px-6 lg:px-12 relative bg-zinc-950">
+            <div class="max-w-4xl mx-auto text-center relative z-10 glassmorphism p-8 md:p-12 rounded-2xl shadow-2xl hover-lift transition-transform duration-300">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-amber-400 mb-6 leading-tight">
+                    Join the Vellaro Privé Membership
+                </h2>
+                <p class="text-lg md:text-xl leading-relaxed text-zinc-300 mb-8">
+                    Gain exclusive access to limited-edition releases, bespoke services, and a community of discerning individuals. The Vellaro Privé Membership is your passport to a world of unparalleled luxury and personalized experiences.
                 </p>
+                <ul class="text-left text-lg md:text-xl text-zinc-300 mb-8 space-y-3">
+                    <li class="flex items-center justify-center md:justify-start">
+                        <svg class="w-6 h-6 mr-3 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Early access to new collections
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start">
+                        <svg class="w-6 h-6 mr-3 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Personalized concierge service
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start">
+                        <svg class="w-6 h-6 mr-3 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Invitations to exclusive events
+                    </li>
+                </ul>
+                <a href="#contact" class="inline-block px-8 py-4 bg-amber-500 text-zinc-950 text-xl md:text-2xl font-semibold rounded-full shadow-lg hover:bg-amber-400 transform hover-lift transition-all duration-300 ease-in-out btn-active" aria-label="Inquire about Vellaro Privé Membership">
+                    Inquire Now
+                </a>
+            </div>
+        </section>
 
-                <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-xl">
-                    <form action="YOUR_FORM_SUBMISSION_ENDPOINT" method="POST" id="contact-form" novalidate>
-                        <div class="mb-6 text-left">
-                            <label for="name" class="block text-neutral-700 text-sm font-bold mb-2">Name</label>
-                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-3 px-4 text-neutral-700 leading-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:border-transparent transition duration-200" placeholder="Your Name" required aria-required="true">
-                            <p class="text-red-500 text-xs italic mt-1 hidden" id="name-error" aria-live="polite">Please enter your name.</p>
-                        </div>
-                        <div class="mb-6 text-left">
-                            <label for="email" class="block text-neutral-700 text-sm font-bold mb-2">Email</label>
-                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-neutral-700 leading-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:border-transparent transition duration-200" placeholder="your.email@example.com" required aria-required="true">
-                            <p class="text-red-500 text-xs italic mt-1 hidden" id="email-error" aria-live="polite">Please enter a valid email address.</p>
-                        </div>
-                        <div class="mb-6 text-left">
-                            <label for="message" class="block text-neutral-700 text-sm font-bold mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" class="shadow appearance-none border rounded w-full py-3 px-4 text-neutral-700 leading-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:border-transparent transition duration-200" placeholder="Your message here..." required aria-required="true"></textarea>
-                            <p class="text-red-500 text-xs italic mt-1 hidden" id="message-error" aria-live="polite">Please enter your message.</p>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <button type="submit" class="btn-primary w-full bg-emerald-500 hover:bg-emerald-600 focus-visible:ring-emerald-400">Send Message</button>
-                        </div>
-                        <p class="text-xs text-neutral-500 mt-4">
-                            By submitting this form, you agree to our <a href="#" class="text-amber-700 hover:underline">Privacy Policy</a>.
-                            Your data will only be used to respond to your inquiry.
-                        </p>
-                        <div id="form-success-message" class="mt-4 p-3 bg-green-100 text-green-700 rounded-md hidden" role="alert" aria-live="assertive">
-                            Thank you for your message! We'll get back to you soon.
-                        </div>
-                        <div id="form-error-message" class="mt-4 p-3 bg-red-100 text-red-700 rounded-md hidden" role="alert" aria-live="assertive">
-                            There was an error submitting your form. Please try again later.
-                        </div>
-                    </form>
-                </div>
+        <!-- TESTIMONIALS SECTION -->
+        <section id="testimonials" class="py-20 md:py-32 px-6 lg:px-12 bg-zinc-900">
+            <div class="max-w-7xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-amber-400 mb-4">
+                    Voices of Distinction
+                </h2>
+                <p class="text-lg md:text-xl leading-relaxed text-zinc-300 max-w-3xl mx-auto">
+                    Hear from our esteemed clients who have experienced the unparalleled luxury and service of Vellaro Elegance.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Testimonial 1 -->
+                <blockquote class="glassmorphism p-8 rounded-xl shadow-lg hover-lift transition-transform duration-300 flex flex-col items-center text-center">
+                    <img src="https://images.pexels.com/photos/19599226/pexels-photo-19599226.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
+                         alt="Portrait of a satisfied customer" 
+                         class="w-24 h-24 rounded-full object-cover object-center mb-6 border-2 border-amber-400" loading="lazy">
+                    <p class="text-xl italic mb-4 text-zinc-200">
+                        "Vellaro Elegance transformed my understanding of luxury. Each piece is a masterpiece, a true testament to exceptional design and quality. Simply incomparable."
+                    </p>
+                    <footer class="font-semibold text-amber-400 text-lg">&mdash; Isabella Rossi</footer>
+                    <p class="text-sm text-zinc-400">Art Collector, Milan</p>
+                </blockquote>
+
+                <!-- Testimonial 2 -->
+                <blockquote class="glassmorphism p-8 rounded-xl shadow-lg hover-lift transition-transform duration-300 flex flex-col items-center text-center">
+                    <img src="https://images.pexels.com/photos/19599222/pexels-photo-19599222.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
+                         alt="Portrait of a satisfied customer" 
+                         class="w-24 h-24 rounded-full object-cover object-center mb-6 border-2 border-amber-400" loading="lazy">
+                    <p class="text-xl italic mb-4 text-zinc-200">
+                        "The personalized service from Vellaro's concierge is impeccable. They anticipate your needs and deliver with grace and precision. A truly bespoke experience."
+                    </p>
+                    <footer class="font-semibold text-amber-400 text-lg">&mdash; Dr. Alistair Finch</footer>
+                    <p class="text-sm text-zinc-400">Innovator & Philanthropist, London</p>
+                </blockquote>
+
+                <!-- Testimonial 3 -->
+                <blockquote class="glassmorphism p-8 rounded-xl shadow-lg hover-lift transition-transform duration-300 flex flex-col items-center text-center">
+                    <img src="https://images.pexels.com/photos/34760894/pexels-photo-34760894.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
+                         alt="Portrait of a satisfied customer" 
+                         class="w-24 h-24 rounded-full object-cover object-center mb-6 border-2 border-amber-400" loading="lazy">
+                    <p class="text-xl italic mb-4 text-zinc-200">
+                        "Owning a Vellaro piece is more than possession; it's an affirmation of taste and a connection to a heritage of excellence. My go-to for refined essentials."
+                    </p>
+                    <footer class="font-semibold text-amber-400 text-lg">&mdash; Sophie Dubois</footer>
+                    <p class="text-sm text-zinc-400">Entrepreneur, Paris</p>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section id="faq" class="py-20 md:py-32 px-6 lg:px-12 bg-zinc-950">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-amber-400 mb-4">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-lg md:text-xl leading-relaxed text-zinc-300 max-w-3xl mx-auto">
+                    Find answers to common inquiries about our brand, products, and services.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- FAQ Item 1 -->
+                <details class="glassmorphism rounded-xl shadow-lg p-6 group cursor-pointer hover:bg-white/10 transition-colors duration-300">
+                    <summary class="flex justify-between items-center text-xl md:text-2xl font-semibold text-zinc-50 group-hover:text-amber-400 transition-colors duration-300">
+                        What makes Vellaro Elegance unique?
+                        <svg class="w-6 h-6 text-amber-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <p class="mt-4 text-lg text-zinc-300 leading-relaxed">
+                        Vellaro Elegance stands apart through its unwavering commitment to artisanal craftsmanship, exclusive design, and the use of only the most exquisite materials sourced globally. We combine timeless elegance with modern innovation to create pieces that are both luxurious and enduring.
+                    </p>
+                </details>
+
+                <!-- FAQ Item 2 -->
+                <details class="glassmorphism rounded-xl shadow-lg p-6 group cursor-pointer hover:bg-white/10 transition-colors duration-300">
+                    <summary class="flex justify-between items-center text-xl md:text-2xl font-semibold text-zinc-50 group-hover:text-amber-400 transition-colors duration-300">
+                        How can I inquire about a bespoke commission?
+                        <svg class="w-6 h-6 text-amber-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <p class="mt-4 text-lg text-zinc-300 leading-relaxed">
+                        We welcome bespoke requests for discerning clients. Please visit our 'Contact Concierge' section or fill out the form, selecting 'Bespoke Commission' as your inquiry type. Our team will reach out to discuss your vision and guide you through the process.
+                    </p>
+                </details>
+
+                <!-- FAQ Item 3 -->
+                <details class="glassmorphism rounded-xl shadow-lg p-6 group cursor-pointer hover:bg-white/10 transition-colors duration-300">
+                    <summary class="flex justify-between items-center text-xl md:text-2xl font-semibold text-zinc-50 group-hover:text-amber-400 transition-colors duration-300">
+                        What are the benefits of the Vellaro Privé Membership?
+                        <svg class="w-6 h-6 text-amber-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <p class="mt-4 text-lg text-zinc-300 leading-relaxed">
+                        The Vellaro Privé Membership offers an array of exclusive privileges, including early access to new collections, personalized recommendations, dedicated concierge support, invitations to private events, and special member-only benefits. It's designed to enhance your journey with Vellaro Elegance.
+                    </p>
+                </details>
+            </div>
+        </section>
+
+        <!-- CONTACT CONCIERGE FORM SECTION -->
+        <section id="contact" class="py-20 md:py-32 px-6 lg:px-12 bg-zinc-900">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-amber-400 mb-4">
+                    Contact Our Concierge
+                </h2>
+                <p class="text-lg md:text-xl leading-relaxed text-zinc-300">
+                    Our dedicated concierge team is at your service. Whether for inquiries, bespoke requests, or personalized assistance, we are here to ensure your Vellaro Elegance experience is seamless.
+                </p>
+            </div>
+
+            <div class="max-w-xl mx-auto glassmorphism p-8 md:p-10 rounded-2xl shadow-xl">
+                <form id="contact-form" action="YOUR_FORM_SUBMISSION_ENDPOINT" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-lg font-medium text-zinc-50 mb-2">Your Name</label>
+                        <input type="text" id="name" name="name" required 
+                               class="w-full p-3 bg-zinc-800 text-zinc-200 border border-zinc-700 rounded-lg focus:ring-amber-400 focus:border-amber-400 transition-all duration-300 outline-none" 
+                               placeholder="John Doe" aria-required="true">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-lg font-medium text-zinc-50 mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" required 
+                               class="w-full p-3 bg-zinc-800 text-zinc-200 border border-zinc-700 rounded-lg focus:ring-amber-400 focus:border-amber-400 transition-all duration-300 outline-none" 
+                               placeholder="john.doe@example.com" aria-required="true">
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-lg font-medium text-zinc-50 mb-2">Subject</label>
+                        <select id="subject" name="subject" required 
+                                class="w-full p-3 bg-zinc-800 text-zinc-200 border border-zinc-700 rounded-lg focus:ring-amber-400 focus:border-amber-400 transition-all duration-300 outline-none" 
+                                aria-required="true">
+                            <option value="">Select a subject...</option>
+                            <option value="General Inquiry">General Inquiry</option>
+                            <option value="Bespoke Commission">Bespoke Commission</option>
+                            <option value="Membership Inquiry">Vellaro Privé Membership</option>
+                            <option value="Product Support">Product Support</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-lg font-medium text-zinc-50 mb-2">Your Message</label>
+                        <textarea id="message" name="message" rows="6" required 
+                                  class="w-full p-3 bg-zinc-800 text-zinc-200 border border-zinc-700 rounded-lg focus:ring-amber-400 focus:border-amber-400 transition-all duration-300 outline-none resize-y" 
+                                  placeholder="How can we assist you?" aria-required="true"></textarea>
+                    </div>
+                    
+                    <!-- Privacy Note -->
+                    <p class="text-sm text-zinc-400 text-center">
+                        By submitting this form, you agree to our <a href="#" class="text-amber-400 hover:underline">Privacy Policy</a>. We respect your privacy.
+                    </p>
+
+                    <button type="submit" class="w-full px-8 py-4 bg-amber-500 text-zinc-950 text-xl font-semibold rounded-full shadow-lg hover:bg-amber-400 transform hover-lift transition-all duration-300 ease-in-out btn-active">
+                        Send Message
+                    </button>
+                </form>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-neutral-800 text-neutral-200 py-12" role="contentinfo">
-        <div class="container grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-            <!-- About Aroma Cafe -->
-            <div>
-                <h3 class="tailwind-h3 text-white mb-4">Aroma Cafe</h3>
-                <p class="text-neutral-300 mb-4">
-                    Your daily escape for exceptional coffee and a welcoming atmosphere.
-                    Sip, savor, connect.
-                </p>
-                <div class="flex space-x-4 justify-center md:justify-start">
-                    <a href="#" class="text-neutral-400 hover:text-white transition duration-300" aria-label="Aroma Cafe on Facebook">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" role="img"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.776-3.89 1.094 0 2.24.195 2.24.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
-                    </a>
-                    <a href="#" class="text-neutral-400 hover:text-white transition duration-300" aria-label="Aroma Cafe on Instagram">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" role="img"><path fill-rule="evenodd" d="M12 2C8.683 2 7.025 2.083 5.488 2.308 3.957 2.533 2.91 3.493 2.308 4.954 2.083 6.488 2 8.025 2 12s.083 5.512.308 7.046c.225 1.461 1.185 2.508 2.646 2.733C6.488 21.917 8.025 22 12 22s5.512-.083 7.046-.308c1.461-.225 2.508-1.185 2.733-2.646.225-1.534.308-3.071.308-7.046s-.083-5.512-.308-7.046C20.508 3.493 19.461 2.533 18 2.308 16.512 2.083 14.975 2 12 2zM12 4c3.67 0 4.887.05 5.57.156 1.026.15 1.597.587 1.836.825.239.239.675.81.825 1.836.106.683.156 1.9.156 5.57s-.05 4.887-.156 5.57c-.15 1.026-.587 1.597-.825 1.836-.239.239-.81.675-1.836.825-.683.106-1.9.156-5.57.156s-4.887-.05-5.57-.156c-1.026-.15-1.597-.587-1.836-.825-.239-.239-.81-.675-1.836-.825-.106-.683-.156-1.9-.156-5.57s.05-4.887.156-5.57c.15-1.026.587-1.597.825-1.836.239-.239.81-.675 1.836-.825.683-.106 1.9-.156 5.57-.156zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm6.5-.5a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd" /></svg>
-                    </a>
-                </div>
+    <!-- FOOTER -->
+    <footer class="bg-zinc-950 py-12 px-6 lg:px-12 text-zinc-400 text-center border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto space-y-6">
+            <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-lg">
+                <a href="#craftsmanship" class="hover:text-amber-400 transition-colors duration-300">Craftsmanship</a>
+                <a href="#collections" class="hover:text-amber-400 transition-colors duration-300">Collections</a>
+                <a href="#membership" class="hover:text-amber-400 transition-colors duration-300">Membership</a>
+                <a href="#contact" class="hover:text-amber-400 transition-colors duration-300">Concierge</a>
+                <a href="#" class="hover:text-amber-400 transition-colors duration-300">Privacy Policy</a>
+                <a href="#" class="hover:text-amber-400 transition-colors duration-300">Terms of Service</a>
             </div>
-
-            <!-- Quick Links -->
-            <div>
-                <h3 class="tailwind-h3 text-white mb-4">Quick Links</h3>
-                <ul class="space-y-2">
-                    <li><a href="#features" class="text-neutral-300 hover:text-white transition duration-300">Our Story</a></li>
-                    <li><a href="#menu-highlights" class="text-neutral-300 hover:text-white transition duration-300">Menu</a></li>
-                    <li><a href="#gallery" class="text-neutral-300 hover:text-white transition duration-300">Gallery</a></li>
-                    <li><a href="#contact" class="text-neutral-300 hover:text-white transition duration-300">Contact Us</a></li>
-                    <li><a href="#" class="text-neutral-300 hover:text-white transition duration-300">Privacy Policy</a></li>
-                </ul>
-            </div>
-
-            <!-- Contact Info -->
-            <div>
-                <h3 class="tailwind-h3 text-white mb-4">Contact Info</h3>
-                <address class="not-italic text-neutral-300 mb-4">
-                    123 Coffee Bean Lane<br>
-                    Metropolis, CA 90210
-                </address>
-                <p class="mb-2"><a href="tel:+15550100" class="text-neutral-300 hover:text-white transition duration-300">+1 (555) 0100</a></p>
-                <p><a href="mailto:info@aromacafe.com" class="text-neutral-300 hover:text-white transition duration-300">info@aromacafe.com</a></p>
-            </div>
-        </div>
-        <div class="container border-t border-neutral-700 mt-8 pt-8 text-center text-neutral-400">
-            &copy; <span id="current-year"></span> Aroma Cafe. All rights reserved.
+            <p class="text-md leading-relaxed">&copy; 2023 Vellaro Elegance. All rights reserved.</p>
+            <p class="text-xs text-zinc-600">Designed with passion for the art of living.</p>
         </div>
     </footer>
 
-    <!-- Minimal JavaScript for navigation toggle, FAQ, and form validation -->
+    <!-- Minimal JS for Mobile Navigation Toggle & Form Validation Feedback -->
     <script>
-        // Get current year for footer copyright
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', function() {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
-            this.setAttribute('aria-expanded', !isExpanded);
-            mobileMenu.classList.toggle('hidden');
-            // Change hamburger icon to close icon and vice versa (optional, using CSS transform for arrow)
-            // For a pure hamburger/X, you'd swap two SVG paths or toggle a class that rotates/transforms
-        });
-
-        // Close mobile menu when a link is clicked
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenuButton.setAttribute('aria-expanded', 'false');
+            mobileMenuButton.addEventListener('click', function() {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+                this.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
             });
-        });
 
-        // FAQ Accordion
-        document.querySelectorAll('#faq button').forEach(button => {
-            button.addEventListener('click', () => {
-                const content = button.nextElementSibling;
-                const isExpanded = button.getAttribute('aria-expanded') === 'true' || false;
-                
-                button.setAttribute('aria-expanded', !isExpanded);
-                content.classList.toggle('hidden');
-                // Rotate arrow icon
-                button.querySelector('svg').classList.toggle('rotate-180');
-            });
-        });
+            // Client-side Form Validation Feedback (basic example)
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    // Prevent default submission to add custom logic or for AJAX
+                    // event.preventDefault(); 
+                    
+                    let isValid = true;
+                    const requiredInputs = contactForm.querySelectorAll('[required]');
 
-        // Contact Form Client-side Validation
-        const contactForm = document.getElementById('contact-form');
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const messageInput = document.getElementById('message');
-        const nameError = document.getElementById('name-error');
-        const emailError = document.getElementById('email-error');
-        const messageError = document.getElementById('message-error');
-        const formSuccess = document.getElementById('form-success-message');
-        const formError = document.getElementById('form-error-message');
+                    requiredInputs.forEach(input => {
+                        if (!input.value.trim()) {
+                            isValid = false;
+                            input.classList.add('border-red-500', 'ring-red-500'); // Indicate error
+                            input.setAttribute('aria-invalid', 'true');
+                            // Add a more descriptive error message near the input if needed
+                        } else {
+                            input.classList.remove('border-red-500', 'ring-red-500');
+                            input.setAttribute('aria-invalid', 'false');
+                        }
+                    });
 
-        function showValidationError(inputElement, errorElement, message) {
-            inputElement.classList.add('border-red-500');
-            inputElement.setAttribute('aria-invalid', 'true');
-            errorElement.textContent = message;
-            errorElement.classList.remove('hidden');
-        }
-
-        function hideValidationError(inputElement, errorElement) {
-            inputElement.classList.remove('border-red-500');
-            inputElement.setAttribute('aria-invalid', 'false');
-            errorElement.classList.add('hidden');
-        }
-
-        const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        const isNotEmpty = (value) => value.trim() !== '';
-
-        nameInput.addEventListener('input', () => {
-            if (isNotEmpty(nameInput.value)) hideValidationError(nameInput, nameError);
-            else showValidationError(nameInput, nameError, 'Please enter your name.');
-        });
-        emailInput.addEventListener('input', () => {
-            if (isValidEmail(emailInput.value)) hideValidationError(emailInput, emailError);
-            else showValidationError(emailInput, emailError, 'Please enter a valid email address.');
-        });
-        messageInput.addEventListener('input', () => {
-            if (isNotEmpty(messageInput.value)) hideValidationError(messageInput, messageError);
-            else showValidationError(messageInput, messageError, 'Please enter your message.');
-        });
-
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            formSuccess.classList.add('hidden');
-            formError.classList.add('hidden');
-
-            let formIsValid = true;
-
-            if (!isNotEmpty(nameInput.value)) {
-                showValidationError(nameInput, nameError, 'Please enter your name.');
-                formIsValid = false;
-            } else {
-                hideValidationError(nameInput, nameError);
-            }
-
-            if (!isValidEmail(emailInput.value)) {
-                showValidationError(emailInput, emailError, 'Please enter a valid email address.');
-                formIsValid = false;
-            } else {
-                hideValidationError(emailInput, emailError);
-            }
-
-            if (!isNotEmpty(messageInput.value)) {
-                showValidationError(messageInput, messageError, 'Please enter your message.');
-                formIsValid = false;
-            } else {
-                hideValidationError(messageInput, messageError);
-            }
-
-            if (formIsValid) {
-                // If all client-side validation passes, proceed with simulated submission
-                console.log('Form data:', {
-                    name: nameInput.value,
-                    email: emailInput.value,
-                    message: messageInput.value
-                });
-
-                // --- Replace this simulated submission with your actual backend API call ---
-                // Example using fetch (uncomment and modify for real use):
-                /*
-                fetch(this.action, {
-                    method: this.method,
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name: nameInput.value, email: emailInput.value, message: messageInput.value })
-                })
-                .then(response => {
-                    if (response.ok) {
-                        formSuccess.classList.remove('hidden');
-                        contactForm.reset(); // Clear form fields on success
-                        // Optional: hide success message after a few seconds
-                        setTimeout(() => formSuccess.classList.add('hidden'), 5000);
+                    if (!isValid) {
+                        alert('Please fill in all required fields.'); // Simple feedback
+                        event.preventDefault(); // Stop form submission if invalid
                     } else {
-                        formError.classList.remove('hidden');
-                        formError.textContent = 'Failed to send message. Please try again.';
+                        // If form is valid and not preventing default, it will submit.
+                        // For AJAX submission, you would prevent default and send data here.
+                        // Example: console.log('Form is valid. Sending data...');
+                        // alert('Thank you for your message! We will be in touch shortly.');
+                        // contactForm.reset(); // Clear form after successful submission
                     }
-                })
-                .catch(error => {
-                    console.error('Submission error:', error);
-                    formError.classList.remove('hidden');
-                    formError.textContent = 'Network error or server issue. Please try again later.';
                 });
-                */
-
-                // For demonstration, always show success after a delay
-                setTimeout(() => {
-                    formSuccess.classList.remove('hidden');
-                    contactForm.reset();
-                    // Hide success message after 5 seconds
-                    setTimeout(() => formSuccess.classList.add('hidden'), 5000);
-                }, 1000); // Simulate network delay
-            } else {
-                formError.classList.remove('hidden'); // Show generic error if client-side validation fails
-                formError.textContent = 'Please correct the errors in the form.';
-                // Focus on the first invalid field for better UX
-                const firstInvalidField = contactForm.querySelector('[aria-invalid="true"]');
-                if (firstInvalidField) firstInvalidField.focus();
             }
         });
     </script>
+
+    <!-- 
+    Edit Notes:
+    - To change the hero video: Update the 'src' and 'poster' attributes in the <video> tag within the #hero section.
+    - To replace images: Update the 'src' and 'srcset' attributes for <img> tags. Remember to update 'alt' text.
+    - To modify copy: Search for the text you want to change (e.g., "Vellaro Elegance", "Signature Collections") and edit directly.
+    - To configure the contact form: Locate the <form> tag with id="contact-form" and update its 'action' attribute to your server-side endpoint.
+      This form currently uses basic HTML5 validation. For more robust validation or AJAX submission, expand the JavaScript in the <script> block.
+    -->
+
+    <!-- 
+    Developer TODO (Before Deployment):
+    1.  **Verify Media Licenses:** Ensure all Pexels media usage complies with their license for your specific production scenario.
+    2.  **Contact Form Endpoint:** Update `YOUR_FORM_SUBMISSION_ENDPOINT` in the contact form's `action` attribute.
+    3.  **Replace Placeholder Text:** Review all sections and replace any placeholder text (e.g., "View Collection &rarr;", "Privacy Policy" links) with actual content.
+    4.  **Test on Mobile Devices:** Thoroughly test responsiveness, navigation, and touch targets on various mobile devices and screen sizes.
+    5.  **Run Lighthouse Audit:** Perform a full Lighthouse audit (Performance, Accessibility, Best Practices, SEO) in Chrome DevTools and address any critical issues.
+    -->
 </body>
 </html>
-
-<!-- Edit Notes: -->
-<!-- 1. Replace Hero Media: To change the hero video, update the `src` attribute of the `<source>` tag within the `<video>` element in the #hero section, and also update the `poster` attribute of the `<video>` tag with a suitable fallback image. Ensure the `type` attribute matches your video format (e.g., 'video/mp4'). If you only have an image, remove the `<video>` tag and replace it with an `<img>` tag, adjusting the styling. -->
-<!-- 2. Change Copy: All visible text content (headlines, paragraphs, button labels, testimonials, FAQ answers) can be directly edited within the HTML tags. Look for text inside `<h1>`, `<h2>`, `<h3>`, `<p>`, `<span>`, `<a>`, `<button>`, `<blockquote>`, `<li>` tags. -->
-<!-- 3. Adjust Colors & Brand: -->
-<!--    - **Brand Name/Logo**: Edit "Aroma Cafe" text in the header and footer. Replace the SVG coffee cup icon with your own logo SVG or text. -->
-<!--    - **Palette**: Modify Tailwind CSS classes (e.g., `bg-amber-700`, `text-neutral-800`) throughout the document to change the color scheme. The primary color (`amber-700`) is used for accents and headings, `neutral-800` for dark text, `neutral-50` for light backgrounds, and `emerald-500` for call-to-action buttons. You can search and replace these color classes with your desired Tailwind colors. For more granular control or custom brand colors, consider extending Tailwind's theme config if not using CDN or adding utility classes in the `<style>` block. -->
-<!-- 4. Configure Contact Form Endpoint: Locate the `<form>` element in the #contact section. Update the `action` attribute from `YOUR_FORM_SUBMISSION_ENDPOINT` to your actual server-side script or a service like Formspree, Netlify Forms, or Web3Forms. Remember that client-side JavaScript validation is for user experience; server-side validation is crucial for security and data integrity. -->
-<!-- 5. Update Social Media Links: In the footer, replace the '#' placeholders in the `href` attributes of the social media icons with your actual Facebook, Instagram, or other social profiles. -->
-<!-- 6. Review JSON-LD Schema: Update the `url`, `logo`, `sameAs`, `telephone`, `address`, and `geo` properties in the JSON-LD script block within the `<head>` section with your cafe's specific information. -->
-
-<!-- Developer TODO: -->
-<!-- 1. Verify all Pexels media licenses for your specific production use case to ensure compliance. -->
-<!-- 2. Replace `YOUR_FORM_SUBMISSION_ENDPOINT` in the contact form's `action` attribute with a real backend endpoint and uncomment/modify the `fetch` API call in the JavaScript. -->
-<!-- 3. Update all placeholder text (e.g., `https://www.yourdomain.com`, `+1-555-0100`, `info@aromacafe.com`, address details) with actual business information. -->
-<!-- 4. Thoroughly test responsiveness across various mobile devices and tablets, not just desktop browser resizing, to ensure optimal user experience. -->
-<!-- 5. Run a Lighthouse audit (or similar tool like WebPageTest) to check performance, accessibility, SEO, and best practices scores, aiming for green scores across the board. -->
 ```
