@@ -1,132 +1,134 @@
 ```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+<!-- 
+/**
+ * QuantumPlay Hub - Premium Gaming E-commerce Website
+ *
+ * This single-file HTML website provides a modern, luxurious, and technology-driven e-commerce experience
+ * for gaming products, inspired by PlayStation's high-end branding. It features a dark UI with
+ * neon blue accents, dynamic hero video, product showcases, testimonials, FAQ, and a contact form.
+ *
+ * Media Resources Used (Pexels, verify licensing for production):
+ * ---------------------------------------------------------------
+ * Hero Video: https://videos.pexels.com/video-files/7547007/7547007-sd_426_240_25fps.mp4
+ * Hero Video Poster (derived from Pexels image): https://images.pexels.com/photos/7688499/pexels-photo-7688499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+ * Additional Pexels Images:
+ *   - https://images.pexels.com/photos/7688499/pexels-photo-7688499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+ *   - https://images.pexels.com/photos/7862508/pexels-photo-7862508.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+ *   - https://images.pexels.com/photos/7562132/pexels-photo-7562132.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+ *   - https://images.pexels.com/photos/6499166/pexels-photo-6499166.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+ *   - https://images.pexels.com/photos/7864408/pexels-photo-7864408.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+ *   - https://images.pexels.com/photos/6498947/pexels-photo-6498947.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+ *   - https://images.pexels.com/photos/7864410/pexels-photo-7864410.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+ *   - https://images.pexels.com/photos/7864407/pexels-photo-7864407.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+ *   - https://images.pexels.com/photos/7562152/pexels-photo-7562152.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+ *   - https://images.pexels.com/photos/8591701/pexels-photo-8591701.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+ * Additional Pexels Video (for Featured Game): https://videos.pexels.com/video-files/7547240/7547240-sd_240_426_25fps.mp4
+ *
+ * Color Palette:
+ * - Primary Background: #030712 (gray-950)
+ * - Card Background: #111827 (gray-900)
+ * - Accent/Neon Blue: #0EA5E9 (sky-500)
+ * - Primary Text: #F9FAFB (gray-50)
+ * - Secondary Text: #D1D5DB (gray-300)
+ *
+ * To Edit:
+ * - Copy: Search for specific text blocks and replace.
+ * - Colors: Adjust Tailwind CSS classes like `bg-gray-950`, `text-sky-500` etc.
+ * - Brand: Update "QuantumPlay Hub" text/logo in header and footer.
+ * - Media: Update `src` attributes for videos and images. Remember to verify licensing.
+ * - Contact Form Endpoint: Update the `action` attribute of the `<form>` element.
+ *
+ * Browser Support: Modern evergreen browsers (Chrome, Firefox, Edge, Safari) are fully supported.
+ * Older browsers might have reduced visual fidelity due to CSS variables or advanced flex/grid properties.
+ *
+ * Testing Checklist:
+ * - [ ] Run Lighthouse (Performance, Accessibility, SEO, Best Practices).
+ * - [ ] Test keyboard navigation (Tab, Shift+Tab) for all interactive elements.
+ * - [ ] Check responsiveness across various device sizes (mobile, tablet, desktop).
+ * - [ ] Verify color contrast using browser dev tools or an A11y checker.
+ * - [ ] Test form submission (ensure endpoint is configured).
+ * - [ ] Validate HTML using W3C validator.
+ */
+-->
 <head>
-    <!-- 
-    Vellaro Elegance: Premium Lifestyle Brand Website
-    Description: A high-end, exclusive, and modern website for Vellaro Elegance, a premium lifestyle brand.
-                 Features a dark, minimal aesthetic with gold/champagne accents, cinematic video hero,
-                 glassmorphism effects, and elegant typography.
-    
-    Media Resources Used:
-    🎥 Hero Video: https://videos.pexels.com/video-files/5136490/5136490-sd_360_640_30fps.mp4
-    📸 Images (Pexels):
-        - Poster fallback for hero: https://images.pexels.com/photos/19599226/pexels-photo-19599226.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-        - Craftsmanship: https://images.pexels.com/photos/34723813/pexels-photo-34723813.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-        - Collections (grid): https://images.pexels.com/photos/19599230/pexels-photo-19599230.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-                             https://images.pexels.com/photos/34749111/pexels-photo-34749111.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-                             https://images.pexels.com/photos/34764376/pexels-photo-34764376.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-                             https://images.pexels.com/photos/34763218/pexels-photo-34763218.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-                             https://images.pexels.com/photos/19286046/pexels-photo-19286046.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-                             https://images.pexels.com/photos/34726645/pexels-photo-34726645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-                             https://images.pexels.com/photos/19599222/pexels-photo-19599222.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-                             https://images.pexels.com/photos/34760894/pexels-photo-34760894.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-        - Testimonial: (re-using first image as a placeholder for person) https://images.pexels.com/photos/19599226/pexels-photo-19599226.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
-
-    Pexels Media License Attribution: All media provided by Pexels is licensed under the Pexels License,
-    permitting free use for commercial and non-commercial purposes with or without attribution.
-    (Developer Note: Verify all media licenses for production use.)
-
-    Customization Notes:
-    - Text Content: Search for "Vellaro Elegance" or specific section headlines to find and edit copy.
-    - Colors: The primary palette uses Tailwind's `zinc-950` (dark bg), `zinc-200` (light text),
-             and `amber-400`/`amber-500` (gold/accent). Adjust Tailwind classes directly.
-    - Brand Identity: Logo (text in header) can be replaced with an SVG.
-    - Contact Form: Update the `action` attribute in the `<form>` tag to your desired endpoint.
-
-    Browser Support: Modern evergreen browsers (Chrome, Firefox, Safari, Edge) are fully supported.
-    Tailwind CSS CDN may not work in extremely old browsers.
-
-    Testing Checklist:
-    1.  **Responsiveness:** Check on various screen sizes (mobile, tablet, desktop).
-    2.  **Navigation:** Test hamburger menu toggle on mobile, desktop links.
-    3.  **Accessibility:** Use a screen reader (VoiceOver, NVDA) to navigate. Check keyboard navigation (Tab key).
-        Run Lighthouse (Accessibility, Performance, SEO) for automated checks.
-    4.  **Form Submission:** Verify form validation and submission behavior.
-    5.  **Media Loading:** Ensure videos play and images load correctly, including lazy loading.
-    6.  **Color Contrast:** Manually check key text elements against WCAG AA standards.
-    -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vellaro Elegance | Premium Lifestyle & Timeless Craftsmanship</title>
-    <meta name="description" content="Discover Vellaro Elegance: An exclusive world of premium lifestyle products, exquisite craftsmanship, and sophisticated design. Elevate your aspirations.">
-    <meta name="robots" content="index, follow">
+    <title>QuantumPlay Hub: Where Legends Load In - Premium Gaming Experiences</title>
+    <meta name="description" content="Explore premium disk games, digital editions, and exclusive bundles for PlayStation 3, 4, and 5 at QuantumPlay Hub. Your gateway to high-end gaming." />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.vellaro-elegance.com/"> <!-- Update with your actual URL -->
-    <meta property="og:title" content="Vellaro Elegance | Premium Lifestyle & Timeless Craftsmanship">
-    <meta property="og:description" content="Discover Vellaro Elegance: An exclusive world of premium lifestyle products, exquisite craftsmanship, and sophisticated design. Elevate your aspirations.">
-    <meta property="og:image" content="https://images.pexels.com/photos/19599226/pexels-photo-19599226.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"> <!-- High-res image URL for social cards -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.quantumplayhub.com/" /> <!-- Replace with your actual URL -->
+    <meta property="og:title" content="QuantumPlay Hub: Where Legends Load In - Premium Gaming Experiences" />
+    <meta property="og:description" content="Explore premium disk games, digital editions, and exclusive bundles for PlayStation 3, 4, and 5 at QuantumPlay Hub. Your gateway to high-end gaming." />
+    <meta property="og:image" content="https://images.pexels.com/photos/7688499/pexels-photo-7688499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" /> <!-- OG image URL -->
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.vellaro-elegance.com/"> <!-- Update with your actual URL -->
-    <meta property="twitter:title" content="Vellaro Elegance | Premium Lifestyle & Timeless Craftsmanship">
-    <meta property="twitter:description" content="Discover Vellaro Elegance: An exclusive world of premium lifestyle products, exquisite craftsmanship, and sophisticated design. Elevate your aspirations.">
-    <meta property="twitter:image" content="https://images.pexels.com/photos/19599226/pexels-photo-19599226.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"> <!-- High-res image URL for social cards -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.quantumplayhub.com/" /> <!-- Replace with your actual URL -->
+    <meta property="twitter:title" content="QuantumPlay Hub: Where Legends Load In - Premium Gaming Experiences" />
+    <meta property="twitter:description" content="Explore premium disk games, digital editions, and exclusive bundles for PlayStation 3, 4, and 5 at QuantumPlay Hub. Your gateway to high-end gaming." />
+    <meta property="twitter:image" content="https://images.pexels.com/photos/7688499/pexels-photo-7688499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" /> <!-- Twitter image URL -->
 
-    <!-- Preconnect for faster resource loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://videos.pexels.com">
-    <link rel="preconnect" href="https://images.pexels.com">
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <!-- Favicon -->
+    <!-- Consider adding a real favicon, e.g., <link rel="icon" href="/favicon.ico"> -->
 
-    <!-- Tailwind CSS CDN -->
+    <!-- Preconnect for Tailwind CSS CDN -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+
+    <!-- Tailwind CSS CDN (v3.x) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Inline styles for custom glassmorphism and animations (minimal) -->
+    <!-- Inline Styles for minimal custom adjustments and animations -->
     <style>
-        /* Define custom CSS variables or base styles */
-        :root {
-            --color-primary-bg: #0a0a0a; /* A very dark charcoal, almost black */
-            --color-text-light: #e4e4e7; /* zinc-200 */
-            --color-accent-gold: #fbbf24; /* amber-400 */
-            --color-accent-gold-dark: #f59e0b; /* amber-500 */
+        /* Custom Keyframes for subtle fade-in animation on section load */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
         }
 
-        body {
-            font-family: 'Inter', sans-serif; /* A modern, elegant sans-serif */
-            background-color: var(--color-primary-bg);
-            color: var(--color-text-light);
-        }
+        /* Delay for sequential section animations */
+        .animate-delay-100 { animation-delay: 0.1s; }
+        .animate-delay-200 { animation-delay: 0.2s; }
+        .animate-delay-300 { animation-delay: 0.3s; }
+        /* ... add more as needed */
 
-        /* Custom utility for glassmorphism */
-        .glassmorphism {
-            background-color: rgba(255, 255, 255, 0.05); /* Subtle white tint */
-            backdrop-filter: blur(8px); /* Blur effect */
-            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-        }
-
-        /* Custom utility for subtle hover transform */
-        .hover-lift:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Custom utility for active button state */
-        .btn-active:active {
-            transform: translateY(1px);
-        }
-
-        /* Custom focus states for accessibility */
-        *:focus {
-            outline: 2px solid var(--color-accent-gold-dark);
+        /* Custom focus states for better accessibility and design consistency */
+        .focus-ring:focus-visible {
+            outline: 2px solid theme('colors.sky.500');
             outline-offset: 2px;
-            border-radius: 3px;
+            border-radius: theme('borderRadius.md');
         }
 
-        /* Hide scrollbar for main body on some browsers but allow scrolling */
-        body::-webkit-scrollbar {
-            display: none;
+        /* Hamburger icon styling */
+        .hamburger-line {
+            display: block;
+            height: 2px;
+            width: 24px;
+            background-color: theme('colors.gray.100');
+            transition: all 0.2s ease-in-out;
         }
-        body {
-            -ms-overflow-style: none; /* IE and Edge */
-            scrollbar-width: none; /* Firefox */
+        .hamburger-open .top-line {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger-open .middle-line {
+            opacity: 0;
+        }
+        .hamburger-open .bottom-line {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Glassmorphism effect - optional, using backdrop-filter */
+        .glass-effect {
+            background-color: rgba(23, 23, 23, 0.3); /* dark with transparency */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 
@@ -137,32 +139,23 @@
       "@graph": [
         {
           "@type": "Organization",
-          "name": "Vellaro Elegance",
-          "url": "https://www.vellaro-elegance.com/", 
-          "logo": "https://www.vellaro-elegance.com/logo.svg", 
+          "name": "QuantumPlay Hub",
+          "url": "https://www.quantumplayhub.com", 
+          "logo": "https://images.pexels.com/photos/7688499/pexels-photo-7688499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "sameAs": [
-            "https://twitter.com/vellaro_elegance", 
-            "https://instagram.com/vellaro_elegance",
-            "https://linkedin.com/company/vellaro-elegance"
-          ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+1-555-VEL-ELEGANCE",
-            "contactType": "Customer service",
-            "areaServed": "Worldwide",
-            "availableLanguage": "en"
-          }
+            "https://www.twitch.tv/quantumplayhub",
+            "https://www.youtube.com/quantumplayhub",
+            "https://www.tiktok.com/@quantumplayhub",
+            "https://www.instagram.com/quantumplayhub"
+          ]
         },
         {
           "@type": "WebSite",
-          "url": "https://www.vellaro-elegance.com/",
-          "name": "Vellaro Elegance | Premium Lifestyle & Timeless Craftsmanship",
-          "publisher": {
-            "@id": "https://www.vellaro-elegance.com/#organization"
-          },
+          "name": "QuantumPlay Hub",
+          "url": "https://www.quantumplayhub.com",
           "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://www.vellaro-elegance.com/search?q={search_term_string}",
+            "target": "https://www.quantumplayhub.com/search?q={search_term_string}",
             "query-input": "required name=search_term_string"
           }
         }
@@ -170,454 +163,838 @@
     }
     </script>
 </head>
-<body class="bg-zinc-950 text-zinc-200 antialiased selection:bg-amber-400 selection:text-zinc-950">
 
-    <!-- HEADER / NAVIGATION -->
-    <header class="fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800">
-        <nav class="flex justify-between items-center max-w-7xl mx-auto" aria-label="Main navigation">
-            <!-- Brand Logo/Name -->
-            <a href="#hero" class="text-2xl md:text-3xl font-bold text-amber-400 tracking-wider hover:text-amber-300 transition-colors duration-300" aria-label="Vellaro Elegance Home">Vellaro Elegance</a>
+<body class="bg-gray-950 text-gray-100 font-sans antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-sm shadow-lg">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center" aria-label="Main Navigation">
+            <a href="#hero" class="text-2xl font-bold text-sky-500 hover:text-sky-400 transition focus-ring" aria-label="QuantumPlay Hub home">
+                <span class="sr-only">QuantumPlay Hub</span>
+                <svg class="inline-block h-8 w-8 mr-2 text-sky-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                QuantumPlay
+            </a>
 
             <!-- Desktop Navigation -->
-            <ul class="hidden md:flex space-x-8 lg:space-x-12">
-                <li><a href="#craftsmanship" class="text-lg font-medium hover:text-amber-400 transition-colors duration-300">Craftsmanship</a></li>
-                <li><a href="#collections" class="text-lg font-medium hover:text-amber-400 transition-colors duration-300">Collections</a></li>
-                <li><a href="#membership" class="text-lg font-medium hover:text-amber-400 transition-colors duration-300">Membership</a></li>
-                <li><a href="#testimonials" class="text-lg font-medium hover:text-amber-400 transition-colors duration-300">Testimonials</a></li>
-                <li><a href="#contact" class="text-lg font-medium hover:text-amber-400 transition-colors duration-300">Concierge</a></li>
+            <ul class="hidden md:flex space-x-8 text-lg">
+                <li><a href="#products" class="hover:text-sky-400 transition focus-ring">Shop Games</a></li>
+                <li><a href="#consoles" class="hover:text-sky-400 transition focus-ring">Browse Consoles</a></li>
+                <li><a href="#new-releases" class="hover:text-sky-400 transition focus-ring">New Releases</a></li>
+                <li><a href="#blog" class="hover:text-sky-400 transition focus-ring">Blog</a></li>
+                <li><a href="#contact" class="hover:text-sky-400 transition focus-ring">Contact</a></li>
             </ul>
 
-            <!-- Mobile Navigation Toggle (Hamburger) -->
-            <button id="mobile-menu-button" class="md:hidden text-zinc-200 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400 p-2 rounded-md" aria-label="Toggle mobile menu" aria-expanded="false">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
+            <!-- Mobile Navigation Toggle -->
+            <div class="md:hidden flex items-center">
+                <button id="nav-toggle" aria-controls="mobile-menu" aria-expanded="false" class="p-2 rounded-md focus-ring">
+                    <span class="sr-only">Open main menu</span>
+                    <div class="hamburger-line top-line transform translate-y-[-4px]"></div>
+                    <div class="hamburger-line middle-line my-1"></div>
+                    <div class="hamburger-line bottom-line transform translate-y-[4px]"></div>
+                </button>
+            </div>
         </nav>
 
-        <!-- Mobile Navigation Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-4 pb-4">
-            <ul class="flex flex-col items-center">
-                <li><a href="#craftsmanship" class="block py-2 text-xl font-medium hover:text-amber-400 transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.getElementById('mobile-menu-button').setAttribute('aria-expanded', 'false');">Craftsmanship</a></li>
-                <li><a href="#collections" class="block py-2 text-xl font-medium hover:text-amber-400 transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.getElementById('mobile-menu-button').setAttribute('aria-expanded', 'false');">Collections</a></li>
-                <li><a href="#membership" class="block py-2 text-xl font-medium hover:text-amber-400 transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.getElementById('mobile-menu-button').setAttribute('aria-expanded', 'false');">Membership</a></li>
-                <li><a href="#testimonials" class="block py-2 text-xl font-medium hover:text-amber-400 transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.getElementById('mobile-menu-button').setAttribute('aria-expanded', 'false');">Testimonials</a></li>
-                <li><a href="#contact" class="block py-2 text-xl font-medium hover:text-amber-400 transition-colors duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.getElementById('mobile-menu-button').setAttribute('aria-expanded', 'false');">Concierge</a></li>
+        <!-- Mobile Menu (initially hidden) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-900 shadow-xl py-4" aria-labelledby="nav-toggle">
+            <ul class="flex flex-col items-center space-y-4 text-lg">
+                <li><a href="#products" class="block py-2 hover:text-sky-400 transition focus-ring">Shop Games</a></li>
+                <li><a href="#consoles" class="block py-2 hover:text-sky-400 transition focus-ring">Browse Consoles</a></li>
+                <li><a href="#new-releases" class="block py-2 hover:text-sky-400 transition focus-ring">New Releases</a></li>
+                <li><a href="#blog" class="block py-2 hover:text-sky-400 transition focus-ring">Blog</a></li>
+                <li><a href="#contact" class="block py-2 hover:text-sky-400 transition focus-ring">Contact</a></li>
+                <li class="w-full text-center mt-4 pt-4 border-t border-gray-700">
+                    <a href="#" class="inline-flex items-center px-4 py-2 rounded-lg bg-gray-800 hover:bg-sky-500 transition focus-ring">
+                        <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
+                        Log In
+                    </a>
+                    <a href="#" class="inline-flex items-center px-4 py-2 ml-4 rounded-lg bg-gray-800 hover:bg-sky-500 transition focus-ring">
+                        <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        Wishlist
+                    </a>
+                </li>
             </ul>
         </div>
     </header>
 
     <main>
-        <!-- HERO SECTION -->
+        <!-- Hero Section -->
         <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
-            <!-- Background Video (Pexels) -->
-            <video class="absolute top-0 left-0 w-full h-full object-cover z-0"
-                   autoplay loop muted playsinline preload="auto"
-                   poster="https://images.pexels.com/photos/19599226/pexels-photo-19599226.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                   aria-label="Background video showing luxurious slow-motion textures">
-                <source src="https://videos.pexels.com/video-files/5136490/5136490-sd_360_640_30fps.mp4" type="video/mp4">
-                Your browser does not support the video tag. Please enjoy a static background image instead.
-            </video>
-
-            <!-- Overlay for text readability -->
-            <div class="absolute top-0 left-0 w-full h-full bg-black opacity-60 z-10"></div>
+            <!-- Background Video -->
+            <div class="absolute inset-0 z-0">
+                <video class="w-full h-full object-cover" autoplay loop muted playsinline poster="https://images.pexels.com/photos/7688499/pexels-photo-7688499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" aria-label="Background video of gaming clips">
+                    <source src="https://videos.pexels.com/video-files/7547007/7547007-sd_426_240_25fps.mp4" type="video/mp4">
+                    Your browser does not support the video tag. Please enjoy a static image.
+                </video>
+                <!-- Video Fallback / Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-950 to-transparent via-gray-950/50"></div>
+            </div>
 
             <!-- Hero Content -->
-            <div class="relative z-20 px-4 max-w-4xl mx-auto text-zinc-50">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-4 text-shadow-lg drop-shadow-md">
-                    Vellaro Elegance: Where Artistry Meets Aspiration
+            <div class="relative z-10 px-4 max-w-4xl animate-fade-in">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white mb-4 drop-shadow-lg">
+                    Where Legends Load In.
                 </h1>
-                <p class="text-lg md:text-2xl lg:text-3xl font-light leading-relaxed mb-8 text-shadow-md drop-shadow-sm">
-                    Discover an exclusive world crafted for the discerning connoisseur. Elevate your lifestyle with unparalleled sophistication and timeless design.
+                <p class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 drop-shadow-md">
+                    Explore premium disk games, digital editions, and exclusive bundles for PlayStation 3, 4, and 5.
                 </p>
-                <a href="#collections" class="inline-block px-8 py-4 bg-amber-500 text-zinc-950 text-xl md:text-2xl font-semibold rounded-full shadow-lg hover:bg-amber-400 transform hover-lift transition-all duration-300 ease-in-out btn-active" aria-label="Explore our Signature Collections">
-                    Explore Collections
-                </a>
-            </div>
-        </section>
-
-        <!-- ABOUT THE CRAFTSMANSHIP SECTION -->
-        <section id="craftsmanship" class="py-20 md:py-32 px-6 lg:px-12 relative overflow-hidden">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- Image/Video Block -->
-                <div class="relative w-full h-96 md:h-[500px] rounded-xl overflow-hidden shadow-2xl glassmorphism hover-lift transition-transform duration-300">
-                    <img src="https://images.pexels.com/photos/34723813/pexels-photo-34723813.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
-                         srcset="https://images.pexels.com/photos/34723813/pexels-photo-34723813.jpeg?auto=compress&cs=tinysrgb&h=650&w=940 1x, https://images.pexels.com/photos/34723813/pexels-photo-34723813.jpeg?auto=compress&cs=tinysrgb&h=1300&w=1880 2x"
-                         alt="Close-up of a meticulously crafted luxury item with intricate details" 
-                         class="w-full h-full object-cover object-center" loading="lazy">
-                </div>
-
-                <!-- Text Content -->
-                <div class="md:p-8 space-y-6">
-                    <h2 class="text-3xl md:text-5xl font-extrabold text-amber-400 leading-tight">
-                        The Soul of Vellaro: Uncompromising Craftsmanship
-                    </h2>
-                    <p class="text-lg md:text-xl leading-relaxed text-zinc-300">
-                        At Vellaro Elegance, every creation is a testament to unparalleled artistry and dedication. Our master artisans, steeped in generations of tradition, meticulously transform the finest materials into objects of desire. We believe true luxury lies not just in aesthetic beauty, but in the unseen hours of precision, the thoughtful selection of resources, and a relentless pursuit of perfection.
-                    </p>
-                    <p class="text-lg md:text-xl leading-relaxed text-zinc-300">
-                        From initial design sketches to the final polish, each piece embodies a legacy of excellence, ensuring that what you own is not merely an item, but a narrative of passion and an heirloom for tomorrow.
-                    </p>
-                    <a href="#collections" class="inline-block px-6 py-3 border border-amber-400 text-amber-400 font-semibold rounded-full hover:bg-amber-400 hover:text-zinc-950 transform hover-lift transition-all duration-300 ease-in-out btn-active">
-                        Discover Our Process
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#products" class="btn btn-primary animate-fade-in animate-delay-100 focus-ring">
+                        Shop Games
+                        <svg class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                    </a>
+                    <a href="#consoles" class="btn btn-secondary animate-fade-in animate-delay-200 focus-ring">
+                        Browse Consoles
+                        <svg class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3m0 0l3-3m-3 3v8m0-13a9 9 0 110 18A9 9 0 0112 3z"></path></svg>
+                    </a>
+                    <a href="#new-releases" class="btn btn-secondary animate-fade-in animate-delay-300 focus-ring">
+                        New Releases
+                        <svg class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- SIGNATURE COLLECTIONS SECTION -->
-        <section id="collections" class="py-20 md:py-32 px-6 lg:px-12 bg-zinc-900">
-            <div class="max-w-7xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-amber-400 mb-4">
-                    Signature Collections
-                </h2>
-                <p class="text-lg md:text-xl leading-relaxed text-zinc-300 max-w-3xl mx-auto">
-                    Explore our curated selections, each telling a unique story of design, innovation, and timeless allure. From sophisticated accessories to avant-garde statement pieces, find your expression of elegance.
-                </p>
-            </div>
+        <!-- Product Sections -->
+        <section id="products" class="container mx-auto py-16 px-4">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12 animate-fade-in">Explore Our Extensive Collection</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                <!-- Collection Item 1 -->
-                <article class="relative group rounded-xl overflow-hidden shadow-xl glassmorphism hover-lift transition-transform duration-300">
-                    <img src="https://images.pexels.com/photos/19599230/pexels-photo-19599230.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
-                         alt="Vellaro Elegance 'Horizon' timepiece, sleek and modern" 
-                         class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-in-out" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 text-amber-400">The Horizon Timepiece</h3>
-                        <p class="text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">Precision engineering meets minimalist design, capturing the essence of infinite possibility.</p>
-                        <a href="#" class="mt-4 inline-block text-amber-400 hover:text-amber-300 font-semibold transition-colors duration-300" aria-label="View The Horizon Timepiece collection">View Collection &rarr;</a>
+            <!-- PS5 Disk Games -->
+            <div id="ps5-games" class="mb-16 animate-fade-in animate-delay-100">
+                <h3 class="text-2xl sm:text-3xl font-semibold text-sky-500 mb-8 text-center sm:text-left">PS5 Disk Games</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                    <!-- Product Card 1 -->
+                    <div class="product-card">
+                        <img src="https://images.pexels.com/photos/7862508/pexels-photo-7862508.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Grand Theft Auto V game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">Grand Theft Auto V</h4>
+                        <p class="text-gray-400 text-sm">Action, Open World</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$59.99</span>
+                            <span class="platform-badge bg-blue-700">PS5</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                            <span class="text-gray-400 text-sm">(4.5)</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
                     </div>
-                </article>
 
-                <!-- Collection Item 2 -->
-                <article class="relative group rounded-xl overflow-hidden shadow-xl glassmorphism hover-lift transition-transform duration-300">
-                    <img src="https://images.pexels.com/photos/34749111/pexels-photo-34749111.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
-                         alt="Vellaro Elegance 'Luxe Leather' handbag, handcrafted luxury" 
-                         class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-in-out" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 text-amber-400">Luxe Leather Accessories</h3>
-                        <p class="text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">Handcrafted from the world's finest hides, each piece is a statement of understated opulence.</p>
-                        <a href="#" class="mt-4 inline-block text-amber-400 hover:text-amber-300 font-semibold transition-colors duration-300" aria-label="View Luxe Leather Accessories collection">View Collection &rarr;</a>
-                    </div>
-                </article>
-
-                <!-- Collection Item 3 -->
-                <article class="relative group rounded-xl overflow-hidden shadow-xl glassmorphism hover-lift transition-transform duration-300">
-                    <img src="https://images.pexels.com/photos/34764376/pexels-photo-34764376.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
-                         alt="Vellaro Elegance 'Aura' rings, exquisite jewelry" 
-                         class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-in-out" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 text-amber-400">The Aura Jewelry</h3>
-                        <p class="text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">Dazzling gems set in precious metals, designed to illuminate your inherent radiance.</p>
-                        <a href="#" class="mt-4 inline-block text-amber-400 hover:text-amber-300 font-semibold transition-colors duration-300" aria-label="View The Aura Jewelry collection">View Collection &rarr;</a>
-                    </div>
-                </article>
-
-                <!-- Collection Item 4 -->
-                <article class="relative group rounded-xl overflow-hidden shadow-xl glassmorphism hover-lift transition-transform duration-300">
-                    <img src="https://images.pexels.com/photos/34763218/pexels-photo-34763218.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
-                         alt="Vellaro Elegance 'Essence' fragrances, elegant perfume bottles" 
-                         class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-in-out" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 text-amber-400">Essence Fragrances</h3>
-                        <p class="text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">A symphony of rare notes, bottled to evoke sophistication and leave a lasting impression.</p>
-                        <a href="#" class="mt-4 inline-block text-amber-400 hover:text-amber-300 font-semibold transition-colors duration-300" aria-label="View Essence Fragrances collection">View Collection &rarr;</a>
-                    </div>
-                </article>
-
-                <!-- Collection Item 5 -->
-                <article class="relative group rounded-xl overflow-hidden shadow-xl glassmorphism hover-lift transition-transform duration-300">
-                    <img src="https://images.pexels.com/photos/19286046/pexels-photo-19286046.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
-                         alt="Vellaro Elegance 'Iconic' eyewear, stylish sunglasses" 
-                         class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-in-out" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 text-amber-400">Iconic Eyewear</h3>
-                        <p class="text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">Hand-polished frames with precision lenses, offering both visionary style and protection.</p>
-                        <a href="#" class="mt-4 inline-block text-amber-400 hover:text-amber-300 font-semibold transition-colors duration-300" aria-label="View Iconic Eyewear collection">View Collection &rarr;</a>
-                    </div>
-                </article>
-                
-                <!-- Collection Item 6 -->
-                <article class="relative group rounded-xl overflow-hidden shadow-xl glassmorphism hover-lift transition-transform duration-300">
-                    <img src="https://images.pexels.com/photos/34726645/pexels-photo-34726645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
-                         alt="Vellaro Elegance 'Heritage' cufflinks, luxurious men's accessories" 
-                         class="w-full h-72 object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-in-out" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 text-amber-400">Heritage Accents</h3>
-                        <p class="text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">Subtle yet profound additions to your ensemble, crafted to perfection and infused with legacy.</p>
-                        <a href="#" class="mt-4 inline-block text-amber-400 hover:text-amber-300 font-semibold transition-colors duration-300" aria-label="View Heritage Accents collection">View Collection &rarr;</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- EXCLUSIVE MEMBERSHIP CTA BLOCK -->
-        <section id="membership" class="py-20 md:py-32 px-6 lg:px-12 relative bg-zinc-950">
-            <div class="max-w-4xl mx-auto text-center relative z-10 glassmorphism p-8 md:p-12 rounded-2xl shadow-2xl hover-lift transition-transform duration-300">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-amber-400 mb-6 leading-tight">
-                    Join the Vellaro Privé Membership
-                </h2>
-                <p class="text-lg md:text-xl leading-relaxed text-zinc-300 mb-8">
-                    Gain exclusive access to limited-edition releases, bespoke services, and a community of discerning individuals. The Vellaro Privé Membership is your passport to a world of unparalleled luxury and personalized experiences.
-                </p>
-                <ul class="text-left text-lg md:text-xl text-zinc-300 mb-8 space-y-3">
-                    <li class="flex items-center justify-center md:justify-start">
-                        <svg class="w-6 h-6 mr-3 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        Early access to new collections
-                    </li>
-                    <li class="flex items-center justify-center md:justify-start">
-                        <svg class="w-6 h-6 mr-3 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        Personalized concierge service
-                    </li>
-                    <li class="flex items-center justify-center md:justify-start">
-                        <svg class="w-6 h-6 mr-3 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        Invitations to exclusive events
-                    </li>
-                </ul>
-                <a href="#contact" class="inline-block px-8 py-4 bg-amber-500 text-zinc-950 text-xl md:text-2xl font-semibold rounded-full shadow-lg hover:bg-amber-400 transform hover-lift transition-all duration-300 ease-in-out btn-active" aria-label="Inquire about Vellaro Privé Membership">
-                    Inquire Now
-                </a>
-            </div>
-        </section>
-
-        <!-- TESTIMONIALS SECTION -->
-        <section id="testimonials" class="py-20 md:py-32 px-6 lg:px-12 bg-zinc-900">
-            <div class="max-w-7xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-amber-400 mb-4">
-                    Voices of Distinction
-                </h2>
-                <p class="text-lg md:text-xl leading-relaxed text-zinc-300 max-w-3xl mx-auto">
-                    Hear from our esteemed clients who have experienced the unparalleled luxury and service of Vellaro Elegance.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                <!-- Testimonial 1 -->
-                <blockquote class="glassmorphism p-8 rounded-xl shadow-lg hover-lift transition-transform duration-300 flex flex-col items-center text-center">
-                    <img src="https://images.pexels.com/photos/19599226/pexels-photo-19599226.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
-                         alt="Portrait of a satisfied customer" 
-                         class="w-24 h-24 rounded-full object-cover object-center mb-6 border-2 border-amber-400" loading="lazy">
-                    <p class="text-xl italic mb-4 text-zinc-200">
-                        "Vellaro Elegance transformed my understanding of luxury. Each piece is a masterpiece, a true testament to exceptional design and quality. Simply incomparable."
-                    </p>
-                    <footer class="font-semibold text-amber-400 text-lg">&mdash; Isabella Rossi</footer>
-                    <p class="text-sm text-zinc-400">Art Collector, Milan</p>
-                </blockquote>
-
-                <!-- Testimonial 2 -->
-                <blockquote class="glassmorphism p-8 rounded-xl shadow-lg hover-lift transition-transform duration-300 flex flex-col items-center text-center">
-                    <img src="https://images.pexels.com/photos/19599222/pexels-photo-19599222.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
-                         alt="Portrait of a satisfied customer" 
-                         class="w-24 h-24 rounded-full object-cover object-center mb-6 border-2 border-amber-400" loading="lazy">
-                    <p class="text-xl italic mb-4 text-zinc-200">
-                        "The personalized service from Vellaro's concierge is impeccable. They anticipate your needs and deliver with grace and precision. A truly bespoke experience."
-                    </p>
-                    <footer class="font-semibold text-amber-400 text-lg">&mdash; Dr. Alistair Finch</footer>
-                    <p class="text-sm text-zinc-400">Innovator & Philanthropist, London</p>
-                </blockquote>
-
-                <!-- Testimonial 3 -->
-                <blockquote class="glassmorphism p-8 rounded-xl shadow-lg hover-lift transition-transform duration-300 flex flex-col items-center text-center">
-                    <img src="https://images.pexels.com/photos/34760894/pexels-photo-34760894.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" 
-                         alt="Portrait of a satisfied customer" 
-                         class="w-24 h-24 rounded-full object-cover object-center mb-6 border-2 border-amber-400" loading="lazy">
-                    <p class="text-xl italic mb-4 text-zinc-200">
-                        "Owning a Vellaro piece is more than possession; it's an affirmation of taste and a connection to a heritage of excellence. My go-to for refined essentials."
-                    </p>
-                    <footer class="font-semibold text-amber-400 text-lg">&mdash; Sophie Dubois</footer>
-                    <p class="text-sm text-zinc-400">Entrepreneur, Paris</p>
-                </blockquote>
-            </div>
-        </section>
-
-        <!-- FAQ SECTION -->
-        <section id="faq" class="py-20 md:py-32 px-6 lg:px-12 bg-zinc-950">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-amber-400 mb-4">
-                    Frequently Asked Questions
-                </h2>
-                <p class="text-lg md:text-xl leading-relaxed text-zinc-300 max-w-3xl mx-auto">
-                    Find answers to common inquiries about our brand, products, and services.
-                </p>
-            </div>
-
-            <div class="max-w-4xl mx-auto space-y-6">
-                <!-- FAQ Item 1 -->
-                <details class="glassmorphism rounded-xl shadow-lg p-6 group cursor-pointer hover:bg-white/10 transition-colors duration-300">
-                    <summary class="flex justify-between items-center text-xl md:text-2xl font-semibold text-zinc-50 group-hover:text-amber-400 transition-colors duration-300">
-                        What makes Vellaro Elegance unique?
-                        <svg class="w-6 h-6 text-amber-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </summary>
-                    <p class="mt-4 text-lg text-zinc-300 leading-relaxed">
-                        Vellaro Elegance stands apart through its unwavering commitment to artisanal craftsmanship, exclusive design, and the use of only the most exquisite materials sourced globally. We combine timeless elegance with modern innovation to create pieces that are both luxurious and enduring.
-                    </p>
-                </details>
-
-                <!-- FAQ Item 2 -->
-                <details class="glassmorphism rounded-xl shadow-lg p-6 group cursor-pointer hover:bg-white/10 transition-colors duration-300">
-                    <summary class="flex justify-between items-center text-xl md:text-2xl font-semibold text-zinc-50 group-hover:text-amber-400 transition-colors duration-300">
-                        How can I inquire about a bespoke commission?
-                        <svg class="w-6 h-6 text-amber-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </summary>
-                    <p class="mt-4 text-lg text-zinc-300 leading-relaxed">
-                        We welcome bespoke requests for discerning clients. Please visit our 'Contact Concierge' section or fill out the form, selecting 'Bespoke Commission' as your inquiry type. Our team will reach out to discuss your vision and guide you through the process.
-                    </p>
-                </details>
-
-                <!-- FAQ Item 3 -->
-                <details class="glassmorphism rounded-xl shadow-lg p-6 group cursor-pointer hover:bg-white/10 transition-colors duration-300">
-                    <summary class="flex justify-between items-center text-xl md:text-2xl font-semibold text-zinc-50 group-hover:text-amber-400 transition-colors duration-300">
-                        What are the benefits of the Vellaro Privé Membership?
-                        <svg class="w-6 h-6 text-amber-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </summary>
-                    <p class="mt-4 text-lg text-zinc-300 leading-relaxed">
-                        The Vellaro Privé Membership offers an array of exclusive privileges, including early access to new collections, personalized recommendations, dedicated concierge support, invitations to private events, and special member-only benefits. It's designed to enhance your journey with Vellaro Elegance.
-                    </p>
-                </details>
-            </div>
-        </section>
-
-        <!-- CONTACT CONCIERGE FORM SECTION -->
-        <section id="contact" class="py-20 md:py-32 px-6 lg:px-12 bg-zinc-900">
-            <div class="max-w-3xl mx-auto text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-amber-400 mb-4">
-                    Contact Our Concierge
-                </h2>
-                <p class="text-lg md:text-xl leading-relaxed text-zinc-300">
-                    Our dedicated concierge team is at your service. Whether for inquiries, bespoke requests, or personalized assistance, we are here to ensure your Vellaro Elegance experience is seamless.
-                </p>
-            </div>
-
-            <div class="max-w-xl mx-auto glassmorphism p-8 md:p-10 rounded-2xl shadow-xl">
-                <form id="contact-form" action="YOUR_FORM_SUBMISSION_ENDPOINT" method="POST" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-lg font-medium text-zinc-50 mb-2">Your Name</label>
-                        <input type="text" id="name" name="name" required 
-                               class="w-full p-3 bg-zinc-800 text-zinc-200 border border-zinc-700 rounded-lg focus:ring-amber-400 focus:border-amber-400 transition-all duration-300 outline-none" 
-                               placeholder="John Doe" aria-required="true">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-lg font-medium text-zinc-50 mb-2">Email Address</label>
-                        <input type="email" id="email" name="email" required 
-                               class="w-full p-3 bg-zinc-800 text-zinc-200 border border-zinc-700 rounded-lg focus:ring-amber-400 focus:border-amber-400 transition-all duration-300 outline-none" 
-                               placeholder="john.doe@example.com" aria-required="true">
-                    </div>
-                    <div>
-                        <label for="subject" class="block text-lg font-medium text-zinc-50 mb-2">Subject</label>
-                        <select id="subject" name="subject" required 
-                                class="w-full p-3 bg-zinc-800 text-zinc-200 border border-zinc-700 rounded-lg focus:ring-amber-400 focus:border-amber-400 transition-all duration-300 outline-none" 
-                                aria-required="true">
-                            <option value="">Select a subject...</option>
-                            <option value="General Inquiry">General Inquiry</option>
-                            <option value="Bespoke Commission">Bespoke Commission</option>
-                            <option value="Membership Inquiry">Vellaro Privé Membership</option>
-                            <option value="Product Support">Product Support</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="message" class="block text-lg font-medium text-zinc-50 mb-2">Your Message</label>
-                        <textarea id="message" name="message" rows="6" required 
-                                  class="w-full p-3 bg-zinc-800 text-zinc-200 border border-zinc-700 rounded-lg focus:ring-amber-400 focus:border-amber-400 transition-all duration-300 outline-none resize-y" 
-                                  placeholder="How can we assist you?" aria-required="true"></textarea>
+                    <!-- Product Card 2 -->
+                    <div class="product-card animate-delay-100">
+                        <img src="https://images.pexels.com/photos/7562132/pexels-photo-7562132.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Mortal Kombat 11 game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">Mortal Kombat 11</h4>
+                        <p class="text-gray-400 text-sm">Fighting</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$39.99</span>
+                            <span class="platform-badge bg-blue-700">PS5</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <span class="text-gray-400 text-sm">(5.0)</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
                     </div>
                     
-                    <!-- Privacy Note -->
-                    <p class="text-sm text-zinc-400 text-center">
-                        By submitting this form, you agree to our <a href="#" class="text-amber-400 hover:underline">Privacy Policy</a>. We respect your privacy.
-                    </p>
+                    <!-- Product Card 3 -->
+                    <div class="product-card animate-delay-200">
+                        <img src="https://images.pexels.com/photos/6499166/pexels-photo-6499166.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Spider-Man Miles Morales game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">Spider-Man: Miles Morales</h4>
+                        <p class="text-gray-400 text-sm">Action, Adventure</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$49.99</span>
+                            <span class="platform-badge bg-blue-700">PS5</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                            <span class="text-gray-400 text-sm">(4.8)</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
+                    </div>
 
-                    <button type="submit" class="w-full px-8 py-4 bg-amber-500 text-zinc-950 text-xl font-semibold rounded-full shadow-lg hover:bg-amber-400 transform hover-lift transition-all duration-300 ease-in-out btn-active">
+                    <!-- Product Card 4 -->
+                    <div class="product-card animate-delay-300">
+                        <img src="https://images.pexels.com/photos/7864408/pexels-photo-7864408.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="God of War Ragnarök game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">God of War Ragnarök</h4>
+                        <p class="text-gray-400 text-sm">Action, RPG</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$69.99</span>
+                            <span class="platform-badge bg-blue-700">PS5</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <span class="text-gray-400 text-sm">(4.9)</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
+                    </div>
+
+                    <!-- Product Card 5 (Placeholder, can be replaced) -->
+                    <div class="product-card animate-delay-400">
+                        <img src="https://images.pexels.com/photos/7864410/pexels-photo-7864410.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Game cover art for an upcoming PS5 game" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">Horizon Forbidden West</h4>
+                        <p class="text-gray-400 text-sm">Action RPG</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$69.99</span>
+                            <span class="platform-badge bg-blue-700">PS5</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                            <span class="text-gray-400 text-sm">(4.7)</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PS4 Disk Games -->
+            <div id="ps4-games" class="mb-16 animate-fade-in animate-delay-200">
+                <h3 class="text-2xl sm:text-3xl font-semibold text-sky-500 mb-8 text-center sm:text-left">PS4 Disk Games</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                    <!-- Product Card 1 -->
+                    <div class="product-card">
+                        <img src="https://images.pexels.com/photos/6498947/pexels-photo-6498947.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="FIFA 23 game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">FIFA 23</h4>
+                        <p class="text-gray-400 text-sm">Sports</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$29.99</span>
+                            <span class="platform-badge bg-indigo-700">PS4</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
+                            <span class="text-gray-400 text-sm">(3.9)</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
+                    </div>
+                    <!-- Product Card 2 -->
+                    <div class="product-card animate-delay-100">
+                        <img src="https://images.pexels.com/photos/7864407/pexels-photo-7864407.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Call of Duty: Modern Warfare II game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">Call of Duty: MW II</h4>
+                        <p class="text-gray-400 text-sm">FPS</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$49.99</span>
+                            <span class="platform-badge bg-indigo-700">PS4</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                            <span class="text-gray-400 text-sm">(4.3)</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
+                    </div>
+                    <!-- Product Card 3 -->
+                    <div class="product-card animate-delay-200">
+                        <img src="https://images.pexels.com/photos/7562152/pexels-photo-7562152.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Need for Speed Heat game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">Need for Speed Heat</h4>
+                        <p class="text-gray-400 text-sm">Racing</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$19.99</span>
+                            <span class="platform-badge bg-indigo-700">PS4</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                            <span class="text-gray-400 text-sm">(4.1)</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
+                    </div>
+                     <!-- Product Card 4 -->
+                     <div class="product-card animate-delay-300">
+                        <img src="https://images.pexels.com/photos/7688499/pexels-photo-7688499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Gaming controllers and headset setup" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">Cyberpunk 2077</h4>
+                        <p class="text-gray-400 text-sm">Action RPG</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$34.99</span>
+                            <span class="platform-badge bg-indigo-700">PS4</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
+                            <span class="text-gray-400 text-sm">(4.2)</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
+                    </div>
+                     <!-- Product Card 5 -->
+                     <div class="product-card animate-delay-400">
+                        <img src="https://images.pexels.com/photos/8591701/pexels-photo-8591701.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Game controller on a glowing surface" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">Red Dead Redemption 2</h4>
+                        <p class="text-gray-400 text-sm">Action, Western</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$39.99</span>
+                            <span class="platform-badge bg-indigo-700">PS4</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <span class="text-gray-400 text-sm">(4.9)</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PS3 Legacy Titles -->
+            <div id="ps3-games" class="mb-16 animate-fade-in animate-delay-300">
+                <h3 class="text-2xl sm:text-3xl font-semibold text-sky-500 mb-8 text-center sm:text-left">PS3 Legacy Titles</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                    <!-- Product Card 1 (Placeholder) -->
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x400/1E3A8A/FFFFFF?text=PS3+Classic" alt="Placeholder PS3 game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">The Last of Us</h4>
+                        <p class="text-gray-400 text-sm">Action, Survival</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$14.99</span>
+                            <span class="platform-badge bg-purple-700">PS3</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                            <span class="text-gray-400 text-sm">(4.7)</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
+                    </div>
+                    <!-- Product Card 2 (Placeholder) -->
+                    <div class="product-card animate-delay-100">
+                        <img src="https://via.placeholder.com/300x400/1E3A8A/FFFFFF?text=PS3+Gem" alt="Placeholder PS3 game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">Uncharted 3</h4>
+                        <p class="text-gray-400 text-sm">Action, Adventure</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$9.99</span>
+                            <span class="platform-badge bg-purple-700">PS3</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                            <span class="text-gray-400 text-sm">(4.5)</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Digital Codes & Add-ons -->
+            <div id="digital-addons" class="mb-16 animate-fade-in animate-delay-400">
+                <h3 class="text-2xl sm:text-3xl font-semibold text-sky-500 mb-8 text-center sm:text-left">Digital Codes & Add-ons</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                    <!-- Product Card 1 (Placeholder) -->
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x400/0F766E/FFFFFF?text=PSN+Card" alt="PlayStation Network card digital code" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">PSN $50 Gift Card</h4>
+                        <p class="text-gray-400 text-sm">Digital Credit</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$50.00</span>
+                            <span class="platform-badge bg-teal-700">DIGITAL</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <span class="text-gray-400 text-sm">(5.0)</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
+                    </div>
+                    <!-- Product Card 2 (Placeholder) -->
+                    <div class="product-card animate-delay-100">
+                        <img src="https://via.placeholder.com/300x400/0F766E/FFFFFF?text=Season+Pass" alt="Game season pass digital code" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">Cyberpunk 2077: Phantom Liberty</h4>
+                        <p class="text-gray-400 text-sm">Expansion</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$29.99</span>
+                            <span class="platform-badge bg-teal-700">DIGITAL</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                            <span class="text-gray-400 text-sm">(4.8)</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Highlight Sections -->
+        <section id="new-releases" class="container mx-auto py-16 px-4">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12 animate-fade-in">New Releases & Top Picks</h2>
+
+            <!-- New Releases of the Month -->
+            <div class="mb-16 animate-fade-in animate-delay-100">
+                <h3 class="text-2xl sm:text-3xl font-semibold text-sky-500 mb-8 text-center sm:text-left">New Releases</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- New Release Card 1 (Placeholder) -->
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/300x400/6D28D9/FFFFFF?text=New+Game+1" alt="New release game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">Starfield</h4>
+                        <p class="text-gray-400 text-sm">Sci-Fi RPG</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$69.99</span>
+                            <span class="platform-badge bg-blue-700">PS5</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Pre-Order</button>
+                    </div>
+                    <!-- New Release Card 2 (Placeholder) -->
+                    <div class="product-card animate-delay-100">
+                        <img src="https://via.placeholder.com/300x400/6D28D9/FFFFFF?text=New+Game+2" alt="New release game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">Alan Wake 2</h4>
+                        <p class="text-gray-400 text-sm">Survival Horror</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$59.99</span>
+                            <span class="platform-badge bg-blue-700">PS5</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
+                    </div>
+                     <!-- New Release Card 3 (Placeholder) -->
+                     <div class="product-card animate-delay-200">
+                        <img src="https://via.placeholder.com/300x400/6D28D9/FFFFFF?text=New+Game+3" alt="New release game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">Final Fantasy VII Rebirth</h4>
+                        <p class="text-gray-400 text-sm">JRPG</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$69.99</span>
+                            <span class="platform-badge bg-blue-700">PS5</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Pre-Order</button>
+                    </div>
+                     <!-- New Release Card 4 (Placeholder) -->
+                     <div class="product-card animate-delay-300">
+                        <img src="https://via.placeholder.com/300x400/6D28D9/FFFFFF?text=New+Game+4" alt="New release game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">Helldivers 2</h4>
+                        <p class="text-gray-400 text-sm">Third-person Shooter</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$39.99</span>
+                            <span class="platform-badge bg-blue-700">PS5</span>
+                        </div>
+                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Limited Edition Collector Discs -->
+            <div class="animate-fade-in animate-delay-200">
+                <h3 class="text-2xl sm:text-3xl font-semibold text-sky-500 mb-8 text-center sm:text-left">Limited Edition Collector Discs</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Limited Edition Card 1 (Placeholder) -->
+                    <div class="product-card border border-sky-600 shadow-sky-glow">
+                        <img src="https://via.placeholder.com/300x400/8B5CF6/FFFFFF?text=Collector's+Edition" alt="Limited Edition game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">Final Fantasy XVI Collector's Ed.</h4>
+                        <p class="text-gray-400 text-sm">Exclusive Content</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$199.99</span>
+                            <span class="platform-badge bg-yellow-600">COLLECTOR</span>
+                        </div>
+                        <button class="btn btn-sm bg-sky-600 hover:bg-sky-700 text-white w-full focus-ring">Add to Cart</button>
+                    </div>
+                    <!-- Limited Edition Card 2 (Placeholder) -->
+                    <div class="product-card border border-sky-600 shadow-sky-glow animate-delay-100">
+                        <img src="https://via.placeholder.com/300x400/8B5CF6/FFFFFF?text=Exclusive+Edition" alt="Limited Edition game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-lg font-semibold text-white">Spider-Man 2 Collector's Ed.</h4>
+                        <p class="text-gray-400 text-sm">Statue Included</p>
+                        <div class="flex items-center justify-between mt-2 mb-4">
+                            <span class="text-xl font-bold text-sky-500">$229.99</span>
+                            <span class="platform-badge bg-yellow-600">COLLECTOR</span>
+                        </div>
+                        <button class="btn btn-sm bg-sky-600 hover:bg-sky-700 text-white w-full focus-ring">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Game of the Week (mimicking a game page) -->
+        <section id="featured-game" class="container mx-auto py-16 px-4 animate-fade-in animate-delay-300">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12">Featured Game of the Week</h2>
+            <div class="bg-gray-900 rounded-2xl shadow-2xl overflow-hidden p-8 lg:p-12 border border-sky-700/30">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+                    <!-- Game Media -->
+                    <div class="flex flex-col gap-8">
+                        <img src="https://images.pexels.com/photos/7864408/pexels-photo-7864408.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="God of War Ragnarök full game cover art" class="w-full rounded-xl shadow-lg border border-gray-700" loading="lazy">
+                        <div class="aspect-video w-full rounded-xl overflow-hidden shadow-lg border border-gray-700">
+                            <video class="w-full h-full object-cover" controls playsinline poster="https://images.pexels.com/photos/7562132/pexels-photo-7562132.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" aria-label="God of War Ragnarök gameplay trailer">
+                                <source src="https://videos.pexels.com/video-files/7547240/7547240-sd_240_426_25fps.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <!-- Game Details -->
+                    <div>
+                        <h3 class="text-4xl font-bold text-sky-500 mb-4">God of War Ragnarök</h3>
+                        <p class="text-gray-300 text-lg mb-6">Join Kratos and Atreus on a mythic journey for answers and allies before Ragnarök arrives. Experience an epic, heartfelt story of father and son, navigating the treacherous Norse realms and battling formidable gods and monsters.</p>
+                        
+                        <div class="mb-6">
+                            <p class="text-gray-400 mb-2"><strong>Features:</strong></p>
+                            <ul class="list-disc list-inside text-gray-300 ml-4 space-y-1">
+                                <li>Unleash devastating combos with Kratos' Leviathan Axe and Blades of Chaos.</li>
+                                <li>Explore all Nine Realms, each with unique biomes and challenges.</li>
+                                <li>Deep, emotional narrative with memorable characters.</li>
+                                <li>Stunning next-gen graphics and immersive sound design.</li>
+                            </ul>
+                        </div>
+
+                        <div class="flex items-center space-x-4 mb-6">
+                            <span class="platform-badge bg-blue-700">PS5</span>
+                            <span class="platform-badge bg-indigo-700">PS4</span>
+                            <span class="text-gray-400">Rating: <span class="text-yellow-400">&#9733;&#9733;&#9733;&#9733;&#9733;</span> (4.9/5)</span>
+                        </div>
+
+                        <div class="mb-6">
+                            <p class="text-gray-400 mb-2"><strong>System Requirements:</strong></p>
+                            <ul class="text-gray-300 ml-4 space-y-1">
+                                <li>Platform: PlayStation 5, PlayStation 4</li>
+                                <li>Storage: 85 GB available space</li>
+                                <li>PlayStation Plus (optional for online features)</li>
+                            </ul>
+                        </div>
+
+                        <div class="flex items-center justify-between border-t border-gray-800 pt-6 mt-6">
+                            <span class="text-4xl font-extrabold text-sky-500">$69.99</span>
+                            <div class="flex space-x-4">
+                                <button class="btn btn-primary text-lg focus-ring">
+                                    <svg class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                    Add to Cart
+                                </button>
+                                <button class="btn btn-secondary text-lg focus-ring">
+                                    <svg class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                                    Add to Wishlist
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section (Placeholder for gaming news) -->
+        <section id="blog" class="container mx-auto py-16 px-4 animate-fade-in animate-delay-400">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12">Latest Gaming News & Updates</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <article class="bg-gray-900 rounded-xl shadow-xl p-6 border border-gray-800 hover:shadow-2xl hover:border-sky-700/50 transition-all duration-300 focus-ring">
+                    <img src="https://via.placeholder.com/600x400/0369A1/FFFFFF?text=New+Game+Announcement" alt="Blog post cover image for new game announcement" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy">
+                    <h3 class="text-xl font-semibold text-sky-500 mb-3">Next-Gen Console Unveiled: What to Expect</h3>
+                    <p class="text-gray-300 mb-4 text-sm">Dive deep into the rumors and confirmed features of the highly anticipated next-generation gaming console. We break down the specs, launch titles, and potential impact on the gaming world.</p>
+                    <a href="#" class="text-sky-400 hover:text-sky-300 font-medium inline-flex items-center focus-ring">
+                        Read More 
+                        <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </article>
+                <!-- Blog Post 2 -->
+                <article class="bg-gray-900 rounded-xl shadow-xl p-6 border border-gray-800 hover:shadow-2xl hover:border-sky-700/50 transition-all duration-300 focus-ring">
+                    <img src="https://via.placeholder.com/600x400/0369A1/FFFFFF?text=Gaming+Tips" alt="Blog post cover image for gaming tips" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy">
+                    <h3 class="text-xl font-semibold text-sky-500 mb-3">Mastering Elden Ring: Advanced Combat Guide</h3>
+                    <p class="text-gray-300 mb-4 text-sm">Having trouble with the Lands Between? Our expert guide provides essential tips, hidden mechanics, and advanced combat strategies to help you become an Elden Lord.</p>
+                    <a href="#" class="text-sky-400 hover:text-sky-300 font-medium inline-flex items-center focus-ring">
+                        Read More 
+                        <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </article>
+                <!-- Blog Post 3 -->
+                <article class="bg-gray-900 rounded-xl shadow-xl p-6 border border-gray-800 hover:shadow-2xl hover:border-sky-700/50 transition-all duration-300 focus-ring">
+                    <img src="https://via.placeholder.com/600x400/0369A1/FFFFFF?text=Upcoming+Games" alt="Blog post cover image for upcoming games" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy">
+                    <h3 class="text-xl font-semibold text-sky-500 mb-3">Top 10 Most Anticipated Games of the Year</h3>
+                    <p class="text-gray-300 mb-4 text-sm">From groundbreaking RPGs to thrilling action adventures, discover the games that are set to define the year. Get ready to update your wishlist!</p>
+                    <a href="#" class="text-sky-400 hover:text-sky-300 font-medium inline-flex items-center focus-ring">
+                        Read More 
+                        <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="container mx-auto py-16 px-4 animate-fade-in animate-delay-500">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12">What Our Gamers Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-900 rounded-xl shadow-xl p-6 border border-gray-800">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/80/0EA5E9/FFFFFF?text=J.D." alt="Avatar of Jane Doe" class="w-12 h-12 rounded-full mr-4 border-2 border-sky-500">
+                        <div>
+                            <p class="font-semibold text-white">Jane D.</p>
+                            <p class="text-gray-400 text-sm">Verified Buyer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-4">"QuantumPlay Hub delivered my PS5 game faster than expected, and the packaging was immaculate. Their selection is top-notch!"</p>
+                    <div class="text-yellow-400">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-900 rounded-xl shadow-xl p-6 border border-gray-800 animate-delay-100">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/80/0EA5E9/FFFFFF?text=M.S." alt="Avatar of Mike Smith" class="w-12 h-12 rounded-full mr-4 border-2 border-sky-500">
+                        <div>
+                            <p class="font-semibold text-white">Mike S.</p>
+                            <p class="text-gray-400 text-sm">Dedicated Collector</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-4">"Found a rare PS3 title I'd been searching for years! The quality was perfect, and the price was fair. Highly recommend for collectors."</p>
+                    <div class="text-yellow-400">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-900 rounded-xl shadow-xl p-6 border border-gray-800 animate-delay-200">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/80/0EA5E9/FFFFFF?text=A.L." alt="Avatar of Alex Lee" class="w-12 h-12 rounded-full mr-4 border-2 border-sky-500">
+                        <div>
+                            <p class="font-semibold text-white">Alex L.</p>
+                            <p class="text-gray-400 text-sm">New Customer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-4">"The website experience is so smooth, and the game descriptions are really helpful. My new go-to for all things PlayStation!"</p>
+                    <div class="text-yellow-400">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="container mx-auto py-16 px-4 animate-fade-in animate-delay-600">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12">Frequently Asked Questions</h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ Item 1 -->
+                <details class="bg-gray-900 rounded-xl shadow-xl border border-gray-800 focus-ring" open>
+                    <summary class="flex justify-between items-center p-6 cursor-pointer text-xl font-semibold text-sky-500 hover:text-sky-400 transition-colors duration-200 focus-ring">
+                        What are your shipping options and delivery times?
+                        <svg class="h-6 w-6 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-800 pt-4">
+                        We offer standard and expedited shipping options. Standard shipping typically takes 3-5 business days, while expedited shipping delivers in 1-2 business days. International shipping times vary based on destination. You'll receive a tracking number once your order ships!
+                    </div>
+                </details>
+                <!-- FAQ Item 2 -->
+                <details class="bg-gray-900 rounded-xl shadow-xl border border-gray-800 focus-ring">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer text-xl font-semibold text-sky-500 hover:text-sky-400 transition-colors duration-200 focus-ring">
+                        How do you ensure disk condition?
+                        <svg class="h-6 w-6 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-800 pt-4">
+                        All our used disk games undergo a rigorous inspection process to ensure they are in excellent, playable condition. Discs are cleaned, tested, and guaranteed to work. New games are factory sealed.
+                    </div>
+                </details>
+                <!-- FAQ Item 3 -->
+                <details class="bg-gray-900 rounded-xl shadow-xl border border-gray-800 focus-ring">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer text-xl font-semibold text-sky-500 hover:text-sky-400 transition-colors duration-200 focus-ring">
+                        What is your return policy?
+                        <svg class="h-6 w-6 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-800 pt-4">
+                        We offer a 30-day return policy for most items. Games must be returned in their original condition (unopened for new games, fully functional for used games). Please see our full <a href="#" class="text-sky-400 hover:underline">Returns & Refunds</a> page for details.
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Contact Section with Form -->
+        <section id="contact" class="container mx-auto py-16 px-4 animate-fade-in animate-delay-700">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12">Get in Touch with QuantumPlay Hub</h2>
+            <div class="max-w-xl mx-auto bg-gray-900 rounded-2xl shadow-2xl p-8 border border-sky-700/30">
+                <p class="text-gray-300 text-lg text-center mb-8">Have a question or need assistance? Fill out the form below, and our team will get back to you promptly.</p>
+                
+                <form action="YOUR_FORM_SUBMISSION_ENDPOINT" method="POST" class="space-y-6" onsubmit="alert('Thank you for your message! We will get back to you soon.'); this.reset(); return false;">
+                    <!-- Developer Note: Replace "YOUR_FORM_SUBMISSION_ENDPOINT" with your actual backend endpoint (e.g., Formspree, Netlify Forms, custom API). -->
+                    
+                    <div>
+                        <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your Name" 
+                               class="form-input"
+                               aria-required="true" aria-invalid="false">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com" 
+                               class="form-input"
+                               aria-required="true" aria-invalid="false">
+                    </div>
+                    
+                    <div>
+                        <label for="subject" class="block text-gray-300 text-sm font-bold mb-2">Subject</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Regarding a product or order" 
+                               class="form-input"
+                               aria-required="true" aria-invalid="false">
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="How can we help you?" 
+                                  class="form-textarea"
+                                  aria-required="true" aria-invalid="false"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary w-full text-lg focus-ring">
                         Send Message
+                        <svg class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 6h.01M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     </button>
+
+                    <p class="text-gray-500 text-xs text-center mt-4">
+                        We respect your privacy. Your information will only be used to respond to your inquiry.
+                    </p>
                 </form>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-zinc-950 py-12 px-6 lg:px-12 text-zinc-400 text-center border-t border-zinc-800">
-        <div class="max-w-7xl mx-auto space-y-6">
-            <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-lg">
-                <a href="#craftsmanship" class="hover:text-amber-400 transition-colors duration-300">Craftsmanship</a>
-                <a href="#collections" class="hover:text-amber-400 transition-colors duration-300">Collections</a>
-                <a href="#membership" class="hover:text-amber-400 transition-colors duration-300">Membership</a>
-                <a href="#contact" class="hover:text-amber-400 transition-colors duration-300">Concierge</a>
-                <a href="#" class="hover:text-amber-400 transition-colors duration-300">Privacy Policy</a>
-                <a href="#" class="hover:text-amber-400 transition-colors duration-300">Terms of Service</a>
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 px-4 border-t border-gray-800">
+        <div class="container mx-auto text-center">
+            <div class="mb-8">
+                <a href="#hero" class="text-3xl font-bold text-sky-500 hover:text-sky-400 transition focus-ring" aria-label="QuantumPlay Hub home">
+                    <svg class="inline-block h-8 w-8 mr-2 text-sky-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    QuantumPlay Hub
+                </a>
             </div>
-            <p class="text-md leading-relaxed">&copy; 2023 Vellaro Elegance. All rights reserved.</p>
-            <p class="text-xs text-zinc-600">Designed with passion for the art of living.</p>
+
+            <nav class="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-8 text-gray-300" aria-label="Footer Navigation">
+                <a href="#products" class="hover:text-sky-400 transition focus-ring">Shop Games</a>
+                <a href="#consoles" class="hover:text-sky-400 transition focus-ring">Browse Consoles</a>
+                <a href="#new-releases" class="hover:text-sky-400 transition focus-ring">New Releases</a>
+                <a href="#blog" class="hover:text-sky-400 transition focus-ring">Blog</a>
+                <a href="#faq" class="hover:text-sky-400 transition focus-ring">FAQ</a>
+                <a href="#contact" class="hover:text-sky-400 transition focus-ring">Contact</a>
+                <a href="#" class="hover:text-sky-400 transition focus-ring">Privacy Policy</a>
+                <a href="#" class="hover:text-sky-400 transition focus-ring">Terms of Service</a>
+            </nav>
+
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://www.twitch.tv/quantumplayhub" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitch" class="text-gray-400 hover:text-sky-500 transition focus-ring">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor"><path d="M11.571 6.023h3.429v2.286h-3.429v-2.286zm0 4.572h3.429v2.285h-3.429v-2.285zM5.714 0l-5.714 5.714v12.572h5.714v5.714h5.714l5.714-5.714h3.429l3.429-3.429v-12.572l-3.429-3.429h-17.143zm15.429 11.429l-2.286 2.285h-3.429l-3.429 3.429v-3.429h-4.572v-10.286h13.714v10.286z"></path></svg>
+                </a>
+                <a href="https://www.youtube.com/quantumplayhub" target="_blank" rel="noopener noreferrer" aria-label="Follow us on YouTube" class="text-gray-400 hover:text-sky-500 transition focus-ring">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.205 8.162c-.085-.357-.367-.639-.724-.724-1.901-.486-9.407-.486-11.308 0-.357.085-.639.367-.724.724-.486 1.901-.486 5.698 0 7.601.085.357.367.639.724.724 1.901.486 9.407.486 11.308 0 .357-.085.639-.367.724-.724.486-1.901.486-5.698 0-7.601zm-5.405 7.18c-1.631-.485-2.2-2.185-1.714-3.816.485-1.63 2.185-2.2 3.816-1.714 1.63.485 2.2 2.185 1.714 3.816-.485 1.63-2.185 2.2-3.816 1.714z"></path></svg>
+                </a>
+                <a href="https://www.tiktok.com/@quantumplayhub" target="_blank" rel="noopener noreferrer" aria-label="Follow us on TikTok" class="text-gray-400 hover:text-sky-500 transition focus-ring">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 2.002c-3.141 0-5.714 2.573-5.714 5.714 0 3.14 2.573 5.714 5.714 5.714s5.714-2.574 5.714-5.714c0-3.141-2.573-5.714-5.714-5.714zm0 2c2.046 0 3.714 1.668 3.714 3.714 0 2.046-1.668 3.714-3.714 3.714s-3.714-1.668-3.714-3.714c0-2.046 1.668-3.714 3.714-3.714zm-4.516 12.023c.319 0 .638-.073.931-.219.866-.423 1.48-1.28 1.48-2.274v-1.258c0-.622-.486-1.129-1.089-1.129-.604 0-1.089.507-1.089 1.129v.884c0 .32-.266.58-.595.58-.329 0-.595-.26-.595-.58v-.884c0-1.38 1.11-2.513 2.479-2.513 1.37 0 2.479 1.133 2.479 2.513v1.258c0 1.61-.958 3.033-2.381 3.729-1.264.62-2.784.62-4.048 0-1.423-.696-2.381-2.119-2.381-3.729v-1.258c0-1.38 1.11-2.513 2.479-2.513 1.37 0 2.479 1.133 2.479 2.513v.884c0 .32-.266.58-.595.58-.329 0-.595-.26-.595-.58v-.884c0-.622-.486-1.129-1.089-1.129-.604 0-1.089.507-1.089 1.129v1.258c0 .994.614 1.851 1.48 2.274.293.146.612.219.931.219zm9.035-1.927c.189 0 .378-.041.554-.122 1.374-.627 2.28-2.022 2.28-3.565v-1.336c0-.622-.486-1.129-1.089-1.129-.604 0-1.089.507-1.089 1.129v.871c0 .32-.266.58-.595.58-.329 0-.595-.26-.595-.58v-.871c0-1.38 1.11-2.513 2.479-2.513 1.37 0 2.479 1.133 2.479 2.513v1.336c0 1.776-.948 3.323-2.484 4.041-1.388.665-3.078.665-4.466 0-1.536-.718-2.484-2.265-2.484-4.041v-1.336c0-1.38 1.11-2.513 2.479-2.513 1.37 0 2.479 1.133 2.479 2.513v.871c0 .32-.266.58-.595.58-.329 0-.595-.26-.595-.58v-.871c0-.622-.486-1.129-1.089-1.129-.604 0-1.089.507-1.089 1.129v1.336c0 1.543.906 2.938 2.28 3.565.176.081.365.122.554.122zM12.001 22.002c-5.522 0-10-4.478-10-10s4.478-10 10-10 10 4.478 10 10-4.478 10-10 10zm0-18c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/quantumplayhub" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" class="text-gray-400 hover:text-sky-500 transition focus-ring">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07c1.378.066 2.034.288 2.584.517.675.27.97.6.97.6s.325.295.6.97c.229.55.451 1.206.517 2.584.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.066 1.378-.288 2.034-.517 2.584-.27.675-.6.97-.6.97s-.295.325-.97.6c-.55.229-1.206.451-2.584.517-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.378-.066-2.034-.288-2.584-.517-.675-.27-.97-.6-.97-.6s-.325-.295-.6-.97c-.229-.55-.451-1.206-.517-2.584-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.066-1.378.288-2.034.517-2.584.27-.675.6-.97.6-.97s.295-.325.97-.6c.55-.229 1.206-.451 2.584-.517 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.073-1.643.079-2.738.361-3.693.743-1.025.409-1.802 1.096-2.592 1.886-.79.79-1.477 1.567-1.886 2.592-.382.955-.664 2.05-.743 3.693-.059 1.28-.073 1.688-.073 4.947s.014 3.667.073 4.947c.079 1.643.361 2.738.743 3.693.409 1.025 1.096 1.802 1.886 2.592.79.79 1.567 1.477 2.592 1.886.955.382 2.05.664 3.693.743 1.28.059 1.688.073 4.947.073s3.667-.014 4.947-.073c1.643-.079 2.738-.361 3.693-.743 1.025-.409 1.802-1.096 2.592-1.886.79-.79 1.477-1.567 1.886-2.592.382-.955.664-2.05.743-3.693.059-1.28.073-1.688.073-4.947s-.014-3.667-.073-4.947c-.079-1.643-.361-2.738-.743-3.693-.409-1.025-1.096-1.802-1.886-2.592-.79-.79-1.567-1.477-2.592-1.886-.955-.382-2.05-.664-3.693-.743-1.28-.059-1.688-.073-4.947-.073zm0 3.672c-2.456 0-4.444 1.989-4.444 4.444s1.989 4.444 4.444 4.444 4.444-1.989 4.444-4.444-1.989-4.444-4.444-4.444zm0 7.37c-1.619 0-2.926-1.307-2.926-2.926s1.307-2.926 2.926-2.926 2.926 1.307 2.926 2.926-1.307 2.926-2.926 2.926zm5.83-8.535c0 .64-.519 1.159-1.159 1.159s-1.159-.519-1.159-1.159.519-1.159 1.159-1.159 1.159.519 1.159 1.159z"></path></svg>
+                </a>
+            </div>
+
+            <p class="text-gray-500 text-sm">
+                &copy; <span id="current-year"></span> QuantumPlay Hub. All rights reserved.
+            </p>
         </div>
     </footer>
 
-    <!-- Minimal JS for Mobile Navigation Toggle & Form Validation Feedback -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile Navigation Toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
+    <!-- Global Styling for utility components like buttons and product cards -->
+    <style>
+        .btn {
+            @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-bold text-base whitespace-nowrap transition-all duration-300 transform active:scale-95;
+        }
+        .btn-primary {
+            @apply bg-sky-500 text-white shadow-lg shadow-sky-500/30 hover:bg-sky-600 hover:shadow-xl hover:shadow-sky-500/40;
+        }
+        .btn-secondary {
+            @apply bg-gray-800 text-gray-100 border border-gray-700 hover:bg-gray-700 hover:border-sky-500;
+        }
+        .btn-sm {
+            @apply px-4 py-2 text-sm;
+        }
 
-            mobileMenuButton.addEventListener('click', function() {
-                const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
-                this.setAttribute('aria-expanded', !isExpanded);
-                mobileMenu.classList.toggle('hidden');
+        .product-card {
+            @apply bg-gray-900 rounded-xl shadow-lg p-5 flex flex-col items-start hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-800;
+        }
+        .platform-badge {
+            @apply text-xs font-semibold px-2 py-1 rounded-full text-white;
+        }
+        /* Focus-ring ensures accessible focus states across interactive elements */
+        .focus-ring {
+            @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-500 focus-visible:ring-offset-gray-950;
+        }
+
+        /* Form elements */
+        .form-input, .form-textarea {
+            @apply w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-500 focus-ring;
+        }
+        .form-textarea {
+            resize: vertical; /* Allow vertical resizing only */
+        }
+    </style>
+
+    <!-- JavaScript for Mobile Nav Toggle and Scroll Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.getElementById('nav-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = mobileMenu.querySelectorAll('a');
+
+            // Mobile nav toggle functionality
+            navToggle.addEventListener('click', () => {
+                const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                navToggle.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden', isExpanded);
+                navToggle.classList.toggle('hamburger-open', !isExpanded);
             });
 
-            // Client-side Form Validation Feedback (basic example)
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(event) {
-                    // Prevent default submission to add custom logic or for AJAX
-                    // event.preventDefault(); 
-                    
-                    let isValid = true;
-                    const requiredInputs = contactForm.querySelectorAll('[required]');
+            // Close mobile menu when a link is clicked
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.add('hidden');
+                    navToggle.classList.remove('hamburger-open');
+                });
+            });
 
-                    requiredInputs.forEach(input => {
-                        if (!input.value.trim()) {
-                            isValid = false;
-                            input.classList.add('border-red-500', 'ring-red-500'); // Indicate error
-                            input.setAttribute('aria-invalid', 'true');
-                            // Add a more descriptive error message near the input if needed
-                        } else {
-                            input.classList.remove('border-red-500', 'ring-red-500');
-                            input.setAttribute('aria-invalid', 'false');
-                        }
-                    });
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            };
 
-                    if (!isValid) {
-                        alert('Please fill in all required fields.'); // Simple feedback
-                        event.preventDefault(); // Stop form submission if invalid
-                    } else {
-                        // If form is valid and not preventing default, it will submit.
-                        // For AJAX submission, you would prevent default and send data here.
-                        // Example: console.log('Form is valid. Sending data...');
-                        // alert('Thank you for your message! We will be in touch shortly.');
-                        // contactForm.reset(); // Clear form after successful submission
+            const animateOnScroll = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                        // Stop observing after animation to prevent re-triggering
+                        observer.unobserve(entry.target); 
                     }
                 });
-            }
+            };
+
+            const observer = new IntersectionObserver(animateOnScroll, observerOptions);
+
+            // Observe all elements with 'animate-fade-in' class (initial state should hide them)
+            document.querySelectorAll('.animate-fade-in').forEach(el => {
+                el.style.opacity = '0'; // Ensure elements start invisible
+                el.style.transform = 'translateY(20px)'; // Start slightly below
+                observer.observe(el);
+            });
+
+            // Update current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
         });
     </script>
-
-    <!-- 
-    Edit Notes:
-    - To change the hero video: Update the 'src' and 'poster' attributes in the <video> tag within the #hero section.
-    - To replace images: Update the 'src' and 'srcset' attributes for <img> tags. Remember to update 'alt' text.
-    - To modify copy: Search for the text you want to change (e.g., "Vellaro Elegance", "Signature Collections") and edit directly.
-    - To configure the contact form: Locate the <form> tag with id="contact-form" and update its 'action' attribute to your server-side endpoint.
-      This form currently uses basic HTML5 validation. For more robust validation or AJAX submission, expand the JavaScript in the <script> block.
-    -->
-
-    <!-- 
-    Developer TODO (Before Deployment):
-    1.  **Verify Media Licenses:** Ensure all Pexels media usage complies with their license for your specific production scenario.
-    2.  **Contact Form Endpoint:** Update `YOUR_FORM_SUBMISSION_ENDPOINT` in the contact form's `action` attribute.
-    3.  **Replace Placeholder Text:** Review all sections and replace any placeholder text (e.g., "View Collection &rarr;", "Privacy Policy" links) with actual content.
-    4.  **Test on Mobile Devices:** Thoroughly test responsiveness, navigation, and touch targets on various mobile devices and screen sizes.
-    5.  **Run Lighthouse Audit:** Perform a full Lighthouse audit (Performance, Accessibility, Best Practices, SEO) in Chrome DevTools and address any critical issues.
-    -->
 </body>
 </html>
+
+<!-- 
+Edit Notes:
+---------------------------------------------------------------
+1.  **Replace Hero Media:**
+    -   To change the background video in the hero section, update the `src` attribute of the `<source>` tag within the `<video>` element (line ~104) and the `poster` attribute of the `<video>` tag (line ~104). Ensure your new video is optimized for web and includes a relevant `poster` image.
+    -   Hero video: `https://videos.pexels.com/video-files/7547007/7547007-sd_426_240_25fps.mp4`
+    -   Hero poster: `https://images.pexels.com/photos/7688499/pexels-photo-7688499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940`
+
+2.  **Update Product & Highlight Section Images:**
+    -   All product card images (`<img>` tags) in the "Product Sections" and "Highlight Sections" can be updated by changing their `src` attributes. Remember to also update the `alt` text for accessibility. Placeholder images like `https://via.placeholder.com/` are used where specific Pexels images weren't provided for every single item; replace these with actual game covers.
+    -   Example Pexels image URL format: `https://images.pexels.com/photos/7862508/pexels-photo-7862508.jpeg?auto=compress&cs=tinysrgb&h=650&w=940`
+
+3.  **Change General Copy & Content:**
+    -   All text content, including headlines, subheadings, product names, descriptions, testimonials, and FAQ answers, can be found and directly edited within the HTML. Use the semantic element tags (e.g., `<h1>`, `<h2>`, `<p>`, `<li>`) to locate content easily.
+
+4.  **Configure Contact Form Endpoint:**
+    -   The `<form>` element within the "Contact Section" (around line ~628) has its `action` attribute set to `"YOUR_FORM_SUBMISSION_ENDPOINT"`. You MUST replace this with your actual form submission URL (e.g., from Formspree, Netlify Forms, or your custom backend API). The current `onsubmit` alert is a placeholder for client-side feedback.
+
+5.  **Adjust Styling (Tailwind CSS):**
+    -   Most styling is controlled by Tailwind CSS classes. To change colors, fonts, spacing, etc., modify these classes directly. For example, to change the primary accent color from `sky-500`, search for `text-sky-500`, `bg-sky-500`, etc., and replace with your desired Tailwind color class (e.g., `text-emerald-500`, `bg-purple-600`). Custom CSS is minimal in the `<style>` block for specific animations and focus rings.
+
+6.  **Schema.org Data:**
+    -   Update `url`, `logo`, and `sameAs` social links in the JSON-LD script in the `<head>` section to reflect your actual website and social media profiles.
+
+7.  **Meta Tags:**
+    -   Update the `<title>`, `<meta name="description">`, and all `og:` and `twitter:` meta tags in the `<head>` to accurately reflect your website's content and branding for SEO and social sharing.
+
+Developer TODO:
+---------------------------------------------------------------
+1.  **Verify Media Licenses:** Ensure all Pexels media used is licensed appropriately for your specific production use case.
+2.  **Set Contact Form Endpoint:** Update `action="YOUR_FORM_SUBMISSION_ENDPOINT"` in the contact form to your actual backend.
+3.  **Replace Placeholder Content:** Replace all `https://via.placeholder.com/` images and generic text with specific game details and content.
+4.  **Test on Mobile Devices:** Thoroughly test the responsiveness and usability on various mobile screen sizes and orientations.
+5.  **Run Lighthouse Audit:** Conduct a full Lighthouse audit in Chrome DevTools to check performance, accessibility, SEO, and best practices, and address any critical issues.
+-->
 ```
