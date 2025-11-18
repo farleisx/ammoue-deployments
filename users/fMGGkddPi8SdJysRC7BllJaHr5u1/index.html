@@ -1,974 +1,933 @@
-As an elite, multi-disciplinary web development super-expert, I present "Aroma Haven" – a digital experience meticulously crafted to embody the soul of a premium coffee shop. This single-file HTML solution is a testament to precision engineering, intuitive UX, unwavering accessibility, robust SEO, peak frontend performance, and captivating visual design, all harmonized within strict constraints.
-
-Every byte is purposeful, every pixel considered.
-
-***
-
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aroma Haven | Your Daily Escape, Crafted with Care</title>
-    <meta name="description" content="Aroma Haven is a cozy coffee shop offering artisanal coffee, delicious pastries, and a warm atmosphere. Discover your perfect brew and a tranquil escape.">
-    <meta name="keywords" content="coffee shop, artisanal coffee, specialty coffee, latte, espresso, pastries, cozy cafe, local coffee, Aroma Haven, coffee near me">
-    <meta name="author" content="Aroma Haven Team">
-    <link rel="canonical" href="index.html"> <!-- Self-referencing canonical for a single-page site -->
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="index.html">
-    <meta property="og:title" content="Aroma Haven | Your Daily Escape, Crafted with Care">
-    <meta property="og:description" content="Aroma Haven is a cozy coffee shop offering artisanal coffee, delicious pastries, and a warm atmosphere. Discover your perfect brew and a tranquil escape.">
-    <meta property="og:image" content="https://images.pexels.com/photos/17564427/pexels-photo-17564427.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="index.html">
-    <meta property="twitter:title" content="Aroma Haven | Your Daily Escape, Crafted with Care">
-    <meta property="twitter:description" content="Aroma Haven is a cozy coffee shop offering artisanal coffee, delicious pastries, and a warm atmosphere. Discover your perfect brew and a tranquil escape.">
-    <meta property="twitter:image" content="https://images.pexels.com/photos/17564427/pexels-photo-17564427.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-
+    <title>Next-Gen Gaming Consoles | PlayStation PS5 & PS4</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /*
-         * CSS Architecture:
-         * 1. Custom Properties (Variables)
-         * 2. Global Reset / Base Styles
-         * 3. Utility Classes
-         * 4. Layout
-         * 5. Components (Header, Nav, Hero, Sections, Buttons, Cards, Footer)
-         * 6. Accessibility
-         * 7. Responsiveness (Media Queries)
-         */
-
-        /* 1. Custom Properties (Variables) */
+        /* --- Global Variables & Resets --- */
         :root {
-            --color-primary: #6F4E37; /* Coffee Brown */
-            --color-secondary: #D4AF37; /* Accent Gold */
-            --color-light: #FCF7EE; /* Off-white / Cream background */
-            --color-dark: #2C2C2C; /* Dark text */
-            --color-white: #FFFFFF;
-            --color-gray-text: #555;
-            --color-overlay: rgba(0, 0, 0, 0.4); /* Dark overlay for hero video */
-
-            --font-family-body: 'system-ui', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            --font-family-heading: 'Georgia', serif; /* A classic, warm serif for headings */
-
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2.5rem;
-            --spacing-xl: 4rem;
-
-            --border-radius-sm: 5px;
-            --border-radius-md: 8px;
-
-            --max-width-content: 1200px;
+            --primary-bg: #1a1a1a;
+            --secondary-bg: #2a2a2a;
+            --text-color: #f0f0f0;
+            --accent-color: #0070d1; /* PlayStation Blue */
+            --light-accent: #0099ff;
+            --border-color: #3a3a3a;
+            --button-hover-bg: #005bb5;
         }
 
-        /* 2. Global Reset / Base Styles */
-        *, *::before, *::after {
-            box-sizing: border-box;
+        * {
             margin: 0;
             padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px; /* Base for rem units */
+            box-sizing: border-box;
         }
 
         body {
-            font-family: var(--font-family-body);
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+            background-color: var(--primary-bg);
             line-height: 1.6;
-            color: var(--color-dark);
-            background-color: var(--color-light);
+            scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
+        /* --- Typography --- */
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        h1 { font-size: 3.8rem; line-height: 1.1; }
+        h2 { font-size: 2.8rem; line-height: 1.2; }
+        h3 { font-size: 2rem; line-height: 1.3; }
+        h4 { font-size: 1.6rem; line-height: 1.4; }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
         a {
-            color: var(--color-primary);
+            color: var(--accent-color);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        a:hover, a:focus {
-            color: var(--color-secondary);
-            text-decoration: underline;
-            outline: none; /* Handled by specific focus styles */
+        a:hover {
+            color: var(--light-accent);
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-family-heading);
-            margin-bottom: var(--spacing-md);
-            line-height: 1.2;
-            color: var(--color-primary);
-        }
-
-        h1 { font-size: 3rem; }
-        h2 { font-size: 2.2rem; }
-        h3 { font-size: 1.8rem; }
-        p { margin-bottom: var(--spacing-sm); }
-
-        ul, ol {
-            list-style: none;
-            margin-bottom: var(--spacing-md);
-        }
-
-        /* 3. Utility Classes */
+        /* --- Utility Classes --- */
         .container {
-            max-width: var(--max-width-content);
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 var(--spacing-md);
+            padding: 2rem;
         }
 
-        .text-center { text-align: center; }
-        .text-primary { color: var(--color-primary); }
-        .text-light { color: var(--color-light); }
-        .bg-primary { background-color: var(--color-primary); }
-        .py-lg { padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl); }
-        .pb-lg { padding-bottom: var(--spacing-xl); }
-
-        /* 4. Layout */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-lg);
-        }
-
-        /* 5. Components */
-
-        /* Buttons */
-        .button {
+        .btn {
             display: inline-block;
-            background-color: var(--color-secondary);
-            color: var(--color-dark);
-            padding: var(--spacing-sm) var(--spacing-md);
-            border-radius: var(--border-radius-sm);
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 0.8rem 1.8rem;
+            border-radius: 5px;
             text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 0.05em;
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
             border: none;
             cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .button:hover, .button:focus {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            transform: translateY(-2px);
-            text-decoration: none;
+        .btn:hover {
+            background-color: var(--button-hover-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .button.button--outline {
-            background-color: transparent;
-            border: 2px solid var(--color-white);
-            color: var(--color-white);
+        .text-center {
+            text-align: center;
         }
 
-        .button.button--outline:hover, .button.button--outline:focus {
-            background-color: var(--color-white);
-            color: var(--color-primary);
-            border-color: var(--color-white);
-        }
-
-        /* Header */
+        /* --- Header / Navigation --- */
         .main-header {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            padding: var(--spacing-sm) 0;
-            position: sticky;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .main-header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 2rem;
         }
 
         .logo {
-            font-family: var(--font-family-heading);
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--color-white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-color);
             text-decoration: none;
-            padding: var(--spacing-xs) 0;
-        }
-
-        /* Navigation */
-        .nav-toggle {
-            display: none; /* Hidden by default */
-        }
-
-        .nav-toggle-label {
-            display: none; /* Hidden by default, shown on small screens */
-            cursor: pointer;
-            padding: var(--spacing-xs);
-        }
-
-        .nav-toggle-label span,
-        .nav-toggle-label span::before,
-        .nav-toggle-label span::after {
-            display: block;
-            background: var(--color-white);
-            height: 3px;
-            width: 25px;
-            border-radius: 3px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .nav-toggle-label span::before {
-            content: '';
-            position: absolute;
-            top: -8px;
-        }
-
-        .nav-toggle-label span::after {
-            content: '';
-            position: absolute;
-            top: 8px;
-        }
-
-        .main-nav ul {
             display: flex;
-            gap: var(--spacing-md);
+            align-items: center;
         }
 
-        .main-nav a {
-            color: var(--color-white);
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: var(--spacing-xs) 0;
-            display: block;
+        .logo span {
+            color: var(--accent-color);
+            margin-left: 5px;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-list li {
+            margin-left: 2rem;
+        }
+
+        .nav-list a {
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
             position: relative;
+            padding: 5px 0;
         }
 
-        .main-nav a::after {
+        .nav-list a::after {
             content: '';
             position: absolute;
             left: 0;
             bottom: 0;
             width: 0;
-            height: 2px;
-            background-color: var(--color-secondary);
+            height: 3px;
+            background-color: var(--accent-color);
             transition: width 0.3s ease;
         }
 
-        .main-nav a:hover::after,
-        .main-nav a:focus::after {
+        .nav-list a:hover::after {
             width: 100%;
         }
 
-        /* Hero Section */
+        /* --- Hero Section --- */
         .hero {
             position: relative;
-            height: 80vh; /* viewport height */
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--color-white);
             text-align: center;
-            overflow: hidden; /* Ensure video doesn't overflow */
+            color: var(--text-color);
+            overflow: hidden;
         }
 
-        .hero video {
+        .hero-video {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translateX(-50%) translateY(-50%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             z-index: -1;
-            object-fit: cover; /* Ensures video covers the entire area */
-            filter: brightness(0.7); /* Slightly darken video for text readability */
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            padding: var(--spacing-md);
-            background-color: var(--color-overlay); /* Semi-transparent background for text */
-            border-radius: var(--border-radius-md);
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
         }
 
         .hero h1 {
-            font-size: 4rem;
-            margin-bottom: var(--spacing-sm);
-            color: var(--color-white);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+            font-weight: 800;
         }
 
         .hero p {
-            font-size: 1.5rem;
-            margin-bottom: var(--spacing-lg);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            max-width: 900px;
+            text-shadow: 1px 1px 7px rgba(0, 0, 0, 0.7);
+            font-weight: 400;
         }
 
-        /* Section Styling */
+        .hero .btn-group {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .hero .btn-group .btn {
+            min-width: 180px;
+            font-size: 1.2rem;
+            padding: 1.2rem 3rem;
+        }
+
+        /* --- Section Styling --- */
         section {
-            padding: var(--spacing-xl) 0;
-            border-bottom: 1px solid #eee;
+            padding: 6rem 0;
+            background-color: var(--secondary-bg);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        section:last-of-type {
-            border-bottom: none;
+        section:nth-of-type(even) {
+            background-color: var(--primary-bg);
         }
 
-        section h2 {
+        .section-title {
             text-align: center;
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: 4.5rem;
+            font-size: 3.5rem;
+            color: var(--accent-color);
             position: relative;
-            padding-bottom: var(--spacing-sm);
+            padding-bottom: 1.5rem;
         }
 
-        section h2::after {
+        .section-title::after {
             content: '';
             position: absolute;
             left: 50%;
             bottom: 0;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--color-secondary);
-            border-radius: var(--border-radius-sm);
+            width: 100px;
+            height: 5px;
+            background-color: var(--light-accent);
+            border-radius: 3px;
         }
 
-        /* About Section */
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xl);
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            justify-content: center;
-        }
-
-        .about-text, .about-image {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .about-image img {
-            border-radius: var(--border-radius-md);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-
-        /* Menu Section */
-        .menu-item {
-            background-color: var(--color-white);
-            border-radius: var(--border-radius-md);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            text-align: center;
-            padding: var(--spacing-md);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .menu-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        }
-
-        .menu-item img {
-            border-radius: var(--border-radius-sm);
-            margin-bottom: var(--spacing-sm);
-            height: 200px; /* Fixed height for consistency */
-            object-fit: cover;
-            width: 100%;
-        }
-
-        .menu-item h3 {
-            font-size: 1.5rem;
-            margin-bottom: var(--spacing-xs);
-            color: var(--color-dark);
-        }
-
-        .menu-item p {
-            font-size: 0.9rem;
-            color: var(--color-gray-text);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .menu-item .price {
-            font-weight: bold;
-            color: var(--color-secondary);
-            font-size: 1.2rem;
-        }
-
-        /* Gallery Section */
-        .gallery-grid {
+        /* --- Features Section --- */
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-md);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
         }
 
-        .gallery-item img {
-            border-radius: var(--border-radius-md);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .gallery-item img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            padding: var(--spacing-xl) 0;
-        }
-
-        .testimonials h2 {
-            color: var(--color-white);
-        }
-
-        .testimonials h2::after {
-            background-color: var(--color-secondary);
-        }
-
-        .testimonial-card {
-            background-color: var(--color-white);
-            color: var(--color-dark);
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius-md);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        .feature-item {
+            background-color: var(--primary-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
             text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid var(--border-color);
         }
 
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: var(--spacing-sm);
-            font-size: 1.1rem;
+        .feature-item:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
         }
 
-        .testimonial-card cite {
-            display: block;
-            font-weight: bold;
-            color: var(--color-primary);
+        .feature-item img {
+            max-width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.8rem;
+            border: 3px solid var(--accent-color);
+            transition: border-color 0.3s ease;
+        }
+        
+        .feature-item:hover img {
+            border-color: var(--light-accent);
         }
 
-        /* Contact Section */
-        .contact-info {
+        .feature-item h3 {
+            color: var(--light-accent);
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+        }
+        .feature-item p {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        /* --- Console Spotlight --- */
+        .console-spotlight {
             display: flex;
-            justify-content: space-around;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-lg);
+            flex-direction: column;
+            gap: 5rem;
         }
 
-        .contact-item {
-            flex: 1;
-            min-width: 280px;
-            background-color: var(--color-white);
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius-md);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .contact-item h3 {
-            color: var(--color-secondary);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .contact-item p {
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .contact-item a {
-            font-weight: bold;
-        }
-
-        .map-embed {
-            margin-top: var(--spacing-lg);
-            width: 100%;
-            height: 400px;
-            background-color: #e0e0e0; /* Placeholder background */
+        .console-card {
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: var(--border-radius-md);
+            background-color: var(--primary-bg);
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        .console-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
         }
 
-        .map-embed img {
+        .console-card:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .console-card .image-wrapper {
+            flex: 1;
+            min-width: 45%;
+            height: 500px;
+        }
+
+        .console-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(80%);
-            transition: filter 0.3s ease;
+            transition: transform 0.6s ease;
         }
 
-        .map-embed img:hover {
-            filter: grayscale(0%);
+        .console-card:hover img {
+            transform: scale(1.03);
         }
 
-        /* Final CTA */
-        .cta-final {
-            background-color: var(--color-dark);
-            color: var(--color-white);
+        .console-card .content {
+            flex: 1.5;
+            padding: 4rem;
+        }
+
+        .console-card h3 {
+            color: var(--accent-color);
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .console-card p {
+            font-size: 1.15rem;
+            margin-bottom: 1.8rem;
+            color: #d0d0d0;
+        }
+
+        .console-card ul {
+            list-style: none;
+            margin-bottom: 2rem;
+            padding-left: 0;
+        }
+
+        .console-card ul li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 30px;
+            font-size: 1.05rem;
+            color: #d0d0d0;
+        }
+
+        .console-card ul li::before {
+            content: '›'; /* Styled arrow for list items */
+            color: var(--light-accent);
+            position: absolute;
+            left: 0;
+            font-size: 1.8rem;
+            line-height: 1;
+            font-weight: 700;
+        }
+
+        /* --- Accessories Section --- */
+        .accessories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .accessory-card {
+            background-color: var(--primary-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .accessory-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .accessory-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .accessory-card .info {
+            padding: 1.8rem;
+        }
+
+        .accessory-card h4 {
+            font-size: 1.7rem;
+            color: var(--light-accent);
+            margin-bottom: 0.8rem;
+        }
+
+        .accessory-card p {
+            font-size: 0.95rem;
+            color: #bbb;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Minor button styling for accessory cards */
+        .accessory-card .btn {
+            padding: 0.6rem 1.4rem;
+            font-size: 0.9rem;
+        }
+
+        /* --- Gallery Section --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+            border: 1px solid var(--border-color);
+        }
+
+        .gallery-item img, .gallery-item video {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img, .gallery-item:hover video {
+            transform: scale(1.1);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            padding: 1.5rem;
             text-align: center;
         }
 
-        .cta-final h2 {
-            color: var(--color-secondary);
-            font-size: 2.5rem;
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
         }
 
-        .cta-final p {
-            font-size: 1.2rem;
-            margin-bottom: var(--spacing-lg);
-            max-width: 700px;
+        .gallery-item-overlay h4 {
+            color: var(--light-accent);
+            margin-bottom: 0.7rem;
+            font-size: 1.6rem;
+        }
+
+        .gallery-item-overlay p {
+            color: #ddd;
+            font-size: 1rem;
+        }
+
+        /* --- Call to Action --- */
+        .cta-section {
+            background: linear-gradient(to right, var(--accent-color), var(--light-accent));
+            color: #fff;
+            padding: 5rem 2rem;
+            text-align: center;
+            border-radius: 15px;
+            margin: 6rem auto;
+            max-width: 1000px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+        }
+
+        .cta-section h2 {
+            color: #fff;
+            font-size: 3.2rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .cta-final .button {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-        }
-
-        .cta-final .button:hover, .cta-final .button:focus {
-            background-color: var(--color-secondary);
-            color: var(--color-dark);
-        }
-
-        /* Footer */
+        /* --- Footer --- */
         .main-footer {
-            background-color: var(--color-dark);
-            color: var(--color-white);
+            background-color: #0d0d0d;
+            color: #999;
+            padding: 3.5rem 0;
             text-align: center;
-            padding: var(--spacing-lg) 0;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
-        .footer-nav ul {
+        .main-footer .container {
+            border-top: 1px solid var(--border-color);
+            padding-top: 2.5rem;
+        }
+
+        .footer-nav {
+            list-style: none;
             display: flex;
             justify-content: center;
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-md);
+            margin-top: 1.5rem;
             flex-wrap: wrap;
         }
 
+        .footer-nav li {
+            margin: 0 1.2rem;
+        }
+
         .footer-nav a {
-            color: var(--color-white);
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
+            color: #999;
+            transition: color 0.3s ease;
         }
 
-        .footer-nav a:hover, .footer-nav a:focus {
-            opacity: 1;
+        .footer-nav a:hover {
+            color: var(--light-accent);
         }
 
-        .social-links {
-            margin-top: var(--spacing-md);
-        }
+        /* --- Responsive Design --- */
+        @media (max-width: 1024px) {
+            h1 { font-size: 3.2rem; }
+            h2 { font-size: 2.4rem; }
+            h3 { font-size: 1.8rem; }
+            p { font-size: 1rem; }
 
-        .social-links a {
-            display: inline-block;
-            margin: 0 var(--spacing-xs);
-            color: var(--color-secondary);
-            font-size: 1.5rem; /* Placeholder for icon fonts if used, otherwise normal text */
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .social-links a:hover, .social-links a:focus {
-            color: var(--color-white);
-            transform: translateY(-3px);
-            text-decoration: none;
-        }
-
-        /* 6. Accessibility */
-        /* Focus states for keyboard navigation */
-        a:focus,
-        button:focus,
-        input:focus,
-        textarea:focus,
-        select:focus,
-        .nav-toggle-label:focus-visible { /* Use focus-visible for better UX */
-            outline: 2px solid var(--color-secondary);
-            outline-offset: 3px;
-            border-radius: var(--border-radius-sm);
-        }
-
-        /* Skip link */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: var(--spacing-sm);
-            background-color: var(--color-secondary);
-            color: var(--color-dark);
-            padding: var(--spacing-xs) var(--spacing-sm);
-            z-index: 9999;
-            transition: top 0.3s ease;
-        }
-        .skip-link:focus {
-            top: var(--spacing-sm);
-            outline: none;
-        }
-
-        /* 7. Responsiveness (Media Queries) */
-        @media (max-width: 992px) {
-            .hero h1 { font-size: 3.5rem; }
-            .hero p { font-size: 1.3rem; }
-
-            .about-content {
-                flex-direction: column;
-                text-align: center;
+            .hero h1 { font-size: 4rem; }
+            .hero p { font-size: 1.5rem; }
+            .hero .btn-group .btn {
+                min-width: 150px;
+                font-size: 1rem;
+                padding: 1rem 2rem;
             }
-            .about-image {
-                order: -1; /* Image first on mobile */
-                margin-bottom: var(--spacing-lg);
+
+            .section-title { font-size: 2.8rem; }
+
+            .console-card {
+                flex-direction: column !important; /* Forces column layout for consoles on smaller screens */
             }
+            .console-card .image-wrapper {
+                min-width: 100%;
+                height: 400px;
+            }
+            .console-card .content {
+                padding: 3rem;
+            }
+            .console-card h3 { font-size: 2.2rem; }
+            .console-card ul li { font-size: 1rem; }
+
+            .cta-section h2 { font-size: 2.8rem; }
+            .cta-section p { font-size: 1.1rem; }
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-            h3 { font-size: 1.4rem; }
-
             .main-header .container {
+                flex-direction: column;
+            }
+            .nav-list {
+                margin-top: 1rem;
                 flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-list li {
+                margin: 0.5rem 1rem;
             }
 
-            .logo {
-                font-size: 1.5rem;
-                flex-grow: 1; /* Allow logo to take space */
-            }
-
-            .nav-toggle-label {
-                display: block;
-            }
-
-            .main-nav {
-                width: 100%;
-                order: 2; /* Move nav below logo/toggle */
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease-out;
-            }
-
-            .nav-toggle:checked + .nav-toggle-label + .main-nav {
-                max-height: 300px; /* Adjust as needed */
-            }
-
-            .nav-toggle:checked + .nav-toggle-label span {
-                background: transparent;
-            }
-            .nav-toggle:checked + .nav-toggle-label span::before {
-                transform: rotate(-45deg);
-                top: 0;
-            }
-            .nav-toggle:checked + .nav-toggle-label span::after {
-                transform: rotate(45deg);
-                top: 0;
-            }
-
-            .main-nav ul {
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.2rem; }
+            .hero .btn-group {
                 flex-direction: column;
-                align-items: center;
-                gap: var(--spacing-sm);
-                padding: var(--spacing-md) 0;
-                background-color: var(--color-primary);
-                border-top: 1px solid rgba(255,255,255,0.2);
+                gap: 1.5rem;
+            }
+            .hero .btn-group .btn {
+                margin: 0;
+                min-width: unset;
+                width: 250px; /* fixed width for better appearance on small screens */
+            }
+            .hero-overlay { padding: 1rem; }
+
+            .section-title { font-size: 2.2rem; margin-bottom: 3rem;}
+
+            .features-grid, .accessories-grid, .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2rem;
             }
 
-            .main-nav a {
-                padding: var(--spacing-xs) var(--spacing-md);
-                width: 100%;
-                text-align: center;
-            }
-            .main-nav a::after {
-                height: 1px; /* Thinner underline on mobile */
-            }
+            .feature-item { padding: 2rem; }
+            .feature-item img { height: 180px; }
 
-            .hero {
-                height: 70vh;
+            .console-card .image-wrapper {
+                height: 300px;
             }
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
+            .console-card .content {
+                padding: 2rem;
+            }
+            .console-card h3 { font-size: 2rem; }
+            .console-card ul li { padding-left: 25px; }
+            .console-card ul li::before { font-size: 1.6rem; }
 
-            section {
-                padding: var(--spacing-lg) 0;
-            }
-            section h2 {
-                font-size: 1.8rem;
-                margin-bottom: var(--spacing-lg);
-            }
+            .accessory-card img { height: 220px; }
+            .accessory-card h4 { font-size: 1.5rem; }
 
-            .contact-info {
-                flex-direction: column;
-            }
-            .contact-item {
-                margin-bottom: var(--spacing-md);
-            }
+            .gallery-item img, .gallery-item video { height: 250px; }
+
+            .cta-section { margin: 4rem auto; padding: 4rem 1.5rem; }
+            .cta-section h2 { font-size: 2.5rem; }
+            .cta-section p { font-size: 1rem; }
+
+            .main-footer .container { padding-top: 1.5rem; }
+            .footer-nav li { margin: 0 0.8rem; }
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.6rem; }
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.6rem; }
             p { font-size: 0.9rem; }
 
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
-            .hero .button { font-size: 0.9rem; padding: 0.8rem 1.2rem; }
-            .logo { font-size: 1.3rem; }
+            .container { padding: 1rem; }
+            .main-header .container { padding: 0 1rem; }
+            .logo { font-size: 1.6rem; }
 
-            .social-links a { font-size: 1.3rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1rem; max-width: 90%; }
+            .hero .btn-group .btn {
+                width: 200px;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title { font-size: 1.8rem; }
+
+            .features-grid, .accessories-grid, .gallery-grid {
+                grid-template-columns: 1fr; /* Single column */
+                gap: 1.5rem;
+            }
+
+            .feature-item { padding: 1.5rem; }
+            .feature-item img { height: 150px; margin-bottom: 1rem; }
+            .feature-item h3 { font-size: 1.4rem; margin-bottom: 0.8rem;}
+
+            .console-card .image-wrapper { height: 250px; }
+            .console-card .content { padding: 1.5rem; }
+            .console-card h3 { font-size: 1.8rem; }
+            .console-card ul li { font-size: 0.9rem; }
+            .console-card .btn { width: 100%; }
+
+            .accessory-card img { height: 180px; }
+            .accessory-card .info { padding: 1rem; }
+            .accessory-card h4 { font-size: 1.3rem; }
+
+            .gallery-item img, .gallery-item video { height: 200px; }
+            .gallery-item-overlay h4 { font-size: 1.4rem; }
+            .gallery-item-overlay p { font-size: 0.85rem; }
+
+            .cta-section { padding: 3rem 1rem; margin: 3rem auto; }
+            .cta-section h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+            .cta-section p { font-size: 0.9rem; margin-bottom: 2rem; }
+            .cta-section .btn { width: 100%; }
+
+            .footer-nav { flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
+            .footer-nav li { margin: 0; }
         }
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <header class="main-header" role="banner">
+    <header class="main-header">
         <div class="container">
-            <a href="#" class="logo" aria-label="Aroma Haven Home">Aroma Haven</a>
-            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-controls="main-navigation" aria-expanded="false">
-            <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
-                <span></span>
-            </label>
-            <nav class="main-nav" id="main-navigation" aria-label="Main Navigation">
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#menu">Menu</a></li>
+            <a href="#home" class="logo">Next-Gen<span>Play</span></a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#consoles">Consoles</a></li>
+                    <li><a href="#accessories">Accessories</a></li>
                     <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#cta-final" class="button">Order Now</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main id="main-content">
-        <section id="hero" class="hero" role="region" aria-label="Welcome to Aroma Haven Coffee Shop">
-            <video autoplay loop muted playsinline poster="https://images.pexels.com/photos/17564427/pexels-photo-17564427.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-                <source src="https://videos.pexels.com/video-files/8244200/8244200-uhd_3840_2160_25fps.mp4" type="video/mp4">
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="https://videos.pexels.com/video-files/7985785/7985785-hd_1280_720_25fps.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="hero-content">
-                <h1 class="text-light">Aroma Haven</h1>
-                <p class="text-light">Your daily escape, crafted with care. Savor the moment.</p>
-                <a href="#menu" class="button button--outline">Explore Our Menu</a>
+            <div class="hero-overlay">
+                <h1>Unleash Next-Gen Gaming</h1>
+                <p>Dive into unparalleled realism, lightning-fast loading, and immersive experiences with the latest PlayStation consoles.</p>
+                <div class="btn-group">
+                    <a href="#consoles" class="btn">Shop PS5</a>
+                    <a href="#consoles" class="btn">Shop PS4</a>
+                </div>
             </div>
         </section>
 
-        <section id="about" class="py-lg" role="region" aria-labelledby="about-heading">
+        <!-- Features Section -->
+        <section id="features">
             <div class="container">
-                <h2 id="about-heading">Our Story: The Heart of Aroma Haven</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>Passion in Every Cup</h3>
-                        <p>At Aroma Haven, our journey began with a simple passion: to brew exceptional coffee and create a space where every visit feels like coming home. We source the finest ethically grown beans from around the world, ensuring rich flavors and a sustainable future for coffee farming.</p>
-                        <p>Our skilled baristas are artists, dedicated to perfecting every espresso shot, latte, and pour-over. From the moment the beans are ground to the first sip, we promise an unparalleled coffee experience.</p>
-                        <p>More than just coffee, Aroma Haven is a community hub – a place for quiet contemplation, vibrant conversations, and cherished memories. Come, discover your haven.</p>
-                        <a href="#contact" class="button">Visit Us</a>
+                <h2 class="section-title">Why Choose PlayStation?</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <img src="https://images.pexels.com/photos/7903006/pexels-photo-7903006.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="PS5 Console">
+                        <h3>Lightning-Fast SSD</h3>
+                        <p>Maximize your play sessions with near-instant load times for installed PS5 games.</p>
                     </div>
-                    <div class="about-image">
-                        <img src="https://images.pexels.com/photos/14528274/pexels-photo-14528274.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="A barista carefully preparing a coffee drink at Aroma Haven." loading="lazy">
+                    <div class="feature-item">
+                        <img src="https://images.pexels.com/photos/29017683/pexels-photo-29017683.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="DualSense Controller">
+                        <h3>Haptic Feedback & Adaptive Triggers</h3>
+                        <p>Feel the action unfold with immersive sensory feedback and dynamic trigger effects.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://images.pexels.com/photos/32713615/pexels-photo-32713615.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Gaming Setup">
+                        <h3>Stunning 4K Graphics</h3>
+                        <p>Experience breathtaking visuals with ray tracing, delivering true-to-life shadows and reflections.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://images.pexels.com/photos/4522991/pexels-photo-4522991.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="PS4 Controller">
+                        <h3>Expansive Game Library</h3>
+                        <p>Discover thousands of titles across generations, from epic blockbusters to indie gems.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="menu" class="py-lg bg-light" role="region" aria-labelledby="menu-heading">
+        <!-- Console Spotlight Section -->
+        <section id="consoles">
             <div class="container">
-                <h2 id="menu-heading">Signature Brews & Delights</h2>
-                <div class="grid">
-                    <article class="menu-item" aria-labelledby="item-latte-art">
-                        <img src="https://images.pexels.com/photos/9051791/pexels-photo-9051791.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="A beautifully crafted latte with intricate foam art." loading="lazy">
-                        <h3 id="item-latte-art">Artisan Latte</h3>
-                        <p>Smooth, creamy, and expertly crafted with your choice of milk. A canvas of flavor.</p>
-                        <span class="price">$4.75</span>
-                    </article>
-
-                    <article class="menu-item" aria-labelledby="item-espresso">
-                        <img src="https://images.pexels.com/photos/26492562/pexels-photo-26492562.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="A rich, dark espresso shot in a small ceramic cup." loading="lazy">
-                        <h3 id="item-espresso">Signature Espresso</h3>
-                        <p>Our house blend, meticulously pulled for a bold, rich, and unforgettable experience.</p>
-                        <span class="price">$3.50</span>
-                    </article>
-
-                    <article class="menu-item" aria-labelledby="item-pastry">
-                        <img src="https://images.pexels.com/photos/3227476/pexels-photo-3227476.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="A cozy cafe setting with a pastry and a coffee, suggesting comfort." loading="lazy">
-                        <h3 id="item-pastry">Fresh Baked Croissant</h3>
-                        <p>Flaky, buttery, and baked fresh daily. The perfect companion to your coffee.</p>
-                        <span class="price">$3.25</span>
-                    </article>
-
-                    <article class="menu-item" aria-labelledby="item-pour-over">
-                        <img src="https://images.pexels.com/photos/2199190/pexels-photo-2199190.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Freshly roasted coffee beans being ground for a perfect brew." loading="lazy">
-                        <h3 id="item-pour-over">Single Origin Pour-Over</h3>
-                        <p>Experience the unique notes of our rotating single-origin selection, brewed with precision.</p>
-                        <span class="price">$5.00</span>
-                    </article>
-                </div>
-                <div class="text-center" style="margin-top: var(--spacing-xl);">
-                    <a href="#" class="button">View Full Menu</a>
+                <h2 class="section-title">Explore Our Consoles</h2>
+                <div class="console-spotlight">
+                    <!-- PS5 Card -->
+                    <div class="console-card">
+                        <div class="image-wrapper">
+                            <img src="https://images.pexels.com/photos/13189290/pexels-photo-13189290.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="PlayStation 5">
+                        </div>
+                        <div class="content">
+                            <h3>PlayStation 5</h3>
+                            <p>Experience the future of gaming. The PS5 console unleashes new gaming possibilities that you never anticipated.</p>
+                            <ul>
+                                <li>Ultra-high speed SSD for rapid loading.</li>
+                                <li>Integrated I/O for instantaneous data transfer.</li>
+                                <li>Ray tracing for incredible visual realism.</li>
+                                <li>4K-TV gaming and up to 120fps.</li>
+                                <li>Tempest 3D AudioTech for immersive soundscapes.</li>
+                            </ul>
+                            <a href="#" class="btn">Learn More & Shop PS5</a>
+                        </div>
+                    </div>
+                    <!-- PS4 Card -->
+                    <div class="console-card">
+                        <div class="image-wrapper">
+                            <img src="https://images.pexels.com/photos/4522991/pexels-photo-4522991.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="PlayStation 4">
+                        </div>
+                        <div class="content">
+                            <h3>PlayStation 4</h3>
+                            <p>The console that defined a generation. The PS4 offers incredible games, endless entertainment and value.</p>
+                            <ul>
+                                <li>Vast library of award-winning games.</li>
+                                <li>Robust online multiplayer experience with PS Plus.</li>
+                                <li>Powerful performance for stunning HD graphics.</li>
+                                <li>Seamless integration with streaming services.</li>
+                                <li>Affordable entry into the PlayStation ecosystem.</li>
+                            </ul>
+                            <a href="#" class="btn">Learn More & Shop PS4</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="gallery" class="py-lg" role="region" aria-labelledby="gallery-heading">
+        <!-- Accessories Section -->
+        <section id="accessories">
             <div class="container">
-                <h2 id="gallery-heading">Our Ambiance: Your Perfect Spot</h2>
+                <h2 class="section-title">Essential Accessories</h2>
+                <div class="accessories-grid">
+                    <div class="accessory-card">
+                        <img src="https://images.pexels.com/photos/4523031/pexels-photo-4523031.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="DualShock 4 Controller">
+                        <div class="info">
+                            <h4>DualShock 4 Controller</h4>
+                            <p>Precision control for PS4 gaming. Ergonomic design with innovative features.</p>
+                            <a href="#" class="btn">View Details</a>
+                        </div>
+                    </div>
+                    <div class="accessory-card">
+                        <img src="https://images.pexels.com/photos/4523001/pexels-photo-4523001.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="DualSense Controller PS5">
+                        <div class="info">
+                            <h4>DualSense Wireless Controller</h4>
+                            <p>Next-gen haptic feedback and adaptive triggers for PS5. Feel every action.</p>
+                            <a href="#" class="btn">View Details</a>
+                        </div>
+                    </div>
+                    <div class="accessory-card">
+                        <img src="https://images.pexels.com/photos/32967534/pexels-photo-32967534.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="PS5 Camera">
+                        <div class="info">
+                            <h4>PS5 HD Camera</h4>
+                            <p>Capture your gameplay and broadcast your epic moments to the world.</p>
+                            <a href="#" class="btn">View Details</a>
+                        </div>
+                    </div>
+                    <div class="accessory-card">
+                        <img src="https://images.pexels.com/photos/14824333/pexels-photo-14824333.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="PS5 Pulse 3D Headset">
+                        <div class="info">
+                            <h4>PULSE 3D Wireless Headset</h4>
+                            <p>Experience 3D audio on PS5 with a comfortable and sleek design.</p>
+                            <a href="#" class="btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gaming Setups Gallery -->
+        <section id="gallery">
+            <div class="container">
+                <h2 class="section-title">Our Community in Action</h2>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="https://images.pexels.com/photos/3227476/pexels-photo-3227476.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="A cozy coffee shop interior with warm lighting and comfortable seating." loading="lazy">
+                        <img src="https://images.pexels.com/photos/7247508/pexels-photo-7247508.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Gamer playing PS5">
+                        <div class="gallery-item-overlay">
+                            <h4>Immersive Gameplay</h4>
+                            <p>Dive deep into virtual worlds with stunning detail.</p>
+                        </div>
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.pexels.com/photos/980122/pexels-photo-980122.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="A person working on a laptop with a coffee cup nearby, showcasing a productive atmosphere." loading="lazy">
+                        <img src="https://images.pexels.com/photos/32713615/pexels-photo-32713615.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Modern PS5 setup">
+                        <div class="gallery-item-overlay">
+                            <h4>Sleek Setups</h4>
+                            <p>Showcase your console in style, a centerpiece of any entertainment.</p>
+                        </div>
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.pexels.com/photos/17941232/pexels-photo-17941232.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="A minimalist and aesthetic coffee shop interior design." loading="lazy">
+                        <img src="https://images.pexels.com/photos/14824333/pexels-photo-14824333.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Clean gaming desk">
+                        <div class="gallery-item-overlay">
+                            <h4>Ultimate Comfort</h4>
+                            <p>Enjoy long gaming sessions with ergonomic accessories.</p>
+                        </div>
+                    </div>
+                     <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/7903006/pexels-photo-7903006.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="PS5 console close-up">
+                        <div class="gallery-item-overlay">
+                            <h4>Precision Engineering</h4>
+                            <p>Crafted for performance and stunning aesthetics.</p>
+                        </div>
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.pexels.com/photos/1137745/pexels-photo-1137745.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="A barista skillfully pouring latte art, focusing on the craft." loading="lazy">
+                         <video autoplay muted loop playsinline>
+                            <source src="https://videos.pexels.com/video-files/7774454/7774454-sd_640_360_30fps.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="gallery-item-overlay">
+                            <h4>Dynamic Moments</h4>
+                            <p>Capture and relive every thrilling second.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/29017683/pexels-photo-29017683.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Gamer with controller">
+                        <div class="gallery-item-overlay">
+                            <h4>Connected Play</h4>
+                            <p>Share the fun with friends, near or far.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="testimonials" class="testimonials" role="region" aria-labelledby="testimonials-heading">
+        <!-- Final Call to Action -->
+        <section class="cta-section">
             <div class="container">
-                <h2 id="testimonials-heading">What Our Customers Say</h2>
-                <div class="grid">
-                    <blockquote class="testimonial-card">
-                        <p>"Aroma Haven is my favorite spot. The coffee is exceptional, and the atmosphere is so inviting. It's truly a haven!"</p>
-                        <cite>— Sarah L.</cite>
-                    </blockquote>
-                    <blockquote class="testimonial-card">
-                        <p>"I love the attention to detail in every cup. The baristas are friendly, and the pastries are to die for!"</p>
-                        <cite>— Mark D.</cite>
-                    </blockquote>
-                    <blockquote class="testimonial-card">
-                        <p>"The best pour-over I've had in years. Aroma Haven truly understands coffee. Highly recommend!"</p>
-                        <cite>— Emily R.</cite>
-                    </blockquote>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="py-lg" role="region" aria-labelledby="contact-heading">
-            <div class="container">
-                <h2 id="contact-heading">Visit Us</h2>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <h3>Location</h3>
-                        <p>123 Coffee Bean Lane</p>
-                        <p>Brewtown, CA 90210</p>
-                        <a href="https://maps.app.goo.gl/YourGoogleMapsLink" target="_blank" rel="noopener noreferrer">Get Directions</a>
-                    </div>
-                    <div class="contact-item">
-                        <h3>Hours</h3>
-                        <p>Mon-Fri: 7 AM - 6 PM</p>
-                        <p>Sat-Sun: 8 AM - 5 PM</p>
-                    </div>
-                    <div class="contact-item">
-                        <h3>Contact Us</h3>
-                        <p>Phone: <a href="tel:+15551234567">(555) 123-4567</a></p>
-                        <p>Email: <a href="mailto:info@aromahaven.com">info@aromahaven.com</a></p>
-                    </div>
-                </div>
-                <div class="map-embed" aria-label="Location Map">
-                    <a href="https://maps.app.goo.gl/YourGoogleMapsLink" target="_blank" rel="noopener noreferrer">
-                        <img src="https://images.pexels.com/photos/1134195/pexels-photo-1134195.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Placeholder map showing coffee beans, click to open Google Maps." loading="lazy">
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="cta-final" class="cta-final py-lg" role="region" aria-label="Ready to experience Aroma Haven?">
-            <div class="container">
-                <h2>Ready for Your Perfect Brew?</h2>
-                <p>Whether you're looking for a quiet place to work, a friendly catch-up spot, or just the finest cup of coffee, Aroma Haven awaits. Join us today!</p>
-                <a href="#menu" class="button">Order Ahead</a>
+                <h2>Ready to Elevate Your Gaming?</h2>
+                <p>Don't just play the game, live it. Discover the perfect PlayStation console and accessories for you today!</p>
+                <a href="#consoles" class="btn">Shop All Consoles</a>
             </div>
         </section>
     </main>
 
-    <footer class="main-footer" role="contentinfo">
+    <footer class="main-footer">
         <div class="container">
-            <nav class="footer-nav" aria-label="Footer Navigation">
-                <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#menu">Our Menu</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </nav>
-            <p>&copy; <span id="current-year"></span> Aroma Haven. All rights reserved.</p>
-            <div class="social-links" aria-label="Social Media Links">
-                <a href="https://facebook.com/aromahaven" target="_blank" rel="noopener noreferrer" aria-label="Visit Aroma Haven on Facebook">Facebook</a>
-                <a href="https://instagram.com/aromahaven" target="_blank" rel="noopener noreferrer" aria-label="Visit Aroma Haven on Instagram">Instagram</a>
-                <a href="https://twitter.com/aromahaven" target="_blank" rel="noopener noreferrer" aria-label="Visit Aroma Haven on Twitter">Twitter</a>
-            </div>
+            <p>&copy; 2023 Next-GenPlay. All rights reserved. PlayStation is a registered trademark of Sony Interactive Entertainment Inc.</p>
+            <ul class="footer-nav">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
         </div>
     </footer>
-
-    <script>
-        // Simple script to update the current year in the footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Optional: Smooth scroll for internal links (less critical with CSS scroll-behavior: smooth)
-        // const scrollLinks = document.querySelectorAll('a[href^="#"]');
-        // scrollLinks.forEach(link => {
-        //     link.addEventListener('click', function(e) {
-        //         e.preventDefault();
-        //         const targetId = this.getAttribute('href');
-        //         const targetElement = document.querySelector(targetId);
-        //         if (targetElement) {
-        //             window.scrollTo({
-        //                 top: targetElement.offsetTop - (document.querySelector('.main-header').offsetHeight || 0), // Adjust for sticky header
-        //                 behavior: 'smooth'
-        //             });
-        //             // Close mobile nav after clicking a link
-        //             const navToggle = document.getElementById('nav-toggle');
-        //             if (navToggle && navToggle.checked) {
-        //                 navToggle.checked = false;
-        //             }
-        //         }
-        //     });
-        // });
-
-        // Close mobile nav if a link inside it is clicked (for CSS-only hamburger)
-        document.addEventListener('DOMContentLoaded', () => {
-            const navToggle = document.getElementById('nav-toggle');
-            const mainNav = document.getElementById('main-navigation');
-            if (navToggle && mainNav) {
-                mainNav.addEventListener('click', (event) => {
-                    if (event.target.tagName === 'A' && navToggle.checked) {
-                        navToggle.checked = false;
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 </html>
 ```
