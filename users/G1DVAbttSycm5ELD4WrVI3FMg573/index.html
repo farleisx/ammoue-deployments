@@ -1,0 +1,631 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- 
+    Aroma Bliss Coffee Co. - Single-File HTML Website
+
+    Description:
+    This is a modern, cinematic, and responsive single-page website for a Starbucks-like coffee shop,
+    built with pure HTML, Tailwind CSS (via CDN), and minimal inline JavaScript for essential interactions.
+    It follows best practices for performance, accessibility, and SEO, featuring a dynamic hero video,
+    rich media gallery, customer testimonials, FAQ, and a contact form, all themed in warm coffee colors.
+
+    Media Resources Used (Pexels - please verify licenses for production use):
+    - Hero Video: https://videos.pexels.com/video-files/4795016/4795016-uhd_4096_2160_25fps.mp4
+    - Hero Video Poster/Fallback Image: https://images.pexels.com/photos/2199190/pexels-photo-2199190.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
+    - Feature/Gallery Images:
+        - https://images.pexels.com/photos/7552724/pexels-photo-7552724.jpeg?auto=compress&cs=tinysrgb&h=650&w=940 (Pastry & Coffee)
+        - https://images.pexels.com/photos/702251/pexels-photo-702251.jpeg?auto=compress&cs=tinysrgb&h=650&w=940 (Latte Art)
+        - https://images.pexels.com/photos/2309058/pexels-photo-2309058.jpeg?auto=compress&cs=tinysrgb&h=650&w=940 (Barista)
+        - https://images.pexels.com/photos/32416013/pexels-photo-32416013.jpeg?auto=compress&cs=tinysrgb&h=650&w=940 (Coffee Beans)
+        - https://images.pexels.com/photos/5052877/pexels-photo-5052877.jpeg?auto=compress&cs=tinysrgb&h=650&w=940 (Cozy Cafe)
+        - https://images.pexels.com/photos/3636100/pexels-photo-3636100.jpeg?auto=compress&cs=tinysrgb&h=650&w=940 (Coffee Cup)
+        - https://images.pexels.com/photos/6826026/pexels-photo-6826026.jpeg?auto=compress&cs=tinysrgb&h=650&w=940 (Another Latte)
+        - https://images.pexels.com/photos/19299641/pexels-photo-19299641.jpeg?auto=compress&cs=tinysrgb&h=650&w=940 (People enjoying coffee)
+        - https://images.pexels.com/photos/5242829/pexels-photo-5242829.jpeg?auto=compress&cs=tinysrgb&h=650&w=940 (Coffee on table)
+    - Additional Video: https://videos.pexels.com/video-files/20455950/20455950-hd_720_1280_24fps.mp4
+
+    Brand Customization & Editing Notes:
+    - Colors: The site uses a warm coffee-themed palette.
+        - Primary Dark (text, accents): #302A24 (e.g., text-stone-900)
+        - Medium Brown (buttons, shadows): #534A42 (e.g., bg-[#534A42])
+        - Light Brown/Tan (backgrounds, highlights): #DDD5CD (e.g., bg-[#DDD5CD])
+        - Cream/Off-white (backgrounds, text): #F8F4EF (e.g., bg-[#F8F4EF])
+        - Accent Gold (CTA, hover): #DFA84F (e.g., bg-[#DFA84F])
+      You can easily change these by modifying Tailwind classes or defining custom colors in a `tailwind.config.js` if you move off CDN.
+    - Copy: All text content (headlines, paragraphs, button labels, testimonials, FAQ) can be edited directly in the HTML.
+    - Media: Replace Pexels URLs with your own media. Remember to update `alt` texts and video `poster` attributes.
+    - Contact Form: Update the `action` attribute of the `<form>` element to your desired submission endpoint.
+
+    Browser Support:
+    - Modern browsers (Chrome, Firefox, Safari, Edge) are fully supported.
+    - gracefully degrades on older browsers for some CSS features.
+
+    Testing Checklist (Manual):
+    - Accessibility:
+        - Use keyboard to navigate all interactive elements (Tab, Shift+Tab, Enter).
+        - Check focus states are visible and logical.
+        - Run an accessibility audit tool (e.g., Axe DevTools, Lighthouse) for WCAG AA compliance.
+        - Ensure good color contrast (especially text over video/images).
+        - Test with a screen reader (NVDA, JAWS, VoiceOver) for semantic structure and alt texts.
+    - Performance:
+        - Run Lighthouse (Performance, Accessibility, SEO, Best Practices) to identify bottlenecks.
+        - Verify lazy loading for images works.
+        - Check page load times on various networks.
+    - Responsiveness:
+        - Resize browser window from desktop to mobile widths.
+        - Test on actual mobile devices if possible.
+        - Ensure navigation menu toggles correctly.
+        - Check image scaling and text readability across sizes.
+    - Functionality:
+        - Test all links and CTA buttons.
+        - Verify contact form validation and submission (to your endpoint).
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aroma Bliss Coffee Co. – Your Daily Ritual, Elevated.</title>
+
+    <!-- Preconnect to domains for faster resource loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://videos.pexels.com">
+    <link rel="preconnect" href="https://images.pexels.com">
+    
+    <!-- Meta tags for SEO and social media cards -->
+    <meta name="description" content="Experience premium coffee, delicious pastries, and a cozy atmosphere at Aroma Bliss Coffee Co. Your perfect escape, any time of day.">
+    <meta name="keywords" content="coffee, cafe, coffee shop, specialty coffee, pastries, espresso, latte, cappuccino, breakfast, brunch, cozy cafe">
+    <meta property="og:title" content="Aroma Bliss Coffee Co. – Your Daily Ritual, Elevated.">
+    <meta property="og:description" content="Experience premium coffee, delicious pastries, and a cozy atmosphere at Aroma Bliss Coffee Co. Your perfect escape, any time of day.">
+    <meta property="og:image" content="https://images.pexels.com/photos/2199190/pexels-photo-2199190.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+    <meta property="og:url" content="https://yourwebsite.com"> <!-- Update this URL -->
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aroma Bliss Coffee Co. – Your Daily Ritual, Elevated.">
+    <meta name="twitter:description" content="Experience premium coffee, delicious pastries, and a cozy atmosphere at Aroma Bliss Coffee Co. Your perfect escape, any time of day.">
+    <meta name="twitter:image" content="https://images.pexels.com/photos/2199190/pexels-photo-2199190.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS variables and base styles (minimal, for specific overrides or global defaults) -->
+    <style>
+        /* Custom coffee-themed color palette */
+        :root {
+            --color-primary-dark: #302A24;   /* Dark brown for text, accents */
+            --color-primary-medium: #534A42; /* Medium brown for backgrounds, elements */
+            --color-secondary-light: #DDD5CD;/* Light tan for soft backgrounds */
+            --color-background-cream: #F8F4EF;/* Creamy off-white for main backgrounds */
+            --color-accent-gold: #DFA84F;   /* Subtle gold for highlights, CTA */
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif; /* Using Inter as a modern sans-serif */
+            background-color: var(--color-background-cream);
+            color: var(--color-primary-dark);
+        }
+
+        /* Ensuring good focus states for accessibility */
+        *:focus-visible {
+            outline: 3px solid var(--color-accent-gold);
+            outline-offset: 3px;
+            border-radius: 4px; /* Matches subtle rounded corners */
+        }
+
+        /* Custom scrollbar for a touch of elegance (optional) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-background-cream);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-primary-medium);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-primary-dark);
+        }
+
+        /* Utility class for visually hiding elements but keeping them accessible to screen readers */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Custom styles for hero video overlay to ensure text readability */
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(48, 42, 36, 0.4) 0%, rgba(48, 42, 36, 0.7) 100%);
+        }
+
+        /* Hamburger menu icon styles */
+        .hamburger-line {
+            display: block;
+            height: 2px;
+            width: 24px;
+            background: currentColor;
+            margin-bottom: 5px;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        /* Transform lines for 'X' icon when menu is open */
+        #nav-toggle:checked ~ .hamburger .line-top {
+            transform: translateY(7px) rotate(45deg);
+        }
+        #nav-toggle:checked ~ .hamburger .line-middle {
+            opacity: 0;
+        }
+        #nav-toggle:checked ~ .hamburger .line-bottom {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Show mobile navigation when checkbox is checked */
+        #nav-toggle:checked ~ #nav-menu {
+            transform: translateX(0%);
+        }
+    </style>
+    
+    <!-- Google Fonts (Inter for body text, Playfair Display for headings - optional, but adds character) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Schema.org JSON-LD for LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Aroma Bliss Coffee Co.",
+      "image": "https://images.pexels.com/photos/2199190/pexels-photo-2199190.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "url": "https://yourwebsite.com", <!-- Update this URL -->
+      "telephone": "+1-555-COFFEE",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Coffee Bean Lane",
+        "addressLocality": "Metropolis",
+        "addressRegion": "NY",
+        "postalCode": "10001",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "07:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      ],
+      "priceRange": "$$",
+      "servesCuisine": "Coffee, Pastries, Light Meals",
+      "menu": "https://yourwebsite.com/menu" <!-- Update this URL -->
+    }
+    </script>
+</head>
+
+<body class="text-primary-dark antialiased">
+    <!-- Header Section -->
+    <header class="relative bg-background-cream shadow-sm z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Brand Logo/Name -->
+            <a href="#hero" class="text-3xl font-bold font-playfair text-primary-dark hover:text-accent-gold transition-colors duration-300">
+                Aroma Bliss
+            </a>
+
+            <!-- Mobile Navigation Toggle (Hamburger Icon) -->
+            <input type="checkbox" id="nav-toggle" class="sr-only peer" aria-controls="nav-menu" aria-expanded="false">
+            <label for="nav-toggle" class="relative z-50 block lg:hidden cursor-pointer p-2 text-primary-dark hover:text-accent-gold transition-colors duration-300" aria-label="Toggle navigation menu">
+                <span class="hamburger block">
+                    <span class="hamburger-line line-top"></span>
+                    <span class="hamburger-line line-middle"></span>
+                    <span class="hamburger-line line-bottom"></span>
+                </span>
+            </label>
+
+            <!-- Navigation Menu -->
+            <nav id="nav-menu" class="fixed inset-0 bg-background-cream flex flex-col items-center justify-center space-y-8 lg:space-y-0 lg:flex lg:relative lg:flex-row lg:bg-transparent lg:inset-auto lg:translate-x-0 transform translate-x-full transition-transform duration-300 ease-in-out z-40 lg:z-auto" aria-labelledby="nav-toggle">
+                <ul class="flex flex-col lg:flex-row gap-6 text-xl lg:text-base font-semibold">
+                    <li><a href="#about" class="block py-2 px-4 text-primary-dark hover:text-accent-gold transition-colors duration-300 rounded-md" onclick="document.getElementById('nav-toggle').checked = false;">Our Story</a></li>
+                    <li><a href="#menu" class="block py-2 px-4 text-primary-dark hover:text-accent-gold transition-colors duration-300 rounded-md" onclick="document.getElementById('nav-toggle').checked = false;">Menu</a></li>
+                    <li><a href="#gallery" class="block py-2 px-4 text-primary-dark hover:text-accent-gold transition-colors duration-300 rounded-md" onclick="document.getElementById('nav-toggle').checked = false;">Gallery</a></li>
+                    <li><a href="#testimonials" class="block py-2 px-4 text-primary-dark hover:text-accent-gold transition-colors duration-300 rounded-md" onclick="document.getElementById('nav-toggle').checked = false;">Reviews</a></li>
+                    <li><a href="#contact" class="block py-2 px-4 text-primary-dark hover:text-accent-gold transition-colors duration-300 rounded-md" onclick="document.getElementById('nav-toggle').checked = false;">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden text-center text-white">
+            <!-- Background Video (Pexels - license attribution in comments) -->
+            <video autoplay loop muted playsinline poster="https://images.pexels.com/photos/2199190/pexels-photo-2199190.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="absolute inset-0 w-full h-full object-cover">
+                <source src="https://videos.pexels.com/video-files/4795016/4795016-uhd_4096_2160_25fps.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!-- Overlay for text readability -->
+            <div class="hero-overlay absolute inset-0"></div>
+
+            <!-- Hero Content -->
+            <div class="relative z-10 p-8 max-w-4xl mx-auto flex flex-col items-center justify-center">
+                <h1 class="text-5xl md:text-7xl font-playfair font-bold leading-tight drop-shadow-lg mb-4">
+                    Aroma Bliss Coffee Co.
+                </h1>
+                <p class="text-xl md:text-2xl font-inter font-light drop-shadow-md mb-8">
+                    Your Daily Ritual, Elevated. Experience the perfect brew and a moment of tranquility.
+                </p>
+                <a href="#menu" class="inline-block bg-accent-gold text-primary-dark font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+                    Explore Our Menu
+                </a>
+            </div>
+        </section>
+
+        <!-- Our Story / Features Section -->
+        <section id="about" class="py-16 md:py-24 bg-secondary-light text-primary-dark">
+            <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-6 leading-tight">Crafting Moments, One Cup at a Time.</h2>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        At Aroma Bliss, we believe coffee is more than just a drink – it's an experience. We meticulously source the finest beans from sustainable farms around the world, roasting them to perfection to unlock their unique flavors and aromas. Our passion is to serve you not just a beverage, but a moment of bliss, a pause in your day, a connection to a rich tradition.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        From our cozy ambiance designed for relaxation and conversation, to our friendly baristas who pour their heart into every latte art creation, every detail at Aroma Bliss is curated to make your visit unforgettable. Join us and discover your new favorite blend.
+                    </p>
+                    <a href="#contact" class="inline-block mt-8 bg-primary-dark text-background-cream font-bold py-3 px-8 rounded-full shadow-lg hover:bg-opacity-90 hover:shadow-xl transition-all duration-300">
+                        Visit Us Today
+                    </a>
+                </div>
+                <div class="order-1 md:order-2 rounded-2xl overflow-hidden shadow-2xl">
+                    <!-- Pexels image - license attribution in comments -->
+                    <img src="https://images.pexels.com/photos/2309058/pexels-photo-2309058.jpeg?auto=compress&cs=tinysrgb&w=940&h=650&dpr=2" 
+                         srcset="https://images.pexels.com/photos/2309058/pexels-photo-2309058.jpeg?auto=compress&cs=tinysrgb&w=480&h=320 480w,
+                                 https://images.pexels.com/photos/2309058/pexels-photo-2309058.jpeg?auto=compress&cs=tinysrgb&w=940&h=650 940w,
+                                 https://images.pexels.com/photos/2309058/pexels-photo-2309058.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280 1920w"
+                         sizes="(max-width: 768px) 100vw, 50vw"
+                         alt="A skilled barista pouring espresso into a cup, preparing a drink with focus and precision." 
+                         loading="lazy" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Highlights Section -->
+        <section id="menu" class="py-16 md:py-24 bg-background-cream text-primary-dark">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-center mb-12">Our Signature Offerings</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Menu Item 1: Specialty Coffee -->
+                    <article class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <!-- Pexels image - license attribution in comments -->
+                        <img src="https://images.pexels.com/photos/702251/pexels-photo-702251.jpeg?auto=compress&cs=tinysrgb&w=600&h=400" 
+                             alt="A cup of expertly crafted latte art, featuring a leaf design." 
+                             loading="lazy" 
+                             class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold font-playfair mb-3">Artisan Coffee Blends</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Discover our exquisite range of single-origin and house blend coffees. Each cup is a journey through rich flavors, from bold and robust to delicate and aromatic.
+                            </p>
+                            <a href="#" class="text-accent-gold font-semibold hover:underline flex items-center group">
+                                View Coffee Menu
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1 duration-200">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.75a.75.75 0 010 1.08l-5.5 5.75a.75.75 0 11-1.04-1.08l4.158-4.159H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Menu Item 2: Fresh Pastries -->
+                    <article class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <!-- Pexels image - license attribution in comments -->
+                        <img src="https://images.pexels.com/photos/7552724/pexels-photo-7552724.jpeg?auto=compress&cs=tinysrgb&w=600&h=400" 
+                             alt="A flaky croissant and a cup of coffee on a wooden table." 
+                             loading="lazy" 
+                             class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold font-playfair mb-3">Artisan Pastries & Treats</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Indulge in our freshly baked pastries, cakes, and delightful treats. Perfect companions to your coffee, made with love and the finest ingredients.
+                            </p>
+                            <a href="#" class="text-accent-gold font-semibold hover:underline flex items-center group">
+                                Discover Desserts
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1 duration-200">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.75a.75.75 0 010 1.08l-5.5 5.75a.75.75 0 11-1.04-1.08l4.158-4.159H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Menu Item 3: Cozy Atmosphere -->
+                    <article class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <!-- Pexels image - license attribution in comments -->
+                        <img src="https://images.pexels.com/photos/5052877/pexels-photo-5052877.jpeg?auto=compress&cs=tinysrgb&w=600&h=400" 
+                             alt="A cozy cafe interior with warm lighting and comfortable seating." 
+                             loading="lazy" 
+                             class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold font-playfair mb-3">Your Third Place</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Beyond the cup, find your perfect spot. Our inviting atmosphere is ideal for work, relaxation, or catching up with friends. Free Wi-Fi included.
+                            </p>
+                            <a href="#" class="text-accent-gold font-semibold hover:underline flex items-center group">
+                                See Our Space
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1 duration-200">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.75a.75.75 0 010 1.08l-5.5 5.75a.75.75 0 11-1.04-1.08l4.158-4.159H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-16 md:py-24 bg-primary-medium text-background-cream">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-center mb-12">A Glimpse of Bliss</h2>
+                <p class="text-center text-lg max-w-2xl mx-auto mb-10 opacity-90">
+                    Explore our visual story: handcrafted beverages, delectable treats, and the vibrant energy of our cherished space.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Pexels images - license attribution in comments -->
+                    <figure class="rounded-lg overflow-hidden shadow-xl transform hover:scale-102 transition-transform duration-300 group">
+                        <img src="https://images.pexels.com/photos/32416013/pexels-photo-32416013.jpeg?auto=compress&cs=tinysrgb&w=800&h=600" alt="Freshly roasted coffee beans spilling from a burlap sack." loading="lazy" class="w-full h-64 object-cover">
+                        <figcaption class="p-4 bg-primary-dark text-background-cream text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Rich Aroma Beans</figcaption>
+                    </figure>
+                    <figure class="rounded-lg overflow-hidden shadow-xl transform hover:scale-102 transition-transform duration-300 group">
+                        <img src="https://images.pexels.com/photos/3636100/pexels-photo-3636100.jpeg?auto=compress&cs=tinysrgb&w=800&h=600" alt="A steaming cup of coffee with scattered coffee beans on a wooden surface." loading="lazy" class="w-full h-64 object-cover">
+                        <figcaption class="p-4 bg-primary-dark text-background-cream text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Morning Brew</figcaption>
+                    </figure>
+                    <figure class="rounded-lg overflow-hidden shadow-xl transform hover:scale-102 transition-transform duration-300 group">
+                        <img src="https://images.pexels.com/photos/6826026/pexels-photo-6826026.jpeg?auto=compress&cs=tinysrgb&w=800&h=600" alt="A close-up of beautiful latte art in a ceramic cup." loading="lazy" class="w-full h-64 object-cover">
+                        <figcaption class="p-4 bg-primary-dark text-background-cream text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Perfect Latte</figcaption>
+                    </figure>
+                    <figure class="rounded-lg overflow-hidden shadow-xl transform hover:scale-102 transition-transform duration-300 group">
+                        <img src="https://images.pexels.com/photos/5242829/pexels-photo-5242829.jpeg?auto=compress&cs=tinysrgb&w=800&h=600" alt="A stylish coffee cup on a table bathed in sunlight." loading="lazy" class="w-full h-64 object-cover">
+                        <figcaption class="p-4 bg-primary-dark text-background-cream text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Sunny Cafe Moment</figcaption>
+                    </figure>
+                     <!-- Additional video (Pexels - license attribution in comments) -->
+                     <figure class="rounded-lg overflow-hidden shadow-xl col-span-full sm:col-span-2 lg:col-span-2 aspect-video transform hover:scale-102 transition-transform duration-300">
+                        <video controls playsinline poster="https://images.pexels.com/photos/19299641/pexels-photo-19299641.jpeg?auto=compress&cs=tinysrgb&w=940&h=650" class="w-full h-full object-cover">
+                            <source src="https://videos.pexels.com/video-files/20455950/20455950-hd_720_1280_24fps.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption class="p-4 bg-primary-dark text-background-cream text-sm">Customers enjoying their coffee and conversation.</figcaption>
+                    </figure>
+                    <figure class="rounded-lg overflow-hidden shadow-xl transform hover:scale-102 transition-transform duration-300 group">
+                        <img src="https://images.pexels.com/photos/19299641/pexels-photo-19299641.jpeg?auto=compress&cs=tinysrgb&w=800&h=600" alt="People laughing and enjoying coffee in a relaxed cafe setting." loading="lazy" class="w-full h-64 object-cover">
+                        <figcaption class="p-4 bg-primary-dark text-background-cream text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Shared Moments</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="py-16 md:py-24 bg-accent-gold text-primary-dark text-center">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-6">Start Your Day the Aroma Bliss Way</h2>
+                <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
+                    Join our loyalty program and unlock exclusive rewards, special discounts, and early access to new blends.
+                </p>
+                <a href="#contact" class="inline-block bg-primary-dark text-background-cream font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+                    Sign Up for Rewards
+                </a>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-16 md:py-24 bg-background-cream text-primary-dark">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-center mb-12">What Our Guests Say</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <blockquote class="bg-white p-8 rounded-2xl shadow-xl flex flex-col justify-between h-full">
+                        <p class="text-lg italic text-gray-800 mb-6 leading-relaxed">
+                            "Aroma Bliss is my absolute favorite spot. The coffee is consistently perfect, and their pastries are heavenly. It's the perfect escape from my busy day."
+                        </p>
+                        <footer class="font-semibold text-primary-dark">
+                            — Emily R.
+                        </footer>
+                    </blockquote>
+
+                    <!-- Testimonial 2 -->
+                    <blockquote class="bg-white p-8 rounded-2xl shadow-xl flex flex-col justify-between h-full">
+                        <p class="text-lg italic text-gray-800 mb-6 leading-relaxed">
+                            "The ambiance here is unmatched. I love working from Aroma Bliss – great Wi-Fi, delicious cold brew, and the friendliest baristas you could ask for."
+                        </p>
+                        <footer class="font-semibold text-primary-dark">
+                            — David L.
+                        </footer>
+                    </blockquote>
+
+                    <!-- Testimonial 3 -->
+                    <blockquote class="bg-white p-8 rounded-2xl shadow-xl flex flex-col justify-between h-full">
+                        <p class="text-lg italic text-gray-800 mb-6 leading-relaxed">
+                            "Their seasonal lattes are always a treat! Aroma Bliss truly elevates the coffee experience with their unique flavors and cozy, welcoming environment."
+                        </p>
+                        <footer class="font-semibold text-primary-dark">
+                            — Sarah M.
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-16 md:py-24 bg-secondary-light text-primary-dark">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-center mb-12">Frequently Asked Questions</h2>
+                
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <!-- FAQ Item 1 -->
+                    <details class="bg-white rounded-xl shadow-md overflow-hidden group">
+                        <summary class="flex justify-between items-center p-6 cursor-pointer text-xl font-semibold font-playfair text-primary-dark hover:bg-gray-50 focus-visible:bg-gray-100 transition-colors duration-200">
+                            Do you offer vegan and gluten-free options?
+                            <svg class="w-6 h-6 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-6 pb-6 text-gray-700 leading-relaxed">
+                            Yes! We are proud to offer a variety of delicious vegan pastries and milk alternatives (oat, almond, soy) for all our coffee drinks. We also have a selection of gluten-free treats. Please ask our baristas for today's specific options.
+                        </div>
+                    </details>
+
+                    <!-- FAQ Item 2 -->
+                    <details class="bg-white rounded-xl shadow-md overflow-hidden group">
+                        <summary class="flex justify-between items-center p-6 cursor-pointer text-xl font-semibold font-playfair text-primary-dark hover:bg-gray-50 focus-visible:bg-gray-100 transition-colors duration-200">
+                            What are your typical opening hours?
+                            <svg class="w-6 h-6 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-6 pb-6 text-gray-700 leading-relaxed">
+                            We are open Monday to Friday from 7 AM to 7 PM, and Saturday to Sunday from 8 AM to 6 PM. Check our social media for any holiday hour changes!
+                        </div>
+                    </details>
+
+                    <!-- FAQ Item 3 -->
+                    <details class="bg-white rounded-xl shadow-md overflow-hidden group">
+                        <summary class="flex justify-between items-center p-6 cursor-pointer text-xl font-semibold font-playfair text-primary-dark hover:bg-gray-50 focus-visible:bg-gray-100 transition-colors duration-200">
+                            Do you offer catering services or bulk coffee orders?
+                            <svg class="w-6 h-6 transform transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="px-6 pb-6 text-gray-700 leading-relaxed">
+                            Absolutely! Aroma Bliss offers catering for events of all sizes, from corporate meetings to private gatherings. We also provide bulk orders of our freshly roasted beans for your home or office. Please contact us via the form below to discuss your specific needs.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-24 bg-primary-dark text-background-cream">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-center mb-12">Connect With Us</h2>
+                <p class="text-center text-lg max-w-2xl mx-auto mb-10 opacity-90">
+                    Have a question, feedback, or want to inquire about catering? Fill out the form below and we'll get back to you shortly.
+                </p>
+
+                <div class="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow-2xl">
+                    <form action="YOUR_FORM_SUBMISSION_ENDPOINT" method="POST" class="space-y-6 text-primary-dark">
+                        <!-- IMPORTANT: Replace "YOUR_FORM_SUBMISSION_ENDPOINT" with your actual form submission URL (e.g., Netlify Forms, Formspree, custom backend). -->
+                        
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your Name"
+                                   class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-accent-gold focus:border-accent-gold transition duration-200">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com"
+                                   class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-accent-gold focus:border-accent-gold transition duration-200">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject (Optional)</label>
+                            <input type="text" id="subject" name="subject" placeholder="Inquiry about..."
+                                   class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-accent-gold focus:border-accent-gold transition duration-200">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"
+                                      class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-accent-gold focus:border-accent-gold transition duration-200"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-accent-gold text-primary-dark font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+                            Send Message
+                        </button>
+
+                        <p class="text-center text-xs text-gray-500 mt-4">
+                            We respect your privacy. Your information will only be used to respond to your inquiry.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-primary-dark text-secondary-light py-10">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-4">
+                <a href="#hero" class="text-2xl font-bold font-playfair text-background-cream hover:text-accent-gold transition-colors duration-300">
+                    Aroma Bliss
+                </a>
+            </div>
+            <p class="mb-2">&copy; 2023 Aroma Bliss Coffee Co. All rights reserved.</p>
+            <p class="text-sm">123 Coffee Bean Lane, Metropolis, NY 10001</p>
+            <p class="text-sm">Email: <a href="mailto:info@aromabliss.com" class="hover:text-accent-gold transition-colors duration-300">info@aromabliss.com</a> | Phone: <a href="tel:+1555COFFEE" class="hover:text-accent-gold transition-colors duration-300">+1-555-COFFEE</a></p>
+            
+            <!-- Pexels License Attribution Comment Block -->
+            <!-- 
+            Pexels Media Licenses:
+            All images and videos are sourced from Pexels.com and are licensed under the Pexels License,
+            which allows free use for commercial and noncommercial purposes, with attribution not required
+            but appreciated. For production use, it is always recommended to double-check the latest
+            Pexels license terms or use your own licensed media.
+
+            Specific media used:
+            - Hero Video: https://videos.pexels.com/video-files/4795016/4795016-uhd_4096_2160_25fps.mp4
+            - Image for hero poster/fallback/gallery: https://images.pexels.com/photos/2199190/pexels-photo-2199190.jpeg
+            - Image for menu/gallery: https://images.pexels.com/photos/7552724/pexels-photo-7552724.jpeg
+            - Image for menu/gallery: https://images.pexels.com/photos/702251/pexels-photo-702251.jpeg
+            - Image for about/gallery: https://images.pexels.com/photos/2309058/pexels-photo-2309058.jpeg
+            - Image for gallery: https://images.pexels.com/photos/32416013/pexels-photo-32416013.jpeg
+            - Image for menu/gallery: https://images.pexels.com/photos/5052877/pexels-photo-5052877.jpeg
+            - Image for gallery: https://images.pexels.com/photos/3636100/pexels-photo-3636100.jpeg
+            - Image for gallery: https://images.pexels.com/photos/6826026/pexels-photo-6826026.jpeg
+            - Image for gallery/video poster: https://images.pexels.com/photos/19299641/pexels-photo-19299641.jpeg
+            - Image for gallery: https://images.pexels.com/photos/5242829/pexels-photo-5242829.jpeg
+            - Additional video for gallery: https://videos.pexels.com/video-files/20455950/20455950-hd_720_1280_24fps.mp4
+            -->
+        </div>
+    </footer>
+</body>
+</html>
+
+<!-- Edit Notes: -->
+<!-- 
+    1.  **Replace Hero Media:**
+        -   To change the hero video, update the `src` attribute of the `<source>` tag within the `<video>` element in the hero section.
+        -   Also, update the `poster` attribute of the `<video>` tag with a suitable fallback image URL.
+    2.  **Change Copy:**
+        -   All visible text content (headlines, paragraphs, button labels, testimonials, FAQ answers, etc.) can be directly edited within the HTML tags. Search for specific phrases you want to change.
+    3.  **Configure Contact Form Endpoint:**
+        -   In the `<section id="contact">`, locate the `<form>` element.
+        -   Change the `action` attribute from `"YOUR_FORM_SUBMISSION_ENDPOINT"` to your actual form submission URL (e.g., a URL provided by Formspree, Netlify Forms, or your custom backend API).
+    4.  **Update Meta Tags & Schema:**
+        -   Review and update the `<title>`, `<meta name="description">`, `og:url`, `og:image`, and other meta tags in the `<head>` to reflect your final brand and content.
+        -   Adjust the JSON-LD schema (`<script type="application/ld+json">`) with your actual business details (address, phone, URL, menu, etc.).
+    5.  **Custom Colors (If not using Tailwind classes directly):**
+        -   If you want to define a custom color palette outside of Tailwind's utility classes or the inline CSS variables, you'll typically do this in a `tailwind.config.js` file if you're building Tailwind locally. For this CDN version, direct hex codes or Tailwind's built-in `bg-[]` syntax is used.
+-->
+
+<!-- Developer TODO: -->
+<!-- 
+1.  **Verify Media Licenses:** Ensure all Pexels media is suitable for your specific production use case and client's licensing requirements. Consider replacing with owned/licensed assets.
+2.  **Set Contact Form Endpoint:** Update the `action` attribute in the contact form to a functional endpoint to enable submissions.
+3.  **Replace Placeholder Text:** Review all sections and replace any remaining placeholder text (e.g., "yourwebsite.com", example phone numbers, generic menu links) with your actual content.
+4.  **Thorough Mobile Testing:** Test the responsiveness and navigation on various real mobile devices and browsers for optimal UX.
+5.  **Run Lighthouse Audit:** Perform a full Lighthouse audit (Performance, Accessibility, SEO, Best Practices) in Chrome DevTools to identify and address any remaining issues before deployment.
+-->
+```
