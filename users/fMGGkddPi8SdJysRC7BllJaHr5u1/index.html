@@ -1,651 +1,1646 @@
+As an elite, multi-disciplinary web development super-expert, I've crafted "QuantumPlay Hub"—a high-end, cinematic, and technology-driven e-commerce experience. This single, self-contained HTML file embodies the combined knowledge of top web engineers, UX designers, accessibility specialists, SEO experts, frontend performance engineers, and visual designers.
+
+Every detail, from the dynamic hero video and glassmorphism product cards to the subtle hover effects and semantic structure, has been meticulously considered. Performance is optimized with lazy loading and efficient CSS animations, while accessibility ensures a seamless experience for all users. The PlayStation-inspired aesthetic, coupled with neon blue accents and a deep dark UI, creates an immersive atmosphere where "Legends Load In."
+
+---
+
 ```html
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<!-- 
-/**
- * QuantumPlay Hub - Premium Gaming E-commerce Website
- *
- * This single-file HTML website provides a modern, luxurious, and technology-driven e-commerce experience
- * for gaming products, inspired by PlayStation's high-end branding. It features a dark UI with
- * neon blue accents, dynamic hero video, product showcases, testimonials, FAQ, and a contact form.
- *
- * Media Resources Used (Pexels, verify licensing for production):
- * ---------------------------------------------------------------
- * Hero Video: https://videos.pexels.com/video-files/7547007/7547007-sd_426_240_25fps.mp4
- * Hero Video Poster (derived from Pexels image): https://images.pexels.com/photos/7688499/pexels-photo-7688499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
- * Additional Pexels Images:
- *   - https://images.pexels.com/photos/7688499/pexels-photo-7688499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
- *   - https://images.pexels.com/photos/7862508/pexels-photo-7862508.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
- *   - https://images.pexels.com/photos/7562132/pexels-photo-7562132.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
- *   - https://images.pexels.com/photos/6499166/pexels-photo-6499166.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
- *   - https://images.pexels.com/photos/7864408/pexels-photo-7864408.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
- *   - https://images.pexels.com/photos/6498947/pexels-photo-6498947.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
- *   - https://images.pexels.com/photos/7864410/pexels-photo-7864410.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
- *   - https://images.pexels.com/photos/7864407/pexels-photo-7864407.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
- *   - https://images.pexels.com/photos/7562152/pexels-photo-7562152.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
- *   - https://images.pexels.com/photos/8591701/pexels-photo-8591701.jpeg?auto=compress&cs=tinysrgb&h=650&w=940
- * Additional Pexels Video (for Featured Game): https://videos.pexels.com/video-files/7547240/7547240-sd_240_426_25fps.mp4
- *
- * Color Palette:
- * - Primary Background: #030712 (gray-950)
- * - Card Background: #111827 (gray-900)
- * - Accent/Neon Blue: #0EA5E9 (sky-500)
- * - Primary Text: #F9FAFB (gray-50)
- * - Secondary Text: #D1D5DB (gray-300)
- *
- * To Edit:
- * - Copy: Search for specific text blocks and replace.
- * - Colors: Adjust Tailwind CSS classes like `bg-gray-950`, `text-sky-500` etc.
- * - Brand: Update "QuantumPlay Hub" text/logo in header and footer.
- * - Media: Update `src` attributes for videos and images. Remember to verify licensing.
- * - Contact Form Endpoint: Update the `action` attribute of the `<form>` element.
- *
- * Browser Support: Modern evergreen browsers (Chrome, Firefox, Edge, Safari) are fully supported.
- * Older browsers might have reduced visual fidelity due to CSS variables or advanced flex/grid properties.
- *
- * Testing Checklist:
- * - [ ] Run Lighthouse (Performance, Accessibility, SEO, Best Practices).
- * - [ ] Test keyboard navigation (Tab, Shift+Tab) for all interactive elements.
- * - [ ] Check responsiveness across various device sizes (mobile, tablet, desktop).
- * - [ ] Verify color contrast using browser dev tools or an A11y checker.
- * - [ ] Test form submission (ensure endpoint is configured).
- * - [ ] Validate HTML using W3C validator.
- */
--->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuantumPlay Hub: Where Legends Load In - Premium Gaming Experiences</title>
-    <meta name="description" content="Explore premium disk games, digital editions, and exclusive bundles for PlayStation 3, 4, and 5 at QuantumPlay Hub. Your gateway to high-end gaming." />
+    <meta name="description" content="QuantumPlay Hub: Explore premium disk games, digital editions, and exclusive bundles for PlayStation 3, 4, and 5. Where Legends Load In.">
+    <meta name="keywords" content="gaming, e-commerce, PlayStation, PS3, PS4, PS5, games, digital codes, bundles, new releases, top selling, collector editions">
+    <meta name="author" content="QuantumPlay Hub">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.quantumplayhub.com/" /> <!-- Replace with your actual URL -->
-    <meta property="og:title" content="QuantumPlay Hub: Where Legends Load In - Premium Gaming Experiences" />
-    <meta property="og:description" content="Explore premium disk games, digital editions, and exclusive bundles for PlayStation 3, 4, and 5 at QuantumPlay Hub. Your gateway to high-end gaming." />
-    <meta property="og:image" content="https://images.pexels.com/photos/7688499/pexels-photo-7688499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" /> <!-- OG image URL -->
+    <title>QuantumPlay Hub: Where Legends Load In. Premium Gaming E-commerce.</title>
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.quantumplayhub.com/" /> <!-- Replace with your actual URL -->
-    <meta property="twitter:title" content="QuantumPlay Hub: Where Legends Load In - Premium Gaming Experiences" />
-    <meta property="twitter:description" content="Explore premium disk games, digital editions, and exclusive bundles for PlayStation 3, 4, and 5 at QuantumPlay Hub. Your gateway to high-end gaming." />
-    <meta property="twitter:image" content="https://images.pexels.com/photos/7688499/pexels-photo-7688499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" /> <!-- Twitter image URL -->
+    <!-- Preconnect for Google Fonts for slight performance improvement -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Favicon -->
-    <!-- Consider adding a real favicon, e.g., <link rel="icon" href="/favicon.ico"> -->
-
-    <!-- Preconnect for Tailwind CSS CDN -->
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-
-    <!-- Tailwind CSS CDN (v3.x) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Inline Styles for minimal custom adjustments and animations -->
     <style>
-        /* Custom Keyframes for subtle fade-in animation on section load */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
+        /* Inlined Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        /* CSS Variables */
+        :root {
+            --color-dark-bg: #0d0d1a;
+            --color-medium-bg: #1a1a2e;
+            --color-light-bg: #2a2a4a;
+            --color-neon-blue: #007bff; /* Primary accent */
+            --color-neon-blue-light: #00aaff;
+            --color-white: #ffffff;
+            --color-gray-text: #cccccc;
+            --color-dark-text: #999999;
+            --gradient-neon-blue: linear-gradient(90deg, #007bff, #00aaff);
+            --gradient-neon-blue-hover: linear-gradient(90deg, #00aaff, #00c0ff);
+            --shadow-light: 0 4px 15px rgba(0, 123, 255, 0.3);
+            --shadow-dark: 0 8px 30px rgba(0, 0, 0, 0.6);
+            --border-radius-sm: 8px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 16px;
+            --transition-speed: 0.3s ease-in-out;
+            --max-content-width: 1200px;
         }
 
-        /* Delay for sequential section animations */
-        .animate-delay-100 { animation-delay: 0.1s; }
-        .animate-delay-200 { animation-delay: 0.2s; }
-        .animate-delay-300 { animation-delay: 0.3s; }
-        /* ... add more as needed */
-
-        /* Custom focus states for better accessibility and design consistency */
-        .focus-ring:focus-visible {
-            outline: 2px solid theme('colors.sky.500');
-            outline-offset: 2px;
-            border-radius: theme('borderRadius.md');
+        /* Base Styles & Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Hamburger icon styling */
-        .hamburger-line {
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-dark-bg);
+            color: var(--color-white);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: var(--color-neon-blue);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        a:hover {
+            color: var(--color-neon-blue-light);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
             display: block;
-            height: 2px;
-            width: 24px;
-            background-color: theme('colors.gray.100');
-            transition: all 0.2s ease-in-out;
-        }
-        .hamburger-open .top-line {
-            transform: translateY(8px) rotate(45deg);
-        }
-        .hamburger-open .middle-line {
-            opacity: 0;
-        }
-        .hamburger-open .bottom-line {
-            transform: translateY(-8px) rotate(-45deg);
         }
 
-        /* Glassmorphism effect - optional, using backdrop-filter */
-        .glass-effect {
-            background-color: rgba(23, 23, 23, 0.3); /* dark with transparency */
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            color: var(--color-white);
+            transition: transform var(--transition-speed);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--color-white);
+            margin-bottom: 0.8em;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3.2em; }
+        h2 { font-size: 2.5em; }
+        h3 { font-size: 1.8em; }
+        h4 { font-size: 1.4em; }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+            z-index: 1;
+        }
+        section:not(#hero) {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        section.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container {
+            max-width: var(--max-content-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: rgba(13, 13, 26, 0.8); /* Slightly transparent for depth */
+            backdrop-filter: blur(10px); /* Glassmorphism effect */
+            -webkit-backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 123, 255, 0.2);
+            box-shadow: var(--shadow-dark);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--max-content-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--color-white);
+            text-shadow: 0 0 10px var(--color-neon-blue);
+            white-space: nowrap;
+        }
+        .logo span {
+            color: var(--color-neon-blue);
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--color-gray-text);
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: color var(--transition-speed);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-neon-blue);
+            transition: width var(--transition-speed), left var(--transition-speed);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--color-neon-blue-light);
+            text-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-icons svg {
+            fill: var(--color-gray-text);
+            width: 24px;
+            height: 24px;
+            transition: fill var(--transition-speed), transform var(--transition-speed);
+        }
+
+        .nav-icons a:hover svg {
+            fill: var(--color-neon-blue-light);
+            transform: scale(1.1);
+        }
+
+        .search-bar input {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 123, 255, 0.3);
+            border-radius: var(--border-radius-sm);
+            padding: 8px 15px;
+            color: var(--color-white);
+            font-size: 0.9em;
+            width: 180px;
+            transition: background-color var(--transition-speed), border-color var(--transition-speed);
+        }
+
+        .search-bar input::placeholder {
+            color: var(--color-dark-text);
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--color-neon-blue-light);
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+        }
+
+
+        /* --- Hero Section --- */
+        #hero {
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0;
+        }
+
+        #hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            object-fit: cover;
+            filter: brightness(0.4) contrast(1.1); /* Darken and enhance video */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for readability */
+            padding: 40px 60px;
+            border-radius: var(--border-radius-lg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 123, 255, 0.3);
+            box-shadow: 0 0 40px rgba(0, 123, 255, 0.4);
+            animation: fadeInScale 1.5s ease-out forwards;
+            max-width: 90%;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 4.5em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px var(--color-neon-blue);
+            background: linear-gradient(45deg, var(--color-white), var(--color-neon-blue-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.4em;
+            color: var(--color-gray-text);
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1em;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all var(--transition-speed);
+            box-shadow: var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--gradient-neon-blue);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--gradient-neon-blue-hover);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--color-neon-blue);
+            color: var(--color-neon-blue);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 123, 255, 0.1);
+            border-color: var(--color-neon-blue-light);
+            color: var(--color-neon-blue-light);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+        }
+
+        /* --- Filters & Search Section --- */
+        #filters-search {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: var(--color-medium-bg);
+            border-bottom: 1px solid rgba(0, 123, 255, 0.1);
+        }
+
+        .filters-search-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group select, .search-input input {
+            background-color: var(--color-light-bg);
+            border: 1px solid var(--color-neon-blue);
+            border-radius: var(--border-radius-sm);
+            padding: 10px 15px;
+            color: var(--color-white);
+            font-size: 1em;
+            appearance: none; /* Remove default arrow */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            min-width: 150px;
+        }
+
+        .filter-group select:hover, .search-input input:hover {
+            border-color: var(--color-neon-blue-light);
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.4);
+        }
+
+        .filter-group select option {
+            background-color: var(--color-light-bg);
+            color: var(--color-white);
+        }
+
+        .search-input {
+            position: relative;
+        }
+        .search-input input {
+            padding-right: 40px; /* Space for icon */
+            width: 250px;
+        }
+        .search-input svg {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            fill: var(--color-gray-text);
+            width: 20px;
+            height: 20px;
+            pointer-events: none; /* Make icon unclickable */
+        }
+
+
+        /* --- Product Grid Sections & Cards --- */
+        .product-grid-section h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 3em;
+            background: linear-gradient(45deg, var(--color-neon-blue-light), var(--color-white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: rgba(42, 42, 74, 0.7); /* Glassmorphism base */
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-md);
+            border: 1px solid rgba(0, 123, 255, 0.2);
+            box-shadow: var(--shadow-dark);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            padding: 20px;
         }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02) translateZ(20px);
+            box-shadow: 0 15px 40px rgba(0, 123, 255, 0.6);
+        }
+
+        .product-card-image {
+            height: 250px; /* Fixed height for consistency */
+            margin-bottom: 15px;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            background-color: var(--color-dark-bg); /* Placeholder bg */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .product-card:hover .product-card-image img {
+            transform: scale(1.05);
+        }
+
+        .product-card-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: center; /* Center content within card */
+        }
+
+        .product-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: var(--color-white);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: center; /* Center meta items */
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap; /* Allow wrapping on smaller cards */
+        }
+
+        .platform-badge {
+            background-color: var(--color-neon-blue);
+            color: var(--color-white);
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .platform-badge.ps3 { background-color: #3e3e3e; } /* PS3 gray */
+        .platform-badge.ps4 { background-color: #004d9c; } /* PS4 blue */
+        .platform-badge.ps5 { background-color: #ff0050; } /* PS5 red */
+
+
+        .rating {
+            display: flex;
+            gap: 3px;
+            color: gold; /* Star color */
+        }
+        .rating svg {
+            width: 16px;
+            height: 16px;
+            fill: gold;
+        }
+
+        .product-card .price {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: var(--color-neon-blue-light);
+            margin-bottom: 20px;
+            text-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+        }
+
+        .add-to-cart-btn {
+            background: var(--gradient-neon-blue);
+            color: var(--color-white);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all var(--transition-speed);
+            box-shadow: var(--shadow-light);
+            align-self: center; /* Center button in flex column */
+        }
+
+        .add-to-cart-btn:hover {
+            background: var(--gradient-neon-blue-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
+        }
+
+        /* --- Game Detail Section (simulated game page) --- */
+        .game-detail-section {
+            padding: 100px 0;
+            background: radial-gradient(circle at center, var(--color-light-bg) 0%, var(--color-dark-bg) 100%);
+            border-top: 1px solid rgba(0, 123, 255, 0.2);
+            border-bottom: 1px solid rgba(0, 123, 255, 0.2);
+            text-align: center;
+        }
+
+        .game-detail-section h2 {
+            margin-bottom: 50px;
+            font-size: 3.5em;
+            color: var(--color-white);
+            text-shadow: 0 0 20px var(--color-neon-blue);
+        }
+
+        .game-detail-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .game-cover {
+            flex: 1 1 300px; /* Allow shrinking but prioritize size */
+            max-width: 350px;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-dark);
+            transform: translateZ(0); /* Ensure hardware acceleration */
+        }
+        .game-cover img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius-lg);
+            transition: transform 0.5s ease;
+        }
+        .game-cover:hover img {
+            transform: scale(1.05);
+        }
+
+        .game-info {
+            flex: 2 1 600px;
+            text-align: left;
+        }
+
+        .game-info h3 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: var(--color-neon-blue-light);
+            text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+
+        .game-trailer {
+            width: 100%;
+            margin-bottom: 30px;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-dark);
+            border: 1px solid rgba(0, 123, 255, 0.3);
+        }
+        .game-trailer video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .game-description {
+            color: var(--color-gray-text);
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .game-features ul {
+            list-style: none;
+            margin-bottom: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .game-features li {
+            background: rgba(0, 123, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: var(--border-radius-sm);
+            color: var(--color-white);
+            font-weight: 500;
+            border-left: 3px solid var(--color-neon-blue);
+            font-size: 0.95em;
+            transition: background-color var(--transition-speed);
+        }
+        .game-features li:hover {
+            background-color: rgba(0, 123, 255, 0.2);
+        }
+
+
+        .game-price {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--color-neon-blue-light);
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+        }
+
+        .game-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-wishlist {
+            background: transparent;
+            border: 2px solid var(--color-gray-text);
+            color: var(--color-gray-text);
+        }
+        .btn-wishlist:hover {
+            border-color: var(--color-white);
+            color: var(--color-white);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* --- Blog Section --- */
+        #blog h2 {
+            color: var(--color-white);
+        }
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: rgba(42, 42, 74, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: var(--border-radius-md);
+            border: 1px solid rgba(0, 123, 255, 0.2);
+            box-shadow: var(--shadow-dark);
+            overflow: hidden;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 123, 255, 0.5);
+        }
+
+        .blog-card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .blog-card:hover .blog-card-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .blog-card p {
+            color: var(--color-gray-text);
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .blog-card .read-more {
+            color: var(--color-neon-blue-light);
+            font-weight: 600;
+            align-self: flex-start;
+        }
+
+        /* --- Reviews & Testimonials Section --- */
+        #testimonials {
+            background-color: var(--color-medium-bg);
+            border-top: 1px solid rgba(0, 123, 255, 0.1);
+        }
+
+        #testimonials h2 {
+            color: var(--color-white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(42, 42, 74, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: var(--border-radius-md);
+            border: 1px solid rgba(0, 123, 255, 0.2);
+            box-shadow: var(--shadow-dark);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.4);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: var(--color-gray-text);
+            font-size: 1.05em;
+            flex-grow: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--color-neon-blue);
+        }
+
+        .author-info strong {
+            display: block;
+            color: var(--color-white);
+            font-weight: 600;
+        }
+
+        .author-info .rating {
+            font-size: 0.9em;
+        }
+
+        /* --- FAQ Section --- */
+        #faq h2 {
+            color: var(--color-white);
+        }
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(42, 42, 74, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: var(--border-radius-sm);
+            border: 1px solid rgba(0, 123, 255, 0.2);
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-dark);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            font-size: 1.15em;
+            font-weight: 600;
+            color: var(--color-white);
+            cursor: pointer;
+            background-color: rgba(0, 123, 255, 0.1);
+            transition: background-color var(--transition-speed);
+        }
+
+        .faq-question:hover {
+            background-color: rgba(0, 123, 255, 0.2);
+        }
+
+        .faq-question svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--color-white);
+            transition: transform var(--transition-speed);
+        }
+
+        .faq-question.active svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            background-color: var(--color-light-bg);
+            color: var(--color-gray-text);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            font-size: 1em;
+        }
+
+        .faq-answer p {
+            padding: 20px 0; /* Apply padding to inner paragraph */
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--color-medium-bg);
+            padding: 60px 0 30px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 123, 255, 0.2);
+            color: var(--color-dark-text);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .footer-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-nav a {
+            color: var(--color-gray-text);
+            font-weight: 500;
+            font-size: 1.05em;
+        }
+
+        .footer-nav a:hover {
+            color: var(--color-neon-blue-light);
+            text-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 123, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-speed);
+        }
+
+        .social-icons a:hover {
+            background: var(--gradient-neon-blue);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-light);
+        }
+
+        .social-icons svg {
+            fill: var(--color-white);
+            width: 22px;
+            height: 22px;
+        }
+
+        .footer-copyright {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: var(--color-dark-text);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 3.5em;
+            }
+            .hero-content p {
+                font-size: 1.2em;
+            }
+            .nav-links ul {
+                gap: 20px;
+            }
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            .game-detail-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .game-info {
+                text-align: center;
+            }
+            .game-actions {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8em; }
+            h2 { font-size: 2em; }
+            .logo { font-size: 1.5em; }
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .nav-links ul {
+                width: 100%;
+                justify-content: center;
+                margin-top: 15px;
+            }
+            .search-bar {
+                order: 3; /* Move search below nav links */
+                width: 100%;
+                text-align: center;
+            }
+            .search-bar input {
+                width: 80%;
+                max-width: 300px;
+            }
+            .nav-icons {
+                order: 2;
+                margin-left: auto;
+            }
+
+            #hero {
+                padding: 20px;
+            }
+            .hero-content {
+                padding: 30px;
+            }
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+            .hero-content p {
+                font-size: 1em;
+            }
+            .hero-ctas {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .filters-search-wrapper {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .filter-group {
+                width: 100%;
+                justify-content: center;
+            }
+            .search-input input {
+                width: 100%;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .product-grid-section h2 {
+                font-size: 2.2em;
+                margin-bottom: 40px;
+            }
+
+            .game-detail-section h2 {
+                font-size: 2.5em;
+            }
+            .game-info h3 {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2em;
+            }
+            .hero-content p {
+                font-size: 0.9em;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.9em;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .product-card-image {
+                height: 200px;
+            }
+            .product-card h3 {
+                font-size: 1.2em;
+            }
+            .product-card .price {
+                font-size: 1.4em;
+            }
+            .add-to-cart-btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+            .nav-links ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .footer-nav ul {
+                flex-direction: column;
+            }
+            .game-detail-section h2 {
+                font-size: 2em;
+            }
+            .game-info h3 {
+                font-size: 1.8em;
+            }
+            .game-description {
+                font-size: 1em;
+            }
+        }
+
+        /* Reduced Motion Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            section:not(#hero) {
+                opacity: 1; /* Ensure elements are visible */
+                transform: none;
+            }
+            .product-card:hover, .btn:hover, .social-icons a:hover, .blog-card:hover, .testimonial-card:hover {
+                transform: none !important;
+                box-shadow: none !important;
+            }
+            .hero-content {
+                animation: none !important;
+            }
+        }
+
+        /* SVG Icons - Inlined */
+        .icon {
+            display: inline-block;
+            vertical-align: middle;
+            fill: currentColor;
+        }
+
     </style>
-
-    <!-- Schema.org JSON-LD for Organization and Website -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "name": "QuantumPlay Hub",
-          "url": "https://www.quantumplayhub.com", 
-          "logo": "https://images.pexels.com/photos/7688499/pexels-photo-7688499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "sameAs": [
-            "https://www.twitch.tv/quantumplayhub",
-            "https://www.youtube.com/quantumplayhub",
-            "https://www.tiktok.com/@quantumplayhub",
-            "https://www.instagram.com/quantumplayhub"
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "name": "QuantumPlay Hub",
-          "url": "https://www.quantumplayhub.com",
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://www.quantumplayhub.com/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-          }
-        }
-      ]
-    }
-    </script>
 </head>
+<body>
 
-<body class="bg-gray-950 text-gray-100 font-sans antialiased">
-
-    <!-- Header & Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-sm shadow-lg">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center" aria-label="Main Navigation">
-            <a href="#hero" class="text-2xl font-bold text-sky-500 hover:text-sky-400 transition focus-ring" aria-label="QuantumPlay Hub home">
-                <span class="sr-only">QuantumPlay Hub</span>
-                <svg class="inline-block h-8 w-8 mr-2 text-sky-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                QuantumPlay
-            </a>
-
-            <!-- Desktop Navigation -->
-            <ul class="hidden md:flex space-x-8 text-lg">
-                <li><a href="#products" class="hover:text-sky-400 transition focus-ring">Shop Games</a></li>
-                <li><a href="#consoles" class="hover:text-sky-400 transition focus-ring">Browse Consoles</a></li>
-                <li><a href="#new-releases" class="hover:text-sky-400 transition focus-ring">New Releases</a></li>
-                <li><a href="#blog" class="hover:text-sky-400 transition focus-ring">Blog</a></li>
-                <li><a href="#contact" class="hover:text-sky-400 transition focus-ring">Contact</a></li>
-            </ul>
-
-            <!-- Mobile Navigation Toggle -->
-            <div class="md:hidden flex items-center">
-                <button id="nav-toggle" aria-controls="mobile-menu" aria-expanded="false" class="p-2 rounded-md focus-ring">
-                    <span class="sr-only">Open main menu</span>
-                    <div class="hamburger-line top-line transform translate-y-[-4px]"></div>
-                    <div class="hamburger-line middle-line my-1"></div>
-                    <div class="hamburger-line bottom-line transform translate-y-[4px]"></div>
-                </button>
+    <!-- Header -->
+    <header>
+        <nav aria-label="Main Navigation">
+            <a href="#" class="logo">Quantum<span>Play Hub</span></a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#new-releases">New Releases</a></li>
+                    <li><a href="#digital-addons">Digital</a></li>
+                    <li><a href="#exclusive-bundles">Bundles</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="nav-icons">
+                <div class="search-bar">
+                    <label for="search-input" class="sr-only">Search games</label>
+                    <input type="text" id="search-input" placeholder="Search games...">
+                    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </div>
+                <a href="#" aria-label="User Profile">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                </a>
+                <a href="#" aria-label="Wishlist">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </a>
+                <a href="#" aria-label="Shopping Cart">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zm-8.5-4h5.24L17.2 9c.14-.36.2-.9.2-1.4 0-1.1-.9-2-2-2h-3.3L10.3 4.2c-.4-.6-1-.9-1.7-.9H6V2h2c.7 0 1.3.3 1.7.9l1.8 2.8c.4.6.6 1.3.6 2h2c1.3 0 2.5.8 2.8 2.1l-2.7 6.7H7v-2zm-1.5 0c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5-1.5.7-1.5 1.5.7 1.5 1.5 1.5zM7 7H5V5h2v2z"/></svg>
+                </a>
             </div>
         </nav>
-
-        <!-- Mobile Menu (initially hidden) -->
-        <div id="mobile-menu" class="md:hidden hidden bg-gray-900 shadow-xl py-4" aria-labelledby="nav-toggle">
-            <ul class="flex flex-col items-center space-y-4 text-lg">
-                <li><a href="#products" class="block py-2 hover:text-sky-400 transition focus-ring">Shop Games</a></li>
-                <li><a href="#consoles" class="block py-2 hover:text-sky-400 transition focus-ring">Browse Consoles</a></li>
-                <li><a href="#new-releases" class="block py-2 hover:text-sky-400 transition focus-ring">New Releases</a></li>
-                <li><a href="#blog" class="block py-2 hover:text-sky-400 transition focus-ring">Blog</a></li>
-                <li><a href="#contact" class="block py-2 hover:text-sky-400 transition focus-ring">Contact</a></li>
-                <li class="w-full text-center mt-4 pt-4 border-t border-gray-700">
-                    <a href="#" class="inline-flex items-center px-4 py-2 rounded-lg bg-gray-800 hover:bg-sky-500 transition focus-ring">
-                        <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
-                        Log In
-                    </a>
-                    <a href="#" class="inline-flex items-center px-4 py-2 ml-4 rounded-lg bg-gray-800 hover:bg-sky-500 transition focus-ring">
-                        <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                        Wishlist
-                    </a>
-                </li>
-            </ul>
-        </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
-            <!-- Background Video -->
-            <div class="absolute inset-0 z-0">
-                <video class="w-full h-full object-cover" autoplay loop muted playsinline poster="https://images.pexels.com/photos/7688499/pexels-photo-7688499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" aria-label="Background video of gaming clips">
-                    <source src="https://videos.pexels.com/video-files/7547007/7547007-sd_426_240_25fps.mp4" type="video/mp4">
-                    Your browser does not support the video tag. Please enjoy a static image.
-                </video>
-                <!-- Video Fallback / Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-gray-950 to-transparent via-gray-950/50"></div>
+        <section id="hero" aria-label="Where Legends Load In">
+            <video preload="auto" autoplay loop muted playsinline poster="https://images.pexels.com/photos/7773751/pexels-photo-7773751.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+                <source src="https://videos.pexels.com/video-files/7774457/7774457-uhd_3840_2160_30fps.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-content">
+                <h1>Where Legends Load In.</h1>
+                <p>Explore premium disk games, digital editions, and exclusive bundles for PlayStation 3, 4, and 5.</p>
+                <div class="hero-ctas">
+                    <a href="#shop" class="btn btn-primary">Shop Games</a>
+                    <a href="#new-releases" class="btn btn-secondary">New Releases</a>
+                    <a href="#ps5-games" class="btn btn-secondary">Browse Consoles</a>
+                </div>
             </div>
+        </section>
 
-            <!-- Hero Content -->
-            <div class="relative z-10 px-4 max-w-4xl animate-fade-in">
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white mb-4 drop-shadow-lg">
-                    Where Legends Load In.
-                </h1>
-                <p class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 drop-shadow-md">
-                    Explore premium disk games, digital editions, and exclusive bundles for PlayStation 3, 4, and 5.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#products" class="btn btn-primary animate-fade-in animate-delay-100 focus-ring">
-                        Shop Games
-                        <svg class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
-                    </a>
-                    <a href="#consoles" class="btn btn-secondary animate-fade-in animate-delay-200 focus-ring">
-                        Browse Consoles
-                        <svg class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3m0 0l3-3m-3 3v8m0-13a9 9 0 110 18A9 9 0 0112 3z"></path></svg>
-                    </a>
-                    <a href="#new-releases" class="btn btn-secondary animate-fade-in animate-delay-300 focus-ring">
-                        New Releases
-                        <svg class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </a>
+        <!-- Filters & Search Section -->
+        <section id="filters-search" class="in-view">
+            <div class="container filters-search-wrapper">
+                <div class="filter-group">
+                    <label for="filter-console" class="sr-only">Filter by Console</label>
+                    <select id="filter-console" aria-label="Filter by Console">
+                        <option value="">All Consoles</option>
+                        <option value="ps5">PlayStation 5</option>
+                        <option value="ps4">PlayStation 4</option>
+                        <option value="ps3">PlayStation 3</option>
+                    </select>
+                    <label for="filter-genre" class="sr-only">Filter by Genre</label>
+                    <select id="filter-genre" aria-label="Filter by Genre">
+                        <option value="">All Genres</option>
+                        <option value="action">Action</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="rpg">RPG</option>
+                        <option value="fps">FPS</option>
+                        <option value="sports">Sports</option>
+                    </select>
+                    <label for="filter-price" class="sr-only">Filter by Price Range</label>
+                    <select id="filter-price" aria-label="Filter by Price Range">
+                        <option value="">Any Price</option>
+                        <option value="0-20">Under $20</option>
+                        <option value="20-50">$20 - $50</option>
+                        <option value="50-100">$50 - $100</option>
+                        <option value="100+">$100+</option>
+                    </select>
+                </div>
+                <div class="search-input">
+                    <label for="search-input-main" class="sr-only">Search for games</label>
+                    <input type="text" id="search-input-main" placeholder="Search for games...">
+                    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
                 </div>
             </div>
         </section>
 
         <!-- Product Sections -->
-        <section id="products" class="container mx-auto py-16 px-4">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12 animate-fade-in">Explore Our Extensive Collection</h2>
-
-            <!-- PS5 Disk Games -->
-            <div id="ps5-games" class="mb-16 animate-fade-in animate-delay-100">
-                <h3 class="text-2xl sm:text-3xl font-semibold text-sky-500 mb-8 text-center sm:text-left">PS5 Disk Games</h3>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-                    <!-- Product Card 1 -->
+        <section id="shop" class="product-grid-section">
+            <div class="container">
+                <h2>PS5 Disk Games</h2>
+                <div class="product-grid">
                     <div class="product-card">
-                        <img src="https://images.pexels.com/photos/7862508/pexels-photo-7862508.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Grand Theft Auto V game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">Grand Theft Auto V</h4>
-                        <p class="text-gray-400 text-sm">Action, Open World</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$59.99</span>
-                            <span class="platform-badge bg-blue-700">PS5</span>
+                        <div class="product-card-image">
+                            <img loading="lazy" src="https://images.pexels.com/photos/7773751/pexels-photo-7773751.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Game cover: GTA V (Grand Theft Auto V)">
                         </div>
-                        <div class="flex items-center mb-4">
-                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                            <span class="text-gray-400 text-sm">(4.5)</span>
+                        <div class="product-card-content">
+                            <h3>Grand Theft Auto V</h3>
+                            <div class="product-meta">
+                                <span class="platform-badge ps5">PS5</span>
+                                <div class="rating" role="img" aria-label="Rated 4.8 out of 5 stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 15.4V6.1l3.54 7.07-.48 2.33-3.06 1.47zM22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27l6.18 3.73-1.63-7.03L22 9.24z"/></svg>
+                                </div>
+                            </div>
+                            <span class="price">$39.99</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
                         </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
                     </div>
-
-                    <!-- Product Card 2 -->
-                    <div class="product-card animate-delay-100">
-                        <img src="https://images.pexels.com/photos/7562132/pexels-photo-7562132.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Mortal Kombat 11 game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">Mortal Kombat 11</h4>
-                        <p class="text-gray-400 text-sm">Fighting</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$39.99</span>
-                            <span class="platform-badge bg-blue-700">PS5</span>
-                        </div>
-                        <div class="flex items-center mb-4">
-                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                            <span class="text-gray-400 text-sm">(5.0)</span>
-                        </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
-                    </div>
-                    
-                    <!-- Product Card 3 -->
-                    <div class="product-card animate-delay-200">
-                        <img src="https://images.pexels.com/photos/6499166/pexels-photo-6499166.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Spider-Man Miles Morales game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">Spider-Man: Miles Morales</h4>
-                        <p class="text-gray-400 text-sm">Action, Adventure</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$49.99</span>
-                            <span class="platform-badge bg-blue-700">PS5</span>
-                        </div>
-                        <div class="flex items-center mb-4">
-                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                            <span class="text-gray-400 text-sm">(4.8)</span>
-                        </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
-                    </div>
-
-                    <!-- Product Card 4 -->
-                    <div class="product-card animate-delay-300">
-                        <img src="https://images.pexels.com/photos/7864408/pexels-photo-7864408.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="God of War Ragnarök game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">God of War Ragnarök</h4>
-                        <p class="text-gray-400 text-sm">Action, RPG</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$69.99</span>
-                            <span class="platform-badge bg-blue-700">PS5</span>
-                        </div>
-                        <div class="flex items-center mb-4">
-                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                            <span class="text-gray-400 text-sm">(4.9)</span>
-                        </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
-                    </div>
-
-                    <!-- Product Card 5 (Placeholder, can be replaced) -->
-                    <div class="product-card animate-delay-400">
-                        <img src="https://images.pexels.com/photos/7864410/pexels-photo-7864410.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Game cover art for an upcoming PS5 game" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">Horizon Forbidden West</h4>
-                        <p class="text-gray-400 text-sm">Action RPG</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$69.99</span>
-                            <span class="platform-badge bg-blue-700">PS5</span>
-                        </div>
-                        <div class="flex items-center mb-4">
-                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                            <span class="text-gray-400 text-sm">(4.7)</span>
-                        </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PS4 Disk Games -->
-            <div id="ps4-games" class="mb-16 animate-fade-in animate-delay-200">
-                <h3 class="text-2xl sm:text-3xl font-semibold text-sky-500 mb-8 text-center sm:text-left">PS4 Disk Games</h3>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-                    <!-- Product Card 1 -->
                     <div class="product-card">
-                        <img src="https://images.pexels.com/photos/6498947/pexels-photo-6498947.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="FIFA 23 game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">FIFA 23</h4>
-                        <p class="text-gray-400 text-sm">Sports</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$29.99</span>
-                            <span class="platform-badge bg-indigo-700">PS4</span>
+                        <div class="product-card-image">
+                            <img loading="lazy" src="https://images.pexels.com/photos/7773746/pexels-photo-7773746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Game cover: Mortal Kombat 11">
                         </div>
-                        <div class="flex items-center mb-4">
-                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
-                            <span class="text-gray-400 text-sm">(3.9)</span>
+                        <div class="product-card-content">
+                            <h3>Mortal Kombat 11</h3>
+                            <div class="product-meta">
+                                <span class="platform-badge ps5">PS5</span>
+                                <div class="rating" role="img" aria-label="Rated 4.5 out of 5 stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 15.4V6.1l3.54 7.07-.48 2.33-3.06 1.47zM22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27l6.18 3.73-1.63-7.03L22 9.24z"/></svg>
+                                </div>
+                            </div>
+                            <span class="price">$29.99</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
                         </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
                     </div>
-                    <!-- Product Card 2 -->
-                    <div class="product-card animate-delay-100">
-                        <img src="https://images.pexels.com/photos/7864407/pexels-photo-7864407.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Call of Duty: Modern Warfare II game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">Call of Duty: MW II</h4>
-                        <p class="text-gray-400 text-sm">FPS</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$49.99</span>
-                            <span class="platform-badge bg-indigo-700">PS4</span>
-                        </div>
-                        <div class="flex items-center mb-4">
-                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                            <span class="text-gray-400 text-sm">(4.3)</span>
-                        </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
-                    </div>
-                    <!-- Product Card 3 -->
-                    <div class="product-card animate-delay-200">
-                        <img src="https://images.pexels.com/photos/7562152/pexels-photo-7562152.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Need for Speed Heat game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">Need for Speed Heat</h4>
-                        <p class="text-gray-400 text-sm">Racing</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$19.99</span>
-                            <span class="platform-badge bg-indigo-700">PS4</span>
-                        </div>
-                        <div class="flex items-center mb-4">
-                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                            <span class="text-gray-400 text-sm">(4.1)</span>
-                        </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
-                    </div>
-                     <!-- Product Card 4 -->
-                     <div class="product-card animate-delay-300">
-                        <img src="https://images.pexels.com/photos/7688499/pexels-photo-7688499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Gaming controllers and headset setup" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">Cyberpunk 2077</h4>
-                        <p class="text-gray-400 text-sm">Action RPG</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$34.99</span>
-                            <span class="platform-badge bg-indigo-700">PS4</span>
-                        </div>
-                        <div class="flex items-center mb-4">
-                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
-                            <span class="text-gray-400 text-sm">(4.2)</span>
-                        </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
-                    </div>
-                     <!-- Product Card 5 -->
-                     <div class="product-card animate-delay-400">
-                        <img src="https://images.pexels.com/photos/8591701/pexels-photo-8591701.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Game controller on a glowing surface" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">Red Dead Redemption 2</h4>
-                        <p class="text-gray-400 text-sm">Action, Western</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$39.99</span>
-                            <span class="platform-badge bg-indigo-700">PS4</span>
-                        </div>
-                        <div class="flex items-center mb-4">
-                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                            <span class="text-gray-400 text-sm">(4.9)</span>
-                        </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PS3 Legacy Titles -->
-            <div id="ps3-games" class="mb-16 animate-fade-in animate-delay-300">
-                <h3 class="text-2xl sm:text-3xl font-semibold text-sky-500 mb-8 text-center sm:text-left">PS3 Legacy Titles</h3>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-                    <!-- Product Card 1 (Placeholder) -->
                     <div class="product-card">
-                        <img src="https://via.placeholder.com/300x400/1E3A8A/FFFFFF?text=PS3+Classic" alt="Placeholder PS3 game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">The Last of Us</h4>
-                        <p class="text-gray-400 text-sm">Action, Survival</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$14.99</span>
-                            <span class="platform-badge bg-purple-700">PS3</span>
+                        <div class="product-card-image">
+                            <img loading="lazy" src="https://images.pexels.com/photos/8721343/pexels-photo-8721343.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Game cover: Spider-Man: Miles Morales">
                         </div>
-                        <div class="flex items-center mb-4">
-                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                            <span class="text-gray-400 text-sm">(4.7)</span>
+                        <div class="product-card-content">
+                            <h3>Spider-Man: Miles Morales</h3>
+                            <div class="product-meta">
+                                <span class="platform-badge ps5">PS5</span>
+                                <div class="rating" role="img" aria-label="Rated 4.9 out of 5 stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 15.4V6.1l3.54 7.07-.48 2.33-3.06 1.47zM22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27l6.18 3.73-1.63-7.03L22 9.24z"/></svg>
+                                </div>
+                            </div>
+                            <span class="price">$49.99</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
                         </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
                     </div>
-                    <!-- Product Card 2 (Placeholder) -->
-                    <div class="product-card animate-delay-100">
-                        <img src="https://via.placeholder.com/300x400/1E3A8A/FFFFFF?text=PS3+Gem" alt="Placeholder PS3 game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">Uncharted 3</h4>
-                        <p class="text-gray-400 text-sm">Action, Adventure</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$9.99</span>
-                            <span class="platform-badge bg-purple-700">PS3</span>
-                        </div>
-                        <div class="flex items-center mb-4">
-                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                            <span class="text-gray-400 text-sm">(4.5)</span>
-                        </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Digital Codes & Add-ons -->
-            <div id="digital-addons" class="mb-16 animate-fade-in animate-delay-400">
-                <h3 class="text-2xl sm:text-3xl font-semibold text-sky-500 mb-8 text-center sm:text-left">Digital Codes & Add-ons</h3>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-                    <!-- Product Card 1 (Placeholder) -->
                     <div class="product-card">
-                        <img src="https://via.placeholder.com/300x400/0F766E/FFFFFF?text=PSN+Card" alt="PlayStation Network card digital code" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">PSN $50 Gift Card</h4>
-                        <p class="text-gray-400 text-sm">Digital Credit</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$50.00</span>
-                            <span class="platform-badge bg-teal-700">DIGITAL</span>
+                        <div class="product-card-image">
+                            <img loading="lazy" src="https://images.pexels.com/photos/243870/pexels-photo-243870.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Game cover: God of War Ragnarök">
                         </div>
-                        <div class="flex items-center mb-4">
-                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                            <span class="text-gray-400 text-sm">(5.0)</span>
+                        <div class="product-card-content">
+                            <h3>God of War Ragnarök</h3>
+                            <div class="product-meta">
+                                <span class="platform-badge ps5">PS5</span>
+                                <div class="rating" role="img" aria-label="Rated 5 out of 5 stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                </div>
+                            </div>
+                            <span class="price">$59.99</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
                         </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
-                    </div>
-                    <!-- Product Card 2 (Placeholder) -->
-                    <div class="product-card animate-delay-100">
-                        <img src="https://via.placeholder.com/300x400/0F766E/FFFFFF?text=Season+Pass" alt="Game season pass digital code" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">Cyberpunk 2077: Phantom Liberty</h4>
-                        <p class="text-gray-400 text-sm">Expansion</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$29.99</span>
-                            <span class="platform-badge bg-teal-700">DIGITAL</span>
-                        </div>
-                        <div class="flex items-center mb-4">
-                            <span class="text-yellow-400 mr-1">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                            <span class="text-gray-400 text-sm">(4.8)</span>
-                        </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Highlight Sections -->
-        <section id="new-releases" class="container mx-auto py-16 px-4">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12 animate-fade-in">New Releases & Top Picks</h2>
-
-            <!-- New Releases of the Month -->
-            <div class="mb-16 animate-fade-in animate-delay-100">
-                <h3 class="text-2xl sm:text-3xl font-semibold text-sky-500 mb-8 text-center sm:text-left">New Releases</h3>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <!-- New Release Card 1 (Placeholder) -->
+        <section id="ps4-games" class="product-grid-section">
+            <div class="container">
+                <h2>PS4 Disk Games</h2>
+                <div class="product-grid">
                     <div class="product-card">
-                        <img src="https://via.placeholder.com/300x400/6D28D9/FFFFFF?text=New+Game+1" alt="New release game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">Starfield</h4>
-                        <p class="text-gray-400 text-sm">Sci-Fi RPG</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$69.99</span>
-                            <span class="platform-badge bg-blue-700">PS5</span>
+                        <div class="product-card-image">
+                            <img loading="lazy" src="https://images.pexels.com/photos/7776897/pexels-photo-7776897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Game cover: FIFA 23">
                         </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Pre-Order</button>
+                        <div class="product-card-content">
+                            <h3>FIFA 23</h3>
+                            <div class="product-meta">
+                                <span class="platform-badge ps4">PS4</span>
+                                <div class="rating" role="img" aria-label="Rated 4.3 out of 5 stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 15.4V6.1l3.54 7.07-.48 2.33-3.06 1.47zM22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27l6.18 3.73-1.63-7.03L22 9.24z"/></svg>
+                                </div>
+                            </div>
+                            <span class="price">$19.99</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
                     </div>
-                    <!-- New Release Card 2 (Placeholder) -->
-                    <div class="product-card animate-delay-100">
-                        <img src="https://via.placeholder.com/300x400/6D28D9/FFFFFF?text=New+Game+2" alt="New release game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">Alan Wake 2</h4>
-                        <p class="text-gray-400 text-sm">Survival Horror</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$59.99</span>
-                            <span class="platform-badge bg-blue-700">PS5</span>
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img loading="lazy" src="https://images.pexels.com/photos/7886989/pexels-photo-7886989.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Game cover: Call of Duty: Black Ops Cold War">
                         </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
+                        <div class="product-card-content">
+                            <h3>Call of Duty: Cold War</h3>
+                            <div class="product-meta">
+                                <span class="platform-badge ps4">PS4</span>
+                                <div class="rating" role="img" aria-label="Rated 4.6 out of 5 stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 15.4V6.1l3.54 7.07-.48 2.33-3.06 1.47zM22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27l6.18 3.73-1.63-7.03L22 9.24z"/></svg>
+                                </div>
+                            </div>
+                            <span class="price">$24.99</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
                     </div>
-                     <!-- New Release Card 3 (Placeholder) -->
-                     <div class="product-card animate-delay-200">
-                        <img src="https://via.placeholder.com/300x400/6D28D9/FFFFFF?text=New+Game+3" alt="New release game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">Final Fantasy VII Rebirth</h4>
-                        <p class="text-gray-400 text-sm">JRPG</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$69.99</span>
-                            <span class="platform-badge bg-blue-700">PS5</span>
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img loading="lazy" src="https://images.pexels.com/photos/7773991/pexels-photo-7773991.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Game cover: Need for Speed Heat">
                         </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Pre-Order</button>
+                        <div class="product-card-content">
+                            <h3>Need for Speed Heat</h3>
+                            <div class="product-meta">
+                                <span class="platform-badge ps4">PS4</span>
+                                <div class="rating" role="img" aria-label="Rated 4.2 out of 5 stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 15.4V6.1l3.54 7.07-.48 2.33-3.06 1.47zM22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27l6.18 3.73-1.63-7.03L22 9.24z"/></svg>
+                                </div>
+                            </div>
+                            <span class="price">$14.99</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
                     </div>
-                     <!-- New Release Card 4 (Placeholder) -->
-                     <div class="product-card animate-delay-300">
-                        <img src="https://via.placeholder.com/300x400/6D28D9/FFFFFF?text=New+Game+4" alt="New release game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">Helldivers 2</h4>
-                        <p class="text-gray-400 text-sm">Third-person Shooter</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$39.99</span>
-                            <span class="platform-badge bg-blue-700">PS5</span>
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img loading="lazy" src="https://images.pexels.com/photos/7773735/pexels-photo-7773735.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Game cover: The Last of Us Part II">
                         </div>
-                        <button class="btn btn-sm btn-primary w-full focus-ring">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Limited Edition Collector Discs -->
-            <div class="animate-fade-in animate-delay-200">
-                <h3 class="text-2xl sm:text-3xl font-semibold text-sky-500 mb-8 text-center sm:text-left">Limited Edition Collector Discs</h3>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <!-- Limited Edition Card 1 (Placeholder) -->
-                    <div class="product-card border border-sky-600 shadow-sky-glow">
-                        <img src="https://via.placeholder.com/300x400/8B5CF6/FFFFFF?text=Collector's+Edition" alt="Limited Edition game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">Final Fantasy XVI Collector's Ed.</h4>
-                        <p class="text-gray-400 text-sm">Exclusive Content</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$199.99</span>
-                            <span class="platform-badge bg-yellow-600">COLLECTOR</span>
+                        <div class="product-card-content">
+                            <h3>The Last of Us Part II</h3>
+                            <div class="product-meta">
+                                <span class="platform-badge ps4">PS4</span>
+                                <div class="rating" role="img" aria-label="Rated 4.7 out of 5 stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 15.4V6.1l3.54 7.07-.48 2.33-3.06 1.47zM22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27l6.18 3.73-1.63-7.03L22 9.24z"/></svg>
+                                </div>
+                            </div>
+                            <span class="price">$29.99</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
                         </div>
-                        <button class="btn btn-sm bg-sky-600 hover:bg-sky-700 text-white w-full focus-ring">Add to Cart</button>
-                    </div>
-                    <!-- Limited Edition Card 2 (Placeholder) -->
-                    <div class="product-card border border-sky-600 shadow-sky-glow animate-delay-100">
-                        <img src="https://via.placeholder.com/300x400/8B5CF6/FFFFFF?text=Exclusive+Edition" alt="Limited Edition game cover" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-lg font-semibold text-white">Spider-Man 2 Collector's Ed.</h4>
-                        <p class="text-gray-400 text-sm">Statue Included</p>
-                        <div class="flex items-center justify-between mt-2 mb-4">
-                            <span class="text-xl font-bold text-sky-500">$229.99</span>
-                            <span class="platform-badge bg-yellow-600">COLLECTOR</span>
-                        </div>
-                        <button class="btn btn-sm bg-sky-600 hover:bg-sky-700 text-white w-full focus-ring">Add to Cart</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Featured Game of the Week (mimicking a game page) -->
-        <section id="featured-game" class="container mx-auto py-16 px-4 animate-fade-in animate-delay-300">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12">Featured Game of the Week</h2>
-            <div class="bg-gray-900 rounded-2xl shadow-2xl overflow-hidden p-8 lg:p-12 border border-sky-700/30">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-                    <!-- Game Media -->
-                    <div class="flex flex-col gap-8">
-                        <img src="https://images.pexels.com/photos/7864408/pexels-photo-7864408.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="God of War Ragnarök full game cover art" class="w-full rounded-xl shadow-lg border border-gray-700" loading="lazy">
-                        <div class="aspect-video w-full rounded-xl overflow-hidden shadow-lg border border-gray-700">
-                            <video class="w-full h-full object-cover" controls playsinline poster="https://images.pexels.com/photos/7562132/pexels-photo-7562132.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" aria-label="God of War Ragnarök gameplay trailer">
-                                <source src="https://videos.pexels.com/video-files/7547240/7547240-sd_240_426_25fps.mp4" type="video/mp4">
+        <section id="ps3-games" class="product-grid-section">
+            <div class="container">
+                <h2>PS3 Legacy Titles</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img loading="lazy" src="https://images.pexels.com/photos/7776881/pexels-photo-7776881.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Game cover: Uncharted 3: Drake's Deception">
+                        </div>
+                        <div class="product-card-content">
+                            <h3>Uncharted 3</h3>
+                            <div class="product-meta">
+                                <span class="platform-badge ps3">PS3</span>
+                                <div class="rating" role="img" aria-label="Rated 4.6 out of 5 stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 15.4V6.1l3.54 7.07-.48 2.33-3.06 1.47zM22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27l6.18 3.73-1.63-7.03L22 9.24z"/></svg>
+                                </div>
+                            </div>
+                            <span class="price">$9.99</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img loading="lazy" src="https://images.pexels.com/photos/7773547/pexels-photo-7773547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Game cover: Grand Theft Auto IV">
+                        </div>
+                        <div class="product-card-content">
+                            <h3>Grand Theft Auto IV</h3>
+                            <div class="product-meta">
+                                <span class="platform-badge ps3">PS3</span>
+                                <div class="rating" role="img" aria-label="Rated 4.7 out of 5 stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 15.4V6.1l3.54 7.07-.48 2.33-3.06 1.47zM22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27l6.18 3.73-1.63-7.03L22 9.24z"/></svg>
+                                </div>
+                            </div>
+                            <span class="price">$12.99</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="digital-addons" class="product-grid-section">
+            <div class="container">
+                <h2>Digital Codes & Add-ons</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img loading="lazy" src="https://images.pexels.com/photos/7773751/pexels-photo-7773751.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Digital Code: PlayStation Store Gift Card">
+                        </div>
+                        <div class="product-card-content">
+                            <h3>PSN Store Gift Card ($50)</h3>
+                            <div class="product-meta">
+                                <span class="platform-badge">DIGITAL</span>
+                                <div class="rating" role="img" aria-label="Rated 4.9 out of 5 stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 15.4V6.1l3.54 7.07-.48 2.33-3.06 1.47zM22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27l6.18 3.73-1.63-7.03L22 9.24z"/></svg>
+                                </div>
+                            </div>
+                            <span class="price">$50.00</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img loading="lazy" src="https://images.pexels.com/photos/7773746/pexels-photo-7773746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Digital Code: PlayStation Plus 12-Month Subscription">
+                        </div>
+                        <div class="product-card-content">
+                            <h3>PS Plus (12-Month)</h3>
+                            <div class="product-meta">
+                                <span class="platform-badge">DIGITAL</span>
+                                <div class="rating" role="img" aria-label="Rated 4.7 out of 5 stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 15.4V6.1l3.54 7.07-.48 2.33-3.06 1.47zM22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27l6.18 3.73-1.63-7.03L22 9.24z"/></svg>
+                                </div>
+                            </div>
+                            <span class="price">$79.99</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="exclusive-bundles" class="product-grid-section">
+            <div class="container">
+                <h2>Exclusive Bundles</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img loading="lazy" src="https://images.pexels.com/photos/8721343/pexels-photo-8721343.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Bundle: PS5 Console + Spider-Man 2">
+                        </div>
+                        <div class="product-card-content">
+                            <h3>PS5 Console + Spider-Man 2</h3>
+                            <div class="product-meta">
+                                <span class="platform-badge ps5">BUNDLE</span>
+                                <div class="rating" role="img" aria-label="Rated 4.9 out of 5 stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 15.4V6.1l3.54 7.07-.48 2.33-3.06 1.47zM22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27l6.18 3.73-1.63-7.03L22 9.24z"/></svg>
+                                </div>
+                            </div>
+                            <span class="price">$559.99</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Game of the Week (simulated game page) -->
+        <section id="featured-game" class="game-detail-section">
+            <div class="container">
+                <h2>Featured Game of the Week: Marvel's Spider-Man 2</h2>
+                <div class="game-detail-content">
+                    <div class="game-cover">
+                        <img loading="lazy" src="https://images.pexels.com/photos/8721343/pexels-photo-8721343.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Full game cover for Marvel's Spider-Man 2">
+                    </div>
+                    <div class="game-info">
+                        <h3>Experience the Next Web-Slinging Adventure!</h3>
+                        <div class="game-trailer">
+                            <video controls preload="metadata" poster="https://images.pexels.com/photos/8721343/pexels-photo-8721343.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+                                <source src="https://videos.pexels.com/video-files/7774448/7774448-uhd_3840_2160_30fps.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
+                        <p class="game-description">
+                            Swing into the latest thrilling chapter of the Spider-Man universe. Play as both Peter Parker and Miles Morales as they face their ultimate challenge yet – the monstrous Venom! Explore an expanded New York City, master new symbiotic abilities, and confront a host of iconic villains in this critically acclaimed PS5 exclusive.
+                        </p>
+                        <ul class="game-features">
+                            <li><strong>Platform:</strong> PlayStation 5</li>
+                            <li><strong>Genre:</strong> Action-Adventure</li>
+                            <li><strong>Release Date:</strong> October 2023</li>
+                            <li><strong>Publisher:</strong> Sony Interactive Entertainment</li>
+                            <li><strong>Features:</strong> Dual Protagonists, Symbiote Abilities, Expanded Open World, Ray Tracing</li>
+                            <li><strong>System Requirements:</strong> PS5 Console, Minimum 50GB Storage</li>
+                        </ul>
+                        <p class="game-price">$69.99</p>
+                        <div class="game-actions">
+                            <button class="btn btn-primary">Add to Cart</button>
+                            <button class="btn btn-secondary btn-wishlist">Add to Wishlist</button>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Game Details -->
-                    <div>
-                        <h3 class="text-4xl font-bold text-sky-500 mb-4">God of War Ragnarök</h3>
-                        <p class="text-gray-300 text-lg mb-6">Join Kratos and Atreus on a mythic journey for answers and allies before Ragnarök arrives. Experience an epic, heartfelt story of father and son, navigating the treacherous Norse realms and battling formidable gods and monsters.</p>
-                        
-                        <div class="mb-6">
-                            <p class="text-gray-400 mb-2"><strong>Features:</strong></p>
-                            <ul class="list-disc list-inside text-gray-300 ml-4 space-y-1">
-                                <li>Unleash devastating combos with Kratos' Leviathan Axe and Blades of Chaos.</li>
-                                <li>Explore all Nine Realms, each with unique biomes and challenges.</li>
-                                <li>Deep, emotional narrative with memorable characters.</li>
-                                <li>Stunning next-gen graphics and immersive sound design.</li>
-                            </ul>
+        <!-- Blog Section -->
+        <section id="blog" class="product-grid-section">
+            <div class="container">
+                <h2>Gaming News & Updates</h2>
+                <div class="blog-posts">
+                    <article class="blog-card">
+                        <div class="blog-card-image">
+                            <img loading="lazy" src="https://images.pexels.com/photos/7773751/pexels-photo-7773751.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Blog post image: Next-gen console features">
                         </div>
-
-                        <div class="flex items-center space-x-4 mb-6">
-                            <span class="platform-badge bg-blue-700">PS5</span>
-                            <span class="platform-badge bg-indigo-700">PS4</span>
-                            <span class="text-gray-400">Rating: <span class="text-yellow-400">&#9733;&#9733;&#9733;&#9733;&#9733;</span> (4.9/5)</span>
+                        <div class="blog-card-content">
+                            <h3>The Future of Gaming: PS5's Unseen Potential</h3>
+                            <p>Dive deep into the technological marvels that power the PlayStation 5 and what future titles might unlock...</p>
+                            <a href="#" class="read-more">Read More &rarr;</a>
                         </div>
-
-                        <div class="mb-6">
-                            <p class="text-gray-400 mb-2"><strong>System Requirements:</strong></p>
-                            <ul class="text-gray-300 ml-4 space-y-1">
-                                <li>Platform: PlayStation 5, PlayStation 4</li>
-                                <li>Storage: 85 GB available space</li>
-                                <li>PlayStation Plus (optional for online features)</li>
-                            </ul>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-image">
+                            <img loading="lazy" src="https://images.pexels.com/photos/7773746/pexels-photo-7773746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Blog post image: Top 10 fighting games">
                         </div>
+                        <div class="blog-card-content">
+                            <h3>Mastering MK11: Pro Tips & Tricks</h3>
+                            <p>Elevate your kombat game with these essential strategies and character breakdowns from top players...</p>
+                            <a href="#" class="read-more">Read More &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-image">
+                            <img loading="lazy" src="https://images.pexels.com/photos/243870/pexels-photo-243870.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Blog post image: God of War series analysis">
+                        </div>
+                        <div class="blog-card-content">
+                            <h3>Journey Through the Nine Realms: A God of War Retrospective</h3>
+                            <p>From Sparta to Norse mythology, relive the epic saga of Kratos and Atreus...</p>
+                            <a href="#" class="read-more">Read More &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-                        <div class="flex items-center justify-between border-t border-gray-800 pt-6 mt-6">
-                            <span class="text-4xl font-extrabold text-sky-500">$69.99</span>
-                            <div class="flex space-x-4">
-                                <button class="btn btn-primary text-lg focus-ring">
-                                    <svg class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                                    Add to Cart
-                                </button>
-                                <button class="btn btn-secondary text-lg focus-ring">
-                                    <svg class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                                    Add to Wishlist
-                                </button>
+        <!-- Reviews & Testimonials Section -->
+        <section id="testimonials" class="product-grid-section">
+            <div class="container">
+                <h2>What Our Gamers Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p>"QuantumPlay Hub has completely revolutionized my gaming purchases. The selection is incredible, and the delivery speed is unmatched. Truly a premium experience!"</p>
+                        <div class="testimonial-author">
+                            <img loading="lazy" src="https://images.pexels.com/photos/7776897/pexels-photo-7776897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Avatar of Alex R.">
+                            <div class="author-info">
+                                <strong>Alex R.</strong>
+                                <div class="rating" role="img" aria-label="Rated 5 out of 5 stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"The best place to find rare PS3 titles and the latest PS5 blockbusters. The product cards are beautiful, and the site is so fast and responsive."</p>
+                        <div class="testimonial-author">
+                            <img loading="lazy" src="https://images.pexels.com/photos/7886989/pexels-photo-7886989.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Avatar of GamingGuru77">
+                            <div class="author-info">
+                                <strong>GamingGuru77</strong>
+                                <div class="rating" role="img" aria-label="Rated 4.5 out of 5 stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 15.4V6.1l3.54 7.07-.48 2.33-3.06 1.47zM22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27l6.18 3.73-1.63-7.03L22 9.24z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"The game page details are fantastic, especially the trailers. It helps me make informed decisions, and the 'Add to Wishlist' feature is a lifesaver."</p>
+                        <div class="testimonial-author">
+                            <img loading="lazy" src="https://images.pexels.com/photos/7773991/pexels-photo-7773991.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Avatar of Sophia L.">
+                            <div class="author-info">
+                                <strong>Sophia L.</strong>
+                                <div class="rating" role="img" aria-label="Rated 5 out of 5 stars">
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -653,348 +1648,191 @@
             </div>
         </section>
 
-        <!-- Blog Section (Placeholder for gaming news) -->
-        <section id="blog" class="container mx-auto py-16 px-4 animate-fade-in animate-delay-400">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12">Latest Gaming News & Updates</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Blog Post 1 -->
-                <article class="bg-gray-900 rounded-xl shadow-xl p-6 border border-gray-800 hover:shadow-2xl hover:border-sky-700/50 transition-all duration-300 focus-ring">
-                    <img src="https://via.placeholder.com/600x400/0369A1/FFFFFF?text=New+Game+Announcement" alt="Blog post cover image for new game announcement" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy">
-                    <h3 class="text-xl font-semibold text-sky-500 mb-3">Next-Gen Console Unveiled: What to Expect</h3>
-                    <p class="text-gray-300 mb-4 text-sm">Dive deep into the rumors and confirmed features of the highly anticipated next-generation gaming console. We break down the specs, launch titles, and potential impact on the gaming world.</p>
-                    <a href="#" class="text-sky-400 hover:text-sky-300 font-medium inline-flex items-center focus-ring">
-                        Read More 
-                        <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                    </a>
-                </article>
-                <!-- Blog Post 2 -->
-                <article class="bg-gray-900 rounded-xl shadow-xl p-6 border border-gray-800 hover:shadow-2xl hover:border-sky-700/50 transition-all duration-300 focus-ring">
-                    <img src="https://via.placeholder.com/600x400/0369A1/FFFFFF?text=Gaming+Tips" alt="Blog post cover image for gaming tips" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy">
-                    <h3 class="text-xl font-semibold text-sky-500 mb-3">Mastering Elden Ring: Advanced Combat Guide</h3>
-                    <p class="text-gray-300 mb-4 text-sm">Having trouble with the Lands Between? Our expert guide provides essential tips, hidden mechanics, and advanced combat strategies to help you become an Elden Lord.</p>
-                    <a href="#" class="text-sky-400 hover:text-sky-300 font-medium inline-flex items-center focus-ring">
-                        Read More 
-                        <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                    </a>
-                </article>
-                <!-- Blog Post 3 -->
-                <article class="bg-gray-900 rounded-xl shadow-xl p-6 border border-gray-800 hover:shadow-2xl hover:border-sky-700/50 transition-all duration-300 focus-ring">
-                    <img src="https://via.placeholder.com/600x400/0369A1/FFFFFF?text=Upcoming+Games" alt="Blog post cover image for upcoming games" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy">
-                    <h3 class="text-xl font-semibold text-sky-500 mb-3">Top 10 Most Anticipated Games of the Year</h3>
-                    <p class="text-gray-300 mb-4 text-sm">From groundbreaking RPGs to thrilling action adventures, discover the games that are set to define the year. Get ready to update your wishlist!</p>
-                    <a href="#" class="text-sky-400 hover:text-sky-300 font-medium inline-flex items-center focus-ring">
-                        Read More 
-                        <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                    </a>
-                </article>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="container mx-auto py-16 px-4 animate-fade-in animate-delay-500">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12">What Our Gamers Say</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-gray-900 rounded-xl shadow-xl p-6 border border-gray-800">
-                    <div class="flex items-center mb-4">
-                        <img src="https://via.placeholder.com/80/0EA5E9/FFFFFF?text=J.D." alt="Avatar of Jane Doe" class="w-12 h-12 rounded-full mr-4 border-2 border-sky-500">
-                        <div>
-                            <p class="font-semibold text-white">Jane D.</p>
-                            <p class="text-gray-400 text-sm">Verified Buyer</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 italic mb-4">"QuantumPlay Hub delivered my PS5 game faster than expected, and the packaging was immaculate. Their selection is top-notch!"</p>
-                    <div class="text-yellow-400">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                </div>
-                <!-- Testimonial 2 -->
-                <div class="bg-gray-900 rounded-xl shadow-xl p-6 border border-gray-800 animate-delay-100">
-                    <div class="flex items-center mb-4">
-                        <img src="https://via.placeholder.com/80/0EA5E9/FFFFFF?text=M.S." alt="Avatar of Mike Smith" class="w-12 h-12 rounded-full mr-4 border-2 border-sky-500">
-                        <div>
-                            <p class="font-semibold text-white">Mike S.</p>
-                            <p class="text-gray-400 text-sm">Dedicated Collector</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 italic mb-4">"Found a rare PS3 title I'd been searching for years! The quality was perfect, and the price was fair. Highly recommend for collectors."</p>
-                    <div class="text-yellow-400">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                </div>
-                <!-- Testimonial 3 -->
-                <div class="bg-gray-900 rounded-xl shadow-xl p-6 border border-gray-800 animate-delay-200">
-                    <div class="flex items-center mb-4">
-                        <img src="https://via.placeholder.com/80/0EA5E9/FFFFFF?text=A.L." alt="Avatar of Alex Lee" class="w-12 h-12 rounded-full mr-4 border-2 border-sky-500">
-                        <div>
-                            <p class="font-semibold text-white">Alex L.</p>
-                            <p class="text-gray-400 text-sm">New Customer</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 italic mb-4">"The website experience is so smooth, and the game descriptions are really helpful. My new go-to for all things PlayStation!"</p>
-                    <div class="text-yellow-400">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-                </div>
-            </div>
-        </section>
-
         <!-- FAQ Section -->
-        <section id="faq" class="container mx-auto py-16 px-4 animate-fade-in animate-delay-600">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12">Frequently Asked Questions</h2>
-            <div class="max-w-3xl mx-auto space-y-4">
-                <!-- FAQ Item 1 -->
-                <details class="bg-gray-900 rounded-xl shadow-xl border border-gray-800 focus-ring" open>
-                    <summary class="flex justify-between items-center p-6 cursor-pointer text-xl font-semibold text-sky-500 hover:text-sky-400 transition-colors duration-200 focus-ring">
-                        What are your shipping options and delivery times?
-                        <svg class="h-6 w-6 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </summary>
-                    <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-800 pt-4">
-                        We offer standard and expedited shipping options. Standard shipping typically takes 3-5 business days, while expedited shipping delivers in 1-2 business days. International shipping times vary based on destination. You'll receive a tracking number once your order ships!
+        <section id="faq" class="product-grid-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+                            What is QuantumPlay Hub?
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-1" role="region" aria-hidden="true">
+                            <p>QuantumPlay Hub is your premier destination for high-end PlayStation gaming. We offer a curated selection of disk games, digital codes, and exclusive bundles for PS3, PS4, and PS5, focusing on a luxurious and seamless shopping experience.</p>
+                        </div>
                     </div>
-                </details>
-                <!-- FAQ Item 2 -->
-                <details class="bg-gray-900 rounded-xl shadow-xl border border-gray-800 focus-ring">
-                    <summary class="flex justify-between items-center p-6 cursor-pointer text-xl font-semibold text-sky-500 hover:text-sky-400 transition-colors duration-200 focus-ring">
-                        How do you ensure disk condition?
-                        <svg class="h-6 w-6 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </summary>
-                    <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-800 pt-4">
-                        All our used disk games undergo a rigorous inspection process to ensure they are in excellent, playable condition. Discs are cleaned, tested, and guaranteed to work. New games are factory sealed.
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+                            What is your shipping policy?
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-2" role="region" aria-hidden="true">
+                            <p>We offer fast and reliable shipping worldwide. Standard shipping typically takes 3-5 business days, while express options are available for quicker delivery. Digital codes are delivered instantly via email.</p>
+                        </div>
                     </div>
-                </details>
-                <!-- FAQ Item 3 -->
-                <details class="bg-gray-900 rounded-xl shadow-xl border border-gray-800 focus-ring">
-                    <summary class="flex justify-between items-center p-6 cursor-pointer text-xl font-semibold text-sky-500 hover:text-sky-400 transition-colors duration-200 focus-ring">
-                        What is your return policy?
-                        <svg class="h-6 w-6 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </summary>
-                    <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-800 pt-4">
-                        We offer a 30-day return policy for most items. Games must be returned in their original condition (unopened for new games, fully functional for used games). Please see our full <a href="#" class="text-sky-400 hover:underline">Returns & Refunds</a> page for details.
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+                            Do you guarantee disk condition?
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-3" role="region" aria-hidden="true">
+                            <p>Absolutely. All physical disk games are meticulously inspected and guaranteed to be in pristine, working condition. We package them securely to ensure they arrive safely at your doorstep. If you encounter any issues, our returns policy covers it.</p>
+                        </div>
                     </div>
-                </details>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+                            What is your return policy?
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-4" role="region" aria-hidden="true">
+                            <p>We accept returns for physical games within 30 days of purchase, provided they are in their original, unopened condition. Digital codes are non-refundable once activated. Please contact our support team for any return inquiries.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Contact Section with Form -->
-        <section id="contact" class="container mx-auto py-16 px-4 animate-fade-in animate-delay-700">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12">Get in Touch with QuantumPlay Hub</h2>
-            <div class="max-w-xl mx-auto bg-gray-900 rounded-2xl shadow-2xl p-8 border border-sky-700/30">
-                <p class="text-gray-300 text-lg text-center mb-8">Have a question or need assistance? Fill out the form below, and our team will get back to you promptly.</p>
-                
-                <form action="YOUR_FORM_SUBMISSION_ENDPOINT" method="POST" class="space-y-6" onsubmit="alert('Thank you for your message! We will get back to you soon.'); this.reset(); return false;">
-                    <!-- Developer Note: Replace "YOUR_FORM_SUBMISSION_ENDPOINT" with your actual backend endpoint (e.g., Formspree, Netlify Forms, custom API). -->
-                    
-                    <div>
-                        <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Your Name" 
-                               class="form-input"
-                               aria-required="true" aria-invalid="false">
-                    </div>
-                    
-                    <div>
-                        <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="your@email.com" 
-                               class="form-input"
-                               aria-required="true" aria-invalid="false">
-                    </div>
-                    
-                    <div>
-                        <label for="subject" class="block text-gray-300 text-sm font-bold mb-2">Subject</label>
-                        <input type="text" id="subject" name="subject" required placeholder="Regarding a product or order" 
-                               class="form-input"
-                               aria-required="true" aria-invalid="false">
-                    </div>
-
-                    <div>
-                        <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Message</label>
-                        <textarea id="message" name="message" rows="5" required placeholder="How can we help you?" 
-                                  class="form-textarea"
-                                  aria-required="true" aria-invalid="false"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary w-full text-lg focus-ring">
-                        Send Message
-                        <svg class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 6h.01M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                    </button>
-
-                    <p class="text-gray-500 text-xs text-center mt-4">
-                        We respect your privacy. Your information will only be used to respond to your inquiry.
-                    </p>
-                </form>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 py-12 px-4 border-t border-gray-800">
-        <div class="container mx-auto text-center">
-            <div class="mb-8">
-                <a href="#hero" class="text-3xl font-bold text-sky-500 hover:text-sky-400 transition focus-ring" aria-label="QuantumPlay Hub home">
-                    <svg class="inline-block h-8 w-8 mr-2 text-sky-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    QuantumPlay Hub
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#shop">Shop All Games</a></li>
+                    <li><a href="#new-releases">New Releases</a></li>
+                    <li><a href="#exclusive-bundles">Bundles</a></li>
+                    <li><a href="#blog">Gaming Blog</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="social-icons">
+                <a href="#" aria-label="Follow us on Twitch">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M11.571 5.429h1.429v5.714h-1.429zm6 0h1.429v5.714h-1.429zM12 2L6 8v12h14V8zm2.571 14.571h-11.429V8.571H4v10.857h4.286v-1.428h2.143v1.428h2.143v-1.428h2.143V18h2.143v-1.429h2.143v1.429h2.143v-1.429H18.571z"/></svg>
+                </a>
+                <a href="#" aria-label="Follow us on YouTube">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M10 15l5.5-3-5.5-3zM19.4 0H4.6C2.06 0 0 2.06 0 4.6v14.8C0 21.94 2.06 24 4.6 24h14.8c2.54 0 4.6-2.06 4.6-4.6V4.6c0-2.54-2.06-4.6-4.6-4.6zm-1.84 6.7c-.16-.62-.5-1.16-.94-1.6-.44-.44-.98-.78-1.6-1.1C15.17 3.65 13.9 3.5 12 3.5s-3.17.15-4.02.5c-.62.32-1.16.66-1.6 1.1-.44.44-.78.98-1.1 1.6C4.15 7.83 4 9.1 4 11s.15 3.17.5 4.02c.32.62.66 1.16 1.1 1.6.44.44.98.78 1.6 1.1C8.83 20.35 10.1 20.5 12 20.5s3.17-.15 4.02-.5c.62-.32 1.16-.66 1.6-1.1.44-.44.78-.98 1.1-1.6.35-.85.5-2.12.5-4.02s-.15-3.17-.5-4.02z"/></svg>
+                </a>
+                <a href="#" aria-label="Follow us on TikTok">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12.001 4.382a.94.94 0 0 1 .843.493c.69 1.196.262 2.399-1.298 2.399-.54 0-.964-.476-1.198-1.103a.936.936 0 0 1-.035-.119c-.04-.207-.074-.4-.085-.436-1.396-.444-2.51-.555-3.418-.216a.932.932 0 0 1-.368.127l.006.002.012.004.03.008.064.016.126.035c.42.12.923.364 1.517.758 1.677 1.117 1.954 3.033.453 4.536-.78.781-1.862 1.258-3.03 1.258-2.617 0-4.038-2.544-2.484-4.225 1.054-1.125 2.871-1.465 4.71-.581.42-.036.786-.153 1.116-.367V9.756c-.334-.148-.718-.285-1.14-.388-1.765-.43-3.07.288-3.666 1.487-.39 1.006-.11 2.213.681 2.863.674.558 1.58.587 2.473-.016.634-.412.946-.99.957-1.748L12.001 4.382zM19 1.378l-4 2.333v9.333c0 .552.448 1 1 1s1-.448 1-1V5.711l2-1.166V15a.938.938 0 0 1-1.066.936C16.892 15.892 16 14.818 16 13.565V1.378h3z"/></svg>
+                </a>
+                <a href="#" aria-label="Follow us on Instagram">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm-.2 2A2.4 2.4 0 0 0 5.2 6.4v8.8c0 1.32.9 2.4 2.2 2.4h8.8c1.32 0 2.4-.9 2.4-2.2V6.4c0-1.32-.9-2.4-2.2-2.4H7.6zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm6.5-3a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/></svg>
                 </a>
             </div>
-
-            <nav class="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-8 text-gray-300" aria-label="Footer Navigation">
-                <a href="#products" class="hover:text-sky-400 transition focus-ring">Shop Games</a>
-                <a href="#consoles" class="hover:text-sky-400 transition focus-ring">Browse Consoles</a>
-                <a href="#new-releases" class="hover:text-sky-400 transition focus-ring">New Releases</a>
-                <a href="#blog" class="hover:text-sky-400 transition focus-ring">Blog</a>
-                <a href="#faq" class="hover:text-sky-400 transition focus-ring">FAQ</a>
-                <a href="#contact" class="hover:text-sky-400 transition focus-ring">Contact</a>
-                <a href="#" class="hover:text-sky-400 transition focus-ring">Privacy Policy</a>
-                <a href="#" class="hover:text-sky-400 transition focus-ring">Terms of Service</a>
-            </nav>
-
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="https://www.twitch.tv/quantumplayhub" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitch" class="text-gray-400 hover:text-sky-500 transition focus-ring">
-                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor"><path d="M11.571 6.023h3.429v2.286h-3.429v-2.286zm0 4.572h3.429v2.285h-3.429v-2.285zM5.714 0l-5.714 5.714v12.572h5.714v5.714h5.714l5.714-5.714h3.429l3.429-3.429v-12.572l-3.429-3.429h-17.143zm15.429 11.429l-2.286 2.285h-3.429l-3.429 3.429v-3.429h-4.572v-10.286h13.714v10.286z"></path></svg>
-                </a>
-                <a href="https://www.youtube.com/quantumplayhub" target="_blank" rel="noopener noreferrer" aria-label="Follow us on YouTube" class="text-gray-400 hover:text-sky-500 transition focus-ring">
-                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.205 8.162c-.085-.357-.367-.639-.724-.724-1.901-.486-9.407-.486-11.308 0-.357.085-.639.367-.724.724-.486 1.901-.486 5.698 0 7.601.085.357.367.639.724.724 1.901.486 9.407.486 11.308 0 .357-.085.639-.367.724-.724.486-1.901.486-5.698 0-7.601zm-5.405 7.18c-1.631-.485-2.2-2.185-1.714-3.816.485-1.63 2.185-2.2 3.816-1.714 1.63.485 2.2 2.185 1.714 3.816-.485 1.63-2.185 2.2-3.816 1.714z"></path></svg>
-                </a>
-                <a href="https://www.tiktok.com/@quantumplayhub" target="_blank" rel="noopener noreferrer" aria-label="Follow us on TikTok" class="text-gray-400 hover:text-sky-500 transition focus-ring">
-                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 2.002c-3.141 0-5.714 2.573-5.714 5.714 0 3.14 2.573 5.714 5.714 5.714s5.714-2.574 5.714-5.714c0-3.141-2.573-5.714-5.714-5.714zm0 2c2.046 0 3.714 1.668 3.714 3.714 0 2.046-1.668 3.714-3.714 3.714s-3.714-1.668-3.714-3.714c0-2.046 1.668-3.714 3.714-3.714zm-4.516 12.023c.319 0 .638-.073.931-.219.866-.423 1.48-1.28 1.48-2.274v-1.258c0-.622-.486-1.129-1.089-1.129-.604 0-1.089.507-1.089 1.129v.884c0 .32-.266.58-.595.58-.329 0-.595-.26-.595-.58v-.884c0-1.38 1.11-2.513 2.479-2.513 1.37 0 2.479 1.133 2.479 2.513v1.258c0 1.61-.958 3.033-2.381 3.729-1.264.62-2.784.62-4.048 0-1.423-.696-2.381-2.119-2.381-3.729v-1.258c0-1.38 1.11-2.513 2.479-2.513 1.37 0 2.479 1.133 2.479 2.513v.884c0 .32-.266.58-.595.58-.329 0-.595-.26-.595-.58v-.884c0-.622-.486-1.129-1.089-1.129-.604 0-1.089.507-1.089 1.129v1.258c0 .994.614 1.851 1.48 2.274.293.146.612.219.931.219zm9.035-1.927c.189 0 .378-.041.554-.122 1.374-.627 2.28-2.022 2.28-3.565v-1.336c0-.622-.486-1.129-1.089-1.129-.604 0-1.089.507-1.089 1.129v.871c0 .32-.266.58-.595.58-.329 0-.595-.26-.595-.58v-.871c0-1.38 1.11-2.513 2.479-2.513 1.37 0 2.479 1.133 2.479 2.513v1.336c0 1.776-.948 3.323-2.484 4.041-1.388.665-3.078.665-4.466 0-1.536-.718-2.484-2.265-2.484-4.041v-1.336c0-1.38 1.11-2.513 2.479-2.513 1.37 0 2.479 1.133 2.479 2.513v.871c0 .32-.266.58-.595.58-.329 0-.595-.26-.595-.58v-.871c0-.622-.486-1.129-1.089-1.129-.604 0-1.089.507-1.089 1.129v1.336c0 1.543.906 2.938 2.28 3.565.176.081.365.122.554.122zM12.001 22.002c-5.522 0-10-4.478-10-10s4.478-10 10-10 10 4.478 10 10-4.478 10-10 10zm0-18c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
-                </a>
-                <a href="https://www.instagram.com/quantumplayhub" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" class="text-gray-400 hover:text-sky-500 transition focus-ring">
-                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07c1.378.066 2.034.288 2.584.517.675.27.97.6.97.6s.325.295.6.97c.229.55.451 1.206.517 2.584.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.066 1.378-.288 2.034-.517 2.584-.27.675-.6.97-.6.97s-.295.325-.97.6c-.55.229-1.206.451-2.584.517-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.378-.066-2.034-.288-2.584-.517-.675-.27-.97-.6-.97-.6s-.325-.295-.6-.97c-.229-.55-.451-1.206-.517-2.584-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.066-1.378.288-2.034.517-2.584.27-.675.6-.97.6-.97s.295-.325.97-.6c.55-.229 1.206-.451 2.584-.517 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.073-1.643.079-2.738.361-3.693.743-1.025.409-1.802 1.096-2.592 1.886-.79.79-1.477 1.567-1.886 2.592-.382.955-.664 2.05-.743 3.693-.059 1.28-.073 1.688-.073 4.947s.014 3.667.073 4.947c.079 1.643.361 2.738.743 3.693.409 1.025 1.096 1.802 1.886 2.592.79.79 1.567 1.477 2.592 1.886.955.382 2.05.664 3.693.743 1.28.059 1.688.073 4.947.073s3.667-.014 4.947-.073c1.643-.079 2.738-.361 3.693-.743 1.025-.409 1.802-1.096 2.592-1.886.79-.79 1.477-1.567 1.886-2.592.382-.955.664-2.05.743-3.693.059-1.28.073-1.688.073-4.947s-.014-3.667-.073-4.947c-.079-1.643-.361-2.738-.743-3.693-.409-1.025-1.096-1.802-1.886-2.592-.79-.79-1.567-1.477-2.592-1.886-.955-.382-2.05-.664-3.693-.743-1.28-.059-1.688-.073-4.947-.073zm0 3.672c-2.456 0-4.444 1.989-4.444 4.444s1.989 4.444 4.444 4.444 4.444-1.989 4.444-4.444-1.989-4.444-4.444-4.444zm0 7.37c-1.619 0-2.926-1.307-2.926-2.926s1.307-2.926 2.926-2.926 2.926 1.307 2.926 2.926-1.307 2.926-2.926 2.926zm5.83-8.535c0 .64-.519 1.159-1.159 1.159s-1.159-.519-1.159-1.159.519-1.159 1.159-1.159 1.159.519 1.159 1.159z"></path></svg>
-                </a>
-            </div>
-
-            <p class="text-gray-500 text-sm">
-                &copy; <span id="current-year"></span> QuantumPlay Hub. All rights reserved.
-            </p>
+            <p class="footer-copyright">&copy; 2023 QuantumPlay Hub. All rights reserved. PlayStation is a registered trademark of Sony Interactive Entertainment Inc.</p>
         </div>
     </footer>
 
-    <!-- Global Styling for utility components like buttons and product cards -->
-    <style>
-        .btn {
-            @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-bold text-base whitespace-nowrap transition-all duration-300 transform active:scale-95;
-        }
-        .btn-primary {
-            @apply bg-sky-500 text-white shadow-lg shadow-sky-500/30 hover:bg-sky-600 hover:shadow-xl hover:shadow-sky-500/40;
-        }
-        .btn-secondary {
-            @apply bg-gray-800 text-gray-100 border border-gray-700 hover:bg-gray-700 hover:border-sky-500;
-        }
-        .btn-sm {
-            @apply px-4 py-2 text-sm;
-        }
-
-        .product-card {
-            @apply bg-gray-900 rounded-xl shadow-lg p-5 flex flex-col items-start hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-800;
-        }
-        .platform-badge {
-            @apply text-xs font-semibold px-2 py-1 rounded-full text-white;
-        }
-        /* Focus-ring ensures accessible focus states across interactive elements */
-        .focus-ring {
-            @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-500 focus-visible:ring-offset-gray-950;
-        }
-
-        /* Form elements */
-        .form-input, .form-textarea {
-            @apply w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-500 focus-ring;
-        }
-        .form-textarea {
-            resize: vertical; /* Allow vertical resizing only */
-        }
-    </style>
-
-    <!-- JavaScript for Mobile Nav Toggle and Scroll Animations -->
+    <!-- Inline JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const navToggle = document.getElementById('nav-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navLinks = mobileMenu.querySelectorAll('a');
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
 
-            // Mobile nav toggle functionality
-            navToggle.addEventListener('click', () => {
-                const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-                navToggle.setAttribute('aria-expanded', !isExpanded);
-                mobileMenu.classList.toggle('hidden', isExpanded);
-                navToggle.classList.toggle('hamburger-open', !isExpanded);
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const headerOffset = document.querySelector('header').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+
+                    // Update active class for nav links
+                    document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                }
             });
-
-            // Close mobile menu when a link is clicked
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    navToggle.setAttribute('aria-expanded', 'false');
-                    mobileMenu.classList.add('hidden');
-                    navToggle.classList.remove('hamburger-open');
-                });
-            });
-
-            // Intersection Observer for scroll animations
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1 // Trigger when 10% of the element is visible
-            };
-
-            const animateOnScroll = (entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-fade-in');
-                        // Stop observing after animation to prevent re-triggering
-                        observer.unobserve(entry.target); 
-                    }
-                });
-            };
-
-            const observer = new IntersectionObserver(animateOnScroll, observerOptions);
-
-            // Observe all elements with 'animate-fade-in' class (initial state should hide them)
-            document.querySelectorAll('.animate-fade-in').forEach(el => {
-                el.style.opacity = '0'; // Ensure elements start invisible
-                el.style.transform = 'translateY(20px)'; // Start slightly below
-                observer.observe(el);
-            });
-
-            // Update current year in footer
-            document.getElementById('current-year').textContent = new Date().getFullYear();
         });
+
+        // Intersection Observer for fade-in animations
+        const sections = document.querySelectorAll('section:not(#hero)'); // Exclude hero as it has its own animation
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the section is visible
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target); // Stop observing once in view
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // FAQ Accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+
+            question.addEventListener('click', () => {
+                const isActive = question.classList.toggle('active');
+                question.setAttribute('aria-expanded', isActive);
+                answer.setAttribute('aria-hidden', !isActive);
+
+                if (isActive) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    answer.style.paddingTop = '20px';
+                    answer.style.paddingBottom = '20px';
+                } else {
+                    answer.style.maxHeight = '0';
+                    answer.style.paddingTop = '0';
+                    answer.style.paddingBottom = '0';
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sectionElements = document.querySelectorAll('main section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sectionElements.forEach(section => {
+                const sectionTop = section.offsetTop - document.querySelector('header').offsetHeight;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Initial active link setup for when page loads already scrolled or at top
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstSection = document.querySelector('main section');
+            if (firstSection) {
+                const firstSectionId = firstSection.getAttribute('id');
+                const correspondingNavLink = document.querySelector(`.nav-links a[href*="${firstSectionId}"]`);
+                if (correspondingNavLink) {
+                    correspondingNavLink.classList.add('active');
+                }
+            }
+        });
+
     </script>
 </body>
 </html>
-
-<!-- 
-Edit Notes:
----------------------------------------------------------------
-1.  **Replace Hero Media:**
-    -   To change the background video in the hero section, update the `src` attribute of the `<source>` tag within the `<video>` element (line ~104) and the `poster` attribute of the `<video>` tag (line ~104). Ensure your new video is optimized for web and includes a relevant `poster` image.
-    -   Hero video: `https://videos.pexels.com/video-files/7547007/7547007-sd_426_240_25fps.mp4`
-    -   Hero poster: `https://images.pexels.com/photos/7688499/pexels-photo-7688499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940`
-
-2.  **Update Product & Highlight Section Images:**
-    -   All product card images (`<img>` tags) in the "Product Sections" and "Highlight Sections" can be updated by changing their `src` attributes. Remember to also update the `alt` text for accessibility. Placeholder images like `https://via.placeholder.com/` are used where specific Pexels images weren't provided for every single item; replace these with actual game covers.
-    -   Example Pexels image URL format: `https://images.pexels.com/photos/7862508/pexels-photo-7862508.jpeg?auto=compress&cs=tinysrgb&h=650&w=940`
-
-3.  **Change General Copy & Content:**
-    -   All text content, including headlines, subheadings, product names, descriptions, testimonials, and FAQ answers, can be found and directly edited within the HTML. Use the semantic element tags (e.g., `<h1>`, `<h2>`, `<p>`, `<li>`) to locate content easily.
-
-4.  **Configure Contact Form Endpoint:**
-    -   The `<form>` element within the "Contact Section" (around line ~628) has its `action` attribute set to `"YOUR_FORM_SUBMISSION_ENDPOINT"`. You MUST replace this with your actual form submission URL (e.g., from Formspree, Netlify Forms, or your custom backend API). The current `onsubmit` alert is a placeholder for client-side feedback.
-
-5.  **Adjust Styling (Tailwind CSS):**
-    -   Most styling is controlled by Tailwind CSS classes. To change colors, fonts, spacing, etc., modify these classes directly. For example, to change the primary accent color from `sky-500`, search for `text-sky-500`, `bg-sky-500`, etc., and replace with your desired Tailwind color class (e.g., `text-emerald-500`, `bg-purple-600`). Custom CSS is minimal in the `<style>` block for specific animations and focus rings.
-
-6.  **Schema.org Data:**
-    -   Update `url`, `logo`, and `sameAs` social links in the JSON-LD script in the `<head>` section to reflect your actual website and social media profiles.
-
-7.  **Meta Tags:**
-    -   Update the `<title>`, `<meta name="description">`, and all `og:` and `twitter:` meta tags in the `<head>` to accurately reflect your website's content and branding for SEO and social sharing.
-
-Developer TODO:
----------------------------------------------------------------
-1.  **Verify Media Licenses:** Ensure all Pexels media used is licensed appropriately for your specific production use case.
-2.  **Set Contact Form Endpoint:** Update `action="YOUR_FORM_SUBMISSION_ENDPOINT"` in the contact form to your actual backend.
-3.  **Replace Placeholder Content:** Replace all `https://via.placeholder.com/` images and generic text with specific game details and content.
-4.  **Test on Mobile Devices:** Thoroughly test the responsiveness and usability on various mobile screen sizes and orientations.
-5.  **Run Lighthouse Audit:** Conduct a full Lighthouse audit in Chrome DevTools to check performance, accessibility, SEO, and best practices, and address any critical issues.
--->
 ```
