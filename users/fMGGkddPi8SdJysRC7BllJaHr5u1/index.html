@@ -4,27 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IronÉlite Club - Ascend to Your Peak</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <title>ProConnect - Your Gateway to Elite Freelance Talent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* CSS Variables */
+        /* CSS Reset & Global Styles */
         :root {
-            --primary-gold: #D4AF37;
-            --dark-bg: #1A1A1A;
-            --secondary-bg: #2A2A2A;
-            --light-text: #E0E0E0;
-            --accent-text: #F8F8F8;
-            --matte-gray: #333333;
-            --soft-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            --subtle-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            --gradient-gold: linear-gradient(90deg, #D4AF37 0%, #FFD700 50%, #D4AF37 100%);
+            --primary-color: #2e8b57; /* Sea Green */
+            --secondary-color: #3cb371; /* Medium Sea Green */
+            --accent-color: #ffd700; /* Gold */
+            --dark-color: #2c3e50; /* Dark Blue Grey */
+            --light-color: #ecf0f1; /* Light Grey */
+            --text-color: #333;
+            --white: #ffffff;
+            --header-height: 80px;
         }
 
-        /* Base Styles */
-        * {
+        *, *::before, *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         html {
@@ -32,134 +34,125 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--light-text);
-            background-color: var(--dark-bg);
+            font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
-            overflow-x: hidden; /* Prevent horizontal scroll from parallax/animations */
+            color: var(--text-color);
+            background-color: var(--white);
         }
 
         a {
-            color: var(--primary-gold);
             text-decoration: none;
-            transition: color 0.3s ease;
+            color: var(--primary-color);
         }
 
-        a:hover {
-            color: #FFD700;
+        ul {
+            list-style: none;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
-            color: var(--accent-text);
-            margin-bottom: 0.8em;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
             line-height: 1.2;
         }
 
-        h1 { font-size: 3.5em; font-weight: 700; }
-        h2 { font-size: 2.8em; font-weight: 700; }
-        h3 { font-size: 2.2em; font-weight: 700; }
-        h4 { font-size: 1.8em; font-weight: 600; }
-        p { margin-bottom: 1em; }
+        p {
+            margin-bottom: 1rem;
+        }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
-            position: relative;
+            padding: 0 20px;
         }
 
-        /* Buttons */
         .btn {
             display: inline-block;
-            padding: 14px 30px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 12px 25px;
             border-radius: 50px;
-            background: var(--gradient-gold);
-            color: var(--dark-bg);
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: var(--soft-shadow);
+            transition: background 0.3s ease, transform 0.2s ease;
             border: none;
             cursor: pointer;
-            font-size: 1em;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            text-align: center;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-            color: var(--dark-bg); /* Ensure text remains dark on hover */
+            background: var(--secondary-color);
+            transform: translateY(-2px);
         }
 
-        /* Header & Navigation */
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* Header */
         .header {
+            background: var(--dark-color);
+            color: var(--white);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
             position: fixed;
+            width: 100%;
             top: 0;
             left: 0;
-            width: 100%;
-            background-color: rgba(26, 26, 26, 0.95);
-            padding: 20px 0;
             z-index: 1000;
-            box-shadow: var(--subtle-shadow);
-            backdrop-filter: blur(5px);
-            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2em;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            color: var(--accent-text);
-            letter-spacing: 0.5px;
+            font-size: 1.8rem;
+            color: var(--white);
+            letter-spacing: -1px;
         }
 
         .logo span {
-            color: var(--primary-gold);
+            color: var(--primary-color);
         }
 
-        .nav-menu ul {
-            list-style: none;
+        .nav ul {
             display: flex;
         }
 
-        .nav-menu ul li {
-            margin-left: 40px;
+        .nav ul li {
+            margin-left: 30px;
         }
 
-        .nav-menu ul li a {
-            color: var(--light-text);
-            font-weight: 500;
-            position: relative;
-            padding-bottom: 5px;
+        .nav ul li a {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.05rem;
             transition: color 0.3s ease;
         }
 
-        .nav-menu ul li a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-menu ul li a:hover {
-            color: var(--primary-gold);
-        }
-        
-        .nav-menu ul li a:hover::after {
-            width: 100%;
+        .nav ul li a:hover {
+            color: var(--primary-color);
         }
 
         /* Hero Section */
@@ -167,1156 +160,516 @@
             position: relative;
             height: 100vh;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            color: var(--accent-text);
-            overflow: hidden;
-            padding-top: 80px; /* Account for fixed header */
+            color: var(--white);
+            overflow: hidden; /* Ensure video doesn't overflow */
         }
 
-        .hero-video {
+        .hero video {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
             transform: translate(-50%, -50%);
-            z-index: 1;
-            filter: brightness(0.7); /* Darken video slightly */
+            background-size: cover;
         }
 
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(26, 26, 26, 0.4) 50%, rgba(212, 175, 55, 0.2) 100%);
-            mix-blend-mode: multiply; /* Creates a dark, rich gold tint */
-            z-index: 2;
-        }
-        
-        /* A second, more subtle overlay for overall darkness */
-        .hero-overlay::after {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Additional darken */
-            z-index: 1; /* Below the main overlay */
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay for text readability */
+            z-index: -1;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 3;
-            max-width: 900px;
-            padding: 20px;
-            transform: translateY(0); /* For parallax */
-            transition: transform 0.1s ease-out;
+            z-index: 1;
+            padding-top: var(--header-height); /* Offset for fixed header */
         }
 
-        .hero-content h1 {
-            font-size: 4.8em;
+        .hero h1 {
+            font-size: 3.8rem;
             margin-bottom: 20px;
-            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-            color: var(--accent-text);
-            line-height: 1.1;
+            color: var(--white);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
         }
 
-        .hero-content p {
-            font-size: 1.4em;
+        .hero p {
+            font-size: 1.4rem;
             margin-bottom: 40px;
-            font-weight: 300;
-            max-width: 700px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-        }
-        
-        /* Sections General Styling */
-        section {
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
+            color: var(--light-color);
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
         }
 
-        section:nth-of-type(even) {
-            background-color: var(--secondary-bg);
+        .hero .btn-group .btn {
+            margin: 0 10px;
+            min-width: 180px;
         }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 3.5em;
-            position: relative;
-            padding-bottom: 15px;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--gradient-gold);
-            border-radius: 5px;
-        }
-
-        .section-header p {
-            font-size: 1.1em;
-            max-width: 700px;
-            margin: 20px auto 0;
-            color: var(--light-text);
-        }
-
-        /* Fade-in Animation */
-        .hidden {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-        .visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .hidden.delay-1 { transition-delay: 0.1s; }
-        .hidden.delay-2 { transition-delay: 0.2s; }
-        .hidden.delay-3 { transition-delay: 0.3s; }
-        .hidden.delay-4 { transition-delay: 0.4s; }
-
 
         /* About Section */
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 60px;
+        .about-section {
+            background: var(--light-color);
+            text-align: center;
         }
 
-        .about-text {
-            flex: 1;
-            padding-right: 20px;
+        .about-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
         }
 
-        .about-text p {
-            margin-bottom: 1.5em;
-            font-size: 1.1em;
-            color: var(--light-text);
-        }
-
-        .about-image {
-            flex: 1;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--soft-shadow);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            display: block;
-            filter: brightness(0.9);
-            transition: transform 0.6s ease;
-        }
-
-        .about-image img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Coaching Section */
-        .coaching-grid {
+        .about-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
+            gap: 30px;
+            margin-top: 40px;
         }
 
-        .coach-card {
-            background-color: var(--matte-gray);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--subtle-shadow);
+        .about-item {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .about-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-item h3 {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+        
+        .about-item p {
+            font-size: 1.05rem;
+            color: var(--text-color);
+        }
+
+        /* Featured Categories */
+        .categories-section {
+            background: var(--white);
             text-align: center;
-            padding-bottom: 30px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
         }
 
-        .coach-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--soft-shadow);
+        .categories-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
         }
 
-        .coach-card img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            display: block;
-            margin-bottom: 25px;
-            filter: brightness(0.9);
-        }
-
-        .coach-card h3 {
-            font-size: 1.8em;
-            color: var(--primary-gold);
-            margin-bottom: 5px;
-        }
-
-        .coach-card p {
-            color: var(--light-text);
-            padding: 0 25px;
-            font-size: 0.95em;
-        }
-
-        /* Membership Plans */
-        .membership-grid {
+        .category-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            gap: 25px;
         }
 
-        .membership-card {
-            background-color: var(--matte-gray);
-            border-radius: 15px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: var(--subtle-shadow);
-            border: 2px solid transparent; /* Default transparent border */
-            position: relative;
+        .category-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
-        .membership-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 15px;
-            padding: 2px; /* Controls border thickness */
-            background: var(--gradient-gold);
-            -webkit-mask: 
-                linear-gradient(#fff 0 0) content-box, 
-                linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            z-index: 0;
-            opacity: 0; /* Hidden by default */
-            transition: opacity 0.3s ease;
-        }
-        
-        .membership-card:hover {
+
+        .category-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--soft-shadow);
-        }
-        
-        .membership-card:hover::before {
-            opacity: 1; /* Show border on hover */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
 
-        .membership-card.elite {
-            transform: translateY(-15px); /* Elevate Elite card */
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
-            background-color: var(--dark-bg); /* Darker background for elite */
-            z-index: 1;
-        }
-
-        .membership-card.elite::before {
-            opacity: 1; /* Always show gold border for Elite */
-        }
-
-        .membership-card h3 {
-            font-size: 2.2em;
-            color: var(--primary-gold);
-            margin-bottom: 10px;
-        }
-
-        .membership-card .price {
-            font-size: 3em;
-            font-weight: 700;
-            color: var(--accent-text);
-            margin-bottom: 15px;
-        }
-
-        .membership-card .price span {
-            font-size: 0.5em;
-            font-weight: 300;
-            color: var(--light-text);
-        }
-
-        .membership-card ul {
-            list-style: none;
-            margin-bottom: 30px;
-            text-align: left;
-            padding: 0 15px;
-        }
-
-        .membership-card ul li {
-            margin-bottom: 10px;
-            color: var(--light-text);
-            font-size: 1em;
-            display: flex;
-            align-items: center;
-        }
-
-        .membership-card ul li::before {
-            content: '✓';
-            color: var(--primary-gold);
-            margin-right: 10px;
-            font-weight: 700;
-        }
-
-        /* Classes & Programs */
-        .classes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .class-card {
-            background-color: var(--matte-gray);
-            border-radius: 15px;
-            box-shadow: var(--subtle-shadow);
-            overflow: hidden;
-            text-align: center;
-            padding: 35px 25px;
-            position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .class-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--soft-shadow);
-        }
-
-        .class-card h3 {
-            color: var(--primary-gold);
-            margin-bottom: 15px;
-            font-size: 2em;
-        }
-
-        .class-card p {
-            color: var(--light-text);
-            font-size: 1em;
-        }
-
-        /* Transformation Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--subtle-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-            box-shadow: var(--soft-shadow);
-        }
-
-        .gallery-item img {
+        .category-card img {
             width: 100%;
-            height: 350px;
+            height: 200px;
             object-fit: cover;
             display: block;
-            filter: brightness(0.9);
-            transition: filter 0.3s ease;
-        }
-        
-        .gallery-item:hover img {
-            filter: brightness(1);
         }
 
-        .gallery-item-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);
-            display: flex;
-            align-items: flex-end;
+        .category-card h3 {
+            font-size: 1.4rem;
             padding: 20px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-item-overlay {
-            opacity: 1;
-        }
-
-        .gallery-item-overlay h4 {
-            color: var(--primary-gold);
             margin: 0;
-            font-size: 1.4em;
+            color: var(--dark-color);
         }
 
-        /* Testimonials */
-        .testimonials-grid {
+        /* Testimonials Section */
+        .testimonials-section {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .testimonials-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--white);
+        }
+
+        .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .testimonial-card {
-            background-color: var(--matte-gray);
-            border-radius: 15px;
-            padding: 35px;
-            box-shadow: var(--subtle-shadow);
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .testimonial-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--soft-shadow);
-        }
-
-        .testimonial-card .quote {
+        .testimonial-card p {
+            font-size: 1.1rem;
             font-style: italic;
             margin-bottom: 20px;
-            font-size: 1.1em;
-            color: var(--accent-text);
+            color: var(--light-color);
         }
 
-        .testimonial-card .author-info {
-            display: flex;
-            align-items: center;
-            margin-top: 25px;
-        }
-
-        .testimonial-card .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-            border: 2px solid var(--primary-gold);
-        }
-
-        .testimonial-card .author-name {
+        .testimonial-card .author {
             font-weight: 600;
-            color: var(--primary-gold);
-            font-size: 1.2em;
+            font-size: 1.1rem;
+            color: var(--accent-color);
         }
 
-        .testimonial-card .stars {
-            margin-top: 10px;
-            display: flex;
-            gap: 3px;
-        }
-
-        .testimonial-card .stars svg {
-            fill: var(--primary-gold);
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Facilities Tour */
-        .facilities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .facility-item {
-            background-color: var(--matte-gray);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--subtle-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .facility-item:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--soft-shadow);
-        }
-
-        .facility-item img,
-        .facility-item video {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
+        .testimonial-card .author span {
             display: block;
-            filter: brightness(0.9);
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-top: 5px;
         }
 
-        .facility-item-content {
-            padding: 25px;
-        }
-
-        .facility-item-content h3 {
-            color: var(--primary-gold);
-            margin-bottom: 10px;
-            font-size: 1.8em;
-        }
-
-        .facility-item-content p {
-            font-size: 1em;
-            color: var(--light-text);
-        }
-
-        /* Contact Section */
-        .contact-content {
-            display: flex;
-            gap: 60px;
-            flex-wrap: wrap;
-        }
-
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
-            margin-bottom: 30px;
-        }
-
-        .contact-info h3 {
-            color: var(--primary-gold);
-            margin-bottom: 25px;
-            font-size: 2em;
-        }
-
-        .contact-info p {
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-info p svg {
-            fill: var(--primary-gold);
-            margin-right: 15px;
-            width: 24px;
-            height: 24px;
-        }
-
-        .contact-form {
-            flex: 2;
-            min-width: 400px;
-            background-color: var(--matte-gray);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: var(--subtle-shadow);
-        }
-
-        .contact-form h3 {
-            color: var(--primary-gold);
-            margin-bottom: 30px;
+        /* CTA Section */
+        .cta-section {
+            background: var(--dark-color);
+            color: var(--white);
             text-align: center;
-            font-size: 2em;
+            padding: 100px 0;
         }
 
-        .form-group {
-            margin-bottom: 20px;
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: var(--white);
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--accent-text);
+        .cta-section p {
+            font-size: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            color: var(--light-color);
         }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid var(--matte-gray);
-            background-color: var(--dark-bg);
-            border-radius: 8px;
-            color: var(--light-text);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1em;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        .cta-section .btn-group .btn {
+            background: var(--accent-color);
+            color: var(--dark-color);
+            margin: 0 15px;
+            min-width: 200px;
+            font-size: 1.1rem;
         }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary-gold);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .map-embed {
-            margin-top: 60px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--soft-shadow);
-            height: 450px;
-        }
-
-        .map-embed iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        .cta-section .btn-group .btn:hover {
+            background: var(--white);
+            color: var(--dark-color);
         }
 
         /* Footer */
         .footer {
-            background-color: var(--secondary-bg);
-            color: var(--light-text);
+            background: var(--dark-color);
+            color: var(--light-color);
+            padding: 60px 0 30px 0;
             text-align: center;
-            padding: 40px 20px;
-            font-size: 0.9em;
-            border-top: 1px solid var(--matte-gray);
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .footer .container {
-            padding-top: 0;
-            padding-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-nav ul {
+            display: flex;
+            margin-bottom: 25px;
+        }
+
+        .footer-nav ul li {
+            margin: 0 15px;
+        }
+
+        .footer-nav ul li a {
+            color: var(--light-color);
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            margin-bottom: 25px;
+        }
+
+        .social-links a {
+            color: var(--light-color);
+            font-size: 1.8rem;
+            margin: 0 12px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
         }
 
         .footer p {
-            margin: 0;
-        }
-
-        .footer .social-links {
-            margin-top: 20px;
-        }
-
-        .footer .social-links a {
-            display: inline-block;
-            margin: 0 10px;
-            color: var(--primary-gold);
-            font-size: 1.5em;
-            transition: transform 0.3s ease;
-        }
-
-        .footer .social-links a:hover {
-            transform: translateY(-3px);
-            color: #FFD700;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            color: rgba(255,255,255,0.7);
         }
 
         /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero-content h1 { font-size: 3.5em; }
-            .hero-content p { font-size: 1.2em; }
-            h2 { font-size: 2.2em; }
-            h3 { font-size: 1.8em; }
-
-            .about-content {
-                flex-direction: column;
-                text-align: center;
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
             }
-            .about-text, .about-image {
-                padding-right: 0;
+            .hero p {
+                font-size: 1.2rem;
             }
-            .about-image {
-                width: 100%;
-                max-width: 600px;
+            .nav ul {
+                display: none; /* For simplicity, hide nav on smaller screens without JS */
             }
-
-            .membership-grid, .classes-grid, .testimonials-grid, .facilities-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            .header .container {
+                justify-content: center; /* Center logo when nav is hidden */
             }
-
-            .contact-content {
-                flex-direction: column;
+            .about-section h2, .categories-section h2, .testimonials-section h2 {
+                font-size: 2rem;
             }
-            .contact-form, .contact-info {
-                min-width: unset;
-                width: 100%;
+            .cta-section h2 {
+                font-size: 2.5rem;
+            }
+            .cta-section p {
+                font-size: 1.2rem;
             }
         }
 
         @media (max-width: 768px) {
-            .header .container {
+            .hero {
+                height: 70vh; /* Adjust hero height for smaller screens */
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .hero .btn-group {
+                display: flex;
                 flex-direction: column;
-                text-align: center;
+                align-items: center;
             }
-            .nav-menu ul {
-                margin-top: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
+            .hero .btn-group .btn {
+                margin: 10px 0;
+                width: 80%; /* Make buttons full width in group */
             }
-            .nav-menu ul li {
-                margin: 0 15px 10px;
+            .section-padding {
+                padding: 60px 0;
             }
-
-            .hero { padding-top: 150px; }
-            .hero-content h1 { font-size: 2.8em; }
-            .hero-content p { font-size: 1em; }
-
-            section { padding: 80px 0; }
-            .section-header h2 { font-size: 2em; }
-            .section-header p { font-size: 1em; }
-            
-            .coach-card img, .about-image img, .gallery-item img, .facility-item img, .facility-item video {
-                height: 300px;
+            .about-item, .category-card, .testimonial-card {
+                padding: 20px;
             }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 { font-size: 2em; }
-            .hero-content p { font-size: 0.9em; }
-            .btn { padding: 12px 25px; font-size: 0.9em; }
-
-            .logo { font-size: 1.8em; }
-            .nav-menu ul li { margin: 0 10px 10px; }
-
-            h2 { font-size: 1.8em; }
-            h3 { font-size: 1.5em; }
-
-            .membership-grid, .classes-grid, .testimonials-grid, .facilities-grid, .gallery-grid, .coaching-grid {
-                grid-template-columns: 1fr;
+            .about-item h3 {
+                font-size: 1.4rem;
             }
-            .about-image img { height: 250px; }
-            .map-embed { height: 300px; }
-            .contact-form { padding: 25px; }
+            .category-card h3 {
+                font-size: 1.2rem;
+            }
+            .cta-section {
+                padding: 80px 0;
+            }
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            .cta-section p {
+                font-size: 1rem;
+            }
+            .cta-section .btn-group .btn {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+            .footer-nav ul {
+                flex-direction: column;
+                margin-bottom: 15px;
+            }
+            .footer-nav ul li {
+                margin: 5px 0;
+            }
+            .social-links {
+                margin-bottom: 15px;
+            }
         }
     </style>
 </head>
 <body>
-
+    <!-- Header -->
     <header class="header">
         <div class="container">
-            <div class="logo">Iron<span>Élite</span></div>
-            <nav class="nav-menu">
+            <a href="#home" class="logo">Pro<span>Connect</span></a>
+            <nav class="nav">
                 <ul>
+                    <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#coaching">Coaching</a></li>
-                    <li><a href="#membership">Membership</a></li>
-                    <li><a href="#classes">Classes</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#categories">Categories</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#facilities">Facilities</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#cta">Join Us</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section class="hero" id="hero">
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="https://videos.pexels.com/video-files/6388396/6388396-sd_240_426_25fps.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1 class="hidden">IronÉlite Club: Ascend to Your Peak</h1>
-                <p class="hidden delay-1">Unleash your potential in an environment crafted for champions. Experience luxury, precision, and unparalleled results.</p>
-                <a href="#membership" class="btn hidden delay-2">Join the Club</a>
-            </div>
-        </section>
-
-        <section id="about" class="about">
-            <div class="container">
-                <div class="section-header hidden">
-                    <h2>About IronÉlite Club</h2>
-                    <p>Where luxury meets performance. Discover our philosophy dedicated to excellence.</p>
-                </div>
-                <div class="about-content">
-                    <div class="about-text hidden delay-1">
-                        <h3>Our Luxury Philosophy</h3>
-                        <p>At IronÉlite Club, fitness is an art, and your body is the masterpiece. We've meticulously designed an exclusive sanctuary for those who demand the absolute best from their training experience. Our philosophy transcends traditional gyms, focusing on a holistic approach to wellness, strength, and longevity.</p>
-                        <p>Step into a world where every detail is curated for your success. From the ambient lighting to the ergonomic design of our spaces, we ensure an atmosphere that inspires dedication and relaxation in equal measure. This is more than a gym; it's a lifestyle, a commitment to your ultimate self.</p>
-                        <h3>Elite Equipment & Exclusive Environment</h3>
-                        <p>We pride ourselves on housing the most advanced and elite fitness equipment available, sourced globally for their superior performance and biomechanical precision. Our members enjoy access to state-of-the-art machines, free weights, and functional training areas, ensuring every workout is efficient, effective, and exhilarating.</p>
-                        <p>The IronÉlite Club is an exclusive training environment where privacy and focus are paramount. With limited memberships, you're guaranteed a spacious, serene, and uncrowded setting, allowing you to train without distraction and forge your path to peak performance.</p>
-                    </div>
-                    <div class="about-image hidden delay-2">
-                        <img src="https://images.pexels.com/photos/4162587/pexels-photo-4162587.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Luxury Gym Interior">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="coaching" class="coaching">
-            <div class="container">
-                <div class="section-header hidden">
-                    <h2>Personal Coaching</h2>
-                    <p>Unlock your full potential with our world-class private trainers and bespoke training programs.</p>
-                </div>
-                <div class="coaching-grid">
-                    <div class="coach-card hidden delay-1">
-                        <img src="https://images.pexels.com/photos/7789619/pexels-photo-7789619.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Personal Trainer Sarah Miller">
-                        <h3>Sarah Miller</h3>
-                        <p>Specializing in strength and conditioning, Sarah crafts personalized plans that push boundaries and deliver measurable results.</p>
-                    </div>
-                    <div class="coach-card hidden delay-2">
-                        <img src="https://images.pexels.com/photos/18285436/pexels-photo-18285436.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Personal Trainer Alex Johnson">
-                        <h3>Alex Johnson</h3>
-                        <p>Alex's expertise lies in functional fitness and injury prevention, ensuring a sustainable path to peak physical health.</p>
-                    </div>
-                    <div class="coach-card hidden delay-3">
-                        <img src="https://images.pexels.com/photos/5942021/pexels-photo-5942021.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Personal Trainer Emily Davis">
-                        <h3>Emily Davis</h3>
-                        <p>With a focus on holistic wellness, Emily integrates nutrition and mindfulness into her bespoke training methodologies.</p>
-                    </div>
-                </div>
-                <div class="section-header" style="margin-top: 60px;">
-                    <p class="hidden delay-4">Our VIP training rooms provide the ultimate private setting for one-on-one sessions, equipped with every tool needed for your transformative journey.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="membership" class="membership">
-            <div class="container">
-                <div class="section-header hidden">
-                    <h2>Membership Plans</h2>
-                    <p>Choose the tier that aligns with your ambition. Each plan offers exclusive access to our world-class facilities.</p>
-                </div>
-                <div class="membership-grid">
-                    <div class="membership-card hidden delay-1">
-                        <h3>Bronze</h3>
-                        <div class="price">$199<span>/month</span></div>
-                        <ul>
-                            <li>✓ Access to main gym floor</li>
-                            <li>✓ Group class access</li>
-                            <li>✓ Basic locker room access</li>
-                            <li>✓ 24/7 facility access</li>
-                        </ul>
-                        <a href="#" class="btn">Select Plan</a>
-                    </div>
-                    <div class="membership-card hidden delay-2">
-                        <h3>Silver</h3>
-                        <div class="price">$299<span>/month</span></div>
-                        <ul>
-                            <li>✓ All Bronze benefits</li>
-                            <li>✓ Priority class booking</li>
-                            <li>✓ Towel service</li>
-                            <li>✓ One monthly personal training session</li>
-                            <li>✓ Access to recovery lounge</li>
-                        </ul>
-                        <a href="#" class="btn">Select Plan</a>
-                    </div>
-                    <div class="membership-card hidden delay-3">
-                        <h3>Gold</h3>
-                        <div class="price">$499<span>/month</span></div>
-                        <ul>
-                            <li>✓ All Silver benefits</li>
-                            <li>✓ Three monthly PT sessions</li>
-                            <li>✓ VIP locker room & amenities</li>
-                            <li>✓ Spa & sauna access</li>
-                            <li>✓ Nutritional guidance workshops</li>
-                        </ul>
-                        <a href="#" class="btn">Select Plan</a>
-                    </div>
-                    <div class="membership-card elite hidden delay-4">
-                        <h3>Elite</h3>
-                        <div class="price">$999<span>/month</span></div>
-                        <ul>
-                            <li>✓ All Gold benefits</li>
-                            <li>✓ Unlimited private training sessions</li>
-                            <li>✓ Exclusive VIP training rooms</li>
-                            <li>✓ Personalized diet planning</li>
-                            <li>✓ Complimentary massage therapy</li>
-                            <li>✓ Concierge service</li>
-                        </ul>
-                        <a href="#" class="btn">Select Plan</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="classes" class="classes">
-            <div class="container">
-                <div class="section-header hidden">
-                    <h2>Classes & Programs</h2>
-                    <p>Elevate your training with our diverse range of elite group classes and specialized programs.</p>
-                </div>
-                <div class="classes-grid">
-                    <div class="class-card hidden delay-1">
-                        <h3>Strength</h3>
-                        <p>Build raw power and endurance with our progressive strength training regimens, designed for all levels.</p>
-                    </div>
-                    <div class="class-card hidden delay-2">
-                        <h3>Sculpt</h3>
-                        <p>Refine your physique and define your muscles through targeted workouts that focus on form and precision.</p>
-                    </div>
-                    <div class="class-card hidden delay-3">
-                        <h3>Pilates</h3>
-                        <p>Enhance core stability, flexibility, and mind-body connection with our expert-led Pilates sessions.</p>
-                    </div>
-                    <div class="class-card hidden delay-4">
-                        <h3>Boxing</h3>
-                        <p>Unleash your inner fighter. Improve agility, coordination, and cardiovascular health in dynamic boxing classes.</p>
-                    </div>
-                    <div class="class-card hidden delay-1">
-                        <h3>Conditioning</h3>
-                        <p>Boost your overall fitness with high-intensity interval training (HIIT) and functional conditioning programs.</p>
-                    </div>
-                    <div class="class-card hidden delay-2">
-                        <h3>Yoga Flow</h3>
-                        <p>Find balance and serenity while building strength and flexibility in our invigorating yoga sessions.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="gallery" class="gallery">
-            <div class="container">
-                <div class="section-header hidden">
-                    <h2>Transformation Gallery</h2>
-                    <p>Witness the dedication and success of our members. Your journey starts here.</p>
-                </div>
-                <div class="gallery-grid">
-                    <div class="gallery-item hidden delay-1">
-                        <img src="https://images.pexels.com/photos/4944975/pexels-photo-4944975.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Fitness Transformation">
-                        <div class="gallery-item-overlay"><h4>Strength & Power</h4></div>
-                    </div>
-                    <div class="gallery-item hidden delay-2">
-                        <img src="https://images.pexels.com/photos/416809/pexels-photo-416809.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Fitness Transformation">
-                        <div class="gallery-item-overlay"><h4>Precision & Form</h4></div>
-                    </div>
-                    <div class="gallery-item hidden delay-3">
-                        <img src="https://images.pexels.com/photos/7318797/pexels-photo-7318797.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Fitness Transformation">
-                        <div class="gallery-item-overlay"><h4>Endurance & Grit</h4></div>
-                    </div>
-                    <div class="gallery-item hidden delay-4">
-                        <img src="https://images.pexels.com/photos/8284382/pexels-photo-8284382.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Fitness Transformation">
-                        <div class="gallery-item-overlay"><h4>Functional Fitness</h4></div>
-                    </div>
-                    <div class="gallery-item hidden delay-1">
-                        <img src="https://images.pexels.com/photos/6207527/pexels-photo-6207527.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Fitness Transformation">
-                        <div class="gallery-item-overlay"><h4>Flexibility & Balance</h4></div>
-                    </div>
-                    <div class="gallery-item hidden delay-2">
-                        <img src="https://images.pexels.com/photos/18285436/pexels-photo-18285436.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Fitness Transformation">
-                        <div class="gallery-item-overlay"><h4>Peak Performance</h4></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="testimonials">
-            <div class="container">
-                <div class="section-header hidden">
-                    <h2>What Our Members Say</h2>
-                    <p>Hear from the elite community who have experienced the IronÉlite difference.</p>
-                </div>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card hidden delay-1">
-                        <p class="quote">"Joining IronÉlite was the best decision I've made for my fitness journey. The personal coaching is unparalleled, and the facilities are truly world-class."</p>
-                        <div class="author-info">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Member Avatar" class="author-avatar">
-                            <div>
-                                <div class="author-name">Eleanor V.</div>
-                                <div class="stars">
-                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card hidden delay-2">
-                        <p class="quote">"The serene environment and premium equipment at IronÉlite make every workout a pleasure. It's a truly inspiring place to train."</p>
-                        <div class="author-info">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Member Avatar" class="author-avatar">
-                            <div>
-                                <div class="author-name">Marcus K.</div>
-                                <div class="stars">
-                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card hidden delay-3">
-                        <p class="quote">"From the bespoke training programs to the incredible recovery facilities, IronÉlite truly lives up to its name. An elite experience through and through."</p>
-                        <div class="author-info">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Member Avatar" class="author-avatar">
-                            <div>
-                                <div class="author-name">Isabella R.</div>
-                                <div class="stars">
-                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="facilities" class="facilities">
-            <div class="container">
-                <div class="section-header hidden">
-                    <h2>Facilities Tour</h2>
-                    <p>Explore our unparalleled amenities designed for your peak performance and ultimate recovery.</p>
-                </div>
-                <div class="facilities-grid">
-                    <div class="facility-item hidden delay-1">
-                        <img src="https://images.pexels.com/photos/12918910/pexels-photo-12918910.png?auto=compress&cs=tinysrgb&h=650&w=940" alt="Sauna and Spa">
-                        <div class="facility-item-content">
-                            <h3>Sauna & Spa</h3>
-                            <p>Indulge in our luxurious sauna and spa facilities, perfect for detoxifying, muscle relaxation, and mental rejuvenation.</p>
-                        </div>
-                    </div>
-                    <div class="facility-item hidden delay-2">
-                        <video autoplay muted loop playsinline>
-                            <source src="https://videos.pexels.com/video-files/34708298/14711350_640_360_25fps.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="facility-item-content">
-                            <h3>Premium Machines</h3>
-                            <p>Experience the latest in fitness technology with our carefully selected array of premium strength and cardio machines.</p>
-                        </div>
-                    </div>
-                    <div class="facility-item hidden delay-3">
-                        <img src="https://images.pexels.com/photos/5942021/pexels-photo-5942021.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Recovery Room">
-                        <div class="facility-item-content">
-                            <h3>Recovery Room</h3>
-                            <p>Optimize your recovery with specialized equipment and serene spaces designed to accelerate healing and reduce muscle soreness.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="section-header hidden">
-                    <h2>Contact Us & Location</h2>
-                    <p>Connect with IronÉlite Club. We're here to answer your questions and guide your journey.</p>
-                </div>
-                <div class="contact-content">
-                    <div class="contact-info hidden delay-1">
-                        <h3>Reach Out</h3>
-                        <p>
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                            123 Élite Avenue, Metropolis, NY 10001
-                        </p>
-                        <p>
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24c1.12.37 2.32.57 3.57.57c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1c-9.39 0-17-7.61-17-17c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1c0 1.25.2 2.45.57 3.57c.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                            +1 (555) 123-4567
-                        </p>
-                        <p>
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5l-8-5V6l8 5l8-5v2z"/></svg>
-                            info@ironelite.club
-                        </p>
-                        <p>
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm.82 13.91l-3.07-3.07c-.44-.44-.44-1.15 0-1.59s1.15-.44 1.59 0l1.48 1.48V7c0-.55.45-1 1-1s1 .45 1 1v7.83l1.48-1.48c.44-.44 1.15-.44 1.59 0s.44 1.15 0 1.59l-3.07 3.07c-.43.44-1.13.44-1.56 0z"/></svg>
-                            Mon - Fri: 6 AM - 10 PM<br>
-                            Sat - Sun: 8 AM - 8 PM
-                        </p>
-                    </div>
-                    <form class="contact-form hidden delay-2">
-                        <h3>Send Us a Message</h3>
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
-                <div class="map-embed hidden delay-3">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.4632890696347!2d-73.98774218459424!3d40.74844057932824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259837a28e05d%3A0x7420790b9b3f3a8b!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1678919000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 IronÉlite Club. All rights reserved.</p>
-            <div class="social-links">
-                <a href="#"><!-- Placeholder for social icon (e.g., Facebook) -->&#x1F4F1;</a>
-                <a href="#"><!-- Placeholder for social icon (e.g., Instagram) -->&#x1F4F7;</a>
-                <a href="#"><!-- Placeholder for social icon (e.g., Twitter) -->&#x1F426;</a>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <video autoplay muted loop playsinline>
+            <source src="https://videos.pexels.com/video-files/6000419/6000419-hd_720_1280_24fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1>Your Next Big Project Starts Here</h1>
+            <p>Connect with top-tier freelance talent or find your next rewarding gig. ProConnect simplifies your journey to success.</p>
+            <div class="btn-group">
+                <a href="#categories" class="btn">Find Talent</a>
+                <a href="#cta" class="btn btn-outline">Find Work</a>
             </div>
         </div>
+    </section>
+
+    <!-- About/How It Works Section -->
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <h2>How ProConnect Empowers Your Success</h2>
+            <p>We're more than just a platform; we're a community dedicated to seamless connections and outstanding results. Here's how we make it happen:</p>
+            <div class="about-grid">
+                <div class="about-item">
+                    <h3>Hire Elite Professionals</h3>
+                    <p>Access a curated network of skilled freelancers ready to tackle your projects. From developers to designers, writers to marketers, find verified talent with ease.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Discover Flexible Opportunities</h3>
+                    <p>Freelancers, unlock a world of projects tailored to your expertise. Build your portfolio, set your rates, and work on your own terms with leading clients.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Transparent & Secure Process</h3>
+                    <p>Enjoy secure payments, clear communication tools, and a reliable dispute resolution system. Your peace of mind is our top priority.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories Section -->
+    <section id="categories" class="categories-section section-padding">
+        <div class="container">
+            <h2>Explore Top Freelance Categories</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="https://images.pexels.com/photos/6476591/pexels-photo-6476591.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Web Development">
+                    <h3>Web Development</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.pexels.com/photos/6476808/pexels-photo-6476808.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Graphic Design">
+                    <h3>Graphic Design</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.pexels.com/photos/6608880/pexels-photo-6608880.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Content Writing">
+                    <h3>Content Writing</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.pexels.com/photos/4050335/pexels-photo-4050335.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Digital Marketing">
+                    <h3>Digital Marketing</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.pexels.com/photos/6476588/pexels-photo-6476588.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Video Editing">
+                    <h3>Video Editing</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Virtual Assistant">
+                    <h3>Virtual Assistant</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section section-padding">
+        <div class="container">
+            <h2>What Our Community Says</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"ProConnect helped me find the perfect web developer for our startup. The process was smooth, and the talent was exceptional. Highly recommended!"</p>
+                    <div class="author">
+                        Jane Doe <span>- CEO, InnovateX Solutions</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"As a freelance designer, ProConnect opened doors to incredible projects I wouldn't have found otherwise. The platform is intuitive, and support is great."</p>
+                    <div class="author">
+                        John Smith <span>- Freelance Graphic Designer</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Finding quality content writers used to be a headache. With ProConnect, I've built a reliable team that consistently delivers high-quality work on time."</p>
+                    <div class="author">
+                        Sarah Lee <span>- Marketing Manager, BrandBuilders</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Projects?</h2>
+            <p>Whether you're looking to hire top talent or eager to find your next freelance opportunity, ProConnect is your dedicated partner.</p>
+            <div class="btn-group">
+                <a href="#" class="btn">Post a Project</a>
+                <a href="#" class="btn">Become a Freelancer</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#categories">Services</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2023 ProConnect. All rights reserved.</p>
+        </div>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Smooth Scroll for Navigation
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return; // Ignore links to current page root
-
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const headerOffset = document.querySelector('.header').offsetHeight;
-                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                        const offsetPosition = elementPosition - headerOffset - 20; // Additional offset for padding
-
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: "smooth"
-                        });
-                    }
-                });
-            });
-
-            // Fade-in on Scroll Animation (Intersection Observer)
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); // Stop observing once visible
-                    }
-                });
-            }, {
-                threshold: 0.1, // Trigger when 10% of the element is visible
-                rootMargin: '0px 0px -50px 0px' // Start observing slightly earlier for sections
-            });
-
-            document.querySelectorAll('section > .container > *:not(.section-header), .section-header, .coach-card, .membership-card, .class-card, .gallery-item, .testimonial-card, .facility-item, .contact-content > *, .map-embed, .hero-content > *').forEach(element => {
-                // Ensure elements that need animation have the 'hidden' class initially
-                if (!element.classList.contains('hidden')) {
-                    element.classList.add('hidden');
-                }
-                observer.observe(element);
-            });
-
-            // Hero Content Parallax
-            const heroContent = document.querySelector('.hero-content');
-            window.addEventListener('scroll', () => {
-                let scrollPosition = window.pageYOffset;
-                // Moves content up slower than scroll, giving a subtle floating effect
-                heroContent.style.transform = `translateY(${scrollPosition * 0.2}px)`; 
-            });
-        });
-    </script>
 </body>
 </html>
 ```
