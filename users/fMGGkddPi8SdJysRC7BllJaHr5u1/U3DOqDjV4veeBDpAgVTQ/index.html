@@ -1,0 +1,849 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillUp - Free Online Courses for Everyone</title>
+    <!-- Favicon SVG (a simple green triangle/education icon) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234CAF50' d='M12 2L1 21h22L12 2zm0 3.96L18.42 19H5.58L12 5.96zM11 10h2v5h-2v-5zm0 6h2v2h-2v-2z'/%3E%3C/svg%3E">
+    <!-- Google Fonts: Poppins for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for easy theme management */
+        :root {
+            --primary-color: #4CAF50; /* Green - for accents, buttons, highlights */
+            --secondary-color: #FFC107; /* Amber - for secondary actions, some text */
+            --dark-color: #212121; /* Dark grey - for text, footer, navbar */
+            --light-color: #f8f8f8; /* Light grey - for section backgrounds */
+            --text-color: #333; /* Default text color */
+            --white-color: #fff; /* White */
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+            --border-radius: 8px; /* Rounded corners */
+        }
+
+        /* Universal Box-Sizing and Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Smooth Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Base Body Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+
+        /* Link Styling */
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        /* List Reset */
+        ul {
+            list-style: none;
+        }
+
+        /* Container for Max Width and Padding */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .py-5 { padding: 5rem 0; }
+        .mb-4 { margin-bottom: 2rem; }
+
+        /* Button Styling */
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white-color);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn:hover {
+            background: #43A047; /* Slightly darker green */
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background: #FFB300; /* Slightly darker amber */
+        }
+
+        /* Heading Styles */
+        h1, h2, h3, h4 {
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 3rem;
+        }
+
+        /* Underline effect for H2 */
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: var(--dark-color);
+            color: var(--white-color);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo svg {
+            width: 30px;
+            height: 30px;
+            margin-right: 8px;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+        }
+
+        .navbar .nav-links li {
+            margin-left: 25px;
+        }
+
+        .navbar .nav-links a {
+            color: var(--white-color);
+            font-weight: 600;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .navbar .nav-links a:hover {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            width: 25px;
+            background: var(--white-color);
+            margin-bottom: 4px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-color);
+            text-align: center;
+            overflow: hidden;
+            padding-top: 70px; /* To account for fixed navbar */
+        }
+
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        /* Dark overlay for hero video readability */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: var(--white-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        /* About Section */
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 80px 0;
+        }
+
+        .about-image, .about-text {
+            flex: 1;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Course Categories Section */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: var(--white-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--primary-color);
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-card .icon {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: block; /* Ensure emoji takes full line */
+        }
+
+        .category-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .category-card p {
+            color: #777;
+            font-size: 0.95rem;
+        }
+
+        /* Course categories icons (using unicode emojis) */
+        .icon-trading::before { content: '📈'; }
+        .icon-farming::before { content: '🧑‍🌾'; }
+        .icon-marketing::before { content: '📢'; }
+        .icon-fitness::before { content: '🏋️‍♀️'; }
+        .icon-health::before { content: '⚕️'; }
+        .icon-electrician::before { content: '⚡'; }
+        .icon-tech::before { content: '💻'; }
+        .icon-arts::before { content: '🎨'; }
+        .icon-language::before { content: '🗣️'; }
+        .icon-finance::before { content: '💰'; }
+
+        /* How It Works Section */
+        .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .step-card {
+            background: var(--white-color);
+            padding: 40px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .step-card .step-number {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white-color);
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .step-card h3 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .step-card p {
+            font-size: 1.05rem;
+            color: #666;
+        }
+
+        /* Instructors Section (using secondary video background) */
+        .instructors-section {
+            position: relative;
+            padding: 100px 0;
+            color: var(--white-color);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .instructors-section video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        /* Darker overlay for instructors video */
+        .instructors-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 0;
+        }
+
+        .instructors-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .instructors-content h2 {
+            color: var(--white-color);
+            margin-bottom: 2rem;
+        }
+
+        .instructors-content h2::after {
+            background: var(--secondary-color); /* Amber underline */
+        }
+
+        .instructors-content p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #689F38 100%); /* Green gradient */
+            color: var(--white-color);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--white-color);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section h2::after {
+            background: var(--white-color); /* White underline */
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background: var(--dark-color);
+            color: var(--white-color);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer .footer-links ul {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer .footer-links a {
+            color: var(--white-color);
+            transition: color 0.3s ease;
+        }
+
+        .footer .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer .social-icons a {
+            color: var(--white-color);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            color: var(--primary-color);
+        }
+        /* Unicode emojis for social icons */
+        .social-icons a[aria-label="Facebook"]::before { content: '📘'; }
+        .social-icons a[aria-label="Twitter"]::before { content: '🐦'; }
+        .social-icons a[aria-label="Instagram"]::before { content: '📸'; }
+        .social-icons a[aria-label="LinkedIn"]::before { content: '💼'; }
+        .social-icons a::before { margin-right: 5px; } /* Add a small space for emoji icons */
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .categories-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-wrap: wrap;
+                justify-content: center; /* Center logo and toggle */
+            }
+            .navbar .logo {
+                margin-bottom: 10px;
+                width: auto;
+            }
+            .menu-toggle {
+                display: flex; /* Show toggle button */
+                order: 1; /* Move toggle after logo */
+                margin-left: auto; /* Push toggle to the right */
+            }
+            .navbar .nav-links {
+                display: none; /* Hide navigation links by default */
+                flex-direction: column;
+                width: 100%;
+                background: var(--dark-color);
+                position: absolute; /* Position relative to navbar */
+                top: 70px; /* Below the navbar */
+                left: 0;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .navbar .nav-links.active {
+                display: flex; /* Show active navigation links */
+            }
+            .navbar .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+            .navbar .nav-links a {
+                display: block;
+                padding: 10px 0;
+                border-bottom: none; /* Remove underline for mobile */
+            }
+            .navbar .nav-links a:hover {
+                border-bottom: none;
+                color: var(--secondary-color); /* Different hover for mobile */
+            }
+
+            .hero {
+                height: 80vh;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            .about-section {
+                flex-direction: column;
+                padding: 50px 0;
+            }
+            .about-image {
+                margin-bottom: 30px;
+            }
+            .about-text h3 {
+                font-size: 1.5rem;
+            }
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            .how-it-works-grid {
+                grid-template-columns: 1fr;
+            }
+            .instructors-content h2 {
+                font-size: 2rem;
+            }
+            .instructors-content p {
+                font-size: 1rem;
+            }
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            .cta-section p {
+                font-size: 1rem;
+            }
+            .footer .footer-links ul {
+                flex-direction: column;
+            }
+            .footer .footer-links li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#home" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#4CAF50" d="M12 2L1 21h22L12 2zm0 3.96L18.42 19H5.58L12 5.96zM11 10h2v5h-2v-5zm0 6h2v2h-2v-2z"/></svg>
+                SkillUp
+            </a>
+            <div class="menu-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Video Background -->
+    <header id="home" class="hero">
+        <video autoplay muted loop playsinline>
+            <source src="https://videos.pexels.com/video-files/6755162/6755162-sd_540_960_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1>Unlock Your Potential with Free Online Courses</h1>
+            <p>Explore diverse fields like Trading, Farming, Marketing, Fitness, Health, Electrician, and much more!</p>
+            <a href="#courses" class="btn">Browse Courses</a>
+            <a href="#about" class="btn btn-secondary">Learn More</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container about-section">
+            <div class="about-image">
+                <img src="https://images.pexels.com/photos/5090647/pexels-photo-5090647.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Person learning on a laptop, representing self-paced learning">
+            </div>
+            <div class="about-text">
+                <h2>About SkillUp</h2>
+                <p>At SkillUp, we believe that quality education should be accessible to everyone, everywhere. Our platform is dedicated to providing a vast array of high-quality, free online courses designed to help you acquire new skills, enhance existing ones, and unlock new career and personal growth opportunities.</p>
+                <p>Whether you're looking to kickstart a new career in a trending field, grow your business with effective marketing strategies, improve your well-being through fitness and health, or simply learn for the joy of knowledge, SkillUp provides the resources you need to succeed. Our curriculum is carefully curated from top educational content, ensuring practical, relevant, and engaging learning experiences for all.</p>
+                <a href="#courses" class="btn">Start Learning Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Categories Section -->
+    <section id="courses" class="py-5 bg-light-color">
+        <div class="container">
+            <h2>Explore Our Diverse Course Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="icon icon-trading"></div>
+                    <h3>Trading & Investment</h3>
+                    <p>Master financial markets with courses on stocks, forex, cryptocurrency, and personal finance.</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon icon-farming"></div>
+                    <h3>Sustainable Farming</h3>
+                    <p>Learn modern agricultural techniques, organic farming, and practices for a greener future.</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon icon-marketing"></div>
+                    <h3>Digital Marketing</h3>
+                    <p>Boost your brand and career with courses on SEO, social media, content strategy, and advertising.</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon icon-fitness"></div>
+                    <h3>Fitness & Wellness</h3>
+                    <p>Achieve your physical and mental health goals with workouts, nutrition guides, and well-being practices.</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon icon-health"></div>
+                    <h3>Health & Nutrition</h3>
+                    <p>Understand human anatomy, disease prevention, balanced diets, and healthy lifestyle choices.</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon icon-electrician"></div>
+                    <h3>Electrician Skills</h3>
+                    <p>Gain practical training in electrical wiring, safety protocols, and basic circuit troubleshooting.</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon icon-tech"></div>
+                    <h3>Technology & IT</h3>
+                    <p>Dive into coding, web development, data science, cybersecurity, and essential tech skills.</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon icon-arts"></div>
+                    <h3>Arts & Creativity</h3>
+                    <p>Unleash your artistic side with courses in painting, music production, creative writing, and graphic design.</p>
+                </div>
+                <div class="category-card">
+                    <div class="icon icon-language"></div>
+                    <h3>Language Learning</h3>
+                    <p>Become multilingual with free courses in popular languages from around the globe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-5">
+        <div class="container">
+            <h2>How SkillUp Works</h2>
+            <div class="how-it-works-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Find Your Course</h3>
+                    <p>Browse through hundreds of free courses across various categories. Use our intuitive search and filters to find exactly what you need to learn.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Learn At Your Pace</h3>
+                    <p>Access high-quality video lectures, engaging reading materials, and interactive quizzes anytime, anywhere. Learn on your own schedule, from any device.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Grow & Succeed</h3>
+                    <p>Apply your new skills, earn certificates of completion, and open up new opportunities for personal fulfillment and professional advancement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors / Impact Section with Secondary Video Background -->
+    <section class="instructors-section">
+        <video autoplay muted loop playsinline>
+            <source src="https://videos.pexels.com/video-files/18780266/18780266-uhd_3840_2160_30fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container instructors-content">
+            <h2>Learn From The Best, For Free</h2>
+            <p>Our courses are meticulously designed and delivered by industry experts and passionate educators committed to sharing their knowledge. With SkillUp, you're not just learning theory; you're gaining practical insights from professionals who are leaders in their fields, making complex topics easy to understand and readily applicable in the real world.</p>
+            <a href="#" class="btn btn-secondary">Become an Instructor</a>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Your Learning Journey?</h2>
+            <p>Join thousands of ambitious learners who are transforming their lives and careers with SkillUp's comprehensive and absolutely free online courses. Your future starts now!</p>
+            <a href="#courses" class="btn btn-secondary">Explore All Courses</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="Instagram">📸</a>
+                <a href="#" aria-label="LinkedIn">💼</a>
+            </div>
+            <p>&copy; 2023 SkillUp. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle and Smooth Scrolling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            // Toggle mobile menu visibility
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Smooth scrolling for navigation links and close mobile menu
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        // Calculate offset for fixed navbar
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+
+                        // Close mobile menu if open
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+```
