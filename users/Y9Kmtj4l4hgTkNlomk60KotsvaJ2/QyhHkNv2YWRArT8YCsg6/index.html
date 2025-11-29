@@ -1,0 +1,708 @@
+```html
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reut Nails – אמנות הציפורניים שלך מתחילה כאן</title>
+    <meta name="description" content="Reut Nails – סטודיו בוטיק יוקרתי למניקור, בניית ציפורניים ועיצוב אומנותי. חווית טיפוח אישית ומקצועית באווירה נשית ונעימה. קבעי תור לציפורניים מושלמות.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for a feminine, minimalist, and aesthetic palette */
+        :root {
+            --white-color: #ffffff;
+            --nude-color: #F8F3F0; /* Soft beige/cream */
+            --powder-pink-color: #FAD2E1; /* Gentle, subtle pink */
+            --gold-color: #D4AF37; /* Elegant, subtle gold for accents */
+            --dark-grey-color: #333333; /* For primary text */
+            --light-grey-color: #888888; /* For secondary text/disclaimers */
+        }
+
+        /* General Styling for a clean and luxurious feel */
+        body {
+            font-family: 'Assistant', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--nude-color);
+            color: var(--dark-grey-color);
+            line-height: 1.6;
+            direction: rtl; /* Right-to-left for Hebrew content */
+            text-align: right; /* Default text alignment for RTL */
+            overflow-x: hidden; /* Prevent horizontal scroll on small devices */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--dark-grey-color);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-weight: 600; /* Semi-bold for headings */
+        }
+
+        h1 { font-size: 3.8rem; line-height: 1.2; font-weight: 700; }
+        h2 { font-size: 2.8rem; line-height: 1.3; }
+        h3 { font-size: 1.9rem; line-height: 1.4; }
+        p { margin-bottom: 1rem; }
+
+        a {
+            color: var(--powder-pink-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--gold-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem; /* Generous padding for luxury */
+        }
+
+        /* Call-to-action Button Styling */
+        .button {
+            display: inline-block;
+            background-color: var(--powder-pink-color);
+            color: var(--white-color);
+            padding: 1rem 3rem;
+            border-radius: 50px; /* Pill-shaped button */
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(250, 210, 225, 0.4); /* Soft shadow matching button color */
+        }
+
+        .button:hover {
+            background-color: var(--gold-color);
+            transform: translateY(-3px); /* Subtle lift effect */
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4); /* Gold shadow on hover */
+        }
+
+        /* Hero Section - Full-screen video background */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white-color);
+            overflow: hidden;
+            padding: 0 1rem; /* Ensure content isn't flush to edges */
+        }
+
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -2;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45); /* Dark overlay for text readability */
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 2rem;
+            z-index: 1;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7); /* Enhance text readability */
+        }
+
+        .hero h1 {
+            font-size: 4.8rem;
+            color: var(--white-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            color: var(--white-color);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        /* Section General Styling */
+        section {
+            padding: 6rem 0; /* Consistent vertical spacing */
+            position: relative;
+        }
+
+        section:nth-of-type(even) { /* Alternating background colors */
+            background-color: var(--white-color);
+        }
+
+        section:nth-of-type(odd) {
+            background-color: var(--nude-color);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem; /* Spacing below header */
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            color: var(--dark-grey-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px; /* Space for the underline */
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 10%; /* Underline from right to left */
+            width: 80%;
+            height: 5px;
+            background-color: var(--powder-pink-color);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--light-grey-color);
+        }
+        .about-intro h2 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--dark-grey-color);
+            margin-bottom: 0;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem; /* Space between content parts */
+            align-items: center;
+            justify-content: center;
+            text-align: right;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            max-width: 700px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            text-align: center;
+        }
+
+        .service-item {
+            background-color: var(--white-color);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-item .icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--powder-pink-color);
+            display: block; /* Ensures emoji is centered */
+        }
+
+        .service-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-grey-color);
+        }
+
+        .service-item p {
+            font-size: 1rem;
+            color: var(--light-grey-color);
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 320px; /* Consistent height for images */
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.1); /* Zoom effect on hover */
+        }
+
+        /* Pricing Section */
+        .pricing-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .price-item {
+            background-color: var(--white-color);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            text-align: center;
+        }
+
+        .price-item h3 {
+            font-size: 2rem;
+            color: var(--powder-pink-color);
+            margin-bottom: 0.7rem;
+            font-weight: 700;
+        }
+
+        .price-item p {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-grey-color);
+            margin-bottom: 0;
+        }
+
+        .pricing-disclaimer {
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--light-grey-color);
+            margin-top: 3rem;
+        }
+
+        /* Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .review-item {
+            background-color: var(--white-color);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            font-style: italic;
+            position: relative;
+            text-align: center;
+        }
+
+        .review-item::before {
+            content: "⭐"; /* Star icon for review */
+            font-size: 2rem;
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem; /* Positioned for RTL */
+            color: var(--gold-color);
+        }
+
+        .review-item p {
+            margin-top: 1.5rem; /* Space below star */
+            font-size: 1.15rem;
+            color: var(--dark-grey-color);
+            line-height: 1.7;
+        }
+
+        /* Appointment Section */
+        .appointment-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .appointment-content h2 {
+            margin-bottom: 1rem;
+        }
+
+        .appointment-content > p { /* Target the main paragraph */
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--light-grey-color);
+        }
+
+        .appointment-form {
+            background-color: var(--white-color);
+            padding: 3.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            text-align: right;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.7rem;
+            font-weight: 600;
+            color: var(--dark-grey-color);
+            font-size: 1.05rem;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="tel"],
+        .form-group input[type="date"],
+        .form-group textarea {
+            width: calc(100% - 2.4rem); /* Account for padding */
+            padding: 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-family: 'Assistant', sans-serif;
+            font-size: 1.1rem;
+            color: var(--dark-grey-color);
+            background-color: #fcfcfc;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--powder-pink-color);
+            box-shadow: 0 0 0 3px rgba(250, 210, 225, 0.4);
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .appointment-form .button {
+            margin-top: 1rem;
+            width: auto; /* Override general button width */
+            padding: 1.1rem 3.5rem;
+        }
+
+        .whatsapp-cta {
+            margin-top: 2.5rem;
+            font-size: 1.2rem;
+            color: var(--light-grey-color);
+        }
+
+        .whatsapp-cta a {
+            font-weight: 700;
+            color: var(--powder-pink-color);
+            text-decoration: underline;
+        }
+        .whatsapp-cta a:hover {
+             color: var(--gold-color);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-grey-color);
+            color: var(--white-color);
+            padding: 5rem 0;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .footer p {
+            margin: 0;
+            color: var(--light-grey-color);
+            line-height: 1.8;
+        }
+
+        .footer .brand-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--powder-pink-color);
+            margin-bottom: 0.8rem;
+        }
+
+        /* Responsive Adjustments for a seamless experience */
+        @media (max-width: 992px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.2rem; }
+            h3 { font-size: 1.6rem; }
+            .hero p { font-size: 1.4rem; }
+            .container { padding: 2rem 1rem; }
+            section { padding: 5rem 0; }
+            .section-header h2 { font-size: 2.8rem; }
+            .about-intro { font-size: 1.3rem; }
+            .about-intro h2 { font-size: 1.8rem; }
+            .about-text { font-size: 1rem; }
+            .service-item, .price-item, .review-item { padding: 2rem; }
+            .service-item .icon { font-size: 3.5rem; }
+            .gallery-item img { height: 280px; }
+            .appointment-form { padding: 2.5rem; }
+            .form-group input, .form-group textarea { width: calc(100% - 2rem); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.4rem; }
+            .hero p { font-size: 1.1rem; }
+            .button { padding: 0.9rem 2.5rem; font-size: 0.95rem; }
+            .section-header h2 { font-size: 2.2rem; }
+            .about-intro { font-size: 1.1rem; }
+            .about-intro h2 { font-size: 1.5rem; }
+            .services-grid, .pricing-list, .reviews-grid {
+                grid-template-columns: 1fr; /* Single column layout for smaller screens */
+            }
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+            .gallery-item img { height: 220px; }
+            .appointment-form { padding: 2rem; }
+            .form-group input, .form-group textarea { width: calc(100% - 1.8rem); padding: 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.6rem; }
+            .hero p { font-size: 0.9rem; margin-bottom: 2rem; }
+            .button { padding: 0.7rem 2rem; font-size: 0.85rem; }
+            .section-header h2 { font-size: 1.8rem; }
+            section { padding: 3rem 0; }
+            .about-intro h2 { font-size: 1.3rem; }
+            .about-text { text-align: center; } /* Center align text on very small screens */
+            .service-item, .price-item, .review-item { padding: 1.5rem; }
+            .service-item .icon { font-size: 3rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item img { height: 200px; }
+            .appointment-form { padding: 1.5rem; }
+            .whatsapp-cta { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <section id="hero" class="hero">
+            <video autoplay loop muted playsinline poster="https://images.pexels.com/photos/8980193/pexels-photo-8980193.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                <source src="https://videos.pexels.com/video-files/6781988/6781988-uhd_1440_2560_30fps.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-content">
+                <h1>Reut Nails – אמנות הציפורניים שלך מתחילה כאן</h1>
+                <p>יופי. סטייל. דיוק. כל מה שהידיים שלך צריכות – במקום אחד.</p>
+                <a href="#appointment" class="button">קבעי תור עכשיו</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-intro">
+                    <h2>סטודיו בוטיק למניקור איכותי, חוויית טיפול אישית ורמת גימור שלא מתפשרת.</h2>
+                </div>
+                <div class="section-header">
+                    <h2>אודות Reut Nails</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>ברוכות הבאות ל-Reut Nails – סטודיו בוטיק ייחודי שבו כל לקוחה מקבלת יחס אישי, מקצועיות בלתי מתפשרת ואסתטיקה מושלמת. אנו מאמינים שטיפוח ציפורניים הוא יותר מסתם טיפול – זו חוויה של פינוק, דיוק וביטוי אישי.</p>
+                        <p>רעות, מומחית לעיצוב וטיפוח ציפורניים, מביאה שילוב של דיוק קפדני, יצירתיות בלתי נגמרת וניסיון עשיר של שנים – כדי לוודא שכל ביקור שלך יסתיים בתוצאה עוצרת נשימה ובחיוך רחב. ב-Reut Nails, הציפורניים שלך בידיים הטובות והמקצועיות ביותר.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>השירותים שלנו</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <span class="icon" aria-hidden="true">💅</span>
+                        <h3>מניקור ג׳ל קלאסי</h3>
+                        <p>עיצוב נקי, בריא ומדויק המשלב הזנה עמוקה לציפורן, עם מבחר עצום של צבעים וגימורים לכל סגנון.</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="icon" aria-hidden="true">💎</span>
+                        <h3>בניית ציפורניים / חיזוק</h3>
+                        <p>בנייה וחיזוק המותאמים אישית לכל אורך ולכל סגנון – מראה טבעי, מרובע, שקוף, פרנץ׳ קלאסי ועוד. עמידות ויופי לאורך זמן.</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="icon" aria-hidden="true">🎨</span>
+                        <h3>Nail Art – אומנות ציפורניים</h3>
+                        <p>הפכי את הציפורניים שלך ליצירת אומנות! ציורים, קווים גיאומטריים, אבנים נוצצות, פרנץ׳ מיוחד, גלויות, הולוגרמות וכל עיצוב שתחלמי עליו.</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="icon" aria-hidden="true">🧼</span>
+                        <h3>טיפולי בסיס וטיפוח</h3>
+                        <p>הסרת ג׳ל עדינה ומקצועית, טיפול מסור לציפורן בעייתית, עיצוב צורה וסידור קוטיקולה מושלם לבריאות ויופי הציפורן הטבעית.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>גלריית עבודות</h2>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="https://images.pexels.com/photos/8980193/pexels-photo-8980193.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="מניקור פרנץ' קלאסי בגימור מושלם"></div>
+                    <div class="gallery-item"><img src="https://images.pexels.com/photos/4938450/pexels-photo-4938450.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="עיצוב ציפורניים אלגנטי בגווני ניוד עדינים"></div>
+                    <div class="gallery-item"><img src="https://images.pexels.com/photos/9947831/pexels-photo-9947831.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="בניית ציפורניים בגימור טבעי ומבריק"></div>
+                    <div class="gallery-item"><img src="https://images.pexels.com/photos/34971921/pexels-photo-34971921.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="מניקור ג'ל עשיר בצבע ורוד פודרה יוקרתי"></div>
+                    <div class="gallery-item"><img src="https://images.pexels.com/photos/7020268/pexels-photo-7020268.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="אומנות ציפורניים עדינה עם דוגמאות מודרניות"></div>
+                    <div class="gallery-item"><img src="https://images.pexels.com/photos/7603056/pexels-photo-7603056.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="מניקור ג'ל בצבע חזק ומלא סטייל"></div>
+                    <div class="gallery-item"><img src="https://images.pexels.com/photos/2801980/pexels-photo-2801980.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="ציפורניים מטופחות ומעוצבות לעד מושלם"></div>
+                    <div class="gallery-item"><img src="https://images.pexels.com/photos/13792524/pexels-photo-13792524.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="עיצוב ציפורניים נוצץ עם נגיעות זהב עדינות"></div>
+                    <div class="gallery-item"><img src="https://images.pexels.com/photos/6543620/pexels-photo-6543620.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="ציפורניים ארוכות ומרשימות בגימור נקי"></div>
+                    <div class="gallery-item"><img src="https://images.pexels.com/photos/4210657/pexels-photo-4210657.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="מניקור ג'ל בגימור מודרני וקלאסי"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="pricing-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>מחירון</h2>
+                </div>
+                <div class="pricing-list">
+                    <div class="price-item">
+                        <h3>מניקור ג׳ל</h3>
+                        <p>120–160 ₪</p>
+                    </div>
+                    <div class="price-item">
+                        <h3>בניה מלאה</h3>
+                        <p>200–260 ₪</p>
+                    </div>
+                    <div class="price-item">
+                        <h3>מילוי</h3>
+                        <p>160–190 ₪</p>
+                    </div>
+                    <div class="price-item">
+                        <h3>Nail Art</h3>
+                        <p>10–50 ₪ לאצבע לפי מורכבות</p>
+                    </div>
+                    <div class="price-item">
+                        <h3>הסרת ג׳ל</h3>
+                        <p>20–30 ₪</p>
+                    </div>
+                </div>
+                <p class="pricing-disclaimer">המחירים עשויים להשתנות בהתאם לעיצוב המבוקש ולמורכבות הטיפול.</p>
+            </div>
+        </section>
+
+        <section id="reviews" class="reviews-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>ביקורות לקוחות</h2>
+                </div>
+                <div class="reviews-grid">
+                    <div class="review-item">
+                        <p>"פעם ראשונה שאני יוצאת מהטיפול ומרגישה שממש הבינו אותי ואת הסגנון שלי. יצאתי עם ציפורניים מושלמות וחיוך ענק!"</p>
+                    </div>
+                    <div class="review-item">
+                        <p>"רעות מקצועית ברמות אחרות, רגועה ומשרה אווירה נעימה. העבודה הכי נקייה ומדויקת שראיתי אי פעם. פשוט אין מה להשוות."</p>
+                    </div>
+                    <div class="review-item">
+                        <p>"הציפורניים שלי פשוט אומנות! כל פעם אני מקבלת מחמאות חדשות ומרגישה מטופחת ומיוחדת. תודה רעות!"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="appointment" class="appointment-section">
+            <div class="container">
+                <div class="appointment-content">
+                    <div class="section-header">
+                        <h2>קביעת תור</h2>
+                    </div>
+                    <p>רוצות ידיים מושלמות שמספרות סיפור של יופי ודיוק? בואו נתאם את הטיפול הבא שלך ב-Reut Nails!</p>
+                    <div class="appointment-form">
+                        <form action="#" method="POST"> <!-- In a real application, this would send data to a server -->
+                            <div class="form-group">
+                                <label for="full-name">שם מלא:</label>
+                                <input type="text" id="full-name" name="full_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">טלפון:</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">תאריך רצוי:</label>
+                                <input type="date" id="date" name="desired_date">
+                            </div>
+                            <div class="form-group">
+                                <label for="treatment">סוג טיפול:</label>
+                                <input type="text" id="treatment" name="treatment_type" placeholder="לדוגמה: מניקור ג'ל, בנייה">
+                            </div>
+                            <div class="form-group">
+                                <label for="notes">הערות:</label>
+                                <textarea id="notes" name="notes" placeholder="כל בקשה מיוחדת או שאלה"></textarea>
+                            </div>
+                            <button type="submit" class="button">שליחה</button>
+                        </form>
+                    </div>
+                    <p class="whatsapp-cta">
+                        מעדיפות תיאום מהיר ואישי? <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" aria-label="תיאום תור בוואטסאפ">לתיאום מיידי לחצו כאן לוואטסאפ</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="brand-name">Reut Nails – סטודיו לציפורניים ועיצוב יופי</p>
+            <p>פתוח: א׳–ה׳ 09:00–20:00</p>
+            <p>📍 מיקום: (יש להוסיף כתובת מדויקת)</p>
+            <p>📞 טלפון: (יש להוסיף מספר טלפון ליצירת קשר)</p>
+            <p>&copy; כל הזכויות שמורות ל-Reut Nails</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+```
