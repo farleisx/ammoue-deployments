@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet Grounds - The Art of Coffee</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%236F4E37' d='M18 10h-1V7c0-2.21-1.79-4-4-4s-4 1.79-4 4v3H6c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2zm-5-7c1.66 0 3 1.34 3 3v3h-6V6c0-1.66 1.34-3 3-3zm5 17H6v-8h12v8zM8 14h8v2H8z'/%3E%3C/svg%3E" type="image/svg+xml">
+
+    <!-- Google Fonts: Montserrat for headings, Inter for body -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer base {
+            html {
+                font-family: 'Inter', sans-serif;
+                color-scheme: dark;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'Montserrat', sans-serif;
+            }
+            body {
+                @apply bg-zinc-950 text-neutral-200;
+            }
+            section {
+                @apply py-24 px-6 md:px-12 lg:px-24;
+            }
+            .glassmorphic {
+                @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl shadow-lg;
+            }
+            .btn-primary {
+                @apply inline-flex items-center justify-center px-8 py-3 text-lg font-semibold rounded-full bg-gradient-to-r from-amber-600 to-yellow-500 text-zinc-950 shadow-xl transition-all duration-300 ease-in-out hover:from-amber-500 hover:to-yellow-400 hover:scale-105 active:scale-95;
+            }
+            .hover-glow:hover {
+                box-shadow: 0 0 30px rgba(253, 224, 71, 0.4);
+            }
+        }
+
+        /* Custom scrollbar for webkit browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #6F4E37;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+
+        /* Hero text animation */
+        .hero-text-hidden span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .hero-text-reveal span {
+            animation: fadeInRise 0.8s forwards ease-out;
+            animation-delay: var(--delay);
+        }
+
+        @keyframes fadeInRise {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden relative">
+
+    <!-- Custom Cursor Glow (JS controlled) -->
+    <div id="cursor-glow" class="fixed top-0 left-0 w-16 h-16 rounded-full bg-yellow-400/30 blur-xl pointer-events-none z-50 opacity-0 transition-opacity duration-300 ease-out transform -translate-x-1/2 -translate-y-1/2" style="will-change: transform;"></div>
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-zinc-950/70 backdrop-blur-md py-4 px-6 md:px-12 lg:px-24 border-b border-white/10">
+        <nav class="flex justify-between items-center max-w-7xl mx-auto">
+            <a href="#" class="text-3xl font-extrabold text-white tracking-tight flex items-center group">
+                <span class="text-amber-500 group-hover:text-amber-400 transition-colors duration-300">V</span>elvet <span class="text-amber-500 group-hover:text-amber-400 transition-colors duration-300 ml-1">G</span>rounds
+            </a>
+            <div class="hidden lg:flex space-x-8">
+                <a href="#hero" class="nav-link text-lg font-medium text-neutral-300 hover:text-amber-400 relative transition-all duration-300 group">
+                    Home
+                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-amber-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                </a>
+                <a href="#menu" class="nav-link text-lg font-medium text-neutral-300 hover:text-amber-400 relative transition-all duration-300 group">
+                    Menu
+                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-amber-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                </a>
+                <a href="#about" class="nav-link text-lg font-medium text-neutral-300 hover:text-amber-400 relative transition-all duration-300 group">
+                    Our Story
+                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-amber-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                </a>
+                <a href="#locations" class="nav-link text-lg font-medium text-neutral-300 hover:text-amber-400 relative transition-all duration-300 group">
+                    Locations
+                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-amber-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                </a>
+                <a href="#contact" class="nav-link text-lg font-medium text-neutral-300 hover:text-amber-400 relative transition-all duration-300 group">
+                    Contact
+                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-amber-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                </a>
+            </div>
+            <button class="btn-primary hidden lg:inline-flex hover-glow">Order Now</button>
+            <button id="menu-toggle" class="lg:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-zinc-950/95 backdrop-blur-xl z-50 flex flex-col items-center justify-center space-y-8 transform translate-x-full transition-transform duration-500 ease-in-out lg:hidden">
+            <button id="close-menu" class="absolute top-8 right-8 text-white">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <a href="#hero" class="mobile-nav-link text-5xl font-bold text-neutral-300 hover:text-amber-400 transition-colors duration-300">Home</a>
+            <a href="#menu" class="mobile-nav-link text-5xl font-bold text-neutral-300 hover:text-amber-400 transition-colors duration-300">Menu</a>
+            <a href="#about" class="mobile-nav-link text-5xl font-bold text-neutral-300 hover:text-amber-400 transition-colors duration-300">Our Story</a>
+            <a href="#locations" class="mobile-nav-link text-5xl font-bold text-neutral-300 hover:text-amber-400 transition-colors duration-300">Locations</a>
+            <a href="#contact" class="mobile-nav-link text-5xl font-bold text-neutral-300 hover:text-amber-400 transition-colors duration-300">Contact</a>
+            <button class="btn-primary mt-8 text-3xl hover-glow">Order Now</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+                <source src="https://videos.pexels.com/video-files/33701530/14314236_640_360_24fps.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/40 to-transparent z-10"></div>
+            <div class="relative z-20 max-w-4xl px-4 text-white">
+                <h1 class="text-6xl md:text-8xl font-extrabold leading-tight tracking-tighter hero-text-hidden">
+                    <span>V</span><span>e</span><span>l</span><span>v</span><span>e</span><span>t</span>
+                    <br class="md:hidden">
+                    <span>&nbsp;</span><span>G</span><span>r</span><span>o</span><span>u</span><span>n</span><span>d</span><span>s</span>
+                </h1>
+                <p class="mt-6 md:mt-8 text-lg md:text-xl text-neutral-300 opacity-0 animate-fade-in-up transition-opacity duration-1000 ease-out delay-1000" style="animation-delay: 2s;">
+                    Where every sip is a symphony. Experience the craft, taste the passion.
+                </p>
+                <div class="mt-10 opacity-0 animate-fade-in-up transition-opacity duration-1000 ease-out delay-1000" style="animation-delay: 2.5s;">
+                    <a href="#menu" class="btn-primary hover-glow">Explore Our Menu</a>
+                </div>
+            </div>
+            <a href="#about" class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 text-white animate-bounce">
+                <svg class="w-8 h-8 md:w-10 md:h-10 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </a>
+        </section>
+
+        <!-- About Section - Our Story -->
+        <section id="about" class="relative overflow-hidden section-reveal">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative h-96 lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl">
+                    <img src="https://images.pexels.com/photos/6612592/pexels-photo-6612592.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Barista pouring coffee" class="absolute inset-0 w-full h-full object-cover object-center transform scale-105 parallax-bg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 text-white z-10">
+                        <h3 class="text-4xl md:text-5xl font-extrabold drop-shadow-lg">The Craft</h3>
+                        <p class="mt-2 text-xl font-medium text-neutral-300">Passion in every pour.</p>
+                    </div>
+                </div>
+                <div class="lg:pl-12">
+                    <h2 class="text-5xl md:text-6xl font-extrabold text-amber-400 leading-tight mb-8 animate-in-view" data-animation="fade-in-up">
+                        Our Story<br>Brought to Life
+                    </h2>
+                    <div class="space-y-8 text-neutral-300">
+                        <p class="text-lg leading-relaxed animate-in-view" data-animation="fade-in-up" data-delay="200">
+                            At Velvet Grounds, coffee is more than a beverage; it's an experience, a ritual, an art form. Born from a dream to share the world's finest beans, we meticulously source from sustainable farms across the globe.
+                        </p>
+                        <p class="text-lg leading-relaxed animate-in-view" data-animation="fade-in-up" data-delay="400">
+                            Our baristas, true artisans, transform these precious beans into liquid gold, ensuring every cup reflects our unwavering commitment to quality and taste. We believe in the power of a perfect cup to connect, inspire, and elevate the everyday.
+                        </p>
+                        <div class="glassmorphic p-8 animate-in-view" data-animation="fade-in-up" data-delay="600">
+                            <h4 class="text-2xl font-semibold text-white mb-3">Our Philosophy</h4>
+                            <p class="text-neutral-400 italic">"Sip by sip, we brew moments of pure indulgence and connection."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section - Bento Grid -->
+        <section id="menu" class="relative section-reveal">
+            <div class="max-w-7xl mx-auto text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-extrabold text-white leading-tight animate-in-view" data-animation="fade-in-up">
+                    The Menu<br><span class="text-amber-400">Crafted Perfection</span>
+                </h2>
+                <p class="mt-4 text-xl text-neutral-400 animate-in-view" data-animation="fade-in-up" data-delay="200">
+                    A curated selection of our finest offerings, designed to tantalize your senses.
+                </p>
+            </div>
+
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Large Item: Signature Espresso -->
+                <div class="glassmorphic p-8 col-span-1 lg:col-span-2 row-span-2 flex flex-col justify-end animate-in-view hover-glow" data-animation="fade-in-up" data-delay="0">
+                    <img src="https://images.pexels.com/photos/34083022/pexels-photo-34083022.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Signature Espresso" class="absolute inset-0 w-full h-full object-cover rounded-2xl opacity-40 group-hover:opacity-50 transition-opacity duration-300">
+                    <div class="relative z-10 text-left">
+                        <span class="text-amber-400 text-sm uppercase font-bold tracking-wider mb-2 block">Our Highlight</span>
+                        <h3 class="text-5xl font-extrabold text-white leading-tight mb-4">Signature Espresso</h3>
+                        <p class="text-neutral-300 text-lg max-w-md mb-6">A perfectly balanced, rich, and aromatic espresso, crafted from our exclusive blend of single-origin beans.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-3xl font-bold text-amber-300">$4.50</span>
+                            <button class="btn-primary py-2 px-6 text-base shadow-none">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small Item: Cold Brew -->
+                <div class="glassmorphic p-6 flex flex-col justify-between animate-in-view hover-glow" data-animation="fade-in-up" data-delay="100">
+                    <img src="https://images.pexels.com/photos/12859355/pexels-photo-12859355.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Cold Brew" class="w-full h-40 object-cover rounded-xl mb-4 opacity-70 group-hover:opacity-80 transition-opacity duration-300">
+                    <h4 class="text-2xl font-bold text-white mb-2">Artisanal Cold Brew</h4>
+                    <p class="text-neutral-400 flex-grow text-base">Slow-steeped for 24 hours, offering a smooth, low-acid coffee experience.</p>
+                    <span class="text-xl font-semibold text-amber-300 mt-4">$5.00</span>
+                </div>
+
+                <!-- Small Item: Pastries -->
+                <div class="glassmorphic p-6 flex flex-col justify-between animate-in-view hover-glow" data-animation="fade-in-up" data-delay="200">
+                    <img src="https://images.pexels.com/photos/29200911/pexels-photo-29200911.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Fresh Pastries" class="w-full h-40 object-cover rounded-xl mb-4 opacity-70 group-hover:opacity-80 transition-opacity duration-300">
+                    <h4 class="text-2xl font-bold text-white mb-2">Fresh Baked Pastries</h4>
+                    <p class="text-neutral-400 flex-grow text-base">A delightful selection of croissants, muffins, and cakes, baked fresh daily.</p>
+                    <span class="text-xl font-semibold text-amber-300 mt-4">From $3.50</span>
+                </div>
+
+                <!-- Small Item: Seasonal Brews -->
+                <div class="glassmorphic p-6 flex flex-col justify-between animate-in-view hover-glow" data-animation="fade-in-up" data-delay="300">
+                    <img src="https://images.pexels.com/photos/19560976/pexels-photo-19560976.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Seasonal Brews" class="w-full h-40 object-cover rounded-xl mb-4 opacity-70 group-hover:opacity-80 transition-opacity duration-300">
+                    <h4 class="text-2xl font-bold text-white mb-2">Seasonal Brews</h4>
+                    <p class="text-neutral-400 flex-grow text-base">Discover our rotating selection of unique, seasonal coffee creations.</p>
+                    <span class="text-xl font-semibold text-amber-300 mt-4">Varies</span>
+                </div>
+
+                <!-- Small Item: Signature Lattes -->
+                <div class="glassmorphic p-6 flex flex-col justify-between animate-in-view hover-glow" data-animation="fade-in-up" data-delay="400">
+                    <img src="https://images.pexels.com/photos/35821976/pexels-photo-35821976.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Signature Lattes" class="w-full h-40 object-cover rounded-xl mb-4 opacity-70 group-hover:opacity-80 transition-opacity duration-300">
+                    <h4 class="text-2xl font-bold text-white mb-2">Signature Lattes</h4>
+                    <p class="text-neutral-400 flex-grow text-base">Indulge in our exquisite lattes, each a masterpiece of flavor and foam.</p>
+                    <span class="text-xl font-semibold text-amber-300 mt-4">From $6.00</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Locations Section -->
+        <section id="locations" class="relative bg-zinc-900/40 section-reveal">
+            <div class="max-w-7xl mx-auto text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-extrabold text-white leading-tight animate-in-view" data-animation="fade-in-up">
+                    Our <span class="text-amber-400">Locations</span>
+                </h2>
+                <p class="mt-4 text-xl text-neutral-400 animate-in-view" data-animation="fade-in-up" data-delay="200">
+                    Find your nearest Velvet Grounds and step into a world of exquisite coffee.
+                </p>
+            </div>
+
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="glassmorphic p-8 animate-in-view" data-animation="fade-in-up" data-delay="0">
+                    <h3 class="text-3xl font-bold text-white mb-6">Downtown Roastery & Cafe</h3>
+                    <p class="text-neutral-300 text-lg mb-4">
+                        123 Coffee Bean Lane, Metropolis, CA 90210
+                    </p>
+                    <p class="text-neutral-400 text-base mb-6">
+                        Experience our full range of single-origin and blended coffees, brewed fresh daily. Enjoy a vibrant atmosphere perfect for work or relaxation.
+                    </p>
+                    <ul class="text-neutral-300 space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <svg class="w-6 h-6 mr-2 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>Mon - Fri: 7 AM - 7 PM</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-6 h-6 mr-2 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>Sat - Sun: 8 AM - 6 PM</span>
+                        </li>
+                    </ul>
+                    <a href="https://maps.app.goo.gl/YourGoogleMapsLink" target="_blank" class="text-amber-400 hover:text-amber-300 text-lg font-medium inline-flex items-center group">
+                        Get Directions
+                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+
+                <div class="glassmorphic p-8 animate-in-view" data-animation="fade-in-up" data-delay="200">
+                    <h3 class="text-3xl font-bold text-white mb-6">Art District Espresso Bar</h3>
+                    <p class="text-neutral-300 text-lg mb-4">
+                        456 Gallery Walk, Artdale, CA 90210
+                    </p>
+                    <p class="text-neutral-400 text-base mb-6">
+                        A cozy spot amidst art galleries, perfect for a quick espresso or a relaxed afternoon with a book. Enjoy our lighter roasts and delicate pastries.
+                    </p>
+                    <ul class="text-neutral-300 space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <svg class="w-6 h-6 mr-2 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>Mon - Sat: 9 AM - 5 PM</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-6 h-6 mr-2 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>Sunday: Closed</span>
+                        </li>
+                    </ul>
+                    <a href="https://maps.app.goo.gl/YourGoogleMapsLink" target="_blank" class="text-amber-400 hover:text-amber-300 text-lg font-medium inline-flex items-center group">
+                        Get Directions
+                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="relative section-reveal">
+            <div class="max-w-5xl mx-auto text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-extrabold text-white leading-tight animate-in-view" data-animation="fade-in-up">
+                    Get In <span class="text-amber-400">Touch</span>
+                </h2>
+                <p class="mt-4 text-xl text-neutral-400 animate-in-view" data-animation="fade-in-up" data-delay="200">
+                    We'd love to hear from you. Reach out for inquiries, feedback, or just to say hello!
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto glassmorphic p-8 md:p-12 animate-in-view" data-animation="fade-in-up" data-delay="300">
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-lg font-medium text-neutral-200 mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="w-full p-4 rounded-xl bg-zinc-800 border border-zinc-700 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 text-white placeholder-neutral-500 transition-all duration-300 outline-none" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-lg font-medium text-neutral-200 mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full p-4 rounded-xl bg-zinc-800 border border-zinc-700 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 text-white placeholder-neutral-500 transition-all duration-300 outline-none" placeholder="your.email@example.com">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-lg font-medium text-neutral-200 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" class="w-full p-4 rounded-xl bg-zinc-800 border border-zinc-700 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 text-white placeholder-neutral-500 transition-all duration-300 outline-none" placeholder="Tell us what's on your mind..."></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn-primary w-full md:w-auto hover-glow">Send Message</button>
+                    </div>
+                </form>
+                <div class="mt-10 text-center text-neutral-400">
+                    <p>Or connect with us on social media:</p>
+                    <div class="flex justify-center space-x-6 mt-4">
+                        <a href="#" class="text-neutral-300 hover:text-amber-400 transition-colors duration-300">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07c3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.585-.07 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.585-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.77 4.919-4.919 1.266-.057 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072C2.793.272.766 2.502.57 5.093.51 6.373.496 6.781.496 10.04s.014 3.668.072 4.947c.196 2.591 2.223 4.823 4.814 5.019 1.28.058 1.688.072 4.947.072s3.668-.014 4.947-.072c2.591-.196 4.618-2.428 4.814-5.019.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.196-2.59-2.223-4.823-4.814-5.019C15.707.014 15.299 0 12 0zm0 5.838c-3.462 0-6.262 2.8-6.262 6.262s2.8 6.262 6.262 6.262 6.262-2.8 6.262-6.262-2.8-6.262-6.262-6.262zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.23-10.423c-.649 0-1.177.527-1.177 1.176s.527 1.176 1.177 1.176 1.177-.527 1.177-1.176-.527-1.176-1.177-1.176z"/></svg>
+                        </a>
+                        <a href="#" class="text-neutral-300 hover:text-amber-400 transition-colors duration-300">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.46 6c-.85.37-1.77.62-2.73.73.97-.58 1.72-1.5 2.07-2.61-.9.53-1.89.92-2.93 1.13-.85-.9-2.06-1.47-3.4-1.47-2.57 0-4.65 2.08-4.65 4.66 0 .36.04.7.11 1.03-3.87-.19-7.3-2.05-9.6-4.88-.4.69-.63 1.49-.63 2.34 0 1.61.82 3.04 2.06 3.87-.76-.02-1.48-.23-2.11-.58v.06c0 2.25 1.6 4.12 3.7 4.55-.37.1-.77.15-1.18.15-.29 0-.57-.03-.85-.08.59 1.84 2.3 3.18 4.33 3.22-1.59 1.25-3.6 1.99-5.78 1.99-.38 0-.76-.02-1.14-.07 2.05 1.32 4.49 2.09 7.13 2.09 8.56 0 13.25-7.1 13.25-13.25 0-.2-.01-.4-.01-.6.91-.66 1.7-1.49 2.32-2.42z"/></svg>
+                        </a>
+                        <a href="#" class="text-neutral-300 hover:text-amber-400 transition-colors duration-300">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 20.355V3.645h23.886v16.71H.057zM20 19V5H4v14h16zM12 9c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm0 4c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1zm0-7c-2.761 0-5 2.239-5 5s2.239 5 5 5 5-2.239 5-5-2.239-5-5-5zM4 19h16V5H4v14zm1-1h14V6H5v12z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-950/70 backdrop-blur-md py-12 px-6 md:px-12 lg:px-24 border-t border-white/10 text-center text-neutral-400">
+        <div class="max-w-7xl mx-auto">
+            <a href="#" class="text-3xl font-extrabold text-white tracking-tight flex items-center justify-center mb-6 group">
+                <span class="text-amber-500 group-hover:text-amber-400 transition-colors duration-300">V</span>elvet <span class="text-amber-500 group-hover:text-amber-400 transition-colors duration-300 ml-1">G</span>rounds
+            </a>
+            <p>&copy; 2023 Velvet Grounds. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-6 text-sm">
+                <a href="#" class="hover:text-amber-400 transition-colors duration-300">Privacy Policy</a>
+                <a href="#" class="hover:text-amber-400 transition-colors duration-300">Terms of Service</a>
+                <a href="#" class="hover:text-amber-400 transition-colors duration-300">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Inline Vanilla JS for interactivity and animations -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu.classList.contains('-translate-x-full')) {
+                    mobileMenu.classList.remove('-translate-x-full');
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenu.classList.remove('translate-x-0');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full'); // Close menu on link click
+            });
+        });
+
+        // Hero Text Animation
+        const heroTitle = document.querySelector('.hero-text-hidden');
+        if (heroTitle) {
+            heroTitle.innerHTML = heroTitle.textContent.split('').map((char, idx) => {
+                return `<span style="--delay: ${idx * 0.05}s;">${char}</span>`;
+            }).join('');
+
+            setTimeout(() => {
+                heroTitle.classList.remove('hero-text-hidden');
+                heroTitle.classList.add('hero-text-reveal');
+            }, 500); // Small delay to ensure content is painted
+        }
+
+        // Intersection Observer for Section Reveal Animations
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.animate-in-view').forEach(element => {
+                        const animationClass = element.dataset.animation || 'fade-in-up';
+                        const delay = parseInt(element.dataset.delay) || 0;
+                        setTimeout(() => {
+                            element.classList.add('opacity-100', 'translate-y-0');
+                            element.classList.remove('opacity-0', '-translate-y-10');
+                            if (animationClass.includes('fade-in-up')) {
+                                element.classList.add('transition-all', 'duration-1000', 'ease-out');
+                            }
+                        }, delay);
+                    });
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, {
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the section is visible
+        });
+
+        document.querySelectorAll('section.section-reveal').forEach(section => {
+            section.querySelectorAll('.animate-in-view').forEach(element => {
+                element.classList.add('opacity-0', '-translate-y-10'); // Initial state for animation
+            });
+            sectionObserver.observe(section);
+        });
+
+        // Parallax Effect for Background Images/Videos
+        const parallaxElements = document.querySelectorAll('.parallax-bg');
+        window.addEventListener('scroll', () => {
+            parallaxElements.forEach(element => {
+                const speed = parseFloat(element.dataset.parallaxSpeed || 0.2); // Default speed
+                const rect = element.getBoundingClientRect();
+                const scrollPosition = window.pageYOffset;
+                const elementTop = rect.top + scrollPosition;
+                const offset = scrollPosition - elementTop;
+                element.style.transform = `translateY(${offset * speed}px) scale(1.05)`;
+            });
+        });
+
+        // Custom Cursor Glow
+        const cursorGlow = document.getElementById('cursor-glow');
+        if (cursorGlow) {
+            let mouseX = 0, mouseY = 0;
+            let currentX = 0, currentY = 0;
+            const easeFactor = 0.15; // Controls how smoothly it follows
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursorGlow.style.opacity = '1';
+            });
+
+            document.addEventListener('mouseleave', () => {
+                cursorGlow.style.opacity = '0';
+            });
+
+            function animateCursorGlow() {
+                currentX += (mouseX - currentX) * easeFactor;
+                currentY += (mouseY - currentY) * easeFactor;
+
+                cursorGlow.style.transform = `translate(-50%, -50%) translate3d(${currentX}px, ${currentY}px, 0)`;
+                requestAnimationFrame(animateCursorGlow);
+            }
+            animateCursorGlow();
+        }
+    </script>
+</body>
+</html>

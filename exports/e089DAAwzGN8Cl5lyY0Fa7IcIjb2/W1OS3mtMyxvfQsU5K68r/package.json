@@ -1,0 +1,25 @@
+{
+  "name": "velvet-grounds-vanilla",
+  "version": "1.0.0",
+  "description": "An ultra-premium, visually stunning coffee shop website built with Vanilla HTML, Tailwind CSS (CDN), and Vanilla JS (Inline).",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx serve",
+    "deploy": "echo 'Deploying to Vercel via vercel.json configuration...'"
+  },
+  "keywords": [
+    "vanilla",
+    "html",
+    "css",
+    "tailwind",
+    "javascript",
+    "coffee",
+    "ui-ux",
+    "premium",
+    "bento-grid",
+    "glassmorphism"
+  ],
+  "author": "AI Architect",
+  "license": "MIT",
+  "dependencies": {}
+}
